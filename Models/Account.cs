@@ -29,22 +29,18 @@ namespace Capstone_VV.Models
 
         // AccountType int(2) NOT NULL
         [Column(TypeName = "int(2)")]
-        [Required]
         public int AccountType { get; set; }
 
         // AccountBalance double(15) NOT NULL
         [Column(TypeName = "double(15)")]
-        [Required]
         public double AccountBalance { get; set; }
 
         // AccountInterest double(15) NOT NULL
         [Column(TypeName = "double(15)")]
-        [Required]
         public double AccountInterest { get; set; }
 
         // IsActive bool NOT NULL
         [Column(TypeName = "bool")]
-        [Required]
         public bool IsActive { get; set; }
 
         // FK Child Reference to Client
