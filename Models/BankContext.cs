@@ -78,7 +78,59 @@ namespace Capstone_VV.Models
 
                      entity.HasData(
                      new Account()
-                     { }
+                     {
+                        AccountID = 1,
+                        ClientID = 1,
+                        AccountType = 0,
+                        AccountBalance = 5003.23,
+                        AccountInterest = 0,
+                        IsActive = true
+                     },
+                     new Account()
+                     {
+                         AccountID = 2,
+                         ClientID = 1,
+                         AccountType = 1,
+                         AccountBalance = 40000.43,
+                         AccountInterest = 0.03,
+                         IsActive = true
+                     },
+                     new Account()
+                     {
+                         AccountID = 3,
+                         ClientID = 2,
+                         AccountType = 0,
+                         AccountBalance = 3.75,
+                         AccountInterest = 0,
+                         IsActive = true
+                     },
+                     new Account()
+                     {
+                         AccountID = 4,
+                         ClientID = 3,
+                         AccountType = 0,
+                         AccountBalance = 75552.23,
+                         AccountInterest = 0,
+                         IsActive = true
+                     },
+                     new Account()
+                     {
+                         AccountID = 5,
+                         ClientID = 3,
+                         AccountType = 1,
+                         AccountBalance = 814750.99,
+                         AccountInterest = 0.03,
+                         IsActive = true
+                     },
+                     new Account()
+                     {
+                         AccountID = 6,
+                         ClientID = 4,
+                         AccountType = 0,
+                         AccountBalance = 753.23,
+                         AccountInterest = 0,
+                         IsActive = true
+                     }
                      );
 
             });

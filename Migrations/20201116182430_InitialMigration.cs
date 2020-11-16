@@ -96,7 +96,26 @@ namespace Capstone_VV.Migrations
             migrationBuilder.InsertData(
                 table: "Client",
                 columns: new[] { "ClientID", "City", "DateOfBirth", "EmailAddress", "FirstName", "LastName", "Password", "PhoneNumber", "PostalCode", "Province" },
-                values: new object[] { -1, "Edmonton", new DateTime(1989, 3, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), "johndoe123@gmail.com", "John", "Doe", "john123", 7804188874L, "T8N3A4", "AB" });
+                values: new object[,]
+                {
+                    { 1, "Edmonton", new DateTime(1989, 3, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), "johndoe123@gmail.com", "John", "Doe", "john123", 7804188874L, "T8N3A4", "AB" },
+                    { 2, "London", new DateTime(1880, 2, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), "trevorbelmont123@gmail.com", "Trevor", "Belmont", "draculasux", 7804442121L, "Z4A2B1", "ON" },
+                    { 3, "Edmonton", new DateTime(1999, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "richardrich@gmail.com", "Richard", "Rich", "rich123", 7771115454L, "T8N3E1", "AB" },
+                    { 4, "Edmonton", new DateTime(1979, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), "brokeasajoke@gmail.com", "Bruce", "Hunter", "broke123", 7809198888L, "T8N6Y3", "AB" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Account",
+                columns: new[] { "AccountID", "AccountBalance", "AccountInterest", "AccountType", "ClientID", "IsActive" },
+                values: new object[,]
+                {
+                    { 1, 5003.23f, 0f, 0, 1, true },
+                    { 2, 40000.43f, 0.03f, 1, 1, true },
+                    { 3, 3.75f, 0f, 0, 2, true },
+                    { 4, 75552.23f, 0f, 0, 3, true },
+                    { 5, 814751f, 0.03f, 1, 3, true },
+                    { 6, 753.23f, 0f, 0, 4, true }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "FK_Account_Client",

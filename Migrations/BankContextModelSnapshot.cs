@@ -44,6 +44,62 @@ namespace Capstone_VV.Migrations
                         .HasName("FK_Account_Client");
 
                     b.ToTable("Account");
+
+                    b.HasData(
+                        new
+                        {
+                            AccountID = 1,
+                            AccountBalance = 5003.23f,
+                            AccountInterest = 0f,
+                            AccountType = 0,
+                            ClientID = 1,
+                            IsActive = true
+                        },
+                        new
+                        {
+                            AccountID = 2,
+                            AccountBalance = 40000.43f,
+                            AccountInterest = 0.03f,
+                            AccountType = 1,
+                            ClientID = 1,
+                            IsActive = true
+                        },
+                        new
+                        {
+                            AccountID = 3,
+                            AccountBalance = 3.75f,
+                            AccountInterest = 0f,
+                            AccountType = 0,
+                            ClientID = 2,
+                            IsActive = true
+                        },
+                        new
+                        {
+                            AccountID = 4,
+                            AccountBalance = 75552.23f,
+                            AccountInterest = 0f,
+                            AccountType = 0,
+                            ClientID = 3,
+                            IsActive = true
+                        },
+                        new
+                        {
+                            AccountID = 5,
+                            AccountBalance = 814751f,
+                            AccountInterest = 0.03f,
+                            AccountType = 1,
+                            ClientID = 3,
+                            IsActive = true
+                        },
+                        new
+                        {
+                            AccountID = 6,
+                            AccountBalance = 753.23f,
+                            AccountInterest = 0f,
+                            AccountType = 0,
+                            ClientID = 4,
+                            IsActive = true
+                        });
                 });
 
             modelBuilder.Entity("Capstone_VV.Models.Client", b =>
@@ -107,7 +163,7 @@ namespace Capstone_VV.Migrations
                     b.HasData(
                         new
                         {
-                            ClientID = -1,
+                            ClientID = 1,
                             City = "Edmonton",
                             DateOfBirth = new DateTime(1989, 3, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EmailAddress = "johndoe123@gmail.com",
@@ -116,6 +172,45 @@ namespace Capstone_VV.Migrations
                             Password = "john123",
                             PhoneNumber = 7804188874L,
                             PostalCode = "T8N3A4",
+                            Province = "AB"
+                        },
+                        new
+                        {
+                            ClientID = 2,
+                            City = "London",
+                            DateOfBirth = new DateTime(1880, 2, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmailAddress = "trevorbelmont123@gmail.com",
+                            FirstName = "Trevor",
+                            LastName = "Belmont",
+                            Password = "draculasux",
+                            PhoneNumber = 7804442121L,
+                            PostalCode = "Z4A2B1",
+                            Province = "ON"
+                        },
+                        new
+                        {
+                            ClientID = 3,
+                            City = "Edmonton",
+                            DateOfBirth = new DateTime(1999, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmailAddress = "richardrich@gmail.com",
+                            FirstName = "Richard",
+                            LastName = "Rich",
+                            Password = "rich123",
+                            PhoneNumber = 7771115454L,
+                            PostalCode = "T8N3E1",
+                            Province = "AB"
+                        },
+                        new
+                        {
+                            ClientID = 4,
+                            City = "Edmonton",
+                            DateOfBirth = new DateTime(1979, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmailAddress = "brokeasajoke@gmail.com",
+                            FirstName = "Bruce",
+                            LastName = "Hunter",
+                            Password = "broke123",
+                            PhoneNumber = 7809198888L,
+                            PostalCode = "T8N6Y3",
                             Province = "AB"
                         });
                 });
