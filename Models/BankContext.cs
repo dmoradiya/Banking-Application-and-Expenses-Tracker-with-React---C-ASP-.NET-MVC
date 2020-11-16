@@ -90,7 +90,6 @@ namespace Capstone_VV.Models
             modelBuilder.Entity<Client>(entity =>
             {
                 // Collation for username, password, firstname, lastname, emailaddress, city, province, postalcode
-                entity.Property(e => e.UserName).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
                 entity.Property(e => e.Password).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
                 entity.Property(e => e.FirstName).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
                 entity.Property(e => e.LastName).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");

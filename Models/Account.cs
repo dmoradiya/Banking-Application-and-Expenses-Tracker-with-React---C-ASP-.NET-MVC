@@ -31,12 +31,12 @@ namespace Capstone_VV.Models
         [Column(TypeName = "int(2)")]
         public int AccountType { get; set; }
 
-        // AccountBalance double(15) NOT NULL
-        [Column(TypeName = "double(15)")]
+        // AccountBalance double(15) 
+        [Column(TypeName = "float(10)")]
         public double AccountBalance { get; set; }
 
-        // AccountInterest double(15) NOT NULL
-        [Column(TypeName = "double(15)")]
+        // AccountInterest double(15)
+        [Column(TypeName = "float(10)")]
         public double AccountInterest { get; set; }
 
         // IsActive bool NOT NULL

@@ -22,15 +22,19 @@ namespace Capstone_VV.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ClientID { get; set; }
 
-        // UserName varchar(50) NOT NULL
-        [Column(TypeName = "varchar(50)")]
+        // EmailAddress varchar(100) NOT NULL
+        [Column(TypeName = "varchar(100)")]
         [Required]
-        public string UserName { get; set; }
+        public string EmailAddress { get; set; }
 
         // Password varchar(50) NOT NULL
         [Column(TypeName = "varchar(50)")]
         [Required]
         public string Password { get; set; }
+
+        // PhoneNumber int(15) NOT NULL
+        [Column(TypeName = "int(15)")]
+        public int PhoneNumber { get; set; }
 
         // FirstName varchar(50) NOT NULL
         [Column(TypeName = "varchar(50)")]
@@ -46,11 +50,6 @@ namespace Capstone_VV.Models
         [Column(TypeName = "date")]
         [Required]
         public DateTime DateOfBirth { get; set; }
-
-        // EmailAddress varchar(100) NOT NULL
-        [Column(TypeName = "varchar(100)")]
-        [Required]
-        public string EmailAddress { get; set; }
 
         // City varchar(100) NOT NULL
         [Column(TypeName = "varchar(100)")]

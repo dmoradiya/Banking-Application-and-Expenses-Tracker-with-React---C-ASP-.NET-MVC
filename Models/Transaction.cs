@@ -36,14 +36,12 @@ namespace Capstone_VV.Models
         public string TransactionCategory { get; set; }
 
         // TransactionValue double(10) NOT NULL
-        [Column(TypeName = "double(10)")]
-        [Required]
+        [Column(TypeName = "float(10)")]
         public double TransactionValue { get; set; }
 
 
         // TransactionDate date NOT NULL
         [Column(TypeName = "date")]
-        [Required]
         public DateTime TransactionDate { get; set; }
 
         // FK Child Reference to Account
