@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace InventoryDay2.Models.Exceptions
+namespace Capstone_VV.Models.Exceptions
 {
     public class ValidationException : Exception
     {
