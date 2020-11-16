@@ -27,16 +27,16 @@ namespace Capstone_VV.Models
         [Required]
         public int ClientID { get; set; }
 
-        // AccountType int(2) NOT NULL
-        [Column(TypeName = "int(2)")]
-        public int AccountType { get; set; }
+        // AccountType varchar(30) NOT NULL
+        [Column(TypeName = "varchar(30)")]
+        public string AccountType { get; set; }
 
         // AccountBalance double(15) 
-        [Column(TypeName = "float(10)")]
+        [Column(TypeName = "double(15,2)")]
         public double AccountBalance { get; set; }
 
-        // AccountInterest double(15)
-        [Column(TypeName = "float(10)")]
+        // AccountInterest double(10)
+        [Column(TypeName = "double(10,2)")]
         public double AccountInterest { get; set; }
 
         // IsActive bool NOT NULL

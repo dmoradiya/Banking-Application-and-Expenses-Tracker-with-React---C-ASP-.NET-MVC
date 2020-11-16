@@ -242,6 +242,9 @@ namespace Capstone_VV.Models
             // Model for Account
             modelBuilder.Entity<Account>(entity =>
             {
+                // Collation for AccountTYpe
+                entity.Property(e => e.AccountType).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
+
                 // FK for Account -> Client
                 string keyToClient = "FK_" + nameof(Account) + "_" + nameof(Client);
                 entity.HasIndex(e => e.ClientID).HasName(keyToClient);
@@ -258,7 +261,7 @@ namespace Capstone_VV.Models
                      {
                         AccountID = 1,
                         ClientID = 1,
-                        AccountType = 0,
+                        AccountType = "Chequing",
                         AccountBalance = 5003.23,
                         AccountInterest = 0,
                         IsActive = true
@@ -267,7 +270,7 @@ namespace Capstone_VV.Models
                      {
                          AccountID = 2,
                          ClientID = 1,
-                         AccountType = 1,
+                         AccountType = "Savings",
                          AccountBalance = 40000.43,
                          AccountInterest = 0.03,
                          IsActive = true
@@ -276,7 +279,7 @@ namespace Capstone_VV.Models
                      {
                          AccountID = 3,
                          ClientID = 2,
-                         AccountType = 0,
+                         AccountType = "Chequing",
                          AccountBalance = 3.75,
                          AccountInterest = 0,
                          IsActive = true
@@ -285,7 +288,7 @@ namespace Capstone_VV.Models
                      {
                          AccountID = 4,
                          ClientID = 3,
-                         AccountType = 0,
+                         AccountType = "Chequing",
                          AccountBalance = 75552.23,
                          AccountInterest = 0,
                          IsActive = true
@@ -294,7 +297,7 @@ namespace Capstone_VV.Models
                      {
                          AccountID = 5,
                          ClientID = 3,
-                         AccountType = 1,
+                         AccountType = "Savings",
                          AccountBalance = 814750.99,
                          AccountInterest = 0.03,
                          IsActive = true
@@ -303,7 +306,7 @@ namespace Capstone_VV.Models
                      {
                          AccountID = 6,
                          ClientID = 4,
-                         AccountType = 0,
+                         AccountType = "Chequing",
                          AccountBalance = 753.23,
                          AccountInterest = 0,
                          IsActive = true
@@ -315,11 +318,12 @@ namespace Capstone_VV.Models
             // Model for Client
             modelBuilder.Entity<Client>(entity =>
             {
-                // Collation for username, password, firstname, lastname, emailaddress, city, province, postalcode
+                // Collation for emailaddress, password, phonenumber, firstname, lastname, city, province, postalcode
+                entity.Property(e => e.EmailAddress).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
                 entity.Property(e => e.Password).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
+                entity.Property(e => e.PhoneNumber).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
                 entity.Property(e => e.FirstName).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
                 entity.Property(e => e.LastName).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
-                entity.Property(e => e.EmailAddress).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
                 entity.Property(e => e.City).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
                 entity.Property(e => e.Province).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
                 entity.Property(e => e.PostalCode).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
@@ -331,7 +335,7 @@ namespace Capstone_VV.Models
                         ClientID = 1,
                         EmailAddress = "johndoe123@gmail.com",
                         Password = "john123",
-                        PhoneNumber = 7804188874,
+                        PhoneNumber = "7804188874",
                         FirstName = "John",
                         LastName = "Doe",
                         DateOfBirth = new DateTime(1989, 03, 29),
@@ -344,7 +348,7 @@ namespace Capstone_VV.Models
                         ClientID = 2,
                         EmailAddress = "trevorbelmont123@gmail.com",
                         Password = "draculasux",
-                        PhoneNumber = 7804442121,
+                        PhoneNumber = "7804442121",
                         FirstName = "Trevor",
                         LastName = "Belmont",
                         DateOfBirth = new DateTime(1880, 02, 25),
@@ -356,8 +360,8 @@ namespace Capstone_VV.Models
                     {
                         ClientID = 3,
                         EmailAddress = "richardrich@gmail.com",
-                        Password = "rich123",
-                        PhoneNumber = 7771115454,
+                        Password = "rich123!@#",
+                        PhoneNumber = "7771115454",
                         FirstName = "Richard",
                         LastName = "Rich",
                         DateOfBirth = new DateTime(1999, 12, 03),
@@ -369,8 +373,8 @@ namespace Capstone_VV.Models
                     {
                         ClientID = 4,
                         EmailAddress = "brokeasajoke@gmail.com",
-                        Password = "broke123",
-                        PhoneNumber = 7809198888,
+                        Password = "password123",
+                        PhoneNumber = "7809198888",
                         FirstName = "Bruce",
                         LastName = "Hunter",
                         DateOfBirth = new DateTime(1979, 05, 04),

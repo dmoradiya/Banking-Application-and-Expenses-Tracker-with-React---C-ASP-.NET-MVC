@@ -23,14 +23,16 @@ namespace Capstone_VV.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int(10)");
 
-                    b.Property<float>("AccountBalance")
-                        .HasColumnType("float(10)");
+                    b.Property<double>("AccountBalance")
+                        .HasColumnType("double(15,2)");
 
-                    b.Property<float>("AccountInterest")
-                        .HasColumnType("float(10)");
+                    b.Property<double>("AccountInterest")
+                        .HasColumnType("double(10,2)");
 
-                    b.Property<int>("AccountType")
-                        .HasColumnType("int(2)");
+                    b.Property<string>("AccountType")
+                        .HasColumnType("varchar(30)")
+                        .HasAnnotation("MySql:CharSet", "utf8mb4")
+                        .HasAnnotation("MySql:Collation", "utf8mb4_general_ci");
 
                     b.Property<int>("ClientID")
                         .HasColumnType("int(10)");
@@ -49,54 +51,54 @@ namespace Capstone_VV.Migrations
                         new
                         {
                             AccountID = 1,
-                            AccountBalance = 5003.23f,
-                            AccountInterest = 0f,
-                            AccountType = 0,
+                            AccountBalance = 5003.2299999999996,
+                            AccountInterest = 0.0,
+                            AccountType = "Chequing",
                             ClientID = 1,
                             IsActive = true
                         },
                         new
                         {
                             AccountID = 2,
-                            AccountBalance = 40000.43f,
-                            AccountInterest = 0.03f,
-                            AccountType = 1,
+                            AccountBalance = 40000.43,
+                            AccountInterest = 0.029999999999999999,
+                            AccountType = "Savings",
                             ClientID = 1,
                             IsActive = true
                         },
                         new
                         {
                             AccountID = 3,
-                            AccountBalance = 3.75f,
-                            AccountInterest = 0f,
-                            AccountType = 0,
+                            AccountBalance = 3.75,
+                            AccountInterest = 0.0,
+                            AccountType = "Chequing",
                             ClientID = 2,
                             IsActive = true
                         },
                         new
                         {
                             AccountID = 4,
-                            AccountBalance = 75552.23f,
-                            AccountInterest = 0f,
-                            AccountType = 0,
+                            AccountBalance = 75552.229999999996,
+                            AccountInterest = 0.0,
+                            AccountType = "Chequing",
                             ClientID = 3,
                             IsActive = true
                         },
                         new
                         {
                             AccountID = 5,
-                            AccountBalance = 814751f,
-                            AccountInterest = 0.03f,
-                            AccountType = 1,
+                            AccountBalance = 814750.98999999999,
+                            AccountInterest = 0.029999999999999999,
+                            AccountType = "Savings",
                             ClientID = 3,
                             IsActive = true
                         },
                         new
                         {
                             AccountID = 6,
-                            AccountBalance = 753.23f,
-                            AccountInterest = 0f,
-                            AccountType = 0,
+                            AccountBalance = 753.23000000000002,
+                            AccountInterest = 0.0,
+                            AccountType = "Chequing",
                             ClientID = 4,
                             IsActive = true
                         });
@@ -141,8 +143,10 @@ namespace Capstone_VV.Migrations
                         .HasAnnotation("MySql:CharSet", "utf8mb4")
                         .HasAnnotation("MySql:Collation", "utf8mb4_general_ci");
 
-                    b.Property<long>("PhoneNumber")
-                        .HasColumnType("bigint(15)");
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("char(15)")
+                        .HasAnnotation("MySql:CharSet", "utf8mb4")
+                        .HasAnnotation("MySql:Collation", "utf8mb4_general_ci");
 
                     b.Property<string>("PostalCode")
                         .IsRequired()
@@ -170,7 +174,7 @@ namespace Capstone_VV.Migrations
                             FirstName = "John",
                             LastName = "Doe",
                             Password = "john123",
-                            PhoneNumber = 7804188874L,
+                            PhoneNumber = "7804188874",
                             PostalCode = "T8N3A4",
                             Province = "AB"
                         },
@@ -183,7 +187,7 @@ namespace Capstone_VV.Migrations
                             FirstName = "Trevor",
                             LastName = "Belmont",
                             Password = "draculasux",
-                            PhoneNumber = 7804442121L,
+                            PhoneNumber = "7804442121",
                             PostalCode = "Z4A2B1",
                             Province = "ON"
                         },
@@ -195,8 +199,8 @@ namespace Capstone_VV.Migrations
                             EmailAddress = "richardrich@gmail.com",
                             FirstName = "Richard",
                             LastName = "Rich",
-                            Password = "rich123",
-                            PhoneNumber = 7771115454L,
+                            Password = "rich123!@#",
+                            PhoneNumber = "7771115454",
                             PostalCode = "T8N3E1",
                             Province = "AB"
                         },
@@ -208,8 +212,8 @@ namespace Capstone_VV.Migrations
                             EmailAddress = "brokeasajoke@gmail.com",
                             FirstName = "Bruce",
                             LastName = "Hunter",
-                            Password = "broke123",
-                            PhoneNumber = 7809198888L,
+                            Password = "password123",
+                            PhoneNumber = "7809198888",
                             PostalCode = "T8N6Y3",
                             Province = "AB"
                         });
@@ -239,8 +243,8 @@ namespace Capstone_VV.Migrations
                         .HasAnnotation("MySql:CharSet", "utf8mb4")
                         .HasAnnotation("MySql:Collation", "utf8mb4_general_ci");
 
-                    b.Property<float>("TransactionValue")
-                        .HasColumnType("float(10)");
+                    b.Property<double>("TransactionValue")
+                        .HasColumnType("double(10,2)");
 
                     b.HasKey("TransactionID");
 
@@ -257,7 +261,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Income",
                             TransactionDate = new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Allgood Engineering Inc.",
-                            TransactionValue = 2001.86f
+                            TransactionValue = 2001.8599999999999
                         },
                         new
                         {
@@ -266,7 +270,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Expense_Rent",
                             TransactionDate = new DateTime(2020, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Axion Rental Agency",
-                            TransactionValue = -1100f
+                            TransactionValue = -1100.0
                         },
                         new
                         {
@@ -275,7 +279,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Expense_Vehicle",
                             TransactionDate = new DateTime(2020, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Jonathan's Car Repairs",
-                            TransactionValue = -200.99f
+                            TransactionValue = -200.99000000000001
                         },
                         new
                         {
@@ -284,7 +288,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Expense_Groceries",
                             TransactionDate = new DateTime(2020, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Superstore",
-                            TransactionValue = -71.44f
+                            TransactionValue = -71.439999999999998
                         },
                         new
                         {
@@ -293,7 +297,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Expense_Health",
                             TransactionDate = new DateTime(2020, 10, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Ironman Gym Membership Fee",
-                            TransactionValue = -30f
+                            TransactionValue = -30.0
                         },
                         new
                         {
@@ -302,7 +306,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Income_Investments",
                             TransactionDate = new DateTime(2020, 4, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Gold Hand Investments Inc.",
-                            TransactionValue = 750f
+                            TransactionValue = 750.0
                         },
                         new
                         {
@@ -311,7 +315,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Income_Investments",
                             TransactionDate = new DateTime(2020, 5, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Gold Hand Investments Inc.",
-                            TransactionValue = 750f
+                            TransactionValue = 750.0
                         },
                         new
                         {
@@ -320,7 +324,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Income_Investments",
                             TransactionDate = new DateTime(2020, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Gold Hand Investments Inc.",
-                            TransactionValue = 750f
+                            TransactionValue = 750.0
                         },
                         new
                         {
@@ -329,7 +333,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Income_Investments",
                             TransactionDate = new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Gold Hand Investments Inc.",
-                            TransactionValue = 750f
+                            TransactionValue = 750.0
                         },
                         new
                         {
@@ -338,7 +342,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Income",
                             TransactionDate = new DateTime(2020, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bank of Wallachia",
-                            TransactionValue = 4f
+                            TransactionValue = 4.0
                         },
                         new
                         {
@@ -347,7 +351,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Expense_Food",
                             TransactionDate = new DateTime(2020, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Wallachia Market",
-                            TransactionValue = -1f
+                            TransactionValue = -1.0
                         },
                         new
                         {
@@ -356,7 +360,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Income",
                             TransactionDate = new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Gold Hand Investments Inc.",
-                            TransactionValue = 7500f
+                            TransactionValue = 7500.0
                         },
                         new
                         {
@@ -365,7 +369,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Income",
                             TransactionDate = new DateTime(2020, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Gold Hand Investments Inc.",
-                            TransactionValue = 7500f
+                            TransactionValue = 7500.0
                         },
                         new
                         {
@@ -374,7 +378,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Expense_Recreation",
                             TransactionDate = new DateTime(2020, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Central Avionics",
-                            TransactionValue = 3000f
+                            TransactionValue = 3000.0
                         },
                         new
                         {
@@ -383,7 +387,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Income_Investments",
                             TransactionDate = new DateTime(2020, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Gold Hand Investments Inc.",
-                            TransactionValue = 43000f
+                            TransactionValue = 43000.0
                         },
                         new
                         {
@@ -392,7 +396,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Income_Investments",
                             TransactionDate = new DateTime(2020, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Gold Hand Investments Inc.",
-                            TransactionValue = 43000f
+                            TransactionValue = 43000.0
                         },
                         new
                         {
@@ -401,7 +405,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Income",
                             TransactionDate = new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Seven Eleven",
-                            TransactionValue = 1100.32f
+                            TransactionValue = 1100.3199999999999
                         },
                         new
                         {
@@ -410,7 +414,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Expense_Rent",
                             TransactionDate = new DateTime(2020, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Axion Rental Agency",
-                            TransactionValue = -800f
+                            TransactionValue = -800.0
                         },
                         new
                         {
@@ -419,7 +423,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Expense_Vehicle",
                             TransactionDate = new DateTime(2020, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "St. Albert Transit",
-                            TransactionValue = -41.99f
+                            TransactionValue = -41.990000000000002
                         },
                         new
                         {
@@ -428,7 +432,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Expense_Groceries",
                             TransactionDate = new DateTime(2020, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Superstore",
-                            TransactionValue = -84.23f
+                            TransactionValue = -84.230000000000004
                         });
                 });
 
