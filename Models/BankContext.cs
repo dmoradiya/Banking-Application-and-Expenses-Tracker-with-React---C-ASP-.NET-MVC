@@ -50,15 +50,192 @@ namespace Capstone_VV.Models
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName(keyToAccount);
 
-                // ------------------------
-                // Seed Data Goes Here
-               /* 
+
                     entity.HasData(
-                    new Transaction(),
                     new Transaction()
+                    {
+                        TransactionID = 1,
+                        AccountID = 1,
+                        TransactionSource = "Allgood Engineering Inc.",
+                        TransactionCategory = "Income",
+                        TransactionValue = 2001.86,
+                        TransactionDate = new DateTime(2020, 07, 11)
+                    },
+                    new Transaction()
+                    {
+                        TransactionID = 2,
+                        AccountID = 1,
+                        TransactionSource = "Axion Rental Agency",
+                        TransactionCategory = "Expense_Rent",
+                        TransactionValue = -1100.00,
+                        TransactionDate = new DateTime(2020, 07, 29)
+                    },
+                    new Transaction()
+                    {
+                        TransactionID = 3,
+                        AccountID = 1,
+                        TransactionSource = "Jonathan's Car Repairs",
+                        TransactionCategory = "Expense_Vehicle",
+                        TransactionValue = -200.99,
+                        TransactionDate = new DateTime(2020, 10, 15)
+                    },
+                    new Transaction()
+                    {
+                        TransactionID = 4,
+                        AccountID = 1,
+                        TransactionSource = "Superstore",
+                        TransactionCategory = "Expense_Groceries",
+                        TransactionValue = -71.44,
+                        TransactionDate = new DateTime(2020, 10, 16)
+                    },
+                    new Transaction()
+                    {
+                        TransactionID = 5,
+                        AccountID = 1,
+                        TransactionSource = "Ironman Gym Membership Fee",
+                        TransactionCategory = "Expense_Health",
+                        TransactionValue = -30.00,
+                        TransactionDate = new DateTime(2020, 10, 30)
+                    },
+                    new Transaction()
+                    {
+                        TransactionID = 6,
+                        AccountID = 2,
+                        TransactionSource = "Gold Hand Investments Inc.",
+                        TransactionCategory = "Income_Investments",
+                        TransactionValue = 750.00,
+                        TransactionDate = new DateTime(2020, 04, 11)
+                    },
+                    new Transaction()
+                    {
+                        TransactionID = 7,
+                        AccountID = 2,
+                        TransactionSource = "Gold Hand Investments Inc.",
+                        TransactionCategory = "Income_Investments",
+                        TransactionValue = 750.00,
+                        TransactionDate = new DateTime(2020, 05, 11)
+                    },
+                    new Transaction()
+                    {
+                        TransactionID = 8,
+                        AccountID = 2,
+                        TransactionSource = "Gold Hand Investments Inc.",
+                        TransactionCategory = "Income_Investments",
+                        TransactionValue = 750.00,
+                        TransactionDate = new DateTime(2020, 06, 11)
+                    },
+                    new Transaction()
+                    {
+                        TransactionID = 9,
+                        AccountID = 2,
+                        TransactionSource = "Gold Hand Investments Inc.",
+                        TransactionCategory = "Income_Investments",
+                        TransactionValue = 750.00,
+                        TransactionDate = new DateTime(2020, 07, 11)
+                    },
+                    new Transaction()
+                    {
+                        TransactionID = 10,
+                        AccountID = 3,
+                        TransactionSource = "Bank of Wallachia",
+                        TransactionCategory = "Income",
+                        TransactionValue = 4.00,
+                        TransactionDate = new DateTime(2020, 08, 11)
+                    },
+                    new Transaction()
+                    {
+                        TransactionID = 11,
+                        AccountID = 3,
+                        TransactionSource = "Wallachia Market",
+                        TransactionCategory = "Expense_Food",
+                        TransactionValue = -1.00,
+                        TransactionDate = new DateTime(2020, 08, 13)
+                    },
+                    new Transaction()
+                    {
+                        TransactionID = 12,
+                        AccountID = 4,
+                        TransactionSource = "Gold Hand Investments Inc.",
+                        TransactionCategory = "Income",
+                        TransactionValue = 7500.00,
+                        TransactionDate = new DateTime(2020, 07, 11)
+                    },
+                    new Transaction()
+                    {
+                        TransactionID = 13,
+                        AccountID = 4,
+                        TransactionSource = "Gold Hand Investments Inc.",
+                        TransactionCategory = "Income",
+                        TransactionValue = 7500.00,
+                        TransactionDate = new DateTime(2020, 08, 11)
+                    },
+                    new Transaction()
+                    {
+                        TransactionID = 14,
+                        AccountID = 4,
+                        TransactionSource = "Central Avionics",
+                        TransactionCategory = "Expense_Recreation",
+                        TransactionValue = 3000.00,
+                        TransactionDate = new DateTime(2020, 08, 14)
+                    },
+                    new Transaction()
+                    {
+                        TransactionID = 15,
+                        AccountID = 5,
+                        TransactionSource = "Gold Hand Investments Inc.",
+                        TransactionCategory = "Income_Investments",
+                        TransactionValue = 43000.00,
+                        TransactionDate = new DateTime(2020, 08, 20)
+                    },
+                    new Transaction()
+                    {
+                        TransactionID = 16,
+                        AccountID = 5,
+                        TransactionSource = "Gold Hand Investments Inc.",
+                        TransactionCategory = "Income_Investments",
+                        TransactionValue = 43000.00,
+                        TransactionDate = new DateTime(2020, 09, 20)
+                    },
+                    new Transaction()
+                    {
+                        TransactionID = 17,
+                        AccountID = 6,
+                        TransactionSource = "Seven Eleven",
+                        TransactionCategory = "Income",
+                        TransactionValue = 1100.32,
+                        TransactionDate = new DateTime(2020, 07, 11)
+                    },
+                    new Transaction()
+                    {
+                        TransactionID = 18,
+                        AccountID = 6,
+                        TransactionSource = "Axion Rental Agency",
+                        TransactionCategory = "Expense_Rent",
+                        TransactionValue = -800.00,
+                        TransactionDate = new DateTime(2020, 07, 29)
+                    },
+                    new Transaction()
+                    {
+                        TransactionID = 19,
+                        AccountID = 6,
+                        TransactionSource = "St. Albert Transit",
+                        TransactionCategory = "Expense_Vehicle",
+                        TransactionValue = -41.99,
+                        TransactionDate = new DateTime(2020, 10, 15)
+                    },
+                    new Transaction()
+                    {
+                        TransactionID = 20,
+                        AccountID = 6,
+                        TransactionSource = "Superstore",
+                        TransactionCategory = "Expense_Groceries",
+                        TransactionValue = -84.23,
+                        TransactionDate = new DateTime(2020, 10, 16)
+                    }
+
+
                     );
-               */
-                // -----------------------
+
 
             });
 

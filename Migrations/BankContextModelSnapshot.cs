@@ -248,6 +248,188 @@ namespace Capstone_VV.Migrations
                         .HasName("FK_Transaction_Account");
 
                     b.ToTable("Transaction");
+
+                    b.HasData(
+                        new
+                        {
+                            TransactionID = 1,
+                            AccountID = 1,
+                            TransactionCategory = "Income",
+                            TransactionDate = new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Allgood Engineering Inc.",
+                            TransactionValue = 2001.86f
+                        },
+                        new
+                        {
+                            TransactionID = 2,
+                            AccountID = 1,
+                            TransactionCategory = "Expense_Rent",
+                            TransactionDate = new DateTime(2020, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Axion Rental Agency",
+                            TransactionValue = -1100f
+                        },
+                        new
+                        {
+                            TransactionID = 3,
+                            AccountID = 1,
+                            TransactionCategory = "Expense_Vehicle",
+                            TransactionDate = new DateTime(2020, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Jonathan's Car Repairs",
+                            TransactionValue = -200.99f
+                        },
+                        new
+                        {
+                            TransactionID = 4,
+                            AccountID = 1,
+                            TransactionCategory = "Expense_Groceries",
+                            TransactionDate = new DateTime(2020, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Superstore",
+                            TransactionValue = -71.44f
+                        },
+                        new
+                        {
+                            TransactionID = 5,
+                            AccountID = 1,
+                            TransactionCategory = "Expense_Health",
+                            TransactionDate = new DateTime(2020, 10, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Ironman Gym Membership Fee",
+                            TransactionValue = -30f
+                        },
+                        new
+                        {
+                            TransactionID = 6,
+                            AccountID = 2,
+                            TransactionCategory = "Income_Investments",
+                            TransactionDate = new DateTime(2020, 4, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Gold Hand Investments Inc.",
+                            TransactionValue = 750f
+                        },
+                        new
+                        {
+                            TransactionID = 7,
+                            AccountID = 2,
+                            TransactionCategory = "Income_Investments",
+                            TransactionDate = new DateTime(2020, 5, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Gold Hand Investments Inc.",
+                            TransactionValue = 750f
+                        },
+                        new
+                        {
+                            TransactionID = 8,
+                            AccountID = 2,
+                            TransactionCategory = "Income_Investments",
+                            TransactionDate = new DateTime(2020, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Gold Hand Investments Inc.",
+                            TransactionValue = 750f
+                        },
+                        new
+                        {
+                            TransactionID = 9,
+                            AccountID = 2,
+                            TransactionCategory = "Income_Investments",
+                            TransactionDate = new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Gold Hand Investments Inc.",
+                            TransactionValue = 750f
+                        },
+                        new
+                        {
+                            TransactionID = 10,
+                            AccountID = 3,
+                            TransactionCategory = "Income",
+                            TransactionDate = new DateTime(2020, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Bank of Wallachia",
+                            TransactionValue = 4f
+                        },
+                        new
+                        {
+                            TransactionID = 11,
+                            AccountID = 3,
+                            TransactionCategory = "Expense_Food",
+                            TransactionDate = new DateTime(2020, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Wallachia Market",
+                            TransactionValue = -1f
+                        },
+                        new
+                        {
+                            TransactionID = 12,
+                            AccountID = 4,
+                            TransactionCategory = "Income",
+                            TransactionDate = new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Gold Hand Investments Inc.",
+                            TransactionValue = 7500f
+                        },
+                        new
+                        {
+                            TransactionID = 13,
+                            AccountID = 4,
+                            TransactionCategory = "Income",
+                            TransactionDate = new DateTime(2020, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Gold Hand Investments Inc.",
+                            TransactionValue = 7500f
+                        },
+                        new
+                        {
+                            TransactionID = 14,
+                            AccountID = 4,
+                            TransactionCategory = "Expense_Recreation",
+                            TransactionDate = new DateTime(2020, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Central Avionics",
+                            TransactionValue = 3000f
+                        },
+                        new
+                        {
+                            TransactionID = 15,
+                            AccountID = 5,
+                            TransactionCategory = "Income_Investments",
+                            TransactionDate = new DateTime(2020, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Gold Hand Investments Inc.",
+                            TransactionValue = 43000f
+                        },
+                        new
+                        {
+                            TransactionID = 16,
+                            AccountID = 5,
+                            TransactionCategory = "Income_Investments",
+                            TransactionDate = new DateTime(2020, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Gold Hand Investments Inc.",
+                            TransactionValue = 43000f
+                        },
+                        new
+                        {
+                            TransactionID = 17,
+                            AccountID = 6,
+                            TransactionCategory = "Income",
+                            TransactionDate = new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Seven Eleven",
+                            TransactionValue = 1100.32f
+                        },
+                        new
+                        {
+                            TransactionID = 18,
+                            AccountID = 6,
+                            TransactionCategory = "Expense_Rent",
+                            TransactionDate = new DateTime(2020, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Axion Rental Agency",
+                            TransactionValue = -800f
+                        },
+                        new
+                        {
+                            TransactionID = 19,
+                            AccountID = 6,
+                            TransactionCategory = "Expense_Vehicle",
+                            TransactionDate = new DateTime(2020, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "St. Albert Transit",
+                            TransactionValue = -41.99f
+                        },
+                        new
+                        {
+                            TransactionID = 20,
+                            AccountID = 6,
+                            TransactionCategory = "Expense_Groceries",
+                            TransactionDate = new DateTime(2020, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Superstore",
+                            TransactionValue = -84.23f
+                        });
                 });
 
             modelBuilder.Entity("Capstone_VV.Models.Account", b =>
