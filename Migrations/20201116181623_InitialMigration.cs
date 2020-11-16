@@ -20,7 +20,7 @@ namespace Capstone_VV.Migrations
                     Password = table.Column<string>(type: "varchar(50)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                         .Annotation("MySql:Collation", "utf8mb4_general_ci"),
-                    PhoneNumber = table.Column<int>(type: "int(15)", nullable: false),
+                    PhoneNumber = table.Column<long>(type: "bigint(15)", nullable: false),
                     FirstName = table.Column<string>(type: "varchar(50)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                         .Annotation("MySql:Collation", "utf8mb4_general_ci"),
@@ -92,6 +92,11 @@ namespace Capstone_VV.Migrations
                         principalColumn: "AccountID",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Client",
+                columns: new[] { "ClientID", "City", "DateOfBirth", "EmailAddress", "FirstName", "LastName", "Password", "PhoneNumber", "PostalCode", "Province" },
+                values: new object[] { -1, "Edmonton", new DateTime(1989, 3, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), "johndoe123@gmail.com", "John", "Doe", "john123", 7804188874L, "T8N3A4", "AB" });
 
             migrationBuilder.CreateIndex(
                 name: "FK_Account_Client",

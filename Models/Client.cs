@@ -33,8 +33,8 @@ namespace Capstone_VV.Models
         public string Password { get; set; }
 
         // PhoneNumber int(15) NOT NULL
-        [Column(TypeName = "int(15)")]
-        public int PhoneNumber { get; set; }
+        [Column(TypeName = "bigint(15)")]
+        public long PhoneNumber { get; set; }
 
         // FirstName varchar(50) NOT NULL
         [Column(TypeName = "varchar(50)")]

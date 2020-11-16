@@ -85,8 +85,8 @@ namespace Capstone_VV.Migrations
                         .HasAnnotation("MySql:CharSet", "utf8mb4")
                         .HasAnnotation("MySql:Collation", "utf8mb4_general_ci");
 
-                    b.Property<int>("PhoneNumber")
-                        .HasColumnType("int(15)");
+                    b.Property<long>("PhoneNumber")
+                        .HasColumnType("bigint(15)");
 
                     b.Property<string>("PostalCode")
                         .IsRequired()
@@ -103,6 +103,21 @@ namespace Capstone_VV.Migrations
                     b.HasKey("ClientID");
 
                     b.ToTable("Client");
+
+                    b.HasData(
+                        new
+                        {
+                            ClientID = -1,
+                            City = "Edmonton",
+                            DateOfBirth = new DateTime(1989, 3, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmailAddress = "johndoe123@gmail.com",
+                            FirstName = "John",
+                            LastName = "Doe",
+                            Password = "john123",
+                            PhoneNumber = 7804188874L,
+                            PostalCode = "T8N3A4",
+                            Province = "AB"
+                        });
                 });
 
             modelBuilder.Entity("Capstone_VV.Models.Transaction", b =>

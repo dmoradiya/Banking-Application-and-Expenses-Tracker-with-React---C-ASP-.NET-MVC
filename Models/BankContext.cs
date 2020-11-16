@@ -75,15 +75,12 @@ namespace Capstone_VV.Models
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName(keyToClient);
 
-                // ------------------------
-                // Seed Data Goes Here
-                /* 
+
                      entity.HasData(
-                     new Account(),
                      new Account()
+                     { }
                      );
-                */
-                // -----------------------
+
             });
 
             // Model for Client
@@ -98,15 +95,63 @@ namespace Capstone_VV.Models
                 entity.Property(e => e.Province).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
                 entity.Property(e => e.PostalCode).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
 
-                // ------------------------
-                // Seed Data Goes Here
-                /* 
+
                      entity.HasData(
-                     new Client(),
                      new Client()
+                     {
+                        ClientID = 1,
+                        EmailAddress = "johndoe123@gmail.com",
+                        Password = "john123",
+                        PhoneNumber = 7804188874,
+                        FirstName = "John",
+                        LastName = "Doe",
+                        DateOfBirth = new DateTime(1989, 03, 29),
+                        City = "Edmonton",
+                        Province = "AB",
+                        PostalCode = "T8N3A4"
+                     },
+                    new Client()
+                    {
+                        ClientID = 2,
+                        EmailAddress = "trevorbelmont123@gmail.com",
+                        Password = "draculasux",
+                        PhoneNumber = 7804442121,
+                        FirstName = "Trevor",
+                        LastName = "Belmont",
+                        DateOfBirth = new DateTime(1880, 02, 25),
+                        City = "London",
+                        Province = "ON",
+                        PostalCode = "Z4A2B1"
+                    },
+                    new Client()
+                    {
+                        ClientID = 3,
+                        EmailAddress = "richardrich@gmail.com",
+                        Password = "rich123",
+                        PhoneNumber = 7771115454,
+                        FirstName = "Richard",
+                        LastName = "Rich",
+                        DateOfBirth = new DateTime(1999, 12, 03),
+                        City = "Edmonton",
+                        Province = "AB",
+                        PostalCode = "T8N3E1"
+                    },
+                    new Client()
+                    {
+                        ClientID = 4,
+                        EmailAddress = "brokeasajoke@gmail.com",
+                        Password = "broke123",
+                        PhoneNumber = 7809198888,
+                        FirstName = "Bruce",
+                        LastName = "Hunter",
+                        DateOfBirth = new DateTime(1979, 05, 04),
+                        City = "Edmonton",
+                        Province = "AB",
+                        PostalCode = "T8N6Y3"
+                    }
+
                      );
-                */
-                // -----------------------
+
 
             });
 
