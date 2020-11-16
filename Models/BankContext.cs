@@ -324,6 +324,7 @@ namespace Capstone_VV.Models
                 entity.Property(e => e.PhoneNumber).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
                 entity.Property(e => e.FirstName).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
                 entity.Property(e => e.LastName).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
+                entity.Property(e => e.Address).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
                 entity.Property(e => e.City).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
                 entity.Property(e => e.Province).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
                 entity.Property(e => e.PostalCode).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
@@ -339,6 +340,7 @@ namespace Capstone_VV.Models
                         FirstName = "John",
                         LastName = "Doe",
                         DateOfBirth = new DateTime(1989, 03, 29),
+                        Address = "154 South Gate Blwd",
                         City = "Edmonton",
                         Province = "AB",
                         PostalCode = "T8N3A4"
@@ -352,6 +354,7 @@ namespace Capstone_VV.Models
                         FirstName = "Trevor",
                         LastName = "Belmont",
                         DateOfBirth = new DateTime(1880, 02, 25),
+                        Address = "1010 White Ave",
                         City = "London",
                         Province = "ON",
                         PostalCode = "Z4A2B1"
@@ -365,6 +368,7 @@ namespace Capstone_VV.Models
                         FirstName = "Richard",
                         LastName = "Rich",
                         DateOfBirth = new DateTime(1999, 12, 03),
+                        Address = "2 Century Drive",
                         City = "Edmonton",
                         Province = "AB",
                         PostalCode = "T8N3E1"
@@ -378,6 +382,7 @@ namespace Capstone_VV.Models
                         FirstName = "Bruce",
                         LastName = "Hunter",
                         DateOfBirth = new DateTime(1979, 05, 04),
+                        Address = "145 Gateway DR",
                         City = "Edmonton",
                         Province = "AB",
                         PostalCode = "T8N6Y3"

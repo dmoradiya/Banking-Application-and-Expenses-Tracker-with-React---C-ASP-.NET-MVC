@@ -54,6 +54,11 @@ namespace Capstone_VV.Models
         // City varchar(100) NOT NULL
         [Column(TypeName = "varchar(100)")]
         [Required]
+        public string Address { get; set; }
+
+        // City varchar(100) NOT NULL
+        [Column(TypeName = "varchar(100)")]
+        [Required]
         public string City { get; set; }
 
         // Province varchar(50) NOT NULL
