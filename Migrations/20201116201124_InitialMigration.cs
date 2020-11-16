@@ -20,7 +20,7 @@ namespace Capstone_VV.Migrations
                     Password = table.Column<string>(type: "varchar(50)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                         .Annotation("MySql:Collation", "utf8mb4_general_ci"),
-                    PhoneNumber = table.Column<string>(type: "char(15)", nullable: true)
+                    PhoneNumber = table.Column<string>(type: "char(15)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                         .Annotation("MySql:Collation", "utf8mb4_general_ci"),
                     FirstName = table.Column<string>(type: "varchar(50)", nullable: false)
@@ -52,7 +52,7 @@ namespace Capstone_VV.Migrations
                     AccountID = table.Column<int>(type: "int(10)", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     ClientID = table.Column<int>(type: "int(10)", nullable: false),
-                    AccountType = table.Column<string>(type: "varchar(30)", nullable: true)
+                    AccountType = table.Column<string>(type: "varchar(30)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                         .Annotation("MySql:Collation", "utf8mb4_general_ci"),
                     AccountBalance = table.Column<double>(type: "double(15,2)", nullable: false),

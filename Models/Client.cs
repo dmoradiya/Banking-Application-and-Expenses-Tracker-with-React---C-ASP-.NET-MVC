@@ -34,6 +34,7 @@ namespace Capstone_VV.Models
 
         // PhoneNumber int(15) NOT NULL
         [Column(TypeName = "char(15)")]
+        [Required]
         public string PhoneNumber { get; set; }
 
         // FirstName varchar(50) NOT NULL

@@ -30,6 +30,7 @@ namespace Capstone_VV.Migrations
                         .HasColumnType("double(10,2)");
 
                     b.Property<string>("AccountType")
+                        .IsRequired()
                         .HasColumnType("varchar(30)")
                         .HasAnnotation("MySql:CharSet", "utf8mb4")
                         .HasAnnotation("MySql:Collation", "utf8mb4_general_ci");
@@ -144,6 +145,7 @@ namespace Capstone_VV.Migrations
                         .HasAnnotation("MySql:Collation", "utf8mb4_general_ci");
 
                     b.Property<string>("PhoneNumber")
+                        .IsRequired()
                         .HasColumnType("char(15)")
                         .HasAnnotation("MySql:CharSet", "utf8mb4")
                         .HasAnnotation("MySql:Collation", "utf8mb4_general_ci");

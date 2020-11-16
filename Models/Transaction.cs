@@ -21,7 +21,6 @@ namespace Capstone_VV.Models
 
         // FK - AccountID - int(10) NOT NULL
         [Column(TypeName = "int(10)")]
-        [Required]
         public int AccountID { get; set; }
 
         // TransactionSource varchar(50) NOT NULL

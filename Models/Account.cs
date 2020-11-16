@@ -24,11 +24,11 @@ namespace Capstone_VV.Models
 
         // FK - ClientID - int(10) NOT NULL
         [Column(TypeName = "int(10)")]
-        [Required]
         public int ClientID { get; set; }
 
         // AccountType varchar(30) NOT NULL
         [Column(TypeName = "varchar(30)")]
+        [Required]
         public string AccountType { get; set; }
 
         // AccountBalance double(15) 
