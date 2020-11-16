@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Layout } from './components/Layout';
 import { Home } from './components/Home';
+import { LandingPage } from './components/LandingPage';
 
 
 import './custom.css'
@@ -11,9 +12,10 @@ export default class App extends Component {
 
   render () {
     return (
-      <Layout>
+      <Router>
         <Route exact path='/' component={Home} />
-      </Layout>
+        <Route exact path='/landing-page' component={LandingPage} />
+      </Router>
     );
   }
 }
