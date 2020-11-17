@@ -4,6 +4,7 @@ import { Layout } from './components/Layout';
 import { Home } from './components/Home';
 import { LandingPage } from './components/LandingPage';
 import { CreateClient } from './components/CreateClient';
+import { CreateAccount } from './components/CreateAccount';
 import './custom.css'
 
 
@@ -16,6 +17,7 @@ export default class App extends Component {
         <Route exact path='/' component={Home} />
         <Route exact path='/landing-page' component={LandingPage} />
         <Route exact path='/create-client' component={CreateClient} />
+        <Route exact path='/create-account' component={CreateAccount} />
       </Router>
     );
   }

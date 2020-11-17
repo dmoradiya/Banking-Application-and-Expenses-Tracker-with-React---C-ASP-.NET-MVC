@@ -1,5 +1,6 @@
 ﻿import React, { useState } from 'react';
 import axios from 'axios';
+import { useHistory } from "react-router-dom";
 
 function CreateClient(props) {
     const [email, setEmail] = useState("");
@@ -15,6 +16,7 @@ function CreateClient(props) {
     const [response, setResponse] = useState([]);
     const [waiting, setWaiting] = useState(false);
     const [isSubmit, setIsSubmit] = useState(false);
+    const history = useHistory();
 
     function handleFieldChange(event) {
         switch (event.target.id) {
@@ -77,6 +79,7 @@ function CreateClient(props) {
         ).then((res) => {
             setWaiting(false);
             setResponse(res.data);
+            history.push("/create-account");
             
         }
         ).catch((err) => {
