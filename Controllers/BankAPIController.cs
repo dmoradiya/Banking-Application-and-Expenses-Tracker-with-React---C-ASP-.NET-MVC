@@ -41,6 +41,29 @@ namespace Capstone_VV.Controllers
             return result;
 
         }
+        [HttpPost("CreateClient")]
+        public ActionResult<Client> CreateClient_POST(string email, string password, string phone, string fname, string lname, DateTime dateOfBirth, string address, string city, string province, string postalCode)
+        {
+            ActionResult<Client> result;
+            try
+            {
+                result = new ClientController().CreateClient(email, password, phone, fname, lname, dateOfBirth, address, city, province, postalCode);
+            }
+            catch (ValidationException e)
+            {
+                string error = "Error(s) During Creation: " +
+                    e.ValidationExceptions.Select(x => x.Message)
+                    .Aggregate((x, y) => x + ", " + y);
+
+                result = BadRequest(error);
+            }
+            catch (Exception)
+            {
+                result = StatusCode(500, "Unknown error occurred, please try again later.");
+            }
+            return result;
+
+        }
 
     }
 }

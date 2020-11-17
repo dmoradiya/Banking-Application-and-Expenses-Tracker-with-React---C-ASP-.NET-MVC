@@ -61,11 +61,11 @@ function CreateClient(props) {
                 method: 'post',
                 url: 'BankAPI/CreateClient',
                 params: {
-                    emailAddress: email,
+                    email: email,
                     password: password,
-                    phoneNumber : phone,
-                    firstName: fname,
-                    lastName: lname,
+                    phone: phone,
+                    fname: fname,
+                    lname: lname,
                     dateOfBirth: dateOfBirth,
                     address: address,
                     city: city,
@@ -77,12 +77,11 @@ function CreateClient(props) {
         ).then((res) => {
             setWaiting(false);
             setResponse(res.data);
-            setStatusCode(res.status);
+            
         }
         ).catch((err) => {
             setWaiting(false);
             setResponse(err.response.data);
-            setStatusCode(err.response.status);
         });
         event.target.reset();
     }
@@ -93,7 +92,7 @@ function CreateClient(props) {
         <div>
             <h1>Create Product</h1>
 
-            <p>{isSubmit ? <p>{waiting ? "Awaiting response..." : `Response recieved ${statusCode}: ${JSON.stringify(response)}`}</p> : ""}</p>
+            <p>{isSubmit ? <p>{waiting ? "Loging In..." : `${response}`}</p> : ""}</p>
 
             <form onSubmit={handleSubmit}>
                 
@@ -115,6 +114,7 @@ function CreateClient(props) {
                 <input id="city" type="text" onChange={handleFieldChange} />
                 <label htmlFor="province">Province</label>
                 <select id="province" onChange={handleFieldChange}>
+                    <option value="" >Choose here</option>
                     <option value="AB">Alberta</option>
                     <option value="BC">British Columbia</option>
                     <option value="MB">Manitoba</option>

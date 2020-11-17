@@ -39,6 +39,40 @@ namespace Capstone_VV.Controllers
             }
             return result;
         }
+
+        public Client CreateClient(string email, string password, string phone, string fname, string lname, DateTime dateOfBirth, string address, string city, string province, string postalCode)
+        {
+           
+            ValidationException exception = new ValidationException();
+
+
+            using (BankContext context = new BankContext())
+            {
+               
+                if (exception.ValidationExceptions.Count > 0)
+                {
+                    throw exception;
+                }
+
+                Client newClient = new Client()
+                {
+                   EmailAddress = email,
+                   Password = password,
+                   PhoneNumber = phone,
+                   FirstName = fname,
+                   LastName = lname,
+                   DateOfBirth = dateOfBirth,
+                   Address = address,
+                   City = city,
+                   Province = province,
+                   PostalCode = postalCode
+
+                };
+                context.Clients.Add(newClient);
+                context.SaveChanges();
+                return newClient;
+            }
+        }
         public List<Client> GetClient()
         {
             List<Client> results;

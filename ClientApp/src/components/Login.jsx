@@ -1,6 +1,7 @@
 ﻿import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 function Login(props) {
@@ -64,6 +65,11 @@ function Login(props) {
                 <input id="password" type="text" onChange={handleFieldChange} />
                 <input type="submit" className="btn btn-primary" value="Login" />
             </form>
+            <button className="btn">
+                <Link to="/create-client">
+                    Join Now
+                </Link>
+            </button>
         </div>
 
 
