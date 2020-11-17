@@ -95,7 +95,7 @@ function CreateClient(props) {
         <div>
             <h1>Client Information</h1>
 
-            <p>{isSubmit ? <p>{waiting ? "Loging In..." : `${response}`}</p> : ""}</p>
+            <p>{isSubmit ? <p>{waiting ? "Processing..." : `${response}`}</p> : ""}</p>
 
             <form onSubmit={handleSubmit}>
                 

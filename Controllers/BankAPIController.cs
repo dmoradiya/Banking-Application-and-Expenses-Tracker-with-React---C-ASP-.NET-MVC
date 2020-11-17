@@ -13,10 +13,10 @@ namespace Capstone_VV.Controllers
     [ApiController]
     public class BankAPIController : ControllerBase
     {
-        [HttpGet("Client")]
-        public ActionResult<IEnumerable<Client>> Client_GET()
+        [HttpGet("LandingPage")]
+        public ActionResult<IEnumerable<Account>> Client_GET()
         {
-            return new ClientController().GetClient();
+            return new AccountController().GetAccount();
         }
         [HttpPost("Login")]
         public ActionResult<Client> Login_POST(string email, string password)
@@ -24,7 +24,7 @@ namespace Capstone_VV.Controllers
             ActionResult<Client> result;
             try
             {
-                result = new ClientController().ClientAuthorization(email, password);
+                result = new AccountController().ClientAuthorization(email, password);
             }
             catch (ValidationException e)
             {
