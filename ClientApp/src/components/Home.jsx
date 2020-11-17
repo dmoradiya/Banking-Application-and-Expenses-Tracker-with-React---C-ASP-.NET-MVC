@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Login } from './Login';
 
 export class Home extends Component {
   static displayName = Home.name;
@@ -6,8 +7,7 @@ export class Home extends Component {
   render () {
     return (
       <div>
-        <h1>Login Page</h1>
-       
+        <Login/>
       </div>
     );
   }
