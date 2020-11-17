@@ -17,6 +17,7 @@ namespace Capstone_VV.Controllers
         // Method
 
         public static int clientID;
+        public static int clientCreateID;
         public Client ClientAuthorization(string email, string password)
         {
             Client result;
@@ -42,6 +43,7 @@ namespace Capstone_VV.Controllers
 
         public Client CreateClient(string email, string password, string phone, string fname, string lname, DateTime dateOfBirth, string address, string city, string province, string postalCode)
         {
+            Client result;
            
             ValidationException exception = new ValidationException();
 
@@ -70,8 +72,17 @@ namespace Capstone_VV.Controllers
                 };
                 context.Clients.Add(newClient);
                 context.SaveChanges();
+
+                result = context.Clients.Where(x => x.EmailAddress == email && x.Password == password).SingleOrDefault();
+                clientCreateID = result.ClientID;
+
                 return newClient;
             }
+        }
+
+        public int GetClientCreateID()
+        {
+            return clientCreateID;
         }
         public List<Client> GetClient()
         {

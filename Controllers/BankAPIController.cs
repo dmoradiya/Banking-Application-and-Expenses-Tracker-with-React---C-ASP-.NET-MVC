@@ -65,5 +65,29 @@ namespace Capstone_VV.Controllers
 
         }
 
+        [HttpPost("CreateAccount")]
+        public ActionResult<Account> CreateAccount_POST(string accountType)
+        {
+            ActionResult<Account> result;
+            try
+            {
+                result = new AccountController().CreateAccount(accountType);
+            }
+            catch (ValidationException e)
+            {
+                string error = "Error(s) During Creation: " +
+                    e.ValidationExceptions.Select(x => x.Message)
+                    .Aggregate((x, y) => x + ", " + y);
+
+                result = BadRequest(error);
+            }
+            catch (Exception)
+            {
+                result = StatusCode(500, "Unknown error occurred, please try again later.");
+            }
+            return result;
+
+        }
+
     }
 }
