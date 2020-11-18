@@ -3,15 +3,15 @@ import axios from 'axios';
 import { Layout } from '../components/Layout';
 
 
-function ViewTransaction(props) {
+function ViewTransactions(props) {
     
 
     return (
         <div>
             <Layout />
-            <h1 id="tabelLabel" >View Transaction</h1>
+            <h1 id="tabelLabel" >View Transactions</h1>
         </div>
     );
 }
 
-export { ViewTransaction };
+export { ViewTransactions };

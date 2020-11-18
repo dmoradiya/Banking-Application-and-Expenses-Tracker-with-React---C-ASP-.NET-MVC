@@ -1,6 +1,7 @@
 ﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Layout } from '../components/Layout';
+import { Link } from "react-router-dom";
 
 
 function LandingPage(props) {
@@ -19,6 +20,7 @@ function LandingPage(props) {
                         <th>Account Balance</th>                        
                         <th>Interest Earned</th>                        
                         <th>Total Balance</th>                        
+                        <th>View Transactions</th>                        
                     </tr>
                 </thead>
                 <tbody>
@@ -29,10 +31,19 @@ function LandingPage(props) {
                             <td>{client.accountBalance}</td>
                             <td>{client.accountInterest}</td>
                             <td>{client.accountBalance + client.accountInterest}</td>
+                            <td>
+                                <button className="btn btn-info">
+                                    <Link to="/view-transactions">
+                                        {client.accountType}
+                                    </Link>
+                                </button>
+                            </td>
                         </tr>
                     )}
                 </tbody>
+               
             </table>
+
         );
     }
 

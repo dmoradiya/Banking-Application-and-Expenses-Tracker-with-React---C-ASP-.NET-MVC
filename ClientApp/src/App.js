@@ -4,7 +4,7 @@ import { Home } from './components/Home';
 import { LandingPage } from './components/LandingPage';
 import { CreateClient } from './components/CreateClient';
 import { CreateAccount } from './components/CreateAccount';
-import { ViewTransaction } from './components/ViewTransactions';
+import { ViewTransactions } from './components/ViewTransactions';
 import './custom.css'
 
 
@@ -18,7 +18,7 @@ export default class App extends Component {
         <Route exact path='/landing-page' component={LandingPage} />
         <Route exact path='/create-client' component={CreateClient} />
         <Route exact path='/create-account' component={CreateAccount} />
-        <Route exact path='/view-transaction' component={ViewTransaction} />
+        <Route exact path='/view-transactions' component={ViewTransactions} />
       </Router>
     );
   }
