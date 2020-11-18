@@ -16,32 +16,13 @@ namespace Capstone_VV.Controllers
         }
         // Method
 
-        public static int clientID;
-        public Client ClientAuthorization(string email, string password)
-        {
-            Client result;
-            ValidationException exception = new ValidationException();
-
-            using (BankContext context = new BankContext())
-            {
-                if (!context.Clients.Any(x => x.EmailAddress.ToLower() == email.ToLower() && x.Password == password))
-                {
-                    exception.ValidationExceptions.Add(new Exception("You are not allowed to log in please join new account"));
-                }
-
-                if (exception.ValidationExceptions.Count > 0)
-                {
-                    throw exception;
-                }
-
-                result = context.Clients.Where(x => x.EmailAddress == email && x.Password == password).SingleOrDefault();
-                clientID = result.ClientID;
-            }
-            return result;
-        }
+        
+        public static int clientCreateID;
+       
 
         public Client CreateClient(string email, string password, string phone, string fname, string lname, DateTime dateOfBirth, string address, string city, string province, string postalCode)
         {
+            Client result;
            
             ValidationException exception = new ValidationException();
 
@@ -70,17 +51,18 @@ namespace Capstone_VV.Controllers
                 };
                 context.Clients.Add(newClient);
                 context.SaveChanges();
+
+                result = context.Clients.Where(x => x.EmailAddress == email && x.Password == password).SingleOrDefault();
+                clientCreateID = result.ClientID;
+
                 return newClient;
             }
         }
-        public List<Client> GetClient()
+
+        public int GetClientCreateID()
         {
-            List<Client> results;
-            using (BankContext context = new BankContext())
-            {
-                results = context.Clients.Where(x => x.ClientID == clientID).ToList();
-            }
-            return results;
+            return clientCreateID;
         }
+       
     }
 }

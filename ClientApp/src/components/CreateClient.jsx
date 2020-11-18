@@ -93,9 +93,9 @@ function CreateClient(props) {
     return (
 
         <div>
-            <h1>Create Product</h1>
+            <h1>Client Information</h1>
 
-            <p>{isSubmit ? <p>{waiting ? "Loging In..." : `${response}`}</p> : ""}</p>
+            <p>{isSubmit ? <p>{waiting ? "Processing..." : `${response}`}</p> : ""}</p>
 
             <form onSubmit={handleSubmit}>
                 

@@ -13,10 +13,10 @@ namespace Capstone_VV.Controllers
     [ApiController]
     public class BankAPIController : ControllerBase
     {
-        [HttpGet("Client")]
-        public ActionResult<IEnumerable<Client>> Client_GET()
+        [HttpGet("LandingPage")]
+        public ActionResult<IEnumerable<Account>> Client_GET()
         {
-            return new ClientController().GetClient();
+            return new AccountController().GetAccount();
         }
         [HttpPost("Login")]
         public ActionResult<Client> Login_POST(string email, string password)
@@ -24,7 +24,7 @@ namespace Capstone_VV.Controllers
             ActionResult<Client> result;
             try
             {
-                result = new ClientController().ClientAuthorization(email, password);
+                result = new AccountController().ClientAuthorization(email, password);
             }
             catch (ValidationException e)
             {
@@ -65,5 +65,33 @@ namespace Capstone_VV.Controllers
 
         }
 
+        [HttpPost("CreateAccount")]
+        public ActionResult<Account> CreateAccount_POST(string accountType)
+        {
+            ActionResult<Account> result;
+            try
+            {
+                result = new AccountController().CreateAccount(accountType);
+            }
+            catch (ValidationException e)
+            {
+                string error = "Error(s) During Creation: " +
+                    e.ValidationExceptions.Select(x => x.Message)
+                    .Aggregate((x, y) => x + ", " + y);
+
+                result = BadRequest(error);
+            }
+            catch (Exception)
+            {
+                result = StatusCode(500, "Unknown error occurred, please try again later.");
+            }
+            return result;
+
+        }
+        [HttpGet("ViewTransactions")]
+        public ActionResult<IEnumerable<Transaction>> ViewTransaction_GET()
+        {
+            return new TransactionController().GetTransactions();
+        }
     }
 }

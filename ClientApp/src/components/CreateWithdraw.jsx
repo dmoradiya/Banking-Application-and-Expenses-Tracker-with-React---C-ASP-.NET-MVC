@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
 
-function PayBills(props) {
+function CreateWithdraw(props) {
     const [transactionSource, setTransactionSource] = useState("");
     const [transactionCategory, setTransactionCategory] = useState("");
     const [transactionValue, setTransactionValue] = useState("");
@@ -35,7 +35,7 @@ function PayBills(props) {
         axios(
             {
                 method: 'post',
-                url: 'BankAPI/PayBills',
+                url: 'BankAPI/CreateWithdraw',
                 params: {
                     // TODO: Add reference to parent Account ID
                     transactionSource: transactionSource,
@@ -47,7 +47,7 @@ function PayBills(props) {
         ).then((res) => {
             setWaiting(false);
             setResponse(res.data);
-            history.push("/pay-bills");
+            history.push("/create-withdraw");
 
         }
         ).catch((err) => {
@@ -59,20 +59,20 @@ function PayBills(props) {
 
     return (
         <div>
-            <h1> Pay a Bill </h1>
+            <h1> Make a Withdrawal </h1>
             <p>{isSubmit ? <p>{waiting ? "Waiting..." : `${response}`}</p> : ""}</p>
 
             <br />
             <form onSubmit={handleSubmit}>
-                <label htmlFor="transactionSource">Pay To</label>
+                <label htmlFor="transactionSource">Name this Withdrawal </label>
                 <br />
                 <input id="transactionSource" type="text" onChange={handleFieldChange} />
                 <br />
-                <label htmlFor="transactionCategory">Categorize this Payment</label>
+                <label htmlFor="transactionCategory">Categorize this Transaction</label>
                 <br />
                 <input id="transactionCategory" type="text" onChange={handleFieldChange} />
                 <br />
-                <label htmlFor="transactionValue">Value of this Payment</label>
+                <label htmlFor="transactionValue">Value of this transaction</label>
                 <br />
                 <input id="transactionValue" type="text" onChange={handleFieldChange} />
                 <br />
@@ -84,4 +84,4 @@ function PayBills(props) {
     );
 
 }
-export { PayBills };
+export { CreateWithdraw };
