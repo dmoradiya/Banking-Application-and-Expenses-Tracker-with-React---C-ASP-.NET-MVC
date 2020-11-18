@@ -18,14 +18,21 @@ namespace Capstone_VV.Controllers
 
         // Methods
         public static int clientID;
+        public static int accountID;
         public List<Account> GetAccount()
         {
             List<Account> result;
             using (BankContext context = new BankContext())
             {
                 result = context.Accounts.Include(x => x.Client).Where(x=>x.ClientID == clientID).ToList();
+                accountID = result.Select(x => x.AccountID).FirstOrDefault();
             }
             return result;
+        }
+
+        public int GetAccountID()
+        {
+            return accountID;
         }
         public Client ClientAuthorization(string email, string password)
         {
