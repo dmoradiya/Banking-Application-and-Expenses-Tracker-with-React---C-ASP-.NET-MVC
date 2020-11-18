@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
 
-function CreateDeposit(props) {
+function CreateWithdraw(props) {
     const [transactionSource, setTransactionSource] = useState("");
     const [transactionCategory, setTransactionCategory] = useState("");
     const [transactionValue, setTransactionValue] = useState("");
@@ -35,7 +35,7 @@ function CreateDeposit(props) {
         axios(
             {
                 method: 'post',
-                url: 'BankAPI/CreateDeposit',
+                url: 'BankAPI/CreateWithdraw',
                 params: {
                     // TODO: Add reference to parent Account ID
                     transactionSource: transactionSource,
@@ -47,7 +47,7 @@ function CreateDeposit(props) {
         ).then((res) => {
             setWaiting(false);
             setResponse(res.data);
-            history.push("/create-deposit");
+            history.push("/create-withdraw");
 
         }
         ).catch((err) => {
@@ -59,29 +59,29 @@ function CreateDeposit(props) {
 
     return (
         <div>
-            <h1> Make a Deposit </h1>
+            <h1> Make a Withdrawal </h1>
             <p>{isSubmit ? <p>{waiting ? "Waiting..." : `${response}`}</p> : ""}</p>
 
-            <br/>
+            <br />
             <form onSubmit={handleSubmit}>
-                <label htmlFor="transactionSource">Source of Deposit</label>
+                <label htmlFor="transactionSource">Name this Withdrawal </label>
                 <br />
-            <input id="transactionSource" type="text" onChange={handleFieldChange} />
+                <input id="transactionSource" type="text" onChange={handleFieldChange} />
                 <br />
                 <label htmlFor="transactionCategory">Categorize this Transaction</label>
                 <br />
-            <input id="transactionCategory" type="text" onChange={handleFieldChange} />
+                <input id="transactionCategory" type="text" onChange={handleFieldChange} />
                 <br />
                 <label htmlFor="transactionValue">Value of this transaction</label>
                 <br />
-            <input id="transactionValue" type="text" onChange={handleFieldChange} />
+                <input id="transactionValue" type="text" onChange={handleFieldChange} />
                 <br />
                 <input type="submit" className="btn btn-primary" value="Submit" />
             </form>
         </div>
 
-        
-        );
+
+    );
 
 }
-export { CreateDeposit };
+export { CreateWithdraw };
