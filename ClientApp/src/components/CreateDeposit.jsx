@@ -7,7 +7,6 @@ function CreateDeposit(props) {
     const [transactionCategory, setTransactionCategory] = useState("");
     const [transactionValue, setTransactionValue] = useState("");
     const transactionDate = new Date().getDate();
-
     const [response, setResponse] = useState([]);
     const [waiting, setWaiting] = useState(false);
     const [isSubmit, setIsSubmit] = useState(false);
@@ -37,7 +36,7 @@ function CreateDeposit(props) {
                 method: 'post',
                 url: 'BankAPI/CreateDeposit',
                 params: {
-                    // TODO: Add reference to parent Account ID
+
                     transactionSource: transactionSource,
                     transactionCategory: transactionCategory,
                     transactionValue: transactionValue,
