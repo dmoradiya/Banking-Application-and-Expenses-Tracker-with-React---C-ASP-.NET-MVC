@@ -7,6 +7,7 @@ import { CreateClient } from './components/CreateClient';
 import { CreateAccount } from './components/CreateAccount';
 import { CreateDeposit } from './components/CreateDeposit';
 import { CreateWithdraw } from './components/CreateWithdraw';
+import { PayBills } from './components/PayBills';
 
 import './custom.css'
 
@@ -22,7 +23,9 @@ export default class App extends Component {
         <Route exact path='/create-client' component={CreateClient} />
         <Route exact path='/create-account' component={CreateAccount} />
         <Route exact path='/create-deposit' component={CreateDeposit} />
-        <Route exact path='/create-withdraw' component={CreateWithdraw} />
+            <Route exact path='/create-withdraw' component={CreateWithdraw} />
+            <Route exact path='/pay-bills' component={PayBills} />
+
 
       </Router>
     );
