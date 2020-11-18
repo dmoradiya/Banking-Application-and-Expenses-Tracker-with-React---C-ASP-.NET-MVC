@@ -59,7 +59,7 @@ function CreateAccount(props) {
                 <select id="accountType" onChange={handleFieldChange}>
                     <option value="" >Choose here</option>
                     <option value="Chequing">Chequing Account</option>
-                    <option value="Saving">Saving Account</option>
+                    <option value="Savings">Saving Account</option>
                 </select>
                
                 <input type="submit" className="btn btn-primary" value="Submit" />

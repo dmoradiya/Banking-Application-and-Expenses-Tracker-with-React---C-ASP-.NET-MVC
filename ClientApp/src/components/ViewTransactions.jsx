@@ -9,6 +9,12 @@ function ViewTransactions(props) {
     const [transactions, setTransactions] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    let search = window.location.search;
+    let params = new URLSearchParams(search);
+    let accountID = params.get('id');
+    console.log(accountID);
+
+
     function renderClientInfoTable(transactions) {
         return (
             <table className='table table-striped' aria-labelledby="tabelLabel">
@@ -37,7 +43,7 @@ function ViewTransactions(props) {
     }
 
     async function populateTransactionsData() {
-        const response = await axios.get('BankAPI/ViewTransactions');
+        const response = await axios.get(`BankAPI/ViewTransactions?id=${accountID}`);
         setTransactions(response.data);
         setLoading(false);
     }

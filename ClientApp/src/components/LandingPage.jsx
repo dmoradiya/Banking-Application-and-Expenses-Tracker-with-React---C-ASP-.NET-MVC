@@ -11,6 +11,8 @@ function LandingPage(props) {
     const [loading, setLoading] = useState(true);
 
     function renderClientInfoTable(accountInfo) {
+
+
         return (
             <table className='table table-striped' aria-labelledby="tabelLabel">
                 <thead>
@@ -25,18 +27,18 @@ function LandingPage(props) {
                 </thead>
                 <tbody>
                     {accountInfo.map(client =>
-                        <tr key={client.clientID}>
+                        <tr key={client.accountID}>
                             <td>{client.client.firstName + " " + client.client.lastName}</td>
                             <td>{client.accountType}</td>
                             <td>{client.accountBalance}</td>
                             <td>{client.accountInterest}</td>
                             <td>{client.accountBalance + client.accountInterest}</td>
-                            <td>
+                            <td>                                
                                 <button className="btn btn-info">
-                                    <Link to="/view-transactions">
-                                        {client.accountType}
+                                    <Link to={`/view-transactions?id=${ client.accountID }`}>
+                                        {client.accountType}                                        
                                     </Link>
-                                </button>
+                                </button> 
                             </td>
                         </tr>
                     )}
