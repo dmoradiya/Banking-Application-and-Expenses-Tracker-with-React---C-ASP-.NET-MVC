@@ -6,11 +6,12 @@ function CreateDeposit(props) {
     const [transactionSource, setTransactionSource] = useState("");
     const [transactionCategory, setTransactionCategory] = useState("");
     const [transactionValue, setTransactionValue] = useState("");
-    const transactionDate = new Date().getDate();
+    const [transactionDate, setTransactionDate] = useState("");
     const [response, setResponse] = useState([]);
     const [waiting, setWaiting] = useState(false);
     const [isSubmit, setIsSubmit] = useState(false);
     const history = useHistory();
+
 
     function handleFieldChange(event) {
         switch (event.target.id) {
@@ -20,8 +21,11 @@ function CreateDeposit(props) {
             case "transactionCategory":
                 setTransactionCategory(event.target.value);
                 break;
-            case "transactionAmount":
+            case "transactionValue":
                 setTransactionValue(event.target.value);
+                break;
+            case "transactionDate":
+                setTransactionDate(event.target.value);
                 break;
         }
     }
@@ -36,7 +40,7 @@ function CreateDeposit(props) {
                 method: 'post',
                 url: 'BankAPI/CreateDeposit',
                 params: {
-
+                    accountID: 1,
                     transactionSource: transactionSource,
                     transactionCategory: transactionCategory,
                     transactionValue: transactionValue,
@@ -74,6 +78,8 @@ function CreateDeposit(props) {
                 <label htmlFor="transactionValue">Value of this transaction</label>
                 <br />
             <input id="transactionValue" type="text" onChange={handleFieldChange} />
+                <br />
+            <input id="transactionDate" type="date" onChange={handleFieldChange} />
                 <br />
                 <input type="submit" className="btn btn-primary" value="Submit" />
             </form>
