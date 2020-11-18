@@ -89,9 +89,10 @@ namespace Capstone_VV.Controllers
 
         }
         [HttpGet("ViewTransactions")]
-        public ActionResult<IEnumerable<Transaction>> ViewTransaction_GET()
+        public ActionResult<IEnumerable<Transaction>> ViewTransaction_GET(string id)
         {
-            return new TransactionController().GetTransactions();
+            return new TransactionController().GetTransactions(id);
         }
+        
     }
 }

@@ -16,14 +16,16 @@ namespace Capstone_VV.Controllers
         }
 
         // Methods
-        public List<Transaction> GetTransactions()
+        public List<Transaction> GetTransactions(string id)
         {
             List<Transaction> result;
             using (BankContext context = new BankContext())
             {
-                result = context.Transactions.Include(x => x.Account).Where(x => x.AccountID == new AccountController().GetAccountID()).ToList();
+                result = context.Transactions.Include(x => x.Account).Where(x => x.AccountID == int.Parse(id)).ToList();
             }
             return result;
         }
+
+       
     }
 }
