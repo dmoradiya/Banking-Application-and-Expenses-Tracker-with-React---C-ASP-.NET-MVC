@@ -118,5 +118,29 @@ namespace Capstone_VV.Controllers
             return result;
 
         }
+
+        [HttpPost("CreateWithdraw")]
+        public ActionResult<Transaction> CreateWithdraw_POST(string accountID, string transactionSource, string transactionCategory, string transactionValue, DateTime transactionDate)
+        {
+            ActionResult<Transaction> result;
+            try
+            {
+                result = new TransactionController().CreateWithdraw(accountID, transactionSource, transactionCategory, transactionValue, transactionDate);
+            }
+            catch (ValidationException e)
+            {
+                string error = "Error(s) During Creation: " +
+                    e.ValidationExceptions.Select(x => x.Message)
+                    .Aggregate((x, y) => x + ", " + y);
+
+                result = BadRequest(error);
+            }
+            catch (Exception)
+            {
+                result = StatusCode(500, "Unknown error occurred, please try again later.");
+            }
+            return result;
+
+        }
     }
 }
