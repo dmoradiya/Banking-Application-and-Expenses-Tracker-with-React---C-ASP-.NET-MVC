@@ -91,6 +91,37 @@ namespace Capstone_VV.Controllers
 
         }
 
+        public Transaction PayBills(string accountID, string transactionSource, string transactionCategory, string transactionValue, DateTime transactionDate)
+        {
+
+            ValidationException exception = new ValidationException();
+
+
+            using (BankContext context = new BankContext())
+            {
+
+                if (exception.ValidationExceptions.Count > 0)
+                {
+                    throw exception;
+                }
+
+                Transaction newBillPayment = new Transaction()
+                {
+                    AccountID = int.Parse(accountID),
+                    TransactionSource = transactionSource,
+                    TransactionCategory = transactionCategory,
+                    TransactionValue = double.Parse(transactionValue),
+                    TransactionDate = transactionDate
+
+                };
+                context.Transactions.Add(newBillPayment);
+                context.SaveChanges();
+
+                return newBillPayment;
+            }
+
+        }
+
         public int GetCreateTransactionID()
         {
             return transactionCreateID;
