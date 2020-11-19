@@ -28,7 +28,7 @@ namespace Capstone_VV.Controllers
             return result;
         }
 
-        public Transaction CreateDeposit(string accountID, string transactionSource, string transactionCategory, string transactionValue)
+        public Transaction CreateDeposit(string accountID, string transactionSource, string transactionValue)
         {
           
 
@@ -47,7 +47,7 @@ namespace Capstone_VV.Controllers
                 {
                     AccountID = int.Parse(accountID),
                     TransactionSource = transactionSource,
-                    TransactionCategory = transactionCategory,
+                    TransactionCategory = "Deposit",
                     TransactionValue = double.Parse(transactionValue),
                     TransactionDate = DateTime.Today
 

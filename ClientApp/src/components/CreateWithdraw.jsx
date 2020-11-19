@@ -1,6 +1,5 @@
 ﻿import React, { useState } from 'react';
 import axios from 'axios';
-import { useHistory } from "react-router-dom";
 
 function CreateWithdraw(props) {
     const [transactionSource, setTransactionSource] = useState("");
@@ -11,7 +10,6 @@ function CreateWithdraw(props) {
     const [response, setResponse] = useState([]);
     const [waiting, setWaiting] = useState(false);
     const [isSubmit, setIsSubmit] = useState(false);
-    const history = useHistory();
 
     function handleFieldChange(event) {
         switch (event.target.id) {
@@ -47,7 +45,6 @@ function CreateWithdraw(props) {
         ).then((res) => {
             setWaiting(false);
             setResponse(res.data);
-            history.push("/create-withdraw");
 
         }
         ).catch((err) => {

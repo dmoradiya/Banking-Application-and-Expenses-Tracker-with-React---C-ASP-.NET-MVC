@@ -6,7 +6,6 @@ import { Layout } from '../components/Layout';
 function CreateDeposit(props) {
     const [accountID, setAccountID] = useState("");
     const [transactionSource, setTransactionSource] = useState("");
-    const [transactionCategory, setTransactionCategory] = useState("");
     const [transactionValue, setTransactionValue] = useState("");
     const [response, setResponse] = useState([]);
     const [waiting, setWaiting] = useState(false);
@@ -39,10 +38,7 @@ function CreateDeposit(props) {
                 break;
             case "transactionSource":
                 setTransactionSource(event.target.value);
-                break;
-            case "transactionCategory":
-                setTransactionCategory(event.target.value);
-                break;
+                break;           
             case "transactionValue":
                 setTransactionValue(event.target.value);
                 break;           
@@ -63,7 +59,6 @@ function CreateDeposit(props) {
                 params: {
                     accountID: accountID,
                     transactionSource: transactionSource,
-                    transactionCategory: transactionCategory,
                     transactionValue: transactionValue,
                 }
             }
@@ -122,14 +117,13 @@ function CreateDeposit(props) {
                     </option>
                 ))}
                 </select>
-                <br />              
+                <br />  
                 <label htmlFor="transactionSource">Source of Deposit</label>
-                <br />
-                <input id="transactionSource" type="text" onChange={handleFieldChange} />
-                <br />
-                <label htmlFor="transactionCategory">Categorize this Transaction</label>
-                <br />
-                <input id="transactionCategory" type="text" onChange={handleFieldChange} />
+                <select id="transactionSource" onChange={handleFieldChange}>
+                    <option value="" >Choose here</option>
+                    <option value="Bank">Bank</option>
+                    <option value="ATM">ATM</option>
+                </select>
                 <br />
                 <label htmlFor="transactionValue">Value of this transaction</label>
                 <br />
