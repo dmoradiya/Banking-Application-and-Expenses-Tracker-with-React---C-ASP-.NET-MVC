@@ -96,12 +96,37 @@ namespace Capstone_VV.Controllers
 
 
         [HttpPost("CreateDeposit")]
-        public ActionResult<Transaction> CreateDeposit_POST(string transactionSource, string transactionCategory, string transactionValue, DateTime transactionDate)
+        public ActionResult<Transaction> CreateDeposit_POST(string accountID, string transactionSource, string transactionCategory, string transactionValue, DateTime transactionDate)
         {
             ActionResult<Transaction> result;
             try
             {
-                result = new TransactionController().CreateDeposit(transactionSource, transactionCategory, transactionValue, transactionDate);
+                result = new TransactionController().CreateDeposit(accountID, transactionSource, transactionCategory, transactionValue, transactionDate);
+            }
+            catch (ValidationException e)
+            {
+                string error = "Error(s) During Creation: " +
+                    e.ValidationExceptions.Select(x => x.Message)
+                    .Aggregate((x, y) => x + ", " + y);
+
+                result = BadRequest(error);
+            }
+            catch (Exception)
+            {
+                result = StatusCode(500, "Unknown error occurred, please try again later.");
+            }
+            return result;
+
+        }
+
+        // Update Balance
+        [HttpPatch("UpdateBalance")]
+        public ActionResult<Account> UpdateBalance_PATCH(string accountID, string transactionValue)
+        {
+            ActionResult<Account> result;
+            try
+            {
+                result = new AccountController().UpdateBalance(accountID, transactionValue);
             }
             catch (ValidationException e)
             {

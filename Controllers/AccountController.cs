@@ -18,23 +18,17 @@ namespace Capstone_VV.Controllers
 
         // Methods
         public static int clientID;
-        public static int accountID;
         public List<Account> GetAccount()
         {
             List<Account> result;
             using (BankContext context = new BankContext())
             {
                 result = context.Accounts.Include(x => x.Client).Where(x=>x.ClientID == clientID).ToList();
-                    accountID = result.Select(x => x.AccountID).FirstOrDefault();
                 
             }
             return result;
         }
-        public int GetAccountID()
-        {
-            return accountID;
-        }
-       
+               
         public Client ClientAuthorization(string email, string password)
         {
             Client result;
@@ -83,6 +77,29 @@ namespace Capstone_VV.Controllers
                 context.Accounts.Add(newAccount);
                 context.SaveChanges();
                 return newAccount;
+            }
+        }
+
+        // UpdateBalance
+        public Account UpdateBalance(string accountID, string transactionValue)
+        {
+            Account result;
+            
+            ValidationException exception = new ValidationException();
+
+
+            using (BankContext context = new BankContext())
+            {
+
+                if (exception.ValidationExceptions.Count > 0)
+                {
+                    throw exception;
+                }
+
+                result = context.Accounts.Where(x => x.AccountID == int.Parse(accountID)).SingleOrDefault();
+                result.AccountBalance += double.Parse(transactionValue);
+                context.SaveChanges();
+                return result;
             }
         }
     }
