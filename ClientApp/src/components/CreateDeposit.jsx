@@ -5,6 +5,7 @@ import { Layout } from '../components/Layout';
 function CreateDeposit(props) {
     const [accountID, setAccountID] = useState("");
     const [transactionSource, setTransactionSource] = useState("");
+    const [accountID, setAccountID] = useState("");
     const [transactionCategory, setTransactionCategory] = useState("");
     const [transactionValue, setTransactionValue] = useState("");
     const [transactionDate, setTransactionDate] = useState("");
@@ -29,7 +30,7 @@ function CreateDeposit(props) {
         populateClientData();
     }, [loading]);
 
-
+       
     function handleFieldChange(event) {
         switch (event.target.id) {
             case "accountID":
@@ -139,7 +140,7 @@ function CreateDeposit(props) {
                 <br />
                 <input id="transactionValue" type="text" onChange={handleFieldChange} />
                 <br />
-            <input id="transactionDate" type="date" onChange={handleFieldChange} />
+                <input id="transactionDate" type="date" onChange={handleFieldChange} />
                 <br />
                 <input type="submit" className="btn btn-primary" value="Submit" />
             </form>
