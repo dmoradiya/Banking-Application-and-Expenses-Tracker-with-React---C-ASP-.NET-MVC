@@ -75,7 +75,7 @@ function CreateDeposit(props) {
         axios(
             {
                 method: 'patch',
-                url: 'BankAPI/UpdateBalance',
+                url: 'BankAPI/DepositBalance',
                 params: {
                     accountID: accountID,                    
                     transactionValue: transactionValue,

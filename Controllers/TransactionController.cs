@@ -59,8 +59,39 @@ namespace Capstone_VV.Controllers
             }
 
         }
+        public Transaction CreateWithdraw(string accountID, string transactionSource, string transactionValue)
+        {
 
-        
+
+            ValidationException exception = new ValidationException();
+
+
+            using (BankContext context = new BankContext())
+            {
+
+                if (exception.ValidationExceptions.Count > 0)
+                {
+                    throw exception;
+                }
+
+                Transaction newDeposit = new Transaction()
+                {
+                    AccountID = int.Parse(accountID),
+                    TransactionSource = transactionSource,
+                    TransactionCategory = "Withdraw",
+                    TransactionValue = double.Parse(transactionValue),
+                    TransactionDate = DateTime.Today
+
+                };
+                context.Transactions.Add(newDeposit);
+                context.SaveChanges();
+
+                return newDeposit;
+            }
+
+        }
+
+
 
     }
 }

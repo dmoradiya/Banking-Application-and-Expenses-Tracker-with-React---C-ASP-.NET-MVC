@@ -80,8 +80,8 @@ namespace Capstone_VV.Controllers
             }
         }
 
-        // UpdateBalance
-        public Account UpdateBalance(string accountID, string transactionValue)
+        // Update Deposit Balance
+        public Account DepositBalance(string accountID, string transactionValue)
         {
             Account result;
             
@@ -98,6 +98,37 @@ namespace Capstone_VV.Controllers
 
                 result = context.Accounts.Where(x => x.AccountID == int.Parse(accountID)).SingleOrDefault();
                 result.AccountBalance += double.Parse(transactionValue);
+                context.SaveChanges();
+                return result;
+            }
+        }
+        // Update Withdraw Balance
+        public Account WithdrawBalance(string accountID, string transactionValue)
+        {
+            Account result;
+
+            ValidationException exception = new ValidationException();
+
+
+            using (BankContext context = new BankContext())
+            {
+
+                if (exception.ValidationExceptions.Count > 0)
+                {
+                    throw exception;
+                }
+
+                result = context.Accounts.Where(x => x.AccountID == int.Parse(accountID)).SingleOrDefault();
+                if (result.AccountBalance < double.Parse(transactionValue))
+                {
+                    exception.ValidationExceptions.Add(new Exception("You Do Not have enough Balance to Withdraw"));
+                }
+
+                if (exception.ValidationExceptions.Count > 0)
+                {
+                    throw exception;
+                }
+                result.AccountBalance -= double.Parse(transactionValue);
                 context.SaveChanges();
                 return result;
             }
