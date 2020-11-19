@@ -96,12 +96,12 @@ namespace Capstone_VV.Controllers
 
 
         [HttpPost("CreateDeposit")]
-        public ActionResult<Transaction> CreateDeposit_POST(string accountID, string transactionSource, string transactionCategory, string transactionValue, DateTime transactionDate)
+        public ActionResult<Transaction> CreateDeposit_POST(string accountID, string transactionSource, string transactionCategory, string transactionValue)
         {
             ActionResult<Transaction> result;
             try
             {
-                result = new TransactionController().CreateDeposit(accountID, transactionSource, transactionCategory, transactionValue, transactionDate);
+                result = new TransactionController().CreateDeposit(accountID, transactionSource, transactionCategory, transactionValue);
             }
             catch (ValidationException e)
             {
