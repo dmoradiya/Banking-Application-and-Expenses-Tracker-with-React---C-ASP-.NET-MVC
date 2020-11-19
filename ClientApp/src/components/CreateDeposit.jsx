@@ -2,16 +2,17 @@
 import axios from 'axios';
 import { Layout } from '../components/Layout';
 
+
 function CreateDeposit(props) {
     const [accountID, setAccountID] = useState("");
     const [transactionSource, setTransactionSource] = useState("");
-    const [accountID, setAccountID] = useState("");
     const [transactionCategory, setTransactionCategory] = useState("");
     const [transactionValue, setTransactionValue] = useState("");
     const [transactionDate, setTransactionDate] = useState("");
     const [response, setResponse] = useState([]);
     const [waiting, setWaiting] = useState(false);
     const [isSubmit, setIsSubmit] = useState(false);
+
 
     const [accountInfo, setAccountInfo] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -29,6 +30,7 @@ function CreateDeposit(props) {
     useEffect(() => {
         populateClientData();
     }, [loading]);
+
 
        
     function handleFieldChange(event) {
@@ -73,8 +75,6 @@ function CreateDeposit(props) {
         ).then((res) => {
             setWaiting(false);
             setResponse(res.data);
-            
-
         }
         ).catch((err) => {
             setWaiting(false);
@@ -116,7 +116,7 @@ function CreateDeposit(props) {
 
             <br/>
             <form onSubmit={handleSubmit}>
-                
+              
                 <label htmlFor="accountID">Account Type</label>
                 <select id="accountID" onChange={handleFieldChange}>
                     <option value="" >Choose here</option>
@@ -127,7 +127,7 @@ function CreateDeposit(props) {
                     </option>
                 ))}
                 </select>
-                <br />
+                <br />              
                 <label htmlFor="transactionSource">Source of Deposit</label>
                 <br />
                 <input id="transactionSource" type="text" onChange={handleFieldChange} />
