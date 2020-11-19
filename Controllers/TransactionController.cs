@@ -29,7 +29,7 @@ namespace Capstone_VV.Controllers
             return result;
         }
 
-        public Transaction CreateDeposit(string transactionSource, string transactionCategory, string transactionValue, DateTime transactionDate)
+        public Transaction CreateDeposit(string accountID, string transactionSource, string transactionCategory, string transactionValue, DateTime transactionDate)
         {
 
             ValidationException exception = new ValidationException();
@@ -45,7 +45,7 @@ namespace Capstone_VV.Controllers
 
                 Transaction newDeposit = new Transaction()
                 {
-                    AccountID = new AccountController().GetAccountID(),
+                    AccountID = int.Parse(accountID),
                     TransactionSource = transactionSource,
                     TransactionCategory = transactionCategory,
                     TransactionValue = double.Parse(transactionValue),

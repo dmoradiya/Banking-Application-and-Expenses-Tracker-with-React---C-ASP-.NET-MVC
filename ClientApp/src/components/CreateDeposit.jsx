@@ -12,16 +12,18 @@ function CreateDeposit(props) {
     const [isSubmit, setIsSubmit] = useState(false);
 
     const [accountInfo, setAccountInfo] = useState([]);
+    const [loading, setLoading] = useState(true);
 
        
     async function populateClientData() {
         const response = await axios.get('BankAPI/LandingPage');
         setAccountInfo(response.data);
+        setLoading(false);
     }
 
     useEffect(() => {
         populateClientData();
-    });
+    }, [loading]);
 
 
     function handleFieldChange(event) {
@@ -64,6 +66,7 @@ function CreateDeposit(props) {
         ).then((res) => {
             setWaiting(false);
             setResponse(res.data);
+            
 
         }
         ).catch((err) => {
@@ -80,12 +83,13 @@ function CreateDeposit(props) {
 
             <br/>
             <form onSubmit={handleSubmit}>
-
+                
                 <label htmlFor="accountID">Account Type</label>
                 <select id="accountID" onChange={handleFieldChange}>
-                {accountInfo.map(client => (
-                    <option key={client.accountID} value={client.accountID}>
-                        {`${client.accountType}      Total Balance: $${client.accountBalance + client.accountInterest}`}
+                    {accountInfo.map(client => (
+                        <option key={client.accountID} value={`${client.accountID}`}>
+                            {console.log(client.accountID)}
+                        {`${client.accountType} Account      Total Balance: $${client.accountBalance + client.accountInterest}`}
                     </option>
                 ))}
                 </select>
