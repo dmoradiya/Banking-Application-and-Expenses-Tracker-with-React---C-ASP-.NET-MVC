@@ -1,5 +1,6 @@
 ﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Layout } from '../components/Layout';
 
 function CreateDeposit(props) {
     const [accountID, setAccountID] = useState("");
@@ -13,6 +14,9 @@ function CreateDeposit(props) {
 
     const [accountInfo, setAccountInfo] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    const [patchResponse, setPatchResponse] = useState([]);
+    const [patchWaiting, setPatchWaiting] = useState(false);
 
        
     async function populateClientData() {
@@ -48,9 +52,11 @@ function CreateDeposit(props) {
 
     function handleSubmit(event) {
         event.preventDefault();
-        setWaiting(true);
+        setWaiting(true);       
+        setPatchWaiting(true);
         setIsSubmit(true);
 
+        // Post Request
         axios(
             {
                 method: 'post',
@@ -73,19 +79,46 @@ function CreateDeposit(props) {
             setWaiting(false);
             setResponse(err.response.data);
         });
+
+        // Patch Request
+        axios(
+            {
+                method: 'patch',
+                url: 'BankAPI/UpdateBalance',
+                params: {
+                    accountID: accountID,                    
+                    transactionValue: transactionValue,
+                }
+            }
+        ).then((res) => {
+            setPatchWaiting(false);
+            setPatchResponse(res.data);
+
+
+        }
+        ).catch((err) => {
+            setPatchWaiting(false);
+            setPatchResponse(err.response.data);
+        });
+
+
+
         event.target.reset();
     }
 
     return (
         <div>
+            <Layout />
             <h1> Make a Deposit </h1>
             <p>{isSubmit ? <p>{waiting ? "Waiting..." : `${response}`}</p> : ""}</p>
+            <p>{isSubmit ? <p>{patchWaiting ? "Waiting..." : `${patchResponse}`}</p> : ""}</p>
 
             <br/>
             <form onSubmit={handleSubmit}>
                 
                 <label htmlFor="accountID">Account Type</label>
                 <select id="accountID" onChange={handleFieldChange}>
+                    <option value="" >Choose here</option>
                     {accountInfo.map(client => (
                         <option key={client.accountID} value={`${client.accountID}`}>
                             {console.log(client.accountID)}

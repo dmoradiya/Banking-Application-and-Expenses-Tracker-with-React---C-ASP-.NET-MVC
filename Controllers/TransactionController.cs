@@ -16,7 +16,6 @@ namespace Capstone_VV.Controllers
             return View();
         }
 
-        public static int transactionCreateID;
 
         // Methods
         public List<Transaction> GetTransactions(string id)
@@ -31,6 +30,7 @@ namespace Capstone_VV.Controllers
 
         public Transaction CreateDeposit(string accountID, string transactionSource, string transactionCategory, string transactionValue, DateTime transactionDate)
         {
+          
 
             ValidationException exception = new ValidationException();
 
@@ -54,16 +54,13 @@ namespace Capstone_VV.Controllers
                 };
                 context.Transactions.Add(newDeposit);
                 context.SaveChanges();
-
+                               
                 return newDeposit;
             }
 
         }
 
-        public int GetCreateTransactionID()
-        {
-            return transactionCreateID;
-        }
+        
 
     }
 }
