@@ -9,10 +9,14 @@ function ViewTransactions(props) {
     const [transactions, setTransactions] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    // Citation Start
+    // Link :https://stackoverflow.com/questions/52652661/how-to-get-query-string-using-react
+    // purpose : Get parameter from the URL string
     let search = window.location.search;
     let params = new URLSearchParams(search);
     let accountID = params.get('id');
-    console.log(accountID);
+    //console.log(accountID);
+    // Citation End
 
 
     function renderClientInfoTable(transactions) {
