@@ -1,28 +1,47 @@
-﻿import React, { useState } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useHistory } from "react-router-dom";
 
 function CreateWithdraw(props) {
+    const [accountID, setAccountID] = useState("");
     const [transactionSource, setTransactionSource] = useState("");
     const [transactionCategory, setTransactionCategory] = useState("");
     const [transactionValue, setTransactionValue] = useState("");
-    const transactionDate = new Date().getDate();
-
+    const [transactionDate, setTransactionDate] = useState("");
     const [response, setResponse] = useState([]);
     const [waiting, setWaiting] = useState(false);
     const [isSubmit, setIsSubmit] = useState(false);
-    const history = useHistory();
+
+    const [accountInfo, setAccountInfo] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+
+    async function populateClientData() {
+        const response = await axios.get('BankAPI/LandingPage');
+        setAccountInfo(response.data);
+        setLoading(false);
+    }
+
+    useEffect(() => {
+        populateClientData();
+    }, [loading]);
+
 
     function handleFieldChange(event) {
         switch (event.target.id) {
+            case "accountID":
+                setAccountID(event.target.value);
+                break;
             case "transactionSource":
                 setTransactionSource(event.target.value);
                 break;
             case "transactionCategory":
                 setTransactionCategory(event.target.value);
                 break;
-            case "transactionAmount":
+            case "transactionValue":
                 setTransactionValue(event.target.value);
+                break;
+            case "transactionDate":
+                setTransactionDate(event.target.value);
                 break;
         }
     }
@@ -37,7 +56,7 @@ function CreateWithdraw(props) {
                 method: 'post',
                 url: 'BankAPI/CreateWithdraw',
                 params: {
-                    // TODO: Add reference to parent Account ID
+                    accountID: accountID,
                     transactionSource: transactionSource,
                     transactionCategory: transactionCategory,
                     transactionValue: transactionValue,
@@ -47,7 +66,7 @@ function CreateWithdraw(props) {
         ).then((res) => {
             setWaiting(false);
             setResponse(res.data);
-            history.push("/create-withdraw");
+
 
         }
         ).catch((err) => {
@@ -59,12 +78,23 @@ function CreateWithdraw(props) {
 
     return (
         <div>
-            <h1> Make a Withdrawal </h1>
+            <h1> Withdraw Money from your Account (ATM) </h1>
             <p>{isSubmit ? <p>{waiting ? "Waiting..." : `${response}`}</p> : ""}</p>
 
             <br />
             <form onSubmit={handleSubmit}>
-                <label htmlFor="transactionSource">Name this Withdrawal </label>
+
+                <label htmlFor="accountID">Account Type</label>
+                <select id="accountID" onChange={handleFieldChange}>
+                    {accountInfo.map(client => (
+                        <option key={client.accountID} value={`${client.accountID}`}>
+                            {console.log(client.accountID)}
+                            {`${client.accountType} Account      Total Balance: $${client.accountBalance + client.accountInterest}`}
+                        </option>
+                    ))}
+                </select>
+                <br />
+                <label htmlFor="transactionSource">Name this Transaction</label>
                 <br />
                 <input id="transactionSource" type="text" onChange={handleFieldChange} />
                 <br />
@@ -72,9 +102,11 @@ function CreateWithdraw(props) {
                 <br />
                 <input id="transactionCategory" type="text" onChange={handleFieldChange} />
                 <br />
-                <label htmlFor="transactionValue">Value of this transaction</label>
+                <label htmlFor="transactionValue">Value</label>
                 <br />
                 <input id="transactionValue" type="text" onChange={handleFieldChange} />
+                <br />
+                <input id="transactionDate" type="date" onChange={handleFieldChange} />
                 <br />
                 <input type="submit" className="btn btn-primary" value="Submit" />
             </form>
