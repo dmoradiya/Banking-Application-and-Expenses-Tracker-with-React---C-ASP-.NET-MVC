@@ -2,6 +2,7 @@
 import axios from 'axios';
 
 function CreateDeposit(props) {
+    const [accountID, setAccountID] = useState("");
     const [transactionSource, setTransactionSource] = useState("");
     const [transactionCategory, setTransactionCategory] = useState("");
     const [transactionValue, setTransactionValue] = useState("");
@@ -53,7 +54,7 @@ function CreateDeposit(props) {
                 method: 'post',
                 url: 'BankAPI/CreateDeposit',
                 params: {
-                    accountID: 1,
+                    accountID: accountID,
                     transactionSource: transactionSource,
                     transactionCategory: transactionCategory,
                     transactionValue: transactionValue,
@@ -84,10 +85,11 @@ function CreateDeposit(props) {
                 <select id="accountID" onChange={handleFieldChange}>
                 {accountInfo.map(client => (
                     <option key={client.accountID} value={client.accountID}>
-                        {client.accountType}
+                        {`${client.accountType}      Total Balance: $${client.accountBalance + client.accountInterest}`}
                     </option>
                 ))}
                 </select>
+                <br />
                 <label htmlFor="transactionSource">Source of Deposit</label>
                 <br />
                 <input id="transactionSource" type="text" onChange={handleFieldChange} />
