@@ -18,24 +18,15 @@ namespace Capstone_VV.Controllers
 
         // Methods
         public static int clientID;
-        public List<Account> GetAccount()
+
+        public Account ClientAuthorization(string email, string password)
         {
-            List<Account> result;
-            using (BankContext context = new BankContext())
-            {
-                result = context.Accounts.Include(x => x.Client).Where(x=>x.ClientID == clientID && x.IsActive == true).ToList();
-            }
-            return result;
-        }
-               
-        public Client ClientAuthorization(string email, string password)
-        {
-            Client result;
+            Account result;
             ValidationException exception = new ValidationException();
 
             using (BankContext context = new BankContext())
             {
-                if (!context.Clients.Any(x => x.EmailAddress.ToLower() == email.ToLower() && x.Password == password))
+                if (!context.Accounts.Include(x => x.Client).Any(x => x.Client.EmailAddress.ToLower() == email.ToLower() && x.Client.Password == password && x.IsActive == true))
                 {
                     exception.ValidationExceptions.Add(new Exception("You are not allowed to log in please join new account"));
                 }
@@ -45,11 +36,21 @@ namespace Capstone_VV.Controllers
                     throw exception;
                 }
 
-                result = context.Clients.Where(x => x.EmailAddress == email && x.Password == password).SingleOrDefault();
+                result = context.Accounts.Include(x => x.Client).Where(x => x.Client.EmailAddress == email && x.Client.Password == password && x.IsActive == true).SingleOrDefault();
                 clientID = result.ClientID;
             }
             return result;
         }
+        public List<Account> GetAccount()
+        {
+            List<Account> result;
+            using (BankContext context = new BankContext())
+            {
+                result = context.Accounts.Include(x => x.Client).Where(x=>x.ClientID == clientID && x.IsActive == true).ToList();
+            }
+            return result;
+        }
+             
         public Account CreateAccount(string accountType)
         {
 

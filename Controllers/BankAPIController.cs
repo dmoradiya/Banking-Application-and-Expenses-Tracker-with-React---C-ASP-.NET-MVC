@@ -19,9 +19,9 @@ namespace Capstone_VV.Controllers
             return new AccountController().GetAccount();
         }
         [HttpPost("Login")]
-        public ActionResult<Client> Login_POST(string email, string password)
+        public ActionResult<Account> Login_POST(string email, string password)
         {
-            ActionResult<Client> result;
+            ActionResult<Account> result;
             try
             {
                 result = new AccountController().ClientAuthorization(email, password);
