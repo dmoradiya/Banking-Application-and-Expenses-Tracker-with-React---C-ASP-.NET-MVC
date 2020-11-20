@@ -26,7 +26,7 @@ namespace Capstone_VV.Controllers
 
             using (BankContext context = new BankContext())
             {
-                if (!context.Accounts.Include(x => x.Client).Any(x => x.Client.EmailAddress.ToLower() == email.ToLower() && x.Client.Password == password && x.IsActive == true))
+                if (!context.Accounts.Include(x => x.Client).Any(x => x.Client.EmailAddress.ToLower() == email.ToLower() && x.Client.Password == password))
                 {
                     exception.ValidationExceptions.Add(new Exception("You are not allowed to log in please join new account"));
                 }
@@ -36,7 +36,7 @@ namespace Capstone_VV.Controllers
                     throw exception;
                 }
 
-                result = context.Accounts.Include(x => x.Client).Where(x => x.Client.EmailAddress == email && x.Client.Password == password && x.IsActive == true).SingleOrDefault();
+                result = context.Accounts.Include(x => x.Client).Where(x => x.Client.EmailAddress == email && x.Client.Password == password).SingleOrDefault();
                 clientID = result.ClientID;
             }
             return result;
