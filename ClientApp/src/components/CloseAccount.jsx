@@ -67,7 +67,7 @@ function CloseAccount(props) {
     return (
         <div>
             <Layout />
-            <h1> Make a Deposit </h1>
+            <h1> Close Your Account </h1>
             <p>{isSubmit ? <p>{waiting ? "Waiting..." : `${response}`}</p> : ""}</p>
 
             <br />

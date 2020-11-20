@@ -29,13 +29,14 @@ function ArchiveNotification(props) {
         ).then((res) => {
             setWaiting(false);
             setResponse(res.data);
-            history.push("/landing-page");
+            history.push("/");
         }
         ).catch((err) => {
             setWaiting(false);
             setResponse(err.response.data);
         });
-
+        history.push("/");
+        event.target.reset();
 
     }
 
