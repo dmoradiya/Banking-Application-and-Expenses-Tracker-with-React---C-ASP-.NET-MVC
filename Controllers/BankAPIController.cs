@@ -146,12 +146,12 @@ namespace Capstone_VV.Controllers
 
         // Create Withdraw
         [HttpPost("CreateWithdraw")]
-        public ActionResult<Transaction> CreateWithdraw_POST(string accountID, string transactionSource, string transactionValue)
+        public ActionResult<Transaction> CreateWithdraw_POST(string accountID, string transactionValue, string transactionSource = "Bill Payment", string transactionCategory = "Withdraw", DateTime transactionDate = default(DateTime))
         {
             ActionResult<Transaction> result;
             try
             {
-                result = new TransactionController().CreateWithdraw(accountID, transactionSource, transactionValue);
+                result = new TransactionController().CreateWithdraw(accountID, transactionValue, transactionSource, transactionCategory,, transactionDate);
             }
             catch (ValidationException e)
             {

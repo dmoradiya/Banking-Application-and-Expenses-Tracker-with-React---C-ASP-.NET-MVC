@@ -99,7 +99,7 @@ function CreateWithdraw(props) {
     return (
         <div>
             <Layout />
-            <h1> Make a Deposit </h1>
+            <h1> Make a Withdraw </h1>
             <p>{isSubmit ? <p>{waiting ? "Waiting..." : `${response}`}</p> : ""}</p>
             <p>{isSubmit ? <p>{patchWaiting ? "Waiting..." : `${patchResponse}`}</p> : ""}</p>
 
