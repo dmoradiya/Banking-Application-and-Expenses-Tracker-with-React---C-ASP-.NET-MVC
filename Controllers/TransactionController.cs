@@ -80,7 +80,7 @@ namespace Capstone_VV.Controllers
                     AccountID = int.Parse(accountID),
                     TransactionSource = transactionSource,
                     TransactionCategory = transactionCategory,
-                    TransactionValue = double.Parse(transactionValue),
+                    TransactionValue = -double.Parse(transactionValue),
                     TransactionDate = DateTime.Parse(transactionDate)
 
                 };
