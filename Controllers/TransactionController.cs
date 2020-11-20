@@ -24,7 +24,7 @@ namespace Capstone_VV.Controllers
             List<Transaction> result;
             using (BankContext context = new BankContext())
             {
-                result = context.Transactions.Include(x => x.Account).Where(x => x.AccountID == int.Parse(id)).ToList();
+                result = context.Transactions.Include(x => x.Account).Where(x => x.AccountID == int.Parse(id) && x.Account.IsActive == true).ToList();
             }
             return result;
         }

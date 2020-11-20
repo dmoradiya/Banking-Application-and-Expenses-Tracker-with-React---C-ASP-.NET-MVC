@@ -193,7 +193,31 @@ namespace Capstone_VV.Controllers
             return result;
 
         }
+        // Close Account
+        [HttpPatch("CloseAccount")]
+        public ActionResult<Account> CloseAccount_PATCH(string accountID)
+        {
+            ActionResult<Account> result;
+            try
+            {
+                result = new AccountController().CloseAccount(accountID);
+            }
+            catch (ValidationException e)
+            {
+                string error = "Error(s) During Creation: " +
+                    e.ValidationExceptions.Select(x => x.Message)
+                    .Aggregate((x, y) => x + ", " + y);
 
-      
+                result = BadRequest(error);
+            }
+            catch (Exception)
+            {
+                result = StatusCode(500, "Unknown error occurred, please try again later.");
+            }
+            return result;
+
+        }
+
+
     }
 }

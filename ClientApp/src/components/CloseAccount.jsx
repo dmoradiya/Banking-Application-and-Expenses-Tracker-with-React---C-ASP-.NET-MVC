@@ -82,7 +82,7 @@ function CloseAccount(props) {
                     ))}
                 </select>               
                 <br />
-                <input type="submit" className="btn btn-primary" value="Submit" />
+                <input type="submit" className="btn btn-primary" value="Close Account" />
             </form>
         </div>
 

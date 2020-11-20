@@ -23,8 +23,7 @@ namespace Capstone_VV.Controllers
             List<Account> result;
             using (BankContext context = new BankContext())
             {
-                result = context.Accounts.Include(x => x.Client).Where(x=>x.ClientID == clientID).ToList();
-                
+                result = context.Accounts.Include(x => x.Client).Where(x=>x.ClientID == clientID && x.IsActive == true).ToList();
             }
             return result;
         }
@@ -112,12 +111,7 @@ namespace Capstone_VV.Controllers
 
             using (BankContext context = new BankContext())
             {
-
-                if (exception.ValidationExceptions.Count > 0)
-                {
-                    throw exception;
-                }
-
+                                
                 result = context.Accounts.Where(x => x.AccountID == int.Parse(accountID)).SingleOrDefault();
                 if (result.AccountBalance < double.Parse(transactionValue))
                 {
@@ -129,6 +123,29 @@ namespace Capstone_VV.Controllers
                     throw exception;
                 }
                 result.AccountBalance -= double.Parse(transactionValue);
+                context.SaveChanges();
+                return result;
+            }
+        }
+
+        // Close Account 
+        public Account CloseAccount(string accountID)
+        {
+            Account result;
+
+            ValidationException exception = new ValidationException();
+
+
+            using (BankContext context = new BankContext())
+            {
+
+                result = context.Accounts.Where(x => x.AccountID == int.Parse(accountID)).SingleOrDefault();
+               
+                if (exception.ValidationExceptions.Count > 0)
+                {
+                    throw exception;
+                }
+                result.IsActive = false;
                 context.SaveChanges();
                 return result;
             }
