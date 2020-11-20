@@ -1,12 +1,14 @@
 ﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Layout } from '../components/Layout';
+import { useHistory } from "react-router-dom";
 
 
 function ArchiveNotification(props) {
     const [response, setResponse] = useState([]);
     const [waiting, setWaiting] = useState(false);
     const [isSubmit, setIsSubmit] = useState(false);
+    const history = useHistory();
 
 
 
@@ -22,8 +24,6 @@ function ArchiveNotification(props) {
                 method: 'post',
                 url: 'BankAPI/Login',
                 params: {
-                    email: email,
-                    password: password,
                 }
             }
         ).then((res) => {
