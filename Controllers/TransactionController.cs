@@ -75,7 +75,7 @@ namespace Capstone_VV.Controllers
                     throw exception;
                 }
 
-                Transaction newDeposit = new Transaction()
+                Transaction newWithdraw = new Transaction()
                 {
                     AccountID = int.Parse(accountID),
                     TransactionSource = transactionSource,
@@ -84,10 +84,10 @@ namespace Capstone_VV.Controllers
                     TransactionDate = DateTime.Parse(transactionDate)
 
                 };
-                context.Transactions.Add(newDeposit);
+                context.Transactions.Add(newWithdraw);
                 context.SaveChanges();
 
-                return newDeposit;
+                return newWithdraw;
             }
 
         }

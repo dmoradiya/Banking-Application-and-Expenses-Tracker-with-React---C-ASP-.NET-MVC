@@ -41,9 +41,6 @@ function CreateWithdraw(props) {
             case "transactionValue":
                 setTransactionValue(event.target.value);
                 break;
-            case "transactionDate":
-                setTransactionDate(event.target.value);
-                break;
         }
     }
 
@@ -134,8 +131,6 @@ function CreateWithdraw(props) {
                 <label htmlFor="transactionValue">Value</label>
                 <br />
                 <input id="transactionValue" type="text" onChange={handleFieldChange} />
-                <br />
-                <input id="transactionDate" type="date" onChange={handleFieldChange} />
                 <br />
                 <input type="submit" className="btn btn-primary" value="Submit" />
             </form>

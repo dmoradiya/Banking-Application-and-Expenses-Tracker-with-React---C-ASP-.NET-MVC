@@ -148,9 +148,6 @@ function PayBills(props) {
                 <input id="transactionValue" type="text" onChange={handleFieldChange} />
                 <br />
                 <label htmlFor="transactionDate">Transaction Date</label>
-
-                <br />
-                <input id="transactionDate" type="date" onChange={handleFieldChange} />
                 <br />
                 <input id="transactionDate" type="date" onChange={handleFieldChange} />
                 <br />
