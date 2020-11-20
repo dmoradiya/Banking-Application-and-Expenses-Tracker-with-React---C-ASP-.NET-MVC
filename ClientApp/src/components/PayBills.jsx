@@ -1,9 +1,11 @@
 ﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import { Layout } from '../components/Layout';
+
 function PayBills(props) {
     const [accountID, setAccountID] = useState("");
-    const [transactionSource, setTransactionSource] = useState("");
+
     const [transactionCategory, setTransactionCategory] = useState("");
     const [transactionValue, setTransactionValue] = useState("");
     const [transactionDate, setTransactionDate] = useState("");
@@ -13,6 +15,10 @@ function PayBills(props) {
 
     const [accountInfo, setAccountInfo] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    const [patchResponse, setPatchResponse] = useState([]);
+    const [patchWaiting, setPatchWaiting] = useState(false);
+
 
 
     async function populateClientData() {
@@ -26,13 +32,11 @@ function PayBills(props) {
     }, [loading]);
 
 
+
     function handleFieldChange(event) {
         switch (event.target.id) {
             case "accountID":
                 setAccountID(event.target.value);
-                break;
-            case "transactionSource":
-                setTransactionSource(event.target.value);
                 break;
             case "transactionCategory":
                 setTransactionCategory(event.target.value);
@@ -49,43 +53,70 @@ function PayBills(props) {
     function handleSubmit(event) {
         event.preventDefault();
         setWaiting(true);
+        setPatchWaiting(true);
         setIsSubmit(true);
 
+        // Post Request
         axios(
             {
                 method: 'post',
-                url: 'BankAPI/PayBills',
+                url: 'BankAPI/CreateWithdraw',
                 params: {
                     accountID: accountID,
-                    transactionSource: transactionSource,
                     transactionCategory: transactionCategory,
                     transactionValue: transactionValue,
-                    transactionDate: transactionDate
+                    transactionDate: transactionDate,
                 }
             }
         ).then((res) => {
             setWaiting(false);
             setResponse(res.data);
-
-
         }
         ).catch((err) => {
             setWaiting(false);
             setResponse(err.response.data);
         });
+
+        // Patch Request
+        axios(
+            {
+                method: 'patch',
+                url: 'BankAPI/WithdrawBalance',
+                params: {
+                    accountID: accountID,
+                    transactionValue: transactionValue,
+                }
+            }
+        ).then((res) => {
+            setPatchWaiting(false);
+            setPatchResponse(res.data);
+
+
+        }
+        ).catch((err) => {
+            setPatchWaiting(false);
+            setPatchResponse(err.response.data);
+        });
+
+
+
         event.target.reset();
     }
 
     return (
         <div>
-            <h1> Pay a Bill </h1>
+            <Layout />
+            <h1> Pay Bills </h1>
             <p>{isSubmit ? <p>{waiting ? "Waiting..." : `${response}`}</p> : ""}</p>
+            <p>{isSubmit ? <p>{patchWaiting ? "Waiting..." : `${patchResponse}`}</p> : ""}</p>
 
             <br />
             <form onSubmit={handleSubmit}>
 
                 <label htmlFor="accountID">Account Type</label>
                 <select id="accountID" onChange={handleFieldChange}>
+                    <option value="" >Choose here</option>
+
                     {accountInfo.map(client => (
                         <option key={client.accountID} value={`${client.accountID}`}>
                             {console.log(client.accountID)}
@@ -93,27 +124,39 @@ function PayBills(props) {
                         </option>
                     ))}
                 </select>
+
                 <br />
-                <label htmlFor="transactionSource">Bill Name</label>
+                <label htmlFor="transactionCategory">Transaction Category</label>
+                <select id="transactionCategory" onChange={handleFieldChange}>
+                    <option value="" >Choose here</option>
+                    <option value="Food">Food</option>
+                    <option value="Rent/Mortgage">Rent/Mortgage</option>
+                    <option value="Utilities">Utilities</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Phone">Phone</option>
+                    <option value="Internet">Internet</option>
+                    <option value="Health">Health</option>
+                    <option value="Memberships">Memberships</option>
+                    <option value="Subscriptions">Subscriptions</option>
+                    <option value="Other">Other</option>
+                </select>
                 <br />
-                <input id="transactionSource" type="text" onChange={handleFieldChange} />
-                <br />
-                <label htmlFor="transactionCategory">Categorize this Bill Payment</label>
-                <br />
-                <input id="transactionCategory" type="text" onChange={handleFieldChange} />
-                <br />
+
                 <label htmlFor="transactionValue">Value of this transaction</label>
+
                 <br />
                 <input id="transactionValue" type="text" onChange={handleFieldChange} />
+                <br />
+                <label htmlFor="transactionDate">Transaction Date</label>
+
+                <br />
+                <input id="transactionDate" type="date" onChange={handleFieldChange} />
                 <br />
                 <input id="transactionDate" type="date" onChange={handleFieldChange} />
                 <br />
                 <input type="submit" className="btn btn-primary" value="Submit" />
             </form>
         </div>
-
-
     );
-
 }
 export { PayBills };

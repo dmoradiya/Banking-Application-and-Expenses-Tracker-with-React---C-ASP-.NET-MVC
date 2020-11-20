@@ -2,16 +2,15 @@
 import axios from 'axios';
 import { Layout } from '../components/Layout';
 
+
 function CreateDeposit(props) {
     const [accountID, setAccountID] = useState("");
     const [transactionSource, setTransactionSource] = useState("");
-    const [accountID, setAccountID] = useState("");
-    const [transactionCategory, setTransactionCategory] = useState("");
     const [transactionValue, setTransactionValue] = useState("");
-    const [transactionDate, setTransactionDate] = useState("");
     const [response, setResponse] = useState([]);
     const [waiting, setWaiting] = useState(false);
     const [isSubmit, setIsSubmit] = useState(false);
+
 
     const [accountInfo, setAccountInfo] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -30,6 +29,7 @@ function CreateDeposit(props) {
         populateClientData();
     }, [loading]);
 
+
        
     function handleFieldChange(event) {
         switch (event.target.id) {
@@ -38,16 +38,10 @@ function CreateDeposit(props) {
                 break;
             case "transactionSource":
                 setTransactionSource(event.target.value);
-                break;
-            case "transactionCategory":
-                setTransactionCategory(event.target.value);
-                break;
+                break;           
             case "transactionValue":
                 setTransactionValue(event.target.value);
-                break;
-            case "transactionDate":
-                setTransactionDate(event.target.value);
-                break;
+                break;           
         }
     }
 
@@ -65,16 +59,12 @@ function CreateDeposit(props) {
                 params: {
                     accountID: accountID,
                     transactionSource: transactionSource,
-                    transactionCategory: transactionCategory,
                     transactionValue: transactionValue,
-                    transactionDate: transactionDate
                 }
             }
         ).then((res) => {
             setWaiting(false);
             setResponse(res.data);
-            
-
         }
         ).catch((err) => {
             setWaiting(false);
@@ -85,7 +75,7 @@ function CreateDeposit(props) {
         axios(
             {
                 method: 'patch',
-                url: 'BankAPI/UpdateBalance',
+                url: 'BankAPI/DepositBalance',
                 params: {
                     accountID: accountID,                    
                     transactionValue: transactionValue,
@@ -116,7 +106,7 @@ function CreateDeposit(props) {
 
             <br/>
             <form onSubmit={handleSubmit}>
-                
+              
                 <label htmlFor="accountID">Account Type</label>
                 <select id="accountID" onChange={handleFieldChange}>
                     <option value="" >Choose here</option>
@@ -127,20 +117,17 @@ function CreateDeposit(props) {
                     </option>
                 ))}
                 </select>
-                <br />
+                <br />  
                 <label htmlFor="transactionSource">Source of Deposit</label>
-                <br />
-                <input id="transactionSource" type="text" onChange={handleFieldChange} />
-                <br />
-                <label htmlFor="transactionCategory">Categorize this Transaction</label>
-                <br />
-                <input id="transactionCategory" type="text" onChange={handleFieldChange} />
+                <select id="transactionSource" onChange={handleFieldChange}>
+                    <option value="" >Choose here</option>
+                    <option value="Bank">Bank</option>
+                    <option value="ATM">ATM</option>
+                </select>
                 <br />
                 <label htmlFor="transactionValue">Value of this transaction</label>
                 <br />
                 <input id="transactionValue" type="text" onChange={handleFieldChange} />
-                <br />
-                <input id="transactionDate" type="date" onChange={handleFieldChange} />
                 <br />
                 <input type="submit" className="btn btn-primary" value="Submit" />
             </form>

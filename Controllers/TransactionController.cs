@@ -29,7 +29,7 @@ namespace Capstone_VV.Controllers
             return result;
         }
 
-        public Transaction CreateDeposit(string accountID, string transactionSource, string transactionCategory, string transactionValue, DateTime transactionDate)
+        public Transaction CreateDeposit(string accountID, string transactionSource, string transactionValue)
         {
           
 
@@ -48,9 +48,9 @@ namespace Capstone_VV.Controllers
                 {
                     AccountID = int.Parse(accountID),
                     TransactionSource = transactionSource,
-                    TransactionCategory = transactionCategory,
+                    TransactionCategory = "Deposit",
                     TransactionValue = double.Parse(transactionValue),
-                    TransactionDate = transactionDate
+                    TransactionDate = DateTime.Today
 
                 };
                 context.Transactions.Add(newDeposit);
@@ -60,9 +60,9 @@ namespace Capstone_VV.Controllers
             }
 
         }
-
-        public Transaction CreateWithdraw(string accountID, string transactionSource, string transactionCategory, string transactionValue, DateTime transactionDate)
+        public Transaction CreateWithdraw(string accountID, string transactionValue, string transactionDate, string transactionSource = "Bill Payment", string transactionCategory = "Withdraw")
         {
+
 
             ValidationException exception = new ValidationException();
 
@@ -75,57 +75,21 @@ namespace Capstone_VV.Controllers
                     throw exception;
                 }
 
-                Transaction newWithdraw = new Transaction()
+                Transaction newDeposit = new Transaction()
                 {
                     AccountID = int.Parse(accountID),
                     TransactionSource = transactionSource,
                     TransactionCategory = transactionCategory,
                     TransactionValue = double.Parse(transactionValue),
-                    TransactionDate = transactionDate
+                    TransactionDate = DateTime.Parse(transactionDate)
 
                 };
-                context.Transactions.Add(newWithdraw);
+                context.Transactions.Add(newDeposit);
                 context.SaveChanges();
 
-                return newWithdraw;
+                return newDeposit;
             }
 
-        }
-
-        public Transaction PayBills(string accountID, string transactionSource, string transactionCategory, string transactionValue, DateTime transactionDate)
-        {
-
-            ValidationException exception = new ValidationException();
-
-
-            using (BankContext context = new BankContext())
-            {
-
-                if (exception.ValidationExceptions.Count > 0)
-                {
-                    throw exception;
-                }
-
-                Transaction newBillPayment = new Transaction()
-                {
-                    AccountID = int.Parse(accountID),
-                    TransactionSource = transactionSource,
-                    TransactionCategory = transactionCategory,
-                    TransactionValue = double.Parse(transactionValue),
-                    TransactionDate = transactionDate
-
-                };
-                context.Transactions.Add(newBillPayment);
-                context.SaveChanges();
-
-                return newBillPayment;
-            }
-
-        }
-
-        public int GetCreateTransactionID()
-        {
-            return transactionCreateID;
         }
 
     }
