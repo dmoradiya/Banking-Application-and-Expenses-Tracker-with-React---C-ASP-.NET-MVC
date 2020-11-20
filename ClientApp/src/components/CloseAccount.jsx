@@ -1,6 +1,7 @@
 ﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Layout } from '../components/Layout';
+import { useHistory } from "react-router-dom";
 
 
 function CloseAccount(props) {
@@ -12,6 +13,7 @@ function CloseAccount(props) {
     // Populate DropDown Select Option with Account(S)
     const [accountInfo, setAccountInfo] = useState([]);
     const [loading, setLoading] = useState(true);
+    const history = useHistory();
 
    
     async function populateClientData() {
@@ -58,14 +60,14 @@ function CloseAccount(props) {
             setWaiting(false);
             setResponse(err.response.data);
         });
-
+        history.push("/archive-notification");
         event.target.reset();
     }
 
     return (
         <div>
             <Layout />
-            <h1> Make a Deposit </h1>
+            <h1> Close Your Account </h1>
             <p>{isSubmit ? <p>{waiting ? "Waiting..." : `${response}`}</p> : ""}</p>
 
             <br />
