@@ -1,29 +1,58 @@
-﻿# Foobar
+﻿# Virtual Velocity Banking Application
 
-Foobar is a Python library for dealing with word pluralization.
+VVBA is a simple banking application that allows to operate banking tasks and view a history of their transactions. 
 
-## Installation
+## Admin
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+This project has an active [Trello Board](https://trello.com/b/322c1Wa2).
+
+This project has an active [Figma Page](https://www.figma.com/file/6il3fCmu5tSvtvRl3hgCAY/Banking-Application?node-id=0%3A1).
+
+
+## Installation and Required Packages
+
+Use the NuGet package manater to install the required packages. Note the required versions for each of the packages:
 
 ```bash
-pip install foobar
+Microsoft.AspNetCore.Mvc.NewtonsoftJson - Version 3.1.9
+
+Microsoft.AspNetCore.SpaServices.Extensions - Version 3.1.9
+
+Microsoft.EntityFrameworkCore.Design - Version 3.1.9
+
+Microsoft.EntityFrameworkCore.SqlServer - Version 3.1.9
+
+Pomelo.EntityFrameworkCore.MySql - Version 3.2.4
 ```
 
-## Usage
-
-```python
-import foobar
-
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
+Use npm to install axios:
+```bash
+npm install axios
+```
+Connect to XAMPP, create a server. Update your local database with the pre-filled seed data using the following command:
+```bash
+dotnet ef database update
 ```
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+## Application Features
+- [ ] User can Login with their email address and password.
+- [ ] User can Create a new Client.
+- [ ] User can Create new Accounts.
+- [ ] User can Create new Transactions:
+- [ ] User can Create a new 'Deposit' Transaction.
+- [ ] User can Create a new 'Withdraw' Transaction.
+- [ ] User can Create a new 'Pay Bills' Transaction.
+- [ ] User can access a 'Landing' Page with all their Active Accounts and their Account Balances.
+- [ ] User can access a 'Transaction List' Page which will show their transactions tabulated for a given account. 
+- [ ] User can Close an Account.
 
-Please make sure to update tests as appropriate.
+## Challenge Goals
+- [ ] User can access a 'Contact Us' page.
+- [ ] User can access a 'FAQs' page.
+- [ ] User can access a 'Careers' page.
+- [ ] User can access a 'Transaction Details' page, which will allow them to view their transactions in a graphical chart format.
+- [ ] User can access a 'Transfer Money' page, which will allow them to transfer money between accounts.
+
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
