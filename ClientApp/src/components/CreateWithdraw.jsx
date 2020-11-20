@@ -1,6 +1,7 @@
 ﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Layout } from '../components/Layout';
+import { data } from 'jquery';
 
 function CreateWithdraw(props) {
     const [accountID, setAccountID] = useState("");
@@ -17,6 +18,8 @@ function CreateWithdraw(props) {
     const [patchResponse, setPatchResponse] = useState([]);
     const [patchWaiting, setPatchWaiting] = useState(false);
 
+    // Get Today's Date
+    const today = new Date().toLocaleDateString().substr(0, 10);
 
     async function populateClientData() {
         const response = await axios.get('BankAPI/LandingPage');
@@ -59,6 +62,7 @@ function CreateWithdraw(props) {
                     accountID: accountID,
                     transactionSource: transactionSource,
                     transactionValue: transactionValue,
+                    transactionDate: today
                 }
             }
         ).then((res) => {

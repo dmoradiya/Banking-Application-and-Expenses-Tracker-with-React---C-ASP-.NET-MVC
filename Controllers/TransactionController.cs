@@ -59,7 +59,7 @@ namespace Capstone_VV.Controllers
             }
 
         }
-        public Transaction CreateWithdraw(string accountID, string transactionValue, string transactionSource = "Bill Payment", string transactionCategory = "Withdraw", DateTime transactionDate = default(DateTime))
+        public Transaction CreateWithdraw(string accountID, string transactionValue, string transactionDate, string transactionSource = "Bill Payment", string transactionCategory = "Withdraw")
         {
 
 
@@ -80,7 +80,7 @@ namespace Capstone_VV.Controllers
                     TransactionSource = transactionSource,
                     TransactionCategory = transactionCategory,
                     TransactionValue = double.Parse(transactionValue),
-                    TransactionDate = transactionDate
+                    TransactionDate = DateTime.Parse(transactionDate)
 
                 };
                 context.Transactions.Add(newDeposit);
