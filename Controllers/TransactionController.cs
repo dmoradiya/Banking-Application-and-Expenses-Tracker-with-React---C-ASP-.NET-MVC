@@ -16,6 +16,7 @@ namespace Capstone_VV.Controllers
             return View();
         }
 
+        public static int transactionCreateID;
 
         // Methods
         public List<Transaction> GetTransactions(string id)
@@ -90,8 +91,6 @@ namespace Capstone_VV.Controllers
             }
 
         }
-
-
 
     }
 }

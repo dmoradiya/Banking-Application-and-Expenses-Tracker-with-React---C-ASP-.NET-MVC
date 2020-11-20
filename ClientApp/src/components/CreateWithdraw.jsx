@@ -1,7 +1,6 @@
 ﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Layout } from '../components/Layout';
-import { data } from 'jquery';
 
 function CreateWithdraw(props) {
     const [accountID, setAccountID] = useState("");
@@ -11,7 +10,6 @@ function CreateWithdraw(props) {
     const [waiting, setWaiting] = useState(false);
     const [isSubmit, setIsSubmit] = useState(false);
 
-
     const [accountInfo, setAccountInfo] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -20,6 +18,7 @@ function CreateWithdraw(props) {
 
     // Get Today's Date
     const today = new Date().toLocaleDateString().substr(0, 10);
+
 
     async function populateClientData() {
         const response = await axios.get('BankAPI/LandingPage');
@@ -31,8 +30,6 @@ function CreateWithdraw(props) {
         populateClientData();
     }, [loading]);
 
-
-
     function handleFieldChange(event) {
         switch (event.target.id) {
             case "accountID":
@@ -43,6 +40,9 @@ function CreateWithdraw(props) {
                 break;
             case "transactionValue":
                 setTransactionValue(event.target.value);
+                break;
+            case "transactionDate":
+                setTransactionDate(event.target.value);
                 break;
         }
     }
@@ -104,6 +104,7 @@ function CreateWithdraw(props) {
         <div>
             <Layout />
             <h1> Make a Withdraw </h1>
+
             <p>{isSubmit ? <p>{waiting ? "Waiting..." : `${response}`}</p> : ""}</p>
             <p>{isSubmit ? <p>{patchWaiting ? "Waiting..." : `${patchResponse}`}</p> : ""}</p>
 
@@ -112,7 +113,9 @@ function CreateWithdraw(props) {
 
                 <label htmlFor="accountID">Account Type</label>
                 <select id="accountID" onChange={handleFieldChange}>
+
                     <option value="" >Choose here</option>
+
                     {accountInfo.map(client => (
                         <option key={client.accountID} value={`${client.accountID}`}>
                             {console.log(client.accountID)}
@@ -128,9 +131,11 @@ function CreateWithdraw(props) {
                     <option value="ATM">ATM</option>
                 </select>
                 <br />
-                <label htmlFor="transactionValue">Value of this transaction</label>
+                <label htmlFor="transactionValue">Value</label>
                 <br />
                 <input id="transactionValue" type="text" onChange={handleFieldChange} />
+                <br />
+                <input id="transactionDate" type="date" onChange={handleFieldChange} />
                 <br />
                 <input type="submit" className="btn btn-primary" value="Submit" />
             </form>

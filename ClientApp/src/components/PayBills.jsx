@@ -1,9 +1,11 @@
 ﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+
 import { Layout } from '../components/Layout';
 
 function PayBills(props) {
     const [accountID, setAccountID] = useState("");
+
     const [transactionCategory, setTransactionCategory] = useState("");
     const [transactionValue, setTransactionValue] = useState("");
     const [transactionDate, setTransactionDate] = useState("");
@@ -11,12 +13,12 @@ function PayBills(props) {
     const [waiting, setWaiting] = useState(false);
     const [isSubmit, setIsSubmit] = useState(false);
 
-
     const [accountInfo, setAccountInfo] = useState([]);
     const [loading, setLoading] = useState(true);
 
     const [patchResponse, setPatchResponse] = useState([]);
     const [patchWaiting, setPatchWaiting] = useState(false);
+
 
 
     async function populateClientData() {
@@ -114,6 +116,7 @@ function PayBills(props) {
                 <label htmlFor="accountID">Account Type</label>
                 <select id="accountID" onChange={handleFieldChange}>
                     <option value="" >Choose here</option>
+
                     {accountInfo.map(client => (
                         <option key={client.accountID} value={`${client.accountID}`}>
                             {console.log(client.accountID)}
@@ -121,6 +124,7 @@ function PayBills(props) {
                         </option>
                     ))}
                 </select>
+
                 <br />
                 <label htmlFor="transactionCategory">Transaction Category</label>
                 <select id="transactionCategory" onChange={handleFieldChange}>
@@ -137,11 +141,16 @@ function PayBills(props) {
                     <option value="Other">Other</option>
                 </select>
                 <br />
+
                 <label htmlFor="transactionValue">Value of this transaction</label>
+
                 <br />
                 <input id="transactionValue" type="text" onChange={handleFieldChange} />
                 <br />
                 <label htmlFor="transactionDate">Transaction Date</label>
+
+                <br />
+                <input id="transactionDate" type="date" onChange={handleFieldChange} />
                 <br />
                 <input id="transactionDate" type="date" onChange={handleFieldChange} />
                 <br />
