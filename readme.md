@@ -8,7 +8,6 @@ This project has an active [Trello Board](https://trello.com/b/322c1Wa2).
 
 This project has an active [Figma Page](https://www.figma.com/file/6il3fCmu5tSvtvRl3hgCAY/Banking-Application?node-id=0%3A1).
 
-
 ## Installation and Required Packages
 
 Use the NuGet package manater to install the required packages. Note the required versions for each of the packages:
@@ -33,6 +32,17 @@ Connect to XAMPP, create a server. Update your local database with the pre-fille
 ```bash
 dotnet ef database update
 ```
+
+## Entity Relationship Diagram
+
+This diagram outlines the relationships between the various tables in the database. 
+[Link to ERD](https://i.imgur.com/W7lWkzs.png)
+
+## Page Flow Diagram
+
+This diagram outlines the expected flow of the user throughout the website.
+[Link to Page Flow Diagram](https://i.imgur.com/1vtVDdh.png)
+
 
 ## Application Features
 - [ ] User can Login with their email address and password.
