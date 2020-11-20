@@ -8,8 +8,9 @@ import { ViewTransactions } from './components/ViewTransactions';
 import { CreateDeposit } from './components/CreateDeposit';
 import { CreateWithdraw } from './components/CreateWithdraw';
 import { PayBills } from './components/PayBills';
-
+import { CloseAccount } from './components/CloseAccount';
 import './custom.css'
+
 
 
 export default class App extends Component {
@@ -24,8 +25,9 @@ export default class App extends Component {
         <Route exact path='/create-account' component={CreateAccount} />
         <Route exact path='/view-transactions' component={ViewTransactions} />
         <Route exact path='/create-deposit' component={CreateDeposit} />
-            <Route exact path='/create-withdraw' component={CreateWithdraw} />
-            <Route exact path='/pay-bills' component={PayBills} />
+        <Route exact path='/create-withdraw' component={CreateWithdraw} />
+        <Route exact path='/pay-bills' component={PayBills} />
+        <Route exact path='/close-account' component={CloseAccount} />
 
 
       </Router>
