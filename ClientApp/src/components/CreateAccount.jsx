@@ -35,7 +35,7 @@ function CreateAccount(props) {
         ).then((res) => {
             setWaiting(false);
             setResponse(res.data);
-            history.push("/");
+            history.push("/create-notification");
 
         }
         ).catch((err) => {

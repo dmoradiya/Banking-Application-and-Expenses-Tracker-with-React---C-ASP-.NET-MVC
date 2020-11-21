@@ -9,6 +9,9 @@ import { CreateDeposit } from './components/CreateDeposit';
 import { CreateWithdraw } from './components/CreateWithdraw';
 import { PayBills } from './components/PayBills';
 import { CloseAccount } from './components/CloseAccount';
+import { ArchiveNotification } from './components/ArchiveNotification';
+import { CreateNotification } from './components/CreateNotification';
+
 import './custom.css'
 
 
@@ -28,8 +31,8 @@ export default class App extends Component {
         <Route exact path='/create-withdraw' component={CreateWithdraw} />
         <Route exact path='/pay-bills' component={PayBills} />
         <Route exact path='/close-account' component={CloseAccount} />
-
-
+        <Route exact path='/archive-notification' component={ArchiveNotification} />
+        <Route exact path='/create-notification' component={CreateNotification} />
       </Router>
     );
   }
