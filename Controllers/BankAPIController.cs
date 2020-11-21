@@ -42,7 +42,7 @@ namespace Capstone_VV.Controllers
 
         }
         [HttpPost("CreateClient")]
-        public ActionResult<Client> CreateClient_POST(string email, string password, string phone, string fname, string lname, DateTime dateOfBirth, string address, string city, string province, string postalCode)
+        public ActionResult<Client> CreateClient_POST(string email, string password, string phone, string fname, string lname, string dateOfBirth, string address, string city, string province, string postalCode)
         {
             ActionResult<Client> result;
             try
