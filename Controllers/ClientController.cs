@@ -89,7 +89,10 @@ namespace Capstone_VV.Controllers
                     }
                     else
                     {
+                        // Citation start : Regex for Email
+                        // Link : https://stackoverflow.com/questions/43689934/regex-to-match-email
                         Regex rgx = new Regex(@"^[\w.-]+@(?=[a-z\d][^.]*\.)[a-z\d.-]*[^.]$");
+                        // Citation End
 
                         if (!rgx.IsMatch(input))
                         {
@@ -100,7 +103,11 @@ namespace Capstone_VV.Controllers
                 }
                 else if (inputType == "Password")
                 {
+                    // Citation start : Regex for password
+                    // Link : https://stackoverflow.com/questions/46068378/regex-for-complex-password
                     Regex rgx = new Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()]).{8,}$");
+                    // Citation End
+
                     if (!rgx.IsMatch(input))
                     {
                         exception.ValidationExceptions.Add(new Exception("Please Enter Valid PassWord. Your Password should be at least 8 character long and combination of Uppercase, Lowercase, Number and Special Character"));
