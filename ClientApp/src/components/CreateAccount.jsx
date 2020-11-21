@@ -7,7 +7,6 @@ function CreateAccount(props) {
     const [accountType, setAccountType] = useState("");
     const [response, setResponse] = useState([]);
     const [waiting, setWaiting] = useState(false);
-    const [isSubmit, setIsSubmit] = useState(false);
     const history = useHistory();
 
     function handleFieldChange(event) {
@@ -21,7 +20,6 @@ function CreateAccount(props) {
     function handleSubmit(event) {
         event.preventDefault();
         setWaiting(true);
-        setIsSubmit(true);
 
         axios(
             {
@@ -42,7 +40,6 @@ function CreateAccount(props) {
             setWaiting(false);
             setResponse(err.response.data);
         });
-        event.target.reset();
     }
 
 
@@ -51,8 +48,7 @@ function CreateAccount(props) {
         <div>
             <h1>Select Your Account</h1>
 
-            <p>{isSubmit ? <p>{waiting ? "Submiting..." : `${response}`}</p> : ""}</p>
-
+            <p>{waiting ? "Submiting..." : `${response}`}</p>
             <form onSubmit={handleSubmit}>
 
                 <label htmlFor="accountType">Account Type</label>

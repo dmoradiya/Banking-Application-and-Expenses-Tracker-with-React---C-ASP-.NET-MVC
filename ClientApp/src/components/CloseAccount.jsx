@@ -8,7 +8,6 @@ function CloseAccount(props) {
     const [accountID, setAccountID] = useState("");    
     const [response, setResponse] = useState([]);
     const [waiting, setWaiting] = useState(false);
-    const [isSubmit, setIsSubmit] = useState(false);
 
     // Populate DropDown Select Option with Account(S)
     const [accountInfo, setAccountInfo] = useState([]);
@@ -39,7 +38,6 @@ function CloseAccount(props) {
     function handleSubmit(event) {
         event.preventDefault();
         setWaiting(true);
-        setIsSubmit(true);
               
         // Patch Request
         axios(
@@ -53,6 +51,7 @@ function CloseAccount(props) {
         ).then((res) => {
             setWaiting(false);
             setResponse(res.data);
+            history.push("/archive-notification");
 
 
         }
@@ -60,22 +59,21 @@ function CloseAccount(props) {
             setWaiting(false);
             setResponse(err.response.data);
         });
-        history.push("/archive-notification");
-        event.target.reset();
+       
     }
 
     return (
         <div>
             <Layout />
             <h1> Close Your Account </h1>
-            <p>{isSubmit ? <p>{waiting ? "Waiting..." : `${response}`}</p> : ""}</p>
+            <p>{waiting ? "Waiting..." : `${response}`}</p>
 
             <br />
             <form onSubmit={handleSubmit}>
 
                 <label htmlFor="accountID">Account Type</label>
                 <select id="accountID" onChange={handleFieldChange}>
-                    <option value="" >Choose here</option>
+                    <option value="" >Choose Account here</option>
                     {accountInfo.map(client => (
                         <option key={client.accountID} value={`${client.accountID}`}>
                             {console.log(client.accountID)}

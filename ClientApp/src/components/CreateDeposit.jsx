@@ -9,7 +9,6 @@ function CreateDeposit(props) {
     const [transactionValue, setTransactionValue] = useState("");
     const [response, setResponse] = useState([]);
     const [waiting, setWaiting] = useState(false);
-    const [isSubmit, setIsSubmit] = useState(false);
 
 
     const [accountInfo, setAccountInfo] = useState([]);
@@ -49,7 +48,6 @@ function CreateDeposit(props) {
         event.preventDefault();
         setWaiting(true);       
         setPatchWaiting(true);
-        setIsSubmit(true);
 
         // Post Request
         axios(
@@ -92,24 +90,21 @@ function CreateDeposit(props) {
             setPatchResponse(err.response.data);
         });
 
-
-
-        event.target.reset();
     }
 
     return (
         <div>
             <Layout />
             <h1> Make a Deposit </h1>
-            <p>{isSubmit ? <p>{waiting ? "Waiting..." : `${response}`}</p> : ""}</p>
-            <p>{isSubmit ? <p>{patchWaiting ? "Waiting..." : `${patchResponse}`}</p> : ""}</p>
+            <p>{waiting ? "Waiting..." : `${response}`}</p>
+            <p>{patchWaiting ? "Waiting..." : `${patchResponse}`}</p>
 
             <br/>
             <form onSubmit={handleSubmit}>
               
                 <label htmlFor="accountID">Account Type</label>
                 <select id="accountID" onChange={handleFieldChange}>
-                    <option value="" >Choose here</option>
+                    <option value="" >Choose Account here</option>
                     {accountInfo.map(client => (
                         <option key={client.accountID} value={`${client.accountID}`}>
                             {console.log(client.accountID)}
@@ -120,7 +115,7 @@ function CreateDeposit(props) {
                 <br />  
                 <label htmlFor="transactionSource">Source of Deposit</label>
                 <select id="transactionSource" onChange={handleFieldChange}>
-                    <option value="" >Choose here</option>
+                    <option value="" >Choose Source here</option>
                     <option value="Bank">Bank</option>
                     <option value="ATM">ATM</option>
                 </select>

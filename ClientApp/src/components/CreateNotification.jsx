@@ -9,7 +9,6 @@ function CreateNotification(props) {
 
     return (
         <div>
-            <Layout />
             <h1> Account Created </h1>
             <p>Thank You for your wait</p>
             <p> Your Account has been Successfully Created.</p>

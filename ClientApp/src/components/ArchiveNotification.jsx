@@ -42,7 +42,6 @@ function ArchiveNotification(props) {
 
     return (
         <div>
-            <Layout />
             <h1> Account Archived </h1>
             <p> Your Account has been Archived. Your data is safe, and has not been deleted.</p>
             <p>{isSubmit ? <p>{waiting ? "Waiting..." : `${response}`}</p> : ""}</p>
@@ -51,8 +50,6 @@ function ArchiveNotification(props) {
                 <input type="submit" className="btn btn-primary" value="Log Out to Finalize Changes" />
             </form>
         </div>
-
-
     );
 
 }

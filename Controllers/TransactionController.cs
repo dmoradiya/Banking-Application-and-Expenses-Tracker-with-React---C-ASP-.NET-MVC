@@ -33,18 +33,14 @@ namespace Capstone_VV.Controllers
 
         public Transaction CreateDeposit(string accountID, string transactionSource, string transactionValue)
         {
-          
 
-            ValidationException exception = new ValidationException();
-
+            accountID = new ClientController().StringValidation("Dropdown", accountID);
+            transactionSource = new ClientController().StringValidation("Dropdown",transactionSource);
+            transactionValue = new ClientController().StringValidation("TransactionValue", transactionValue);
 
             using (BankContext context = new BankContext())
             {
 
-                if (exception.ValidationExceptions.Count > 0)
-                {
-                    throw exception;
-                }
 
                 Transaction newDeposit = new Transaction()
                 {
@@ -66,16 +62,16 @@ namespace Capstone_VV.Controllers
         {
 
 
-            ValidationException exception = new ValidationException();
-
+            accountID = new ClientController().StringValidation("Dropdown", accountID);
+            transactionValue = new ClientController().StringValidation("TransactionValue", transactionValue);
+            transactionDate = new ClientController().StringValidation("TransactionDate", transactionDate);
+            transactionSource = new ClientController().StringValidation("Dropdown", transactionSource);
+            transactionCategory = new ClientController().StringValidation("Dropdown", transactionCategory);
+            
 
             using (BankContext context = new BankContext())
             {
 
-                if (exception.ValidationExceptions.Count > 0)
-                {
-                    throw exception;
-                }
 
                 Transaction newWithdraw = new Transaction()
                 {

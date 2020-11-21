@@ -15,7 +15,6 @@ function CreateClient(props) {
     const [postalCode, setPostalCode] = useState("");
     const [response, setResponse] = useState([]);
     const [waiting, setWaiting] = useState(false);
-    const [isSubmit, setIsSubmit] = useState(false);
     const history = useHistory();
 
     function handleFieldChange(event) {
@@ -56,7 +55,6 @@ function CreateClient(props) {
     function handleSubmit(event) {
         event.preventDefault();
         setWaiting(true);
-        setIsSubmit(true);
 
         axios(
             {
@@ -86,7 +84,6 @@ function CreateClient(props) {
             setWaiting(false);
             setResponse(err.response.data);
         });
-        event.target.reset();
     }
 
 
@@ -95,7 +92,7 @@ function CreateClient(props) {
         <div>
             <h1>Client Information</h1>
 
-            <p>{isSubmit ? <p>{waiting ? "Processing..." : `${JSON.stringify(response)}`}</p> : ""}</p>
+            <p>{waiting ? "Processing..." : `${response}`}</p>
 
             <form onSubmit={handleSubmit}>
                 

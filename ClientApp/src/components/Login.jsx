@@ -9,7 +9,6 @@ function Login(props) {
     const [password, setPassword] = useState("");
     const [response, setResponse] = useState([]);
     const [waiting, setWaiting] = useState(false);
-    const [isSubmit, setIsSubmit] = useState(false);
     const history = useHistory();
 
     function handleFieldChange(event) {
@@ -26,7 +25,6 @@ function Login(props) {
     function handleSubmit(event) {
         event.preventDefault();
         setWaiting(true);
-        setIsSubmit(true);
 
         axios(
             {
@@ -56,7 +54,7 @@ function Login(props) {
         <div>
             <h1>Log In</h1>
 
-            <p>{isSubmit ? <p>{waiting ? "Loging In..." : `${response}`}</p> : ""}</p>
+            <p>{waiting ? "Loging In..." : `${response}`}</p>
 
             <form onSubmit={handleSubmit}>
                 <label htmlFor="email">Email : </label>

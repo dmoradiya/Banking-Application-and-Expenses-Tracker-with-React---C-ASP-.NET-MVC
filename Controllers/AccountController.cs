@@ -26,7 +26,11 @@ namespace Capstone_VV.Controllers
 
             using (BankContext context = new BankContext())
             {
-                if (!context.Accounts.Include(x => x.Client).Any(x => x.Client.EmailAddress.ToLower() == email.ToLower() && x.Client.Password == password))
+                if (string.IsNullOrWhiteSpace(email) && string.IsNullOrWhiteSpace(password))
+                {
+                    exception.ValidationExceptions.Add(new Exception("Email and Password are Required"));
+                }
+                else if (!context.Accounts.Include(x => x.Client).Any(x => x.Client.EmailAddress.ToLower() == email.ToLower() && x.Client.Password == password))
                 {
                     exception.ValidationExceptions.Add(new Exception("The email and/or password you entered was incorrect. Please try again."));
                 }
@@ -54,17 +58,11 @@ namespace Capstone_VV.Controllers
         public Account CreateAccount(string accountType)
         {
 
-            ValidationException exception = new ValidationException();
-
-
+            accountType = new ClientController().StringValidation("Dropdown", accountType);
             using (BankContext context = new BankContext())
             {
 
-                if (exception.ValidationExceptions.Count > 0)
-                {
-                    throw exception;
-                }
-
+               
                 Account newAccount = new Account()
                 {
                     ClientID = new ClientController().GetClientCreateID(),
@@ -85,16 +83,11 @@ namespace Capstone_VV.Controllers
         {
             Account result;
             
-            ValidationException exception = new ValidationException();
-
+            accountID = new ClientController().StringValidation("Dropdown", accountID);
+            transactionValue = new ClientController().StringValidation("TransactionValue", transactionValue);
 
             using (BankContext context = new BankContext())
             {
-
-                if (exception.ValidationExceptions.Count > 0)
-                {
-                    throw exception;
-                }
 
                 result = context.Accounts.Where(x => x.AccountID == int.Parse(accountID)).SingleOrDefault();
                 result.AccountBalance += double.Parse(transactionValue);
@@ -109,6 +102,8 @@ namespace Capstone_VV.Controllers
 
             ValidationException exception = new ValidationException();
 
+            accountID = new ClientController().StringValidation("Dropdown", accountID);
+            transactionValue = new ClientController().StringValidation("TransactionValue", transactionValue);
 
             using (BankContext context = new BankContext())
             {
@@ -134,18 +129,13 @@ namespace Capstone_VV.Controllers
         {
             Account result;
 
-            ValidationException exception = new ValidationException();
-
+            accountID = new ClientController().StringValidation("Dropdown", accountID);
 
             using (BankContext context = new BankContext())
             {
 
                 result = context.Accounts.Where(x => x.AccountID == int.Parse(accountID)).SingleOrDefault();
                
-                if (exception.ValidationExceptions.Count > 0)
-                {
-                    throw exception;
-                }
                 result.IsActive = false;
                 context.SaveChanges();
                 return result;

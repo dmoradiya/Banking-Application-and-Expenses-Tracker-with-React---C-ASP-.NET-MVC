@@ -11,7 +11,6 @@ function PayBills(props) {
     const [transactionDate, setTransactionDate] = useState("");
     const [response, setResponse] = useState([]);
     const [waiting, setWaiting] = useState(false);
-    const [isSubmit, setIsSubmit] = useState(false);
 
     const [accountInfo, setAccountInfo] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -54,7 +53,6 @@ function PayBills(props) {
         event.preventDefault();
         setWaiting(true);
         setPatchWaiting(true);
-        setIsSubmit(true);
 
         // Post Request
         axios(
@@ -98,17 +96,14 @@ function PayBills(props) {
             setPatchResponse(err.response.data);
         });
 
-
-
-        event.target.reset();
     }
 
     return (
         <div>
             <Layout />
             <h1> Pay Bills </h1>
-            <p>{isSubmit ? <p>{waiting ? "Waiting..." : `${response}`}</p> : ""}</p>
-            <p>{isSubmit ? <p>{patchWaiting ? "Waiting..." : `${patchResponse}`}</p> : ""}</p>
+            <p>{waiting ? "Waiting..." : `${response}`}</p>
+            <p>{patchWaiting ? "Waiting..." : `${patchResponse}`}</p>
 
             <br />
             <form onSubmit={handleSubmit}>

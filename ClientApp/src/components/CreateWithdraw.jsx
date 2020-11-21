@@ -8,7 +8,6 @@ function CreateWithdraw(props) {
     const [transactionValue, setTransactionValue] = useState("");
     const [response, setResponse] = useState([]);
     const [waiting, setWaiting] = useState(false);
-    const [isSubmit, setIsSubmit] = useState(false);
 
     const [accountInfo, setAccountInfo] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -48,7 +47,6 @@ function CreateWithdraw(props) {
         event.preventDefault();
         setWaiting(true);
         setPatchWaiting(true);
-        setIsSubmit(true);
 
         // Post Request
         axios(
@@ -92,9 +90,6 @@ function CreateWithdraw(props) {
             setPatchResponse(err.response.data);
         });
 
-
-
-        event.target.reset();
     }
 
     return (
@@ -102,8 +97,8 @@ function CreateWithdraw(props) {
             <Layout />
             <h1> Make a Withdraw </h1>
 
-            <p>{isSubmit ? <p>{waiting ? "Waiting..." : `${response}`}</p> : ""}</p>
-            <p>{isSubmit ? <p>{patchWaiting ? "Waiting..." : `${patchResponse}`}</p> : ""}</p>
+            <p>{waiting ? "Waiting..." : `${response}`}</p>
+            <p>{patchWaiting ? "Waiting..." : `${patchResponse}`}</p>
 
             <br />
             <form onSubmit={handleSubmit}>
