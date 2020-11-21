@@ -28,7 +28,7 @@ namespace Capstone_VV.Controllers
             {
                 if (!context.Accounts.Include(x => x.Client).Any(x => x.Client.EmailAddress.ToLower() == email.ToLower() && x.Client.Password == password && x.IsActive == true))
                 {
-                    exception.ValidationExceptions.Add(new Exception("You are not allowed to log in please join new account"));
+                    exception.ValidationExceptions.Add(new Exception("The email and/or password you entered was incorrect. Please try again."));
                 }
 
                 if (exception.ValidationExceptions.Count > 0)

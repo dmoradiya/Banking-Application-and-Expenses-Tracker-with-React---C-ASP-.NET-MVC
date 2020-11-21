@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Capstone_VV.Models;
 using Capstone_VV.Models.Exceptions;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;  
 
 namespace Capstone_VV.Controllers
 {
@@ -19,8 +19,10 @@ namespace Capstone_VV.Controllers
         public static int transactionCreateID;
 
         // Methods
+
         public List<Transaction> GetTransactions(string id)
         {
+            ValidationException exception = new ValidationException();
             List<Transaction> result;
             using (BankContext context = new BankContext())
             {
