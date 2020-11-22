@@ -100,34 +100,34 @@ namespace Capstone_VV.Models
                     new Transaction()
                     {
                         TransactionID = 6,
-                        AccountID = 2,
+                        AccountID = 1,
                         TransactionSource = "Gold Hand Investments Inc.",
                         TransactionCategory = "Income_Investments",
-                        TransactionValue = 750.00,
+                        TransactionValue = 430.00,
                         TransactionDate = new DateTime(2020, 04, 11)
                     },
                     new Transaction()
                     {
                         TransactionID = 7,
-                        AccountID = 2,
+                        AccountID = 1,
                         TransactionSource = "Gold Hand Investments Inc.",
                         TransactionCategory = "Income_Investments",
-                        TransactionValue = 750.00,
+                        TransactionValue = 110.00,
                         TransactionDate = new DateTime(2020, 05, 11)
                     },
                     new Transaction()
                     {
                         TransactionID = 8,
-                        AccountID = 2,
+                        AccountID = 1,
                         TransactionSource = "Gold Hand Investments Inc.",
                         TransactionCategory = "Income_Investments",
-                        TransactionValue = 750.00,
+                        TransactionValue = 320.00,
                         TransactionDate = new DateTime(2020, 06, 11)
                     },
                     new Transaction()
                     {
                         TransactionID = 9,
-                        AccountID = 2,
+                        AccountID = 1,
                         TransactionSource = "Gold Hand Investments Inc.",
                         TransactionCategory = "Income_Investments",
                         TransactionValue = 750.00,
@@ -136,16 +136,16 @@ namespace Capstone_VV.Models
                     new Transaction()
                     {
                         TransactionID = 10,
-                        AccountID = 3,
+                        AccountID = 2,
                         TransactionSource = "Bank of Wallachia",
                         TransactionCategory = "Income",
-                        TransactionValue = 4.00,
+                        TransactionValue = 5.00,
                         TransactionDate = new DateTime(2020, 08, 11)
                     },
                     new Transaction()
                     {
                         TransactionID = 11,
-                        AccountID = 3,
+                        AccountID = 2,
                         TransactionSource = "Wallachia Market",
                         TransactionCategory = "Expense_Food",
                         TransactionValue = -1.00,
@@ -154,7 +154,7 @@ namespace Capstone_VV.Models
                     new Transaction()
                     {
                         TransactionID = 12,
-                        AccountID = 4,
+                        AccountID = 3,
                         TransactionSource = "Gold Hand Investments Inc.",
                         TransactionCategory = "Income",
                         TransactionValue = 7500.00,
@@ -163,7 +163,7 @@ namespace Capstone_VV.Models
                     new Transaction()
                     {
                         TransactionID = 13,
-                        AccountID = 4,
+                        AccountID = 3,
                         TransactionSource = "Gold Hand Investments Inc.",
                         TransactionCategory = "Income",
                         TransactionValue = 7500.00,
@@ -172,34 +172,34 @@ namespace Capstone_VV.Models
                     new Transaction()
                     {
                         TransactionID = 14,
-                        AccountID = 4,
+                        AccountID = 3,
                         TransactionSource = "Central Avionics",
                         TransactionCategory = "Expense_Recreation",
-                        TransactionValue = 3000.00,
+                        TransactionValue = -3000.00,
                         TransactionDate = new DateTime(2020, 08, 14)
                     },
                     new Transaction()
                     {
                         TransactionID = 15,
-                        AccountID = 5,
+                        AccountID = 3,
                         TransactionSource = "Gold Hand Investments Inc.",
                         TransactionCategory = "Income_Investments",
-                        TransactionValue = 43000.00,
+                        TransactionValue = 43750.00,
                         TransactionDate = new DateTime(2020, 08, 20)
                     },
                     new Transaction()
                     {
                         TransactionID = 16,
-                        AccountID = 5,
+                        AccountID = 3,
                         TransactionSource = "Gold Hand Investments Inc.",
                         TransactionCategory = "Income_Investments",
-                        TransactionValue = 43000.00,
+                        TransactionValue = 22100.00,
                         TransactionDate = new DateTime(2020, 09, 20)
                     },
                     new Transaction()
                     {
                         TransactionID = 17,
-                        AccountID = 6,
+                        AccountID = 4,
                         TransactionSource = "Seven Eleven",
                         TransactionCategory = "Income",
                         TransactionValue = 1100.32,
@@ -208,7 +208,7 @@ namespace Capstone_VV.Models
                     new Transaction()
                     {
                         TransactionID = 18,
-                        AccountID = 6,
+                        AccountID = 4,
                         TransactionSource = "Axion Rental Agency",
                         TransactionCategory = "Expense_Rent",
                         TransactionValue = -800.00,
@@ -217,7 +217,7 @@ namespace Capstone_VV.Models
                     new Transaction()
                     {
                         TransactionID = 19,
-                        AccountID = 6,
+                        AccountID = 4,
                         TransactionSource = "St. Albert Transit",
                         TransactionCategory = "Expense_Vehicle",
                         TransactionValue = -41.99,
@@ -226,7 +226,7 @@ namespace Capstone_VV.Models
                     new Transaction()
                     {
                         TransactionID = 20,
-                        AccountID = 6,
+                        AccountID = 4,
                         TransactionSource = "Superstore",
                         TransactionCategory = "Expense_Groceries",
                         TransactionValue = -84.23,
@@ -262,53 +262,35 @@ namespace Capstone_VV.Models
                         AccountID = 1,
                         ClientID = 1,
                         AccountType = "Chequing",
-                        AccountBalance = 5003.23,
-                        AccountInterest = 0,
+                        AccountBalance = 2189.43,
+                        AccountInterest = 0.02,
                         IsActive = true
                      },
                      new Account()
                      {
                          AccountID = 2,
-                         ClientID = 1,
-                         AccountType = "Savings",
-                         AccountBalance = 40000.43,
-                         AccountInterest = 0.03,
+                         ClientID = 2,
+                         AccountType = "Chequing",
+                         AccountBalance = 4.00,
+                         AccountInterest = 0,
                          IsActive = true
                      },
                      new Account()
                      {
                          AccountID = 3,
-                         ClientID = 2,
+                         ClientID = 3,
                          AccountType = "Chequing",
-                         AccountBalance = 3.75,
-                         AccountInterest = 0,
+                         AccountBalance = 77850.00,
+                         AccountInterest = 0.07,
                          IsActive = true
                      },
                      new Account()
                      {
                          AccountID = 4,
-                         ClientID = 3,
-                         AccountType = "Chequing",
-                         AccountBalance = 75552.23,
-                         AccountInterest = 0,
-                         IsActive = true
-                     },
-                     new Account()
-                     {
-                         AccountID = 5,
-                         ClientID = 3,
-                         AccountType = "Savings",
-                         AccountBalance = 814750.99,
-                         AccountInterest = 0.03,
-                         IsActive = true
-                     },
-                     new Account()
-                     {
-                         AccountID = 6,
                          ClientID = 4,
                          AccountType = "Chequing",
-                         AccountBalance = 753.23,
-                         AccountInterest = 0,
+                         AccountBalance = 174.10,
+                         AccountInterest = 0.01,
                          IsActive = true
                      }
                      );
@@ -335,7 +317,7 @@ namespace Capstone_VV.Models
                      {
                         ClientID = 1,
                         EmailAddress = "johndoe123@gmail.com",
-                        Password = "john123",
+                        Password = "John123!Unknown",
                         PhoneNumber = "7804188874",
                         FirstName = "John",
                         LastName = "Doe",
@@ -349,7 +331,7 @@ namespace Capstone_VV.Models
                     {
                         ClientID = 2,
                         EmailAddress = "trevorbelmont123@gmail.com",
-                        Password = "draculasux",
+                        Password = "Draculasux@lif3",
                         PhoneNumber = "7804442121",
                         FirstName = "Trevor",
                         LastName = "Belmont",
@@ -363,7 +345,7 @@ namespace Capstone_VV.Models
                     {
                         ClientID = 3,
                         EmailAddress = "richardrich@gmail.com",
-                        Password = "rich123!@#",
+                        Password = "Therich123!@#",
                         PhoneNumber = "7771115454",
                         FirstName = "Richard",
                         LastName = "Rich",
