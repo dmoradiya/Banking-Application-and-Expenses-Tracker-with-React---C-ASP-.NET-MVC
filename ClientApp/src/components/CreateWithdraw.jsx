@@ -113,7 +113,6 @@ function CreateWithdraw(props) {
 
                     {accountInfo.map(client => (
                         <option key={client.accountID} value={`${client.accountID}`}>
-                            {console.log(client.accountID)}
                             {`${client.accountType} Account      Total Balance: $${client.accountBalance + client.accountInterest}`}
                         </option>
                     ))}
