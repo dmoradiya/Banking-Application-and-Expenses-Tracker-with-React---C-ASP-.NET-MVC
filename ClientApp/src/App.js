@@ -4,6 +4,7 @@ import { Home } from './components/Home';
 import { LandingPage } from './components/LandingPage';
 import { CreateClient } from './components/CreateClient';
 import { CreateAccountForExistingClient } from './components/CreateAccountForExistingClient';
+import { CreateAccount } from './components/CreateAccount';
 import { ViewTransactions } from './components/ViewTransactions';
 import { CreateDeposit } from './components/CreateDeposit';
 import { CreateWithdraw } from './components/CreateWithdraw';
@@ -25,7 +26,8 @@ export default class App extends Component {
         <Route exact path='/' component={Home} />
         <Route exact path='/landing-page' component={LandingPage} />
         <Route exact path='/create-client' component={CreateClient} />
-            <Route exact path='/create-account-for-existing-client' component={CreateAccountForExistingClient} />
+        <Route exact path='/create-account-for-existing-client' component={CreateAccountForExistingClient} />
+        <Route exact path='/create-account' component={CreateAccount} />
         <Route exact path='/view-transactions' component={ViewTransactions} />
         <Route exact path='/create-deposit' component={CreateDeposit} />
         <Route exact path='/create-withdraw' component={CreateWithdraw} />

@@ -49,16 +49,6 @@ namespace Capstone_VV.Models
 
         public virtual Account Account { get; set; }
 
-        public Transaction(int transactionID, int accountID, string transactionSource, string transactionCategory, double transactionValue, DateTime transactionDate)
-        {
-            TransactionID = transactionID;
-            AccountID = accountID;
-            TransactionSource = transactionSource;
-            TransactionCategory = transactionCategory;
-            TransactionValue = transactionValue;
-            TransactionDate = transactionDate;
-        }
-        public Transaction()
-        { }
+       
     }
 }

@@ -38,10 +38,11 @@ namespace Capstone_VV.Controllers
             transactionSource = new ClientController().StringValidation("Dropdown",transactionSource);
             transactionValue = new ClientController().StringValidation("TransactionValue", transactionValue);
 
+            // Update Account Balance in AccountController
+            new AccountController().DepositBalance(accountID, transactionValue);
+
             using (BankContext context = new BankContext())
             {
-
-
                 Transaction newDeposit = new Transaction()
                 {
                     AccountID = int.Parse(accountID),
@@ -60,20 +61,20 @@ namespace Capstone_VV.Controllers
         }
         public Transaction CreateWithdraw(string accountID, string transactionValue, string transactionDate, string transactionSource = "Bill Payment", string transactionCategory = "Withdraw")
         {
-
+           
 
             accountID = new ClientController().StringValidation("Dropdown", accountID);
             transactionCategory = new ClientController().StringValidation("Dropdown", transactionCategory);
             transactionSource = new ClientController().StringValidation("Dropdown", transactionSource);
             transactionValue = new ClientController().StringValidation("TransactionValue", transactionValue);
-            transactionDate = new ClientController().StringValidation("TransactionDate", transactionDate);           
-            
-            
+            transactionDate = new ClientController().StringValidation("TransactionDate", transactionDate);
+
+            // Update Account Balance In AccountController
+            new AccountController().WithdrawBalance(accountID, transactionValue);
 
             using (BankContext context = new BankContext())
             {
-
-
+               
                 Transaction newWithdraw = new Transaction()
                 {
                     AccountID = int.Parse(accountID),

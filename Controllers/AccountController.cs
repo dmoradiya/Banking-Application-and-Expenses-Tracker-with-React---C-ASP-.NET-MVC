@@ -111,7 +111,7 @@ namespace Capstone_VV.Controllers
                 result = context.Accounts.Where(x => x.AccountID == int.Parse(accountID)).SingleOrDefault();
                 if (result.AccountBalance < double.Parse(transactionValue))
                 {
-                    exception.ValidationExceptions.Add(new Exception("You Do Not have enough Balance to Withdraw"));
+                    exception.ValidationExceptions.Add(new Exception("You Do Not have enough Balance to Withdraw OR Bill Payment"));
                 }
 
                 if (exception.ValidationExceptions.Count > 0)

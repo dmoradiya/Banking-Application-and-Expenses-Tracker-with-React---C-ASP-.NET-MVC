@@ -119,30 +119,30 @@ namespace Capstone_VV.Controllers
 
         }
 
-        // Update Deposit Balance
-        [HttpPatch("DepositBalance")]
-        public ActionResult<Account> DepositBalance_PATCH(string accountID, string transactionValue)
-        {
-            ActionResult<Account> result;
-            try
-            {
-                result = new AccountController().DepositBalance(accountID, transactionValue);
-            }
-            catch (ValidationException e)
-            {
-                string error = "Error(s) During Creation: " +
-                    e.ValidationExceptions.Select(x => x.Message)
-                    .Aggregate((x, y) => x + ", " + y);
+        //// Update Deposit Balance
+        //[HttpPatch("DepositBalance")]
+        //public ActionResult<Account> DepositBalance_PATCH(string accountID, string transactionValue)
+        //{
+        //    ActionResult<Account> result;
+        //    try
+        //    {
+        //        result = new AccountController().DepositBalance(accountID, transactionValue);
+        //    }
+        //    catch (ValidationException e)
+        //    {
+        //        string error = "Error(s) During Creation: " +
+        //            e.ValidationExceptions.Select(x => x.Message)
+        //            .Aggregate((x, y) => x + ", " + y);
 
-                result = BadRequest(error);
-            }
-            catch (Exception)
-            {
-                result = StatusCode(500, "Unknown error occurred, please try again later.");
-            }
-            return result;
+        //        result = BadRequest(error);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        result = StatusCode(500, "Unknown error occurred, please try again later.");
+        //    }
+        //    return result;
 
-        }
+        //}
 
         // Create Withdraw
         [HttpPost("CreateWithdraw")]
@@ -169,31 +169,7 @@ namespace Capstone_VV.Controllers
 
         }
 
-        // Update Withdraw Balance
-        [HttpPatch("WithdrawBalance")]
-        public ActionResult<Account> WithdrawBalance_PATCH(string accountID, string transactionValue)
-        {
-            ActionResult<Account> result;
-            try
-            {
-                result = new AccountController().WithdrawBalance(accountID, transactionValue);
-            }
-            catch (ValidationException e)
-            {
-                string error = "Error(s) During Creation: " +
-                    e.ValidationExceptions.Select(x => x.Message)
-                    .Aggregate((x, y) => x + ", " + y);
-
-                result = BadRequest(error);
-            }
-            catch (Exception)
-            {
-                result = StatusCode(500, "Unknown error occurred, please try again later.");
-            }
-            return result;
-
-        }
-        // Close Account
+       
         [HttpPatch("CloseAccount")]
         public ActionResult<Account> CloseAccount_PATCH(string accountID)
         {
