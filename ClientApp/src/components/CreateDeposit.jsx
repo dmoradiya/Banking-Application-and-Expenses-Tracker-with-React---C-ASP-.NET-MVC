@@ -9,6 +9,7 @@ function CreateDeposit(props) {
     const [transactionValue, setTransactionValue] = useState("");
     const [response, setResponse] = useState([]);
     const [waiting, setWaiting] = useState(false);
+    const [postResponse, setPostResponse] = useState(false);
 
 
     const [accountInfo, setAccountInfo] = useState([]);
@@ -48,6 +49,7 @@ function CreateDeposit(props) {
         event.preventDefault();
         setWaiting(true);       
         setPatchWaiting(true);
+        
 
         // Post Request
         axios(
@@ -63,32 +65,36 @@ function CreateDeposit(props) {
         ).then((res) => {
             setWaiting(false);
             setResponse(res.data);
+            setPostResponse(true)
         }
         ).catch((err) => {
             setWaiting(false);
             setResponse(err.response.data);
         });
 
-        // Patch Request
-        axios(
-            {
-                method: 'patch',
-                url: 'BankAPI/DepositBalance',
-                params: {
-                    accountID: accountID,                    
-                    transactionValue: transactionValue,
+        if (setPostResponse) {
+            // Patch Request
+            axios(
+                {
+                    method: 'patch',
+                    url: 'BankAPI/DepositBalance',
+                    params: {
+                        accountID: accountID,
+                        transactionValue: transactionValue,
+                    }
                 }
+            ).then((res) => {
+                setPatchWaiting(false);
+                setPatchResponse(res.data);
+
+
             }
-        ).then((res) => {
-            setPatchWaiting(false);
-            setPatchResponse(res.data);
-
-
+            ).catch((err) => {
+                setPatchWaiting(false);
+                setPatchResponse(err.response.data);
+            });
         }
-        ).catch((err) => {
-            setPatchWaiting(false);
-            setPatchResponse(err.response.data);
-        });
+       
 
     }
 
@@ -97,7 +103,7 @@ function CreateDeposit(props) {
             <Layout />
             <h1> Make a Deposit </h1>
             <p>{waiting ? "Waiting..." : `${response}`}</p>
-            <p>{patchWaiting ? "Waiting..." : `${patchResponse}`}</p>
+            <p>{postResponse ? <p>{patchWaiting ? "Waiting..." : `${patchResponse}`}</p> : ""}</p>
 
             <br/>
             <form onSubmit={handleSubmit}>

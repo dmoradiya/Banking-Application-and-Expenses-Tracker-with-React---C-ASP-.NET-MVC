@@ -63,10 +63,11 @@ namespace Capstone_VV.Controllers
 
 
             accountID = new ClientController().StringValidation("Dropdown", accountID);
-            transactionValue = new ClientController().StringValidation("TransactionValue", transactionValue);
-            transactionDate = new ClientController().StringValidation("TransactionDate", transactionDate);
-            transactionSource = new ClientController().StringValidation("Dropdown", transactionSource);
             transactionCategory = new ClientController().StringValidation("Dropdown", transactionCategory);
+            transactionSource = new ClientController().StringValidation("Dropdown", transactionSource);
+            transactionValue = new ClientController().StringValidation("TransactionValue", transactionValue);
+            transactionDate = new ClientController().StringValidation("TransactionDate", transactionDate);           
+            
             
 
             using (BankContext context = new BankContext())
