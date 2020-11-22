@@ -37,7 +37,7 @@ function Login(props) {
             }
         ).then((res) => {
             setWaiting(false);
-            setResponse(res.data);
+            setResponse("Login Successfully");
             history.push("/landing-page");
         }
         ).catch((err) => {

@@ -50,7 +50,7 @@ function CloseAccount(props) {
             }
         ).then((res) => {
             setWaiting(false);
-            setResponse(res.data);
+            setResponse("Account Archived Successfully");
             history.push("/archive-notification");
 
 

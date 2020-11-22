@@ -63,7 +63,7 @@ function CreateWithdraw(props) {
             }
         ).then((res) => {
             setWaiting(false);
-            setResponse(res.data);
+            setResponse("Thank you for the Transaction");
             setPostResponse(true);
         }
         ).catch((err) => {
@@ -84,9 +84,7 @@ function CreateWithdraw(props) {
                 }
             ).then((res) => {
                 setPatchWaiting(false);
-                setPatchResponse(res.data);
-
-
+                setPatchResponse("Amount SuccessFully Withdraw From Your Account");
             }
             ).catch((err) => {
                 setPatchWaiting(false);

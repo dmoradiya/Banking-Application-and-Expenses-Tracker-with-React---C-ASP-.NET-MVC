@@ -69,7 +69,7 @@ function PayBills(props) {
             }
         ).then((res) => {
             setWaiting(false);
-            setResponse(res.data);
+            setResponse("Thank you for the Transaction");
             setPostResponse(true);
         }
         ).catch((err) => {
@@ -90,7 +90,7 @@ function PayBills(props) {
                 }
             ).then((res) => {
                 setPatchWaiting(false);
-                setPatchResponse(res.data);
+                setPatchResponse("Bill payment completed successfully");
 
 
             }

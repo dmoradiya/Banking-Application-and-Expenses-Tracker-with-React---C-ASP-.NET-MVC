@@ -76,7 +76,7 @@ function CreateClient(props) {
             }
         ).then((res) => {
             setWaiting(false);
-            setResponse(res.data);
+            setResponse("Client Info Added Successfully");
             history.push("/create-account");
             
         }

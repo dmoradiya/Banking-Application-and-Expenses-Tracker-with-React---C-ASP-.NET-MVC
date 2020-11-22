@@ -64,7 +64,7 @@ function CreateDeposit(props) {
             }
         ).then((res) => {
             setWaiting(false);
-            setResponse(res.data);
+            setResponse("Thank you for the Transaction");
             setPostResponse(true)
         }
         ).catch((err) => {
@@ -85,7 +85,7 @@ function CreateDeposit(props) {
                 }
             ).then((res) => {
                 setPatchWaiting(false);
-                setPatchResponse(res.data);
+                setPatchResponse("Amount Deposited SuccessFully To Your Account");
 
 
             }
