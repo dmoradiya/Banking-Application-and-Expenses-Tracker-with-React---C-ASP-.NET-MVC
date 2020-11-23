@@ -52,8 +52,8 @@ namespace Capstone_VV.Migrations
                         new
                         {
                             AccountID = 1,
-                            AccountBalance = 5003.2299999999996,
-                            AccountInterest = 0.0,
+                            AccountBalance = 2189.4299999999998,
+                            AccountInterest = 0.02,
                             AccountType = "Chequing",
                             ClientID = 1,
                             IsActive = true
@@ -61,16 +61,7 @@ namespace Capstone_VV.Migrations
                         new
                         {
                             AccountID = 2,
-                            AccountBalance = 40000.43,
-                            AccountInterest = 0.029999999999999999,
-                            AccountType = "Savings",
-                            ClientID = 1,
-                            IsActive = true
-                        },
-                        new
-                        {
-                            AccountID = 3,
-                            AccountBalance = 3.75,
+                            AccountBalance = 4.0,
                             AccountInterest = 0.0,
                             AccountType = "Chequing",
                             ClientID = 2,
@@ -78,27 +69,18 @@ namespace Capstone_VV.Migrations
                         },
                         new
                         {
-                            AccountID = 4,
-                            AccountBalance = 75552.229999999996,
-                            AccountInterest = 0.0,
+                            AccountID = 3,
+                            AccountBalance = 77850.0,
+                            AccountInterest = 0.070000000000000007,
                             AccountType = "Chequing",
                             ClientID = 3,
                             IsActive = true
                         },
                         new
                         {
-                            AccountID = 5,
-                            AccountBalance = 814750.98999999999,
-                            AccountInterest = 0.029999999999999999,
-                            AccountType = "Savings",
-                            ClientID = 3,
-                            IsActive = true
-                        },
-                        new
-                        {
-                            AccountID = 6,
-                            AccountBalance = 753.23000000000002,
-                            AccountInterest = 0.0,
+                            AccountID = 4,
+                            AccountBalance = 174.09999999999999,
+                            AccountInterest = 0.01,
                             AccountType = "Chequing",
                             ClientID = 4,
                             IsActive = true
@@ -182,7 +164,7 @@ namespace Capstone_VV.Migrations
                             EmailAddress = "johndoe123@gmail.com",
                             FirstName = "John",
                             LastName = "Doe",
-                            Password = "john123",
+                            Password = "John123!Unknown",
                             PhoneNumber = "7804188874",
                             PostalCode = "T8N3A4",
                             Province = "AB"
@@ -196,7 +178,7 @@ namespace Capstone_VV.Migrations
                             EmailAddress = "trevorbelmont123@gmail.com",
                             FirstName = "Trevor",
                             LastName = "Belmont",
-                            Password = "draculasux",
+                            Password = "Draculasux@lif3",
                             PhoneNumber = "7804442121",
                             PostalCode = "Z4A2B1",
                             Province = "ON"
@@ -210,7 +192,7 @@ namespace Capstone_VV.Migrations
                             EmailAddress = "richardrich@gmail.com",
                             FirstName = "Richard",
                             LastName = "Rich",
-                            Password = "rich123!@#",
+                            Password = "Therich123!@#",
                             PhoneNumber = "7771115454",
                             PostalCode = "T8N3E1",
                             Province = "AB"
@@ -314,34 +296,34 @@ namespace Capstone_VV.Migrations
                         new
                         {
                             TransactionID = 6,
-                            AccountID = 2,
+                            AccountID = 1,
                             TransactionCategory = "Income_Investments",
                             TransactionDate = new DateTime(2020, 4, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Gold Hand Investments Inc.",
-                            TransactionValue = 750.0
+                            TransactionValue = 430.0
                         },
                         new
                         {
                             TransactionID = 7,
-                            AccountID = 2,
+                            AccountID = 1,
                             TransactionCategory = "Income_Investments",
                             TransactionDate = new DateTime(2020, 5, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Gold Hand Investments Inc.",
-                            TransactionValue = 750.0
+                            TransactionValue = 110.0
                         },
                         new
                         {
                             TransactionID = 8,
-                            AccountID = 2,
+                            AccountID = 1,
                             TransactionCategory = "Income_Investments",
                             TransactionDate = new DateTime(2020, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Gold Hand Investments Inc.",
-                            TransactionValue = 750.0
+                            TransactionValue = 320.0
                         },
                         new
                         {
                             TransactionID = 9,
-                            AccountID = 2,
+                            AccountID = 1,
                             TransactionCategory = "Income_Investments",
                             TransactionDate = new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Gold Hand Investments Inc.",
@@ -350,16 +332,16 @@ namespace Capstone_VV.Migrations
                         new
                         {
                             TransactionID = 10,
-                            AccountID = 3,
+                            AccountID = 2,
                             TransactionCategory = "Income",
                             TransactionDate = new DateTime(2020, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bank of Wallachia",
-                            TransactionValue = 4.0
+                            TransactionValue = 5.0
                         },
                         new
                         {
                             TransactionID = 11,
-                            AccountID = 3,
+                            AccountID = 2,
                             TransactionCategory = "Expense_Food",
                             TransactionDate = new DateTime(2020, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Wallachia Market",
@@ -368,7 +350,7 @@ namespace Capstone_VV.Migrations
                         new
                         {
                             TransactionID = 12,
-                            AccountID = 4,
+                            AccountID = 3,
                             TransactionCategory = "Income",
                             TransactionDate = new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Gold Hand Investments Inc.",
@@ -377,7 +359,7 @@ namespace Capstone_VV.Migrations
                         new
                         {
                             TransactionID = 13,
-                            AccountID = 4,
+                            AccountID = 3,
                             TransactionCategory = "Income",
                             TransactionDate = new DateTime(2020, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Gold Hand Investments Inc.",
@@ -386,34 +368,34 @@ namespace Capstone_VV.Migrations
                         new
                         {
                             TransactionID = 14,
-                            AccountID = 4,
+                            AccountID = 3,
                             TransactionCategory = "Expense_Recreation",
                             TransactionDate = new DateTime(2020, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Central Avionics",
-                            TransactionValue = 3000.0
+                            TransactionValue = -3000.0
                         },
                         new
                         {
                             TransactionID = 15,
-                            AccountID = 5,
+                            AccountID = 3,
                             TransactionCategory = "Income_Investments",
                             TransactionDate = new DateTime(2020, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Gold Hand Investments Inc.",
-                            TransactionValue = 43000.0
+                            TransactionValue = 43750.0
                         },
                         new
                         {
                             TransactionID = 16,
-                            AccountID = 5,
+                            AccountID = 3,
                             TransactionCategory = "Income_Investments",
                             TransactionDate = new DateTime(2020, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Gold Hand Investments Inc.",
-                            TransactionValue = 43000.0
+                            TransactionValue = 22100.0
                         },
                         new
                         {
                             TransactionID = 17,
-                            AccountID = 6,
+                            AccountID = 4,
                             TransactionCategory = "Income",
                             TransactionDate = new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Seven Eleven",
@@ -422,7 +404,7 @@ namespace Capstone_VV.Migrations
                         new
                         {
                             TransactionID = 18,
-                            AccountID = 6,
+                            AccountID = 4,
                             TransactionCategory = "Expense_Rent",
                             TransactionDate = new DateTime(2020, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Axion Rental Agency",
@@ -431,7 +413,7 @@ namespace Capstone_VV.Migrations
                         new
                         {
                             TransactionID = 19,
-                            AccountID = 6,
+                            AccountID = 4,
                             TransactionCategory = "Expense_Vehicle",
                             TransactionDate = new DateTime(2020, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "St. Albert Transit",
@@ -440,7 +422,7 @@ namespace Capstone_VV.Migrations
                         new
                         {
                             TransactionID = 20,
-                            AccountID = 6,
+                            AccountID = 4,
                             TransactionCategory = "Expense_Groceries",
                             TransactionDate = new DateTime(2020, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Superstore",
