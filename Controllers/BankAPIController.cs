@@ -24,7 +24,7 @@ namespace Capstone_VV.Controllers
             ActionResult<Client> result;
             try
             {
-                result = new AccountController().ClientAuthorization(email, password);                    
+                result = new ClientController().ClientAuthorization(email, password);                    
             }
             catch (ValidationException e)
             {

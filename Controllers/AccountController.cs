@@ -17,40 +17,13 @@ namespace Capstone_VV.Controllers
         }
 
         // Methods
-        public static int clientID;
-
-        public Client ClientAuthorization(string email, string password)
-        {
-            Client result;
-            ValidationException exception = new ValidationException();
-
-            using (BankContext context = new BankContext())
-            {
-                if (string.IsNullOrWhiteSpace(email) && string.IsNullOrWhiteSpace(password))
-                {
-                    exception.ValidationExceptions.Add(new Exception("Email and Password are Required"));
-                }
-                else if (!context.Clients.Include(x => x.Accounts).Any(x => x.EmailAddress.ToLower() == email.ToLower() && x.Password == password ))
-                {
-                    exception.ValidationExceptions.Add(new Exception("The email and/or password you entered was incorrect. Please try again."));
-                }
-
-                if (exception.ValidationExceptions.Count > 0)
-                {
-                    throw exception;
-                }
-
-                result = context.Clients.Include(x => x.Accounts).Where(x => x.EmailAddress == email && x.Password == password).SingleOrDefault();
-                clientID = result.ClientID;
-            }
-            return result;
-        }
+       
         public List<Account> GetAccount()
         {
             List<Account> result;
             using (BankContext context = new BankContext())
             {
-                result = context.Accounts.Include(x => x.Client).Where(x=>x.ClientID == clientID && x.IsActive == true).ToList();
+                result = context.Accounts.Include(x => x.Client).Where(x=>x.ClientID == new ClientController().GetClientID() && x.IsActive == true).ToList();
             }
             return result;
         }
