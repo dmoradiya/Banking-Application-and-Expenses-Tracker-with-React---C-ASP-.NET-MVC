@@ -21,6 +21,9 @@ namespace Capstone_VV.Controllers
         public List<Account> GetAccount()
         {
             List<Account> result;
+
+            ValidationException exception = new ValidationException();
+
             using (BankContext context = new BankContext())
             {
                 result = context.Accounts.Include(x => x.Client).Where(x=>x.ClientID == new ClientController().GetClientID() && x.IsActive == true).ToList();

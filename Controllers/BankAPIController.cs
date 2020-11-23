@@ -119,31 +119,6 @@ namespace Capstone_VV.Controllers
 
         }
 
-        //// Update Deposit Balance
-        //[HttpPatch("DepositBalance")]
-        //public ActionResult<Account> DepositBalance_PATCH(string accountID, string transactionValue)
-        //{
-        //    ActionResult<Account> result;
-        //    try
-        //    {
-        //        result = new AccountController().DepositBalance(accountID, transactionValue);
-        //    }
-        //    catch (ValidationException e)
-        //    {
-        //        string error = "Error(s) During Creation: " +
-        //            e.ValidationExceptions.Select(x => x.Message)
-        //            .Aggregate((x, y) => x + ", " + y);
-
-        //        result = BadRequest(error);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        result = StatusCode(500, "Unknown error occurred, please try again later.");
-        //    }
-        //    return result;
-
-        //}
-
         // Create Withdraw
         [HttpPost("CreateWithdraw")]
         public ActionResult<Transaction> CreateWithdraw_POST(string accountID, string transactionValue, string transactionDate, string transactionSource = "Bill Payment", string transactionCategory = "Withdraw")
