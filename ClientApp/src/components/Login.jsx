@@ -54,20 +54,28 @@ function Login(props) {
         <div>
             <h1>Log In</h1>
 
-            <p>{waiting ? "Loging In..." : `${response}`}</p>
+            <p>{waiting ? "Logging In..." : `${response}`}</p>
 
             <form onSubmit={handleSubmit}>
-                <label htmlFor="email">Email : </label>
-                <input id="email" type="text" onChange={handleFieldChange} />
-                <label htmlFor="password">Password</label>
-                <input id="password" type="text" onChange={handleFieldChange} />
-                <input type="submit" className="btn btn-primary" value="Login" />
+                <div classname="form-group">
+                    <label htmlFor="email" >Please enter your Email Address: </label>
+                    <br/>
+                    <input id="email" type="text" onChange={handleFieldChange} placeholder="Email Address"/>
+                </div>
+
+                <div classname="form-group">
+                    <label htmlFor="password">Please enter your Password: </label>
+                    <br />
+                    <input id="password" type="text" onChange={handleFieldChange} placeholder="Password" />
+                </div>
+                <div classname="form-group">
+                    <input type="submit" className="btn btn-primary" value="Login" />
+                    <button className="btn btn-info">
+                        <Link to="/create-client">Become A Client!</Link>
+                    </button>
+                </div>
             </form>
-            <button className="btn">
-                <Link to="/create-client">
-                    Join Now
-                </Link>
-            </button>
+
         </div>
 
 
