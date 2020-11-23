@@ -19,9 +19,9 @@ namespace Capstone_VV.Controllers
         // Methods
         public static int clientID;
 
-        public Account ClientAuthorization(string email, string password)
+        public Client ClientAuthorization(string email, string password)
         {
-            Account result;
+            Client result;
             ValidationException exception = new ValidationException();
 
             using (BankContext context = new BankContext())
@@ -30,7 +30,7 @@ namespace Capstone_VV.Controllers
                 {
                     exception.ValidationExceptions.Add(new Exception("Email and Password are Required"));
                 }
-                else if (!context.Accounts.Include(x => x.Client).Any(x => x.Client.EmailAddress.ToLower() == email.ToLower() && x.Client.Password == password))
+                else if (!context.Clients.Include(x => x.Accounts).Any(x => x.EmailAddress.ToLower() == email.ToLower() && x.Password == password ))
                 {
                     exception.ValidationExceptions.Add(new Exception("The email and/or password you entered was incorrect. Please try again."));
                 }
@@ -40,7 +40,7 @@ namespace Capstone_VV.Controllers
                     throw exception;
                 }
 
-                result = context.Accounts.Include(x => x.Client).Where(x => x.Client.EmailAddress == email && x.Client.Password == password).SingleOrDefault();
+                result = context.Clients.Include(x => x.Accounts).Where(x => x.EmailAddress == email && x.Password == password).SingleOrDefault();
                 clientID = result.ClientID;
             }
             return result;
