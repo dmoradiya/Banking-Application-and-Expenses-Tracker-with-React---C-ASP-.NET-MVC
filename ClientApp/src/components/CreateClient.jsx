@@ -1,6 +1,10 @@
 ﻿import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
+import "./css/root.css"
+import "./css/CreateClient.css"
+
+
 
 function CreateClient(props) {
     const [email, setEmail] = useState("");
@@ -151,8 +155,6 @@ function CreateClient(props) {
                     <label className="input-group-text" htmlFor="postalCode">Postal Code</label>
                     <input className="form-control" id="postalCode" type="text" onChange={handleFieldChange} />
                 </div>
-                <div className="input-group-prepend">
-                </div>
 
 
 
@@ -161,8 +163,12 @@ function CreateClient(props) {
 
 
 
-                <input type="submit" className="btn btn-primary" value="Next" />
+
             </form>
+            <div className="submit-button"> 
+                <input type="submit" className="btn btn-primary" value="Next" />
+            </div>
+
         </div>
 
 
