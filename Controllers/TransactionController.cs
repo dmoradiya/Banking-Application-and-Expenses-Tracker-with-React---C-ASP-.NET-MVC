@@ -91,6 +91,26 @@ namespace Capstone_VV.Controllers
             }
 
         }
+        // Close Transaction 
+        public List<Transaction> CloseTransaction(string accountID)
+        {
+            List<Transaction> result;
+
+            accountID = new ClientController().StringValidation("Dropdown", accountID);
+
+            using (BankContext context = new BankContext())
+            {
+                result = context.Transactions.Include(x => x.Account).Where(x => x.Account.AccountID == int.Parse(accountID)).ToList();
+
+                foreach (Transaction transaction in result)
+                {
+                    transaction.IsTransactionActive = false;
+                }
+                
+                context.SaveChanges();
+                return result;
+            }
+        }
 
     }
 }

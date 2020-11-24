@@ -150,11 +150,12 @@ namespace Capstone_VV.Controllers
 
             accountID = new ClientController().StringValidation("Dropdown", accountID);
 
+            new TransactionController().CloseTransaction(accountID);
+
             using (BankContext context = new BankContext())
             {
 
-                result = context.Accounts.Where(x => x.AccountID == int.Parse(accountID)).SingleOrDefault();
-               
+                result = context.Accounts.Include(x=>x.Transactions).Where(x => x.AccountID == int.Parse(accountID)).SingleOrDefault();
                 result.IsActive = false;
                 context.SaveChanges();
                 return result;
