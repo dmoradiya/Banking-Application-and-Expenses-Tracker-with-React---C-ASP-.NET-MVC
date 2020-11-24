@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { Layout } from '../components/Layout';
 import { Link } from "react-router-dom";
+import "./css/root.css"
 
 
 function LandingPage(props) {
@@ -14,7 +15,7 @@ function LandingPage(props) {
 
 
         return (
-            <table className='table table-striped' aria-labelledby="tabelLabel">
+            <table className='table table-dark' aria-labelledby="tabelLabel">
                 <thead>
                     <tr>
                         <th>Full Name</th>

@@ -1,0 +1,43 @@
+﻿
+div {
+    margin: 10px;
+    border: 10px;
+}
+
+body {
+    font-family: 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background-color: #1f0744;
+    color: #FFF;
+}
+
+input {
+    margin: auto;
+    text-align: center;
+}
+.submit-button {
+    margin: auto;
+    text-align: center;
+}
+
+.input-group-prepend {
+    min-width: 30%;
+    max-width: 800px;
+    margin: 10px;
+    text-align: center;
+
+}
+
+.input-group-text {
+    min-width: 120px;
+    margin: auto;
+    text-align: center;
+}
+
+h1 {
+    margin: auto;
+    width: 75%;
+    border: 3px solid green;
+    padding: 10px;
+    text-align: center;
+}
