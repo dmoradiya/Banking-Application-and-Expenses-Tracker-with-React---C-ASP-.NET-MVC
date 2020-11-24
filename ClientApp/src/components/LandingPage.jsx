@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 
 function LandingPage(props) {
-    const displayName = LandingPage.name;
 
     const [accountInfo, setAccountInfo] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -15,24 +14,21 @@ function LandingPage(props) {
 
         return (
             <table className='table table-striped' aria-labelledby="tabelLabel">
-                <thead>
-                    <tr>
-                        <th>Full Name</th>
-                        <th>Account Type</th>                        
-                        <th>Account Balance</th>                        
-                        <th>Interest Earned</th>                        
-                        <th>Total Balance</th>                        
-                        <th>View Transactions</th>                        
-                    </tr>
-                </thead>
+               
                 <tbody>
                     {accountInfo.map(client =>
                         <tr key={client.accountID}>
+                            <th>Full Name</th>
                             <td>{client.client.firstName + " " + client.client.lastName}</td>
+                            <th>Account Type</th>  
                             <td>{client.accountType}</td>
+                            <th>Account Balance</th>  
                             <td>{client.accountBalance}</td>
+                            <th>Interest Earned</th>  
                             <td>{client.accountInterest}</td>
+                            <th>Total Balance</th>
                             <td>{client.accountBalance + client.accountInterest}</td>
+                            <th>View Transactions</th> 
                             <td>                                
                                 <button className="btn btn-info">
                                     <Link to={`/view-transactions?id=${ client.accountID }`}>
