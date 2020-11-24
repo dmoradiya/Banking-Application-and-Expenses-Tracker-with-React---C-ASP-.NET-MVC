@@ -95,42 +95,71 @@ function CreateClient(props) {
             <p>{waiting ? "Processing..." : `${response}`}</p>
 
             <form onSubmit={handleSubmit}>
-                
-                <label htmlFor="email">Email</label>
-                <input id="email" type="text" onChange={handleFieldChange} />
-                <label htmlFor="password">Password</label>
-                <input id="password" type="text" onChange={handleFieldChange} />
-                <label htmlFor="phone">Phone Number</label>
-                <input id="phone" type="text" onChange={handleFieldChange} />
-                <label htmlFor="fname">First Name</label>
-                <input id="fname" type="text" onChange={handleFieldChange} />
-                <label htmlFor="lname">Last Name</label>
-                <input id="lname" type="text" onChange={handleFieldChange} />
-                <label htmlFor="dateOfBirth">Date Of Birth</label>
-                <input id="dateOfBirth" type="date" onChange={handleFieldChange} />
-                <label htmlFor="address">Address</label>
-                <input id="address" type="text" onChange={handleFieldChange} />
-                <label htmlFor="city">City</label>
-                <input id="city" type="text" onChange={handleFieldChange} />
-                <label htmlFor="province">Province</label>
-                <select id="province" onChange={handleFieldChange}>
-                    <option value="" >Choose here</option>
-                    <option value="AB">Alberta</option>
-                    <option value="BC">British Columbia</option>
-                    <option value="MB">Manitoba</option>
-                    <option value="NB">New Brunswick</option>
-                    <option value="NF">Newfoundland</option>
-                    <option value="NT">Northwest Territories</option>
-                    <option value="NS">Nova Scotia</option>
-                    <option value="NU">Nunavut</option>
-                    <option value="ON">Ontario</option>
-                    <option value="PE">Prince Edward Island</option>
-                    <option value="QC">Quebec</option>
-                    <option value="SK">Saskatchewan</option>
-                    <option value="YT">Yukon Territory</option>
-                </select>
-                <label htmlFor="postalCode">Postal Code</label>
-                <input id="postalCode" type="text" onChange={handleFieldChange} />
+              
+                <div className="input-group-prepend">
+                    <label className="input-group-text" htmlFor="email">Email Address</label>
+                    <input className="form-control" id="email" type="text" onChange={handleFieldChange} />
+                </div>
+                <div className="input-group-prepend">
+                    <label className="input-group-text" htmlFor="password">Password</label>
+                    <input className="form-control" id="password" type="text" onChange={handleFieldChange} />
+                </div>
+                <div className="input-group-prepend">
+                    <label className="input-group-text" htmlFor="phone">Phone Number</label>
+                    <input className="form-control" id="phone" type="text" onChange={handleFieldChange} />
+                </div>
+                <div className="input-group-prepend">
+                    <label className="input-group-text" htmlFor="fname">First Name</label>
+                    <input className="form-control" id="fname" type="text" onChange={handleFieldChange} />
+                </div>
+                <div className="input-group-prepend">
+                    <label className="input-group-text" htmlFor="lname">Last Name</label>
+                    <input className="form-control" id="lname" type="text" onChange={handleFieldChange} />
+                </div>
+                <div className="input-group-prepend">
+                    <label className="input-group-text" htmlFor="dateOfBirth">Date Of Birth</label>
+                    <input className="form-control" id="dateOfBirth" type="date" onChange={handleFieldChange} />
+                </div>
+                <div className="input-group-prepend">
+                    <label className="input-group-text" htmlFor="address">Address</label>
+                    <input className="form-control" id="address" type="text" onChange={handleFieldChange} />
+                </div>
+                <div className="input-group-prepend">
+                    <label className="input-group-text" htmlFor="city">City</label>
+                    <input className="form-control" id="city" type="text" onChange={handleFieldChange} />
+                </div>
+                <div className="input-group-prepend">
+                    <label className="input-group-text" htmlFor="province">Province</label>
+                    <select className="form-control" id="province" onChange={handleFieldChange}>
+                        <option value="" >Choose here</option>
+                        <option value="AB">Alberta</option>
+                        <option value="BC">British Columbia</option>
+                        <option value="MB">Manitoba</option>
+                        <option value="NB">New Brunswick</option>
+                        <option value="NF">Newfoundland</option>
+                        <option value="NT">Northwest Territories</option>
+                        <option value="NS">Nova Scotia</option>
+                        <option value="NU">Nunavut</option>
+                        <option value="ON">Ontario</option>
+                        <option value="PE">Prince Edward Island</option>
+                        <option value="QC">Quebec</option>
+                        <option value="SK">Saskatchewan</option>
+                        <option value="YT">Yukon Territory</option>
+                    </select>
+                </div>
+                <div className="input-group-prepend">
+                    <label className="input-group-text" htmlFor="postalCode">Postal Code</label>
+                    <input className="form-control" id="postalCode" type="text" onChange={handleFieldChange} />
+                </div>
+                <div className="input-group-prepend">
+                </div>
+
+
+
+
+
+
+
 
                 <input type="submit" className="btn btn-primary" value="Next" />
             </form>
