@@ -2,7 +2,6 @@
 import axios from 'axios';
 import { Layout } from '../components/Layout';
 import { Link } from "react-router-dom";
-import "./css/root.css"
 
 
 function LandingPage(props) {
