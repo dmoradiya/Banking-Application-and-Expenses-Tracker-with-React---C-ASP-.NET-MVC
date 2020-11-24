@@ -88,6 +88,30 @@ namespace Capstone_VV.Controllers
             return result;
 
         }
+        // Add Account
+        [HttpPost("AddAccount")]
+        public ActionResult<Account> AddAccount_POST(string accountType)
+        {
+            ActionResult<Account> result;
+            try
+            {
+                result = new AccountController().AddAccount(accountType);
+            }
+            catch (ValidationException e)
+            {
+                string error = "Error(s) During Creation: " +
+                    e.ValidationExceptions.Select(x => x.Message)
+                    .Aggregate((x, y) => x + ", " + y);
+
+                result = BadRequest(error);
+            }
+            catch (Exception)
+            {
+                result = StatusCode(500, "Unknown error occurred, please try again later.");
+            }
+            return result;
+
+        }
         [HttpGet("ViewTransactions")]
         public ActionResult<IEnumerable<Transaction>> ViewTransaction_GET(string id)
         {

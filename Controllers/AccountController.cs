@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Capstone_VV.Controllers
 {
+    
     public class AccountController : Controller
     {
         public IActionResult Index()
@@ -17,7 +18,7 @@ namespace Capstone_VV.Controllers
         }
 
         // Methods
-       
+
         public List<Account> GetAccount()
         {
             List<Account> result;
@@ -30,7 +31,8 @@ namespace Capstone_VV.Controllers
             }
             return result;
         }
-             
+        
+        // Create New Account For New Client
         public Account CreateAccount(string accountType)
         {
 
@@ -42,6 +44,30 @@ namespace Capstone_VV.Controllers
                 Account newAccount = new Account()
                 {
                     ClientID = new ClientController().GetClientCreateID(),
+                    AccountType = accountType,
+                    AccountBalance = 0.00,
+                    AccountInterest = 0.00,
+                    IsActive = true
+
+                };
+                context.Accounts.Add(newAccount);
+                context.SaveChanges();
+                return newAccount;
+            }
+        }
+
+        // Add Account For Existing Client
+        public Account AddAccount(string accountType)
+        {
+
+            accountType = new ClientController().StringValidation("Dropdown", accountType);
+            using (BankContext context = new BankContext())
+            {
+
+
+                Account newAccount = new Account()
+                {
+                    ClientID = new ClientController().GetClientID(),
                     AccountType = accountType,
                     AccountBalance = 0.00,
                     AccountInterest = 0.00,
