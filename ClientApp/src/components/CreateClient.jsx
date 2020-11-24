@@ -1,6 +1,9 @@
 ﻿import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
+import "./css/CreateClient.css"
+
+
 
 function CreateClient(props) {
     const [email, setEmail] = useState("");
@@ -71,14 +74,14 @@ function CreateClient(props) {
                     city: city,
                     province: province,
                     postalCode: postalCode
-                   
+
                 }
             }
         ).then((res) => {
             setWaiting(false);
             setResponse("Client Info Added Successfully");
             history.push("/create-account");
-            
+
         }
         ).catch((err) => {
             setWaiting(false);
@@ -88,33 +91,33 @@ function CreateClient(props) {
 
 
     return (
+        <section className="create-client">
 
-        <div>
-            <h1>Client Information</h1>
+            <h1 className="client-header">Client Information</h1>
 
             <p>{waiting ? "Processing..." : `${response}`}</p>
 
             <form onSubmit={handleSubmit}>
-              
+
                 <div className="input-group-prepend">
                     <label className="input-group-text" htmlFor="email">Email Address</label>
-                    <input className="form-control" id="email" type="text" onChange={handleFieldChange} />
+                    <input className="form-control" id="email" type="text" placeholder="youremail@email.com" onChange={handleFieldChange} />
                 </div>
                 <div className="input-group-prepend">
                     <label className="input-group-text" htmlFor="password">Password</label>
-                    <input className="form-control" id="password" type="text" onChange={handleFieldChange} />
+                    <input className="form-control" id="password" type="text" placeholder="Please enter your Password" onChange={handleFieldChange} />
                 </div>
                 <div className="input-group-prepend">
                     <label className="input-group-text" htmlFor="phone">Phone Number</label>
-                    <input className="form-control" id="phone" type="text" onChange={handleFieldChange} />
+                    <input className="form-control" id="phone" type="text" placeholder="(XXX) XXX-XXXX" onChange={handleFieldChange} />
                 </div>
                 <div className="input-group-prepend">
                     <label className="input-group-text" htmlFor="fname">First Name</label>
-                    <input className="form-control" id="fname" type="text" onChange={handleFieldChange} />
+                    <input className="form-control" id="fname" type="text" placeholder="" onChange={handleFieldChange} />
                 </div>
                 <div className="input-group-prepend">
                     <label className="input-group-text" htmlFor="lname">Last Name</label>
-                    <input className="form-control" id="lname" type="text" onChange={handleFieldChange} />
+                    <input className="form-control" id="lname" type="text" placeholder="" onChange={handleFieldChange} />
                 </div>
                 <div className="input-group-prepend">
                     <label className="input-group-text" htmlFor="dateOfBirth">Date Of Birth</label>
@@ -130,7 +133,7 @@ function CreateClient(props) {
                 </div>
                 <div className="input-group-prepend">
                     <label className="input-group-text" htmlFor="province">Province</label>
-                    <select className="form-control" id="province" onChange={handleFieldChange}>
+                    <select className="form-control selector" id="province" onChange={handleFieldChange}>
                         <option value="" >Choose here</option>
                         <option value="AB">Alberta</option>
                         <option value="BC">British Columbia</option>
@@ -151,20 +154,13 @@ function CreateClient(props) {
                     <label className="input-group-text" htmlFor="postalCode">Postal Code</label>
                     <input className="form-control" id="postalCode" type="text" onChange={handleFieldChange} />
                 </div>
-                <div className="input-group-prepend">
-                </div>
-
-
-
-
-
-
-
-
-                <input type="submit" className="btn btn-primary" value="Next" />
             </form>
-        </div>
+            <div className="submit-button">
+                <input type="submit" className="btn btn-primary" value="Next" />
+            </div>
 
+
+        </section>
 
     );
 }
