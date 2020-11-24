@@ -1,5 +1,6 @@
-﻿import React, { useState, useEffect } from 'react';
+﻿import React, { useState } from 'react';
 import axios from 'axios';
+import { Layout } from '../components/Layout';
 import { useHistory } from "react-router-dom";
 
 
@@ -40,7 +41,7 @@ function AddAccount(props) {
         }
         ).catch((err) => {
             setWaiting(false);
-            setResponse("Account Created Successfully");
+            setResponse(err.response.data);
            
         });
     }
@@ -49,6 +50,7 @@ function AddAccount(props) {
     return (
 
         <div>
+            <Layout />
             <h1>Select Your Account</h1>
 
             <p>{waiting ? "Submiting..." : `${response}`}</p>
