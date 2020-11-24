@@ -1,0 +1,53 @@
+﻿/*Adds a Green Square around the header and centers it*/
+.client-header {
+    margin: auto;
+    width: 75%;
+    border: 3px solid green;
+    padding: 10px;
+    text-align: center;
+}
+
+/*Adds a border to the entire section*/
+.create-client {
+    margin: 5%;
+    border: 5px;
+}
+
+/*Adds spacing between input fields*/
+.input-group-prepend {
+    border: 5px;
+    margin: 5%;
+}
+
+/*Centers the selector text*/
+.form-control {
+    text-align: center;
+}
+
+/*Centers the submit button*/
+.submit-button {
+    margin: auto;
+    text-align: center;
+}
+
+/*Centers the input text and gives a sharp border radius*/
+.input-group-text {
+    min-width: 120px;
+    margin: auto;
+    text-align: center;
+    border-radius: 0px;
+}
+
+/*For Tablets*/
+@media only screen and (min-width: 768px) {
+    .client-header {
+        border: 5px solid blue;
+    }
+}
+
+/*For Desktop Screens*/
+@media only screen and (min-width: 1200px) {
+    .client-header {
+        border: 7px solid red;
+    }
+}
