@@ -59,7 +59,8 @@ namespace Capstone_VV.Models
                         TransactionSource = "Allgood Engineering Inc.",
                         TransactionCategory = "Income",
                         TransactionValue = 2001.86,
-                        TransactionDate = new DateTime(2020, 07, 11)
+                        TransactionDate = new DateTime(2020, 07, 11),
+                        IsTransactionActive = true
                     },
                     new Transaction()
                     {
@@ -68,7 +69,8 @@ namespace Capstone_VV.Models
                         TransactionSource = "Axion Rental Agency",
                         TransactionCategory = "Expense_Rent",
                         TransactionValue = -1100.00,
-                        TransactionDate = new DateTime(2020, 07, 29)
+                        TransactionDate = new DateTime(2020, 07, 29),
+                        IsTransactionActive = true
                     },
                     new Transaction()
                     {
@@ -77,7 +79,8 @@ namespace Capstone_VV.Models
                         TransactionSource = "Jonathan's Car Repairs",
                         TransactionCategory = "Expense_Vehicle",
                         TransactionValue = -200.99,
-                        TransactionDate = new DateTime(2020, 10, 15)
+                        TransactionDate = new DateTime(2020, 10, 15),
+                        IsTransactionActive = true
                     },
                     new Transaction()
                     {
@@ -86,7 +89,8 @@ namespace Capstone_VV.Models
                         TransactionSource = "Superstore",
                         TransactionCategory = "Expense_Groceries",
                         TransactionValue = -71.44,
-                        TransactionDate = new DateTime(2020, 10, 16)
+                        TransactionDate = new DateTime(2020, 10, 16),
+                        IsTransactionActive = true
                     },
                     new Transaction()
                     {
@@ -95,7 +99,8 @@ namespace Capstone_VV.Models
                         TransactionSource = "Ironman Gym Membership Fee",
                         TransactionCategory = "Expense_Health",
                         TransactionValue = -30.00,
-                        TransactionDate = new DateTime(2020, 10, 30)
+                        TransactionDate = new DateTime(2020, 10, 30),
+                        IsTransactionActive = true
                     },
                     new Transaction()
                     {
@@ -104,7 +109,8 @@ namespace Capstone_VV.Models
                         TransactionSource = "Gold Hand Investments Inc.",
                         TransactionCategory = "Income_Investments",
                         TransactionValue = 430.00,
-                        TransactionDate = new DateTime(2020, 04, 11)
+                        TransactionDate = new DateTime(2020, 04, 11),
+                        IsTransactionActive = true
                     },
                     new Transaction()
                     {
@@ -113,7 +119,8 @@ namespace Capstone_VV.Models
                         TransactionSource = "Gold Hand Investments Inc.",
                         TransactionCategory = "Income_Investments",
                         TransactionValue = 110.00,
-                        TransactionDate = new DateTime(2020, 05, 11)
+                        TransactionDate = new DateTime(2020, 05, 11),
+                        IsTransactionActive = true
                     },
                     new Transaction()
                     {
@@ -122,7 +129,8 @@ namespace Capstone_VV.Models
                         TransactionSource = "Gold Hand Investments Inc.",
                         TransactionCategory = "Income_Investments",
                         TransactionValue = 320.00,
-                        TransactionDate = new DateTime(2020, 06, 11)
+                        TransactionDate = new DateTime(2020, 06, 11),
+                        IsTransactionActive = true
                     },
                     new Transaction()
                     {
@@ -131,7 +139,8 @@ namespace Capstone_VV.Models
                         TransactionSource = "Gold Hand Investments Inc.",
                         TransactionCategory = "Income_Investments",
                         TransactionValue = 750.00,
-                        TransactionDate = new DateTime(2020, 07, 11)
+                        TransactionDate = new DateTime(2020, 07, 11),
+                        IsTransactionActive = true
                     },
                     new Transaction()
                     {
@@ -140,7 +149,8 @@ namespace Capstone_VV.Models
                         TransactionSource = "Bank of Wallachia",
                         TransactionCategory = "Income",
                         TransactionValue = 5.00,
-                        TransactionDate = new DateTime(2020, 08, 11)
+                        TransactionDate = new DateTime(2020, 08, 11),
+                        IsTransactionActive = true
                     },
                     new Transaction()
                     {
@@ -149,7 +159,8 @@ namespace Capstone_VV.Models
                         TransactionSource = "Wallachia Market",
                         TransactionCategory = "Expense_Food",
                         TransactionValue = -1.00,
-                        TransactionDate = new DateTime(2020, 08, 13)
+                        TransactionDate = new DateTime(2020, 08, 13),
+                        IsTransactionActive = true
                     },
                     new Transaction()
                     {
@@ -158,7 +169,8 @@ namespace Capstone_VV.Models
                         TransactionSource = "Gold Hand Investments Inc.",
                         TransactionCategory = "Income",
                         TransactionValue = 7500.00,
-                        TransactionDate = new DateTime(2020, 07, 11)
+                        TransactionDate = new DateTime(2020, 07, 11),
+                        IsTransactionActive = true
                     },
                     new Transaction()
                     {
@@ -167,7 +179,8 @@ namespace Capstone_VV.Models
                         TransactionSource = "Gold Hand Investments Inc.",
                         TransactionCategory = "Income",
                         TransactionValue = 7500.00,
-                        TransactionDate = new DateTime(2020, 08, 11)
+                        TransactionDate = new DateTime(2020, 08, 11),
+                        IsTransactionActive = true
                     },
                     new Transaction()
                     {
@@ -176,7 +189,8 @@ namespace Capstone_VV.Models
                         TransactionSource = "Central Avionics",
                         TransactionCategory = "Expense_Recreation",
                         TransactionValue = -3000.00,
-                        TransactionDate = new DateTime(2020, 08, 14)
+                        TransactionDate = new DateTime(2020, 08, 14),
+                        IsTransactionActive = true
                     },
                     new Transaction()
                     {
@@ -185,7 +199,8 @@ namespace Capstone_VV.Models
                         TransactionSource = "Gold Hand Investments Inc.",
                         TransactionCategory = "Income_Investments",
                         TransactionValue = 43750.00,
-                        TransactionDate = new DateTime(2020, 08, 20)
+                        TransactionDate = new DateTime(2020, 08, 20),
+                        IsTransactionActive = true
                     },
                     new Transaction()
                     {
@@ -194,7 +209,8 @@ namespace Capstone_VV.Models
                         TransactionSource = "Gold Hand Investments Inc.",
                         TransactionCategory = "Income_Investments",
                         TransactionValue = 22100.00,
-                        TransactionDate = new DateTime(2020, 09, 20)
+                        TransactionDate = new DateTime(2020, 09, 20),
+                        IsTransactionActive = true
                     },
                     new Transaction()
                     {
@@ -203,7 +219,8 @@ namespace Capstone_VV.Models
                         TransactionSource = "Seven Eleven",
                         TransactionCategory = "Income",
                         TransactionValue = 1100.32,
-                        TransactionDate = new DateTime(2020, 07, 11)
+                        TransactionDate = new DateTime(2020, 07, 11),
+                        IsTransactionActive = true
                     },
                     new Transaction()
                     {
@@ -212,7 +229,8 @@ namespace Capstone_VV.Models
                         TransactionSource = "Axion Rental Agency",
                         TransactionCategory = "Expense_Rent",
                         TransactionValue = -800.00,
-                        TransactionDate = new DateTime(2020, 07, 29)
+                        TransactionDate = new DateTime(2020, 07, 29),
+                        IsTransactionActive = true
                     },
                     new Transaction()
                     {
@@ -221,7 +239,8 @@ namespace Capstone_VV.Models
                         TransactionSource = "St. Albert Transit",
                         TransactionCategory = "Expense_Vehicle",
                         TransactionValue = -41.99,
-                        TransactionDate = new DateTime(2020, 10, 15)
+                        TransactionDate = new DateTime(2020, 10, 15),
+                        IsTransactionActive = true
                     },
                     new Transaction()
                     {
@@ -230,7 +249,8 @@ namespace Capstone_VV.Models
                         TransactionSource = "Superstore",
                         TransactionCategory = "Expense_Groceries",
                         TransactionValue = -84.23,
-                        TransactionDate = new DateTime(2020, 10, 16)
+                        TransactionDate = new DateTime(2020, 10, 16),
+                        IsTransactionActive = true
                     }
 
 

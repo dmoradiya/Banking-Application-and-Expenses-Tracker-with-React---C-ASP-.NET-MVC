@@ -43,6 +43,10 @@ namespace Capstone_VV.Models
         [Column(TypeName = "date")]
         public DateTime TransactionDate { get; set; }
 
+        // IsTransactionActive bool NOT NULL
+        [Column(TypeName = "bool")]
+        public bool IsTransactionActive { get; set; }
+
         // FK Child Reference to Account
         [ForeignKey(nameof(AccountID))]
         [InverseProperty(nameof(Models.Account.Transactions))]

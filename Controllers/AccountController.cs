@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Capstone_VV.Controllers
 {
+    
     public class AccountController : Controller
     {
         public IActionResult Index()
@@ -17,7 +18,7 @@ namespace Capstone_VV.Controllers
         }
 
         // Methods
-       
+
         public List<Account> GetAccount()
         {
             List<Account> result;
@@ -30,7 +31,8 @@ namespace Capstone_VV.Controllers
             }
             return result;
         }
-             
+        
+        // Create New Account For New Client
         public Account CreateAccount(string accountType)
         {
 
@@ -42,6 +44,47 @@ namespace Capstone_VV.Controllers
                 Account newAccount = new Account()
                 {
                     ClientID = new ClientController().GetClientCreateID(),
+                    AccountType = accountType,
+                    AccountBalance = 0.00,
+                    AccountInterest = 0.00,
+                    IsActive = true
+
+                };
+                context.Accounts.Add(newAccount);
+                context.SaveChanges();
+                return newAccount;
+            }
+        }
+
+        // Add Account For Existing Client
+        public Account AddAccount(string accountType)
+        {
+            ValidationException exception = new ValidationException();
+            int clientID = new ClientController().GetClientID();
+            accountType = new ClientController().StringValidation("Dropdown", accountType);
+
+            using (BankContext context = new BankContext())
+            {
+                if (context.Accounts.Any(x => x.ClientID == clientID && x.AccountType == accountType && x.IsActive == false))
+                {
+                    exception.ValidationExceptions.Add(new Exception($"Your {accountType} account is in Inactive Status. Please Contact Customer Service to Re-Activate"));
+                }
+                else if (context.Accounts.Count(x => x.ClientID == clientID && x.IsActive == true ) >= 2)
+                {
+                    exception.ValidationExceptions.Add(new Exception($"You already have all the Accounts"));
+                }
+                else if (context.Accounts.Any(x => x.ClientID == clientID && x.AccountType == accountType))
+                {
+                    exception.ValidationExceptions.Add(new Exception($"You already have {accountType} account. Please Choose different account"));
+                }
+                if (exception.ValidationExceptions.Count > 0)
+                {
+                    throw exception;
+                }
+
+                Account newAccount = new Account()
+                {
+                    ClientID = clientID,
                     AccountType = accountType,
                     AccountBalance = 0.00,
                     AccountInterest = 0.00,
@@ -107,11 +150,12 @@ namespace Capstone_VV.Controllers
 
             accountID = new ClientController().StringValidation("Dropdown", accountID);
 
+            new TransactionController().CloseTransaction(accountID);
+
             using (BankContext context = new BankContext())
             {
 
-                result = context.Accounts.Where(x => x.AccountID == int.Parse(accountID)).SingleOrDefault();
-               
+                result = context.Accounts.Include(x=>x.Transactions).Where(x => x.AccountID == int.Parse(accountID)).SingleOrDefault();
                 result.IsActive = false;
                 context.SaveChanges();
                 return result;
