@@ -1,6 +1,7 @@
 ﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Layout } from '../components/Layout';
+import "./css/CreateDeposit.css"
 
 
 function CreateDeposit(props) {
@@ -65,17 +66,16 @@ function CreateDeposit(props) {
     }
 
     return (
-        <div>
+        <section className="deposit-page">
             <Layout />
-            <h1> Make a Deposit </h1>
+            <h1 className="deposit-header"> Make a Deposit </h1>
             <p>{waiting ? "Waiting..." : `${response}`}</p>
 
             <br/>
             <form onSubmit={handleSubmit}>
               
-                <label htmlFor="accountID">Account Type</label>
-                <select id="accountID" onChange={handleFieldChange}>
-                    <option value="" >Choose Account here</option>
+                <select id="accountID"  onChange={handleFieldChange}>
+                    <option value=""  >Select Account</option>
                     {accountInfo.map(client => (
                         <option key={client.accountID} value={`${client.accountID}`}>
                         {`${client.accountType} Account      Total Balance: $${client.accountBalance + client.accountInterest}`}
@@ -83,20 +83,18 @@ function CreateDeposit(props) {
                 ))}
                 </select>
                 <br />  
-                <label htmlFor="transactionSource">Source of Deposit</label>
                 <select id="transactionSource" onChange={handleFieldChange}>
-                    <option value="" >Choose Source here</option>
+                    <option value="" >Deposit Source</option>
                     <option value="Bank">Bank</option>
                     <option value="ATM">ATM</option>
                 </select>
                 <br />
-                <label htmlFor="transactionValue">Value of this transaction</label>
-                <br />
-                <input id="transactionValue" type="text" onChange={handleFieldChange} />
+
+                <input id="transactionValue" placeholder="Transaction Value" type="text" onChange={handleFieldChange} />
                 <br />
                 <input type="submit" className="btn btn-primary" value="Submit" />
             </form>
-        </div>
+        </section>
 
         
         );

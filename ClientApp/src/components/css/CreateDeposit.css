@@ -1,0 +1,9 @@
+﻿/*Adds a Green Square around the header and centers it*/
+.deposit-header {
+    margin: auto;
+    width: 75%;
+    border: 3px solid green;
+    padding: 10px;
+    text-align: center;
+    font-size: 2em; /*16 x 2 = 32px*/
+}
