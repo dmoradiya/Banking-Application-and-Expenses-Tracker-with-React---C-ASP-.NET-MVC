@@ -10,20 +10,22 @@
 
 /*Adds a border to the entire section*/
 .create-client {
-    margin: 5%;
     border: 5px;
 }
 
+/*Adds a border to the form section*/
+
 /*Adds spacing between input fields*/
 .input-group-prepend {
-    border: 5px;
-    margin: 5%;
+    border: 1px;
+    min-width: 160px;
 }
 
 /*Centers the selector text*/
 .form-control {
     text-align: center;
     font-size: 1em;
+    margin-right: 5vw;
 }
 
 /*Centers the submit button*/
@@ -34,10 +36,10 @@
 
 /*Centers the input text and gives a sharp border radius*/
 .input-group-text {
-    min-width: 120px;
-    margin: auto;
+    margin-left: 5vw;
     text-align: center;
     border-radius: 0px;
+    width: 160px;
 }
 
 /*For Tablets*/

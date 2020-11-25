@@ -68,37 +68,44 @@ function CreateDeposit(props) {
     return (
         <section className="deposit-page">
             <Layout />
-            <h1 className="deposit-header"> Make a Deposit </h1>
-            <p className="deposit-selector">{waiting ? "Waiting..." : `${response}`}</p>
 
-            <br />
-            <div className="center">
-            <form className="deposit-form" onSubmit={handleSubmit}>
-              
+            <h1 className="deposit-header"> Make a Deposit </h1>
+
+            <p className="deposit-error">{waiting ? "Waiting..." : `${response}`}</p>
+            <form className="deposit-form" onSubmit={handleSubmit}>              
+
+                <section className="input-group-prepend">
+                <label className="input-group-text" htmlFor="accountID">Account</label>
                 <select className="deposit-selector" id="accountID"  onChange={handleFieldChange}>
-                        <option className="center" value=""  >Select Account</option>
-                    {accountInfo.map(client => (
-                        <option key={client.accountID} value={`${client.accountID}`}>
-                        {`${client.accountType} Account      Total Balance: $${client.accountBalance + client.accountInterest}`}
+                    <option className="center" value=""  >Select Account</option>
+                        {accountInfo.map(client => (<option key={client.accountID} value={`${client.accountID}`}>
+                        {`${client.accountType} Account -- Total Balance: $${client.accountBalance + client.accountInterest}`}
                     </option>
                 ))}
-                </select>
+                    </select>
+                    </section>
                 <br />  
+                <section className="input-group-prepend">
+                    <label className="input-group-text" htmlFor="accountID">Location</label>
                 <select className="deposit-selector" id="transactionSource" onChange={handleFieldChange}>
                     <option value="" >Deposit Source</option>
                     <option value="Bank">Bank</option>
                     <option value="ATM">ATM</option>
-                </select>
+                    </select>
+                    </section>
                 <br />
-                    <div class="input-group-prepend deposit-selector">
-                        <div class="input-group-text dollar-sign">$</div>
-
-                        <input className="deposit-selector transaction-input" id="transactionValue" placeholder="Transaction Value" type="text" onChange={handleFieldChange} />
-                    </div>
+                <section className="input-group-prepend">
+                    <label className="input-group-text" htmlFor="address">Address</label>
+                        <input
+                            className="deposit-selector"
+                            id="transactionValue"
+                            placeholder="Transaction Value"
+                            type="text"
+                        onChange={handleFieldChange} />
+                    </section>
                 <br />
                 <input type="submit" className="btn btn-primary deposit-submit" value="Submit" />
                 </form>
-                </div>
         </section>
 
         
