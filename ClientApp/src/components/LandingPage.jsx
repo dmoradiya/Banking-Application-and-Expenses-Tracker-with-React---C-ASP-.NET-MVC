@@ -23,9 +23,10 @@ function LandingPage(props) {
 
         return (
             <section id="landing-page-summary">
+                <h1>Account Summary</h1>  
                 <h2>Total Holdings : {totalHolding.toFixed(2)}</h2>
                 <h3>Full Name: { name }</h3>
-                <table className='table table-striped table-borderless' aria-labelledby="tabelLabel">
+                <table className='table table-borderless' aria-labelledby="tabelLabel">
                     <tbody>
                         {accountInfo.map(client =>
                             <tr key={client.accountID}>                                
@@ -50,7 +51,7 @@ function LandingPage(props) {
                                     <td>
                                         <button className="btn btn-info">
                                             <Link to={`/view-transactions?id=${client.accountID}`}>
-                                                {client.accountType}
+                                                {`${ client.accountType } Account`}
                                             </Link>
                                         </button>
                                     </td>
@@ -81,9 +82,7 @@ function LandingPage(props) {
 
     return (
         <section id="landing-page">
-            <Layout />
-            <h1 id="tabelLabel" >Account Summary</h1>
-            
+            <Layout />                     
             {contents}
         </section>
     );
