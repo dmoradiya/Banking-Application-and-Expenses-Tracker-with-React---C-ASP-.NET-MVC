@@ -99,41 +99,41 @@ function CreateClient(props) {
 
             <form className="deposit-form" onSubmit={handleSubmit}>
 
-                <div className="input-group-prepend">
-                    <label className="input-group-text" htmlFor="email">Email Address</label>
-                    <input className="form-control" id="email" type="text" placeholder="youremail@email.com" onChange={handleFieldChange} />
+                <div className="input-group-prepend create-client-fields">
+                    <label className="input-group-text create-client-placeholder-text" htmlFor="email">Email Address</label>
+                    <input className="form-control create-client-form-field" id="email" type="text" placeholder="youremail@email.com" onChange={handleFieldChange} />
                 </div>
-                <div className="input-group-prepend">
-                    <label className="input-group-text" htmlFor="password">Password</label>
-                    <input className="form-control" id="password" type="text" placeholder="Please enter your Password" onChange={handleFieldChange} />
+                <div className="input-group-prepend create-client-fields">
+                    <label className="input-group-text create-client-placeholder-text" htmlFor="password">Password</label>
+                    <input className="form-control create-client-form-field" id="password" type="text" placeholder="Please enter your Password" onChange={handleFieldChange} />
                 </div>
-                <div className="input-group-prepend">
-                    <label className="input-group-text" htmlFor="phone">Phone Number</label>
-                    <input className="form-control" id="phone" type="text" placeholder="(XXX) XXX-XXXX" onChange={handleFieldChange} />
+                <div className="input-group-prepend create-client-fields">
+                    <label className="input-group-text create-client-placeholder-text" htmlFor="phone">Phone Number</label>
+                    <input className="form-control create-client-form-field" id="phone" type="text" placeholder="(XXX) XXX-XXXX" onChange={handleFieldChange} />
                 </div>
-                <div className="input-group-prepend">
-                    <label className="input-group-text" htmlFor="fname">First Name</label>
-                    <input className="form-control" id="fname" type="text" placeholder="" onChange={handleFieldChange} />
+                <div className="input-group-prepend create-client-fields">
+                    <label className="input-group-text create-client-placeholder-text" htmlFor="fname">First Name</label>
+                    <input className="form-control create-client-form-field" id="fname" type="text" placeholder="" onChange={handleFieldChange} />
                 </div>
-                <div className="input-group-prepend">
-                    <label className="input-group-text" htmlFor="lname">Last Name</label>
-                    <input className="form-control" id="lname" type="text" placeholder="" onChange={handleFieldChange} />
+                <div className="input-group-prepend create-client-fields">
+                    <label className="input-group-text create-client-placeholder-text" htmlFor="lname">Last Name</label>
+                    <input className="form-control create-client-form-field" id="lname" type="text" placeholder="" onChange={handleFieldChange} />
                 </div>
-                <div className="input-group-prepend">
-                    <label className="input-group-text" htmlFor="dateOfBirth">Date Of Birth</label>
-                    <input className="form-control" id="dateOfBirth" type="date" onChange={handleFieldChange} />
+                <div className="input-group-prepend create-client-fields">
+                    <label className="input-group-text create-client-placeholder-text" htmlFor="dateOfBirth">Date Of Birth</label>
+                    <input className="form-control create-client-form-field" id="dateOfBirth" type="date" onChange={handleFieldChange} />
                 </div>
-                <div className="input-group-prepend">
-                    <label className="input-group-text" htmlFor="address">Address</label>
-                    <input className="form-control" id="address" type="text" onChange={handleFieldChange} />
+                <div className="input-group-prepend create-client-fields">
+                    <label className="input-group-text create-client-placeholder-text" htmlFor="address">Address</label>
+                    <input className="form-control create-client-form-field" id="address" type="text" onChange={handleFieldChange} />
                 </div>
-                <div className="input-group-prepend">
-                    <label className="input-group-text" htmlFor="city">City</label>
-                    <input className="form-control" id="city" type="text" onChange={handleFieldChange} />
+                <div className="input-group-prepend create-client-fields">
+                    <label className="input-group-text create-client-placeholder-text" htmlFor="city">City</label>
+                    <input className="form-control create-client-form-field" id="city" type="text" onChange={handleFieldChange} />
                 </div>
-                <div className="input-group-prepend">
-                    <label className="input-group-text" htmlFor="province">Province</label>
-                    <select className="form-control selector" id="province" onChange={handleFieldChange}>
+                <div className="input-group-prepend create-client-fields">
+                    <label className="input-group-text create-client-placeholder-text" htmlFor="province">Province</label>
+                    <select className="form-control create-client-form-field selector" id="province" onChange={handleFieldChange}>
                         <option value="" >Choose here</option>
                         <option value="AB">Alberta</option>
                         <option value="BC">British Columbia</option>
@@ -150,11 +150,13 @@ function CreateClient(props) {
                         <option value="YT">Yukon Territory</option>
                     </select>
                 </div>
-                <div className="input-group-prepend">
-                    <label className="input-group-text" htmlFor="postalCode">Postal Code</label>
-                    <input className="form-control" id="postalCode" type="text" onChange={handleFieldChange} />
+                <div className="input-group-prepend create-client-fields">
+                    <label className="input-group-text create-client-placeholder-text" htmlFor="postalCode">Postal Code</label>
+                    <input className="form-control create-client-form-field" id="postalCode" type="text" onChange={handleFieldChange} />
                 </div>
-                <div className="input-group-prepend">
+                <div className="input-group-prepend create-client-fields">
+
+                    <input type="submit" className="btn btn-primary submit-button" value="Submit!" />
                 </div>
 
 
@@ -164,7 +166,6 @@ function CreateClient(props) {
 
 
 
-                <input type="submit" className="btn btn-primary" value="Next" />
             </form>
         </section>
 

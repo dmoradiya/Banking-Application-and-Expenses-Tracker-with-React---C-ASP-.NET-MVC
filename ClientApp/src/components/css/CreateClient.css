@@ -16,13 +16,13 @@
 /*Adds a border to the form section*/
 
 /*Adds spacing between input fields*/
-.input-group-prepend {
+.create-client-fields {
     border: 1px;
     min-width: 160px;
 }
 
 /*Centers the selector text*/
-.form-control {
+.create-client-form-field {
     text-align: center;
     font-size: 1em;
     margin-right: 5vw;
@@ -35,7 +35,7 @@
 }
 
 /*Centers the input text and gives a sharp border radius*/
-.input-group-text {
+.create-client-placeholder-text {
     margin-left: 5vw;
     text-align: center;
     border-radius: 0px;
@@ -48,13 +48,13 @@
         border: 5px solid blue;
         font-size: 3em;
     }
-    .input-group-prepend {
+    .create-client-fields {
         margin: 3%;
     }
-    .form-control {
+    .create-client-form-field {
         font-size: 1.2em;
     }
-    .input-group-text {
+    .create-client-placeholder-text {
         font-size: 1.2em;
         min-width: 160px;
     }
@@ -66,13 +66,13 @@
         border: 7px solid red;
         font-size: 4em;
     }
-    .input-group-prepend {
+    .create-client-fields {
         margin: 2%;
     }
-    .form-control {
+    .create-client-form-field {
         font-size: 1.5em;
     }
-    .input-group-text {
+    .create-client-placeholder-text {
         font-size: 1.5em;
         min-width: 180px;
     }
