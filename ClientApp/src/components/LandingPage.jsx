@@ -24,7 +24,7 @@ function LandingPage(props) {
         return (
             <section id="landing-page-summary">
                 <h1>Account Summary</h1>  
-                <h2>Total Holdings : {totalHolding.toFixed(2)}</h2>
+                <h2>Total Holdings : $ {totalHolding.toFixed(2)}</h2>
                 <h3>Full Name: { name }</h3>
                 <table className='table table-borderless' aria-labelledby="tabelLabel">
                     <tbody>
@@ -36,15 +36,15 @@ function LandingPage(props) {
                                 </div>
                                 <div className="flex-container">
                                     <th>Account Balance: </th>
-                                    <td>{client.accountBalance}</td>
+                                    <td>$ {client.accountBalance}</td>
                                 </div>
                                 <div className="flex-container">
                                     <th>Interest Earned: </th>
-                                    <td>{client.accountInterest}</td>
+                                    <td>$ {client.accountInterest}</td>
                                 </div>
                                 <div className="flex-container total-balance">
                                     <th>Total Balance: </th>
-                                    <td>{client.accountBalance + client.accountInterest}</td>
+                                    <td>$ {client.accountBalance + client.accountInterest}</td>
                                 </div>
                                 <div className="flex-container view-transactions">
                                     <th>View Transactions: </th>
