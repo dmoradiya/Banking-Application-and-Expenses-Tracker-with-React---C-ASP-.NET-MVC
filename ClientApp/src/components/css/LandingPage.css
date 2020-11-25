@@ -1,0 +1,23 @@
+#landing-page-summary {
+    margin: 1rem 0.5rem;
+}
+#landing-page h1 {
+    text-align:center;
+}
+#landing-page-summary .table-borderless {
+    border: none !important;
+}
+#landing-page-summary tr {
+    display: flex;
+    flex-direction:column;
+    color:black;
+}
+#landing-page-summary .flex-container {
+    display:flex
+}
+#landing-page-summary th {
+    width:50vw;
+}
+#landing-page-summary .account-type {
+    color: #D01992;
+}
