@@ -10,20 +10,25 @@ function LandingPage(props) {
 
     const [accountInfo, setAccountInfo] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [fullName, setFullName] = useState();
 
     function renderClientInfoTable(accountInfo) {
 
+        const totalHolding = accountInfo.reduce((total, client) => total = total + client.accountBalance, 0) + 
+                           accountInfo.reduce((total, client) => total = total + client.accountInterest, 0);
+
+                           
+        const name = accountInfo.map(x => x.client.firstName + " " + x.client.lastName)[0];
+       
 
         return (
             <section id="landing-page-summary">
+                <h2>Total Holdings : {totalHolding.toFixed(2)}</h2>
+                <h3>Full Name: { name }</h3>
                 <table className='table table-striped table-borderless' aria-labelledby="tabelLabel">
                     <tbody>
                         {accountInfo.map(client =>
-                            <tr key={client.accountID}>
-                                <div className="flex-container">
-                                    <th>Full Name: </th>
-                                    <td>{client.client.firstName + " " + client.client.lastName}</td>
-                                </div>
+                            <tr key={client.accountID}>                                
                                 <div className="flex-container account-type">
                                     <th>Account Type: </th>
                                     <td>{client.accountType}</td>
@@ -36,11 +41,11 @@ function LandingPage(props) {
                                     <th>Interest Earned: </th>
                                     <td>{client.accountInterest}</td>
                                 </div>
-                                <div className="flex-container">
+                                <div className="flex-container total-balance">
                                     <th>Total Balance: </th>
                                     <td>{client.accountBalance + client.accountInterest}</td>
                                 </div>
-                                <div className="flex-container">
+                                <div className="flex-container view-transactions">
                                     <th>View Transactions: </th>
                                     <td>
                                         <button className="btn btn-info">
@@ -59,7 +64,7 @@ function LandingPage(props) {
 
         );
     }
-
+    
     async function populateClientData() {
         const response = await axios.get('BankAPI/LandingPage');
         setAccountInfo(response.data);
@@ -78,6 +83,7 @@ function LandingPage(props) {
         <section id="landing-page">
             <Layout />
             <h1 id="tabelLabel" >Account Summary</h1>
+            
             {contents}
         </section>
     );

@@ -166,9 +166,6 @@ function CreateClient(props) {
 
                 <input type="submit" className="btn btn-primary" value="Next" />
             </form>
-        </div>
-
-
         </section>
 
     );
