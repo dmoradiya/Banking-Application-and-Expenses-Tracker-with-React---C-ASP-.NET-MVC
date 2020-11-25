@@ -97,7 +97,7 @@ function CreateClient(props) {
 
             <p>{waiting ? "Processing..." : `${response}`}</p>
 
-            <form onSubmit={handleSubmit}>
+            <form className="deposit-form" onSubmit={handleSubmit}>
 
                 <div className="input-group-prepend">
                     <label className="input-group-text" htmlFor="email">Email Address</label>
