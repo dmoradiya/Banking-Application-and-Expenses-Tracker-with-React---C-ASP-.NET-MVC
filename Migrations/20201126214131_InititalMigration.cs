@@ -58,12 +58,8 @@ namespace Capstone_VV.Migrations
                     AccountType = table.Column<string>(type: "varchar(30)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                         .Annotation("MySql:Collation", "utf8mb4_general_ci"),
-                    AccountBalance = table.Column<string>(type: "varchar(15)", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
-                        .Annotation("MySql:Collation", "utf8mb4_general_ci"),
-                    Cashback = table.Column<string>(type: "varchar(15)", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
-                        .Annotation("MySql:Collation", "utf8mb4_general_ci"),
+                    AccountBalance = table.Column<double>(type: "double(15,2)", nullable: false),
+                    Cashback = table.Column<double>(type: "double(15,2)", nullable: false),
                     AccountDate = table.Column<DateTime>(type: "date", nullable: false),
                     IsActive = table.Column<bool>(type: "bool", nullable: false)
                 },
@@ -91,9 +87,7 @@ namespace Capstone_VV.Migrations
                     TransactionCategory = table.Column<string>(type: "varchar(30)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                         .Annotation("MySql:Collation", "utf8mb4_general_ci"),
-                    TransactionValue = table.Column<string>(type: "varchar(15)", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
-                        .Annotation("MySql:Collation", "utf8mb4_general_ci"),
+                    TransactionValue = table.Column<double>(type: "double(15,2)", nullable: false),
                     TransactionDate = table.Column<DateTime>(type: "date", nullable: false),
                     IsTransactionActive = table.Column<bool>(type: "bool", nullable: false)
                 },

@@ -23,11 +23,8 @@ namespace Capstone_VV.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int(10)");
 
-                    b.Property<string>("AccountBalance")
-                        .IsRequired()
-                        .HasColumnType("varchar(15)")
-                        .HasAnnotation("MySql:CharSet", "utf8mb4")
-                        .HasAnnotation("MySql:Collation", "utf8mb4_general_ci");
+                    b.Property<double>("AccountBalance")
+                        .HasColumnType("double(15,2)");
 
                     b.Property<DateTime>("AccountDate")
                         .HasColumnType("date");
@@ -38,11 +35,8 @@ namespace Capstone_VV.Migrations
                         .HasAnnotation("MySql:CharSet", "utf8mb4")
                         .HasAnnotation("MySql:Collation", "utf8mb4_general_ci");
 
-                    b.Property<string>("Cashback")
-                        .IsRequired()
-                        .HasColumnType("varchar(15)")
-                        .HasAnnotation("MySql:CharSet", "utf8mb4")
-                        .HasAnnotation("MySql:Collation", "utf8mb4_general_ci");
+                    b.Property<double>("Cashback")
+                        .HasColumnType("double(15,2)");
 
                     b.Property<int>("ClientID")
                         .HasColumnType("int(10)");
@@ -61,40 +55,40 @@ namespace Capstone_VV.Migrations
                         new
                         {
                             AccountID = 1,
-                            AccountBalance = "$2189.43",
+                            AccountBalance = 2189.4299999999998,
                             AccountDate = new DateTime(2018, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             AccountType = "Chequing",
-                            Cashback = "$10.02",
+                            Cashback = 10.02,
                             ClientID = 1,
                             IsActive = true
                         },
                         new
                         {
                             AccountID = 2,
-                            AccountBalance = "$4.00",
+                            AccountBalance = 144.0,
                             AccountDate = new DateTime(2018, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             AccountType = "Chequing",
-                            Cashback = "$5.80",
+                            Cashback = 5.7999999999999998,
                             ClientID = 2,
                             IsActive = true
                         },
                         new
                         {
                             AccountID = 3,
-                            AccountBalance = "$77850.00",
+                            AccountBalance = 77850.0,
                             AccountDate = new DateTime(2018, 5, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             AccountType = "Chequing",
-                            Cashback = "$100.07",
+                            Cashback = 100.06999999999999,
                             ClientID = 3,
                             IsActive = true
                         },
                         new
                         {
                             AccountID = 4,
-                            AccountBalance = "$174.10",
+                            AccountBalance = 174.09999999999999,
                             AccountDate = new DateTime(2018, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             AccountType = "Chequing",
-                            Cashback = "$45.00",
+                            Cashback = 45.0,
                             ClientID = 4,
                             IsActive = true
                         });
@@ -253,11 +247,8 @@ namespace Capstone_VV.Migrations
                         .HasAnnotation("MySql:CharSet", "utf8mb4")
                         .HasAnnotation("MySql:Collation", "utf8mb4_general_ci");
 
-                    b.Property<string>("TransactionValue")
-                        .IsRequired()
-                        .HasColumnType("varchar(15)")
-                        .HasAnnotation("MySql:CharSet", "utf8mb4")
-                        .HasAnnotation("MySql:Collation", "utf8mb4_general_ci");
+                    b.Property<double>("TransactionValue")
+                        .HasColumnType("double(15,2)");
 
                     b.HasKey("TransactionID");
 
@@ -275,7 +266,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bank",
-                            TransactionValue = "$2001.86"
+                            TransactionValue = 2001.8599999999999
                         },
                         new
                         {
@@ -285,7 +276,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Rent/Mortgage",
                             TransactionDate = new DateTime(2020, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bill Payment",
-                            TransactionValue = "($1100.00)"
+                            TransactionValue = 1100.0
                         },
                         new
                         {
@@ -295,7 +286,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Other",
                             TransactionDate = new DateTime(2020, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bill Payment",
-                            TransactionValue = "($200.99)"
+                            TransactionValue = 200.99000000000001
                         },
                         new
                         {
@@ -305,7 +296,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Food",
                             TransactionDate = new DateTime(2020, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bill payment",
-                            TransactionValue = "($71.44)"
+                            TransactionValue = 71.439999999999998
                         },
                         new
                         {
@@ -315,7 +306,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Health",
                             TransactionDate = new DateTime(2020, 10, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bill Payment",
-                            TransactionValue = "($30.00)"
+                            TransactionValue = 30.0
                         },
                         new
                         {
@@ -325,7 +316,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 4, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "ATM",
-                            TransactionValue = "$430.00"
+                            TransactionValue = 430.0
                         },
                         new
                         {
@@ -335,7 +326,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 5, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "ATM",
-                            TransactionValue = "$110.00"
+                            TransactionValue = 110.0
                         },
                         new
                         {
@@ -345,7 +336,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bank",
-                            TransactionValue = "$320.00"
+                            TransactionValue = 320.0
                         },
                         new
                         {
@@ -355,7 +346,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bank",
-                            TransactionValue = "$750.00"
+                            TransactionValue = 750.0
                         },
                         new
                         {
@@ -365,7 +356,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Withdraw",
                             TransactionDate = new DateTime(2020, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "ATM",
-                            TransactionValue = "($50.00)"
+                            TransactionValue = 50.0
                         },
                         new
                         {
@@ -375,7 +366,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Food",
                             TransactionDate = new DateTime(2020, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bill Payment",
-                            TransactionValue = "($10.00)"
+                            TransactionValue = 10.0
                         },
                         new
                         {
@@ -385,7 +376,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bank",
-                            TransactionValue = "$7500.00"
+                            TransactionValue = 7500.0
                         },
                         new
                         {
@@ -395,7 +386,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bank",
-                            TransactionValue = "$7500.00"
+                            TransactionValue = 7500.0
                         },
                         new
                         {
@@ -405,7 +396,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Withdraw",
                             TransactionDate = new DateTime(2020, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bank",
-                            TransactionValue = "($3000.00)"
+                            TransactionValue = 3000.0
                         },
                         new
                         {
@@ -415,7 +406,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bank",
-                            TransactionValue = "$43750.00"
+                            TransactionValue = 43750.0
                         },
                         new
                         {
@@ -425,7 +416,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bank",
-                            TransactionValue = "$22100.00"
+                            TransactionValue = 22100.0
                         },
                         new
                         {
@@ -435,7 +426,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "ATM",
-                            TransactionValue = "$1100.32"
+                            TransactionValue = 1100.3199999999999
                         },
                         new
                         {
@@ -445,7 +436,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Rent/Mortgage",
                             TransactionDate = new DateTime(2020, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bill Payment",
-                            TransactionValue = "($800.00)"
+                            TransactionValue = 800.0
                         },
                         new
                         {
@@ -455,7 +446,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Utilities",
                             TransactionDate = new DateTime(2020, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bill Payment",
-                            TransactionValue = "($41.99)"
+                            TransactionValue = 41.990000000000002
                         },
                         new
                         {
@@ -465,7 +456,7 @@ namespace Capstone_VV.Migrations
                             TransactionCategory = "Internet",
                             TransactionDate = new DateTime(2020, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bill Payment",
-                            TransactionValue = "($84.23)"
+                            TransactionValue = 84.230000000000004
                         });
                 });
 

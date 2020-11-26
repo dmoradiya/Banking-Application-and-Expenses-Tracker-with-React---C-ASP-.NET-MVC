@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Capstone_VV.Migrations
 {
     [DbContext(typeof(BankContext))]
-    [Migration("20201126205235_InititalMigration")]
+    [Migration("20201126214131_InititalMigration")]
     partial class InititalMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,11 +25,8 @@ namespace Capstone_VV.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int(10)");
 
-                    b.Property<string>("AccountBalance")
-                        .IsRequired()
-                        .HasColumnType("varchar(15)")
-                        .HasAnnotation("MySql:CharSet", "utf8mb4")
-                        .HasAnnotation("MySql:Collation", "utf8mb4_general_ci");
+                    b.Property<double>("AccountBalance")
+                        .HasColumnType("double(15,2)");
 
                     b.Property<DateTime>("AccountDate")
                         .HasColumnType("date");
@@ -40,11 +37,8 @@ namespace Capstone_VV.Migrations
                         .HasAnnotation("MySql:CharSet", "utf8mb4")
                         .HasAnnotation("MySql:Collation", "utf8mb4_general_ci");
 
-                    b.Property<string>("Cashback")
-                        .IsRequired()
-                        .HasColumnType("varchar(15)")
-                        .HasAnnotation("MySql:CharSet", "utf8mb4")
-                        .HasAnnotation("MySql:Collation", "utf8mb4_general_ci");
+                    b.Property<double>("Cashback")
+                        .HasColumnType("double(15,2)");
 
                     b.Property<int>("ClientID")
                         .HasColumnType("int(10)");
@@ -155,11 +149,8 @@ namespace Capstone_VV.Migrations
                         .HasAnnotation("MySql:CharSet", "utf8mb4")
                         .HasAnnotation("MySql:Collation", "utf8mb4_general_ci");
 
-                    b.Property<string>("TransactionValue")
-                        .IsRequired()
-                        .HasColumnType("varchar(15)")
-                        .HasAnnotation("MySql:CharSet", "utf8mb4")
-                        .HasAnnotation("MySql:Collation", "utf8mb4_general_ci");
+                    b.Property<double>("TransactionValue")
+                        .HasColumnType("double(15,2)");
 
                     b.HasKey("TransactionID");
 

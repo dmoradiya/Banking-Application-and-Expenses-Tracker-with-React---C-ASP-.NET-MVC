@@ -48,7 +48,7 @@ namespace Capstone_VV.Controllers
                     AccountID = int.Parse(accountID),
                     TransactionSource = transactionSource,
                     TransactionCategory = "Deposit",
-                    TransactionValue = "$"+transactionValue,
+                    TransactionValue = double.Parse(transactionValue),
                     TransactionDate = DateTime.Today,
                     IsTransactionActive = true
 
@@ -81,7 +81,7 @@ namespace Capstone_VV.Controllers
                     AccountID = int.Parse(accountID),
                     TransactionSource = transactionSource,
                     TransactionCategory = transactionCategory,
-                    TransactionValue = "($"+transactionValue+")",
+                    TransactionValue = double.Parse(transactionValue),
                     TransactionDate = DateTime.Parse(transactionDate),
                     IsTransactionActive = true
 

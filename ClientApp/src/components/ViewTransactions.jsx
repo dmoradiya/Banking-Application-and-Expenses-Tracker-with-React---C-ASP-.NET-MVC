@@ -39,7 +39,7 @@ function ViewTransactions(props) {
                                 <td>{transaction.transactionDate.slice(0, 10)}</td>
                                 <td className="d-none d-sm-block">{transaction.transactionSource}</td>
                                 <td>{transaction.transactionCategory}</td>
-                                <td>$ {transaction.transactionValue}</td>
+                                {transaction.transactionCategory === "Deposit" ? <td>${transaction.transactionValue}</td> : <td>{`($${transaction.transactionValue})`}</td>}                                
                             </tr>
                         )}
                     </tbody>

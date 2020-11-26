@@ -40,14 +40,13 @@ namespace Capstone_VV.Controllers
             using (BankContext context = new BankContext())
             {
 
-
+               
                 Account newAccount = new Account()
                 {
                     ClientID = new ClientController().GetClientCreateID(),
                     AccountType = accountType,
-                    AccountBalance = "$0.00",
-                    Cashback = "$0.00",
-                    AccountDate = DateTime.Today,
+                    AccountBalance = 0.00,
+                    Cashback = 0.00,
                     IsActive = true
 
                 };
@@ -87,9 +86,8 @@ namespace Capstone_VV.Controllers
                 {
                     ClientID = clientID,
                     AccountType = accountType,
-                    AccountBalance = "$0.00",
-                    Cashback = "$0.00",
-                    AccountDate = DateTime.Today,
+                    AccountBalance = 0.00,
+                    Cashback = 0.00,
                     IsActive = true
 
                 };
@@ -130,9 +128,7 @@ namespace Capstone_VV.Controllers
             {
                                 
                 result = context.Accounts.Where(x => x.AccountID == int.Parse(accountID)).SingleOrDefault();
-                double parsedAccountBalance = double.Parse(result.AccountBalance);
-                double parsedTransactionValue = double.Parse(transactionValue);
-                if ( parsedAccountBalance < parsedTransactionValue)
+                if ( result.AccountBalance < double.Parse(transactionValue))
                 {
                     exception.ValidationExceptions.Add(new Exception("You Do Not have enough Balance to Withdraw OR Bill Payment"));
                 }
@@ -141,8 +137,7 @@ namespace Capstone_VV.Controllers
                 {
                     throw exception;
                 }
-                parsedTransactionValue -= parsedTransactionValue;
-                parsedTransactionValue.ToString("C");
+                result.AccountBalance -= double.Parse(transactionValue);
                 context.SaveChanges();
                 return result;
             }

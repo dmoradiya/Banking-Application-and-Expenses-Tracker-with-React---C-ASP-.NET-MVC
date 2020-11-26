@@ -38,12 +38,12 @@ function LandingPage(props) {
                                     <p className="font-weight-normal">$ {client.accountBalance}</p>
                                 </th>
                                 <th className="flex-container">
-                                    <p className="heading">Interest Earned: </p>
-                                    <p className="font-weight-normal">$ {client.accountInterest}</p>
+                                    <p className="heading">Cashback Earned: </p>
+                                    <p className="font-weight-normal">$ {client.cashback}</p>
                                 </th>
                                 <th className="flex-container total-balance">
                                     <p className="heading">Total Balance: </p>
-                                    <p className="font-weight-normal">$ {client.accountBalance + client.accountInterest}</p>
+                                    <p className="font-weight-normal">$ {client.accountBalance + client.cashback}</p>
                                 </th>
                                 <th className="flex-container view-transactions">
                                     <p className="heading">View Transactions: </p>

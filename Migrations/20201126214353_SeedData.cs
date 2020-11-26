@@ -23,10 +23,10 @@ namespace Capstone_VV.Migrations
                 columns: new[] { "AccountID", "AccountBalance", "AccountDate", "AccountType", "Cashback", "ClientID", "IsActive" },
                 values: new object[,]
                 {
-                    { 1, "$2189.43", new DateTime(2018, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "Chequing", "$10.02", 1, true },
-                    { 2, "$4.00", new DateTime(2018, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "Chequing", "$5.80", 2, true },
-                    { 3, "$77850.00", new DateTime(2018, 5, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "Chequing", "$100.07", 3, true },
-                    { 4, "$174.10", new DateTime(2018, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), "Chequing", "$45.00", 4, true }
+                    { 1, 2189.4299999999998, new DateTime(2018, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "Chequing", 10.02, 1, true },
+                    { 2, 144.0, new DateTime(2018, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "Chequing", 5.7999999999999998, 2, true },
+                    { 3, 77850.0, new DateTime(2018, 5, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "Chequing", 100.06999999999999, 3, true },
+                    { 4, 174.09999999999999, new DateTime(2018, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), "Chequing", 45.0, 4, true }
                 });
 
             migrationBuilder.InsertData(
@@ -34,26 +34,26 @@ namespace Capstone_VV.Migrations
                 columns: new[] { "TransactionID", "AccountID", "IsTransactionActive", "TransactionCategory", "TransactionDate", "TransactionSource", "TransactionValue" },
                 values: new object[,]
                 {
-                    { 1, 1, true, "Deposit", new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bank", "$2001.86" },
-                    { 18, 4, true, "Rent/Mortgage", new DateTime(2020, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bill Payment", "($800.00)" },
-                    { 17, 4, true, "Deposit", new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "ATM", "$1100.32" },
-                    { 16, 3, true, "Deposit", new DateTime(2020, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bank", "$22100.00" },
-                    { 15, 3, true, "Deposit", new DateTime(2020, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bank", "$43750.00" },
-                    { 14, 3, true, "Withdraw", new DateTime(2020, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bank", "($3000.00)" },
-                    { 13, 3, true, "Deposit", new DateTime(2020, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bank", "$7500.00" },
-                    { 12, 3, true, "Deposit", new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bank", "$7500.00" },
-                    { 11, 2, true, "Food", new DateTime(2020, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bill Payment", "($10.00)" },
-                    { 10, 2, true, "Withdraw", new DateTime(2020, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "ATM", "($50.00)" },
-                    { 9, 1, true, "Deposit", new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bank", "$750.00" },
-                    { 8, 1, true, "Deposit", new DateTime(2020, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bank", "$320.00" },
-                    { 7, 1, true, "Deposit", new DateTime(2020, 5, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "ATM", "$110.00" },
-                    { 6, 1, true, "Deposit", new DateTime(2020, 4, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "ATM", "$430.00" },
-                    { 5, 1, true, "Health", new DateTime(2020, 10, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bill Payment", "($30.00)" },
-                    { 4, 1, true, "Food", new DateTime(2020, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bill payment", "($71.44)" },
-                    { 3, 1, true, "Other", new DateTime(2020, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bill Payment", "($200.99)" },
-                    { 2, 1, true, "Rent/Mortgage", new DateTime(2020, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bill Payment", "($1100.00)" },
-                    { 19, 4, true, "Utilities", new DateTime(2020, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bill Payment", "($41.99)" },
-                    { 20, 4, true, "Internet", new DateTime(2020, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bill Payment", "($84.23)" }
+                    { 1, 1, true, "Deposit", new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bank", 2001.8599999999999 },
+                    { 18, 4, true, "Rent/Mortgage", new DateTime(2020, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bill Payment", 800.0 },
+                    { 17, 4, true, "Deposit", new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "ATM", 1100.3199999999999 },
+                    { 16, 3, true, "Deposit", new DateTime(2020, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bank", 22100.0 },
+                    { 15, 3, true, "Deposit", new DateTime(2020, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bank", 43750.0 },
+                    { 14, 3, true, "Withdraw", new DateTime(2020, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bank", 3000.0 },
+                    { 13, 3, true, "Deposit", new DateTime(2020, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bank", 7500.0 },
+                    { 12, 3, true, "Deposit", new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bank", 7500.0 },
+                    { 11, 2, true, "Food", new DateTime(2020, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bill Payment", 10.0 },
+                    { 10, 2, true, "Withdraw", new DateTime(2020, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "ATM", 50.0 },
+                    { 9, 1, true, "Deposit", new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bank", 750.0 },
+                    { 8, 1, true, "Deposit", new DateTime(2020, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bank", 320.0 },
+                    { 7, 1, true, "Deposit", new DateTime(2020, 5, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "ATM", 110.0 },
+                    { 6, 1, true, "Deposit", new DateTime(2020, 4, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "ATM", 430.0 },
+                    { 5, 1, true, "Health", new DateTime(2020, 10, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bill Payment", 30.0 },
+                    { 4, 1, true, "Food", new DateTime(2020, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bill payment", 71.439999999999998 },
+                    { 3, 1, true, "Other", new DateTime(2020, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bill Payment", 200.99000000000001 },
+                    { 2, 1, true, "Rent/Mortgage", new DateTime(2020, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bill Payment", 1100.0 },
+                    { 19, 4, true, "Utilities", new DateTime(2020, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bill Payment", 41.990000000000002 },
+                    { 20, 4, true, "Internet", new DateTime(2020, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bill Payment", 84.230000000000004 }
                 });
         }
 

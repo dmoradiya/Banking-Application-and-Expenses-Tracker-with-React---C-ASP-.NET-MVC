@@ -37,7 +37,6 @@ namespace Capstone_VV.Models
                 // Collation for Source and Category
                 entity.Property(e => e.TransactionSource).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
                 entity.Property(e => e.TransactionCategory).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
-                entity.Property(e => e.TransactionValue).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
 
 
                 // FK for Transaction -> Account
@@ -59,7 +58,7 @@ namespace Capstone_VV.Models
                     AccountID = 1,
                     TransactionSource = "Bank",
                     TransactionCategory = "Deposit",
-                    TransactionValue = "$2001.86",
+                    TransactionValue = 2001.86,
                     TransactionDate = new DateTime(2020, 07, 11),
                     IsTransactionActive = true
                 },
@@ -69,7 +68,7 @@ namespace Capstone_VV.Models
                     AccountID = 1,
                     TransactionSource = "Bill Payment",
                     TransactionCategory = "Rent/Mortgage",
-                    TransactionValue = "($1100.00)",
+                    TransactionValue = 1100.00,
                     TransactionDate = new DateTime(2020, 07, 29),
                     IsTransactionActive = true
                 },
@@ -79,7 +78,7 @@ namespace Capstone_VV.Models
                     AccountID = 1,
                     TransactionSource = "Bill Payment",
                     TransactionCategory = "Other",
-                    TransactionValue = "($200.99)",
+                    TransactionValue = 200.99,
                     TransactionDate = new DateTime(2020, 10, 15),
                     IsTransactionActive = true
                 },
@@ -89,7 +88,7 @@ namespace Capstone_VV.Models
                     AccountID = 1,
                     TransactionSource = "Bill payment",
                     TransactionCategory = "Food",
-                    TransactionValue = "($71.44)",
+                    TransactionValue = 71.44,
                     TransactionDate = new DateTime(2020, 10, 16),
                     IsTransactionActive = true
                 },
@@ -99,7 +98,7 @@ namespace Capstone_VV.Models
                     AccountID = 1,
                     TransactionSource = "Bill Payment",
                     TransactionCategory = "Health",
-                    TransactionValue = "($30.00)",
+                    TransactionValue = 30.00,
                     TransactionDate = new DateTime(2020, 10, 30),
                     IsTransactionActive = true
                 },
@@ -109,7 +108,7 @@ namespace Capstone_VV.Models
                     AccountID = 1,
                     TransactionSource = "ATM",
                     TransactionCategory = "Deposit",
-                    TransactionValue = "$430.00",
+                    TransactionValue = 430.00,
                     TransactionDate = new DateTime(2020, 04, 11),
                     IsTransactionActive = true
                 },
@@ -119,7 +118,7 @@ namespace Capstone_VV.Models
                     AccountID = 1,
                     TransactionSource = "ATM",
                     TransactionCategory = "Deposit",
-                    TransactionValue = "$110.00",
+                    TransactionValue = 110.00,
                     TransactionDate = new DateTime(2020, 05, 11),
                     IsTransactionActive = true
                 },
@@ -129,7 +128,7 @@ namespace Capstone_VV.Models
                     AccountID = 1,
                     TransactionSource = "Bank",
                     TransactionCategory = "Deposit",
-                    TransactionValue = "$320.00",
+                    TransactionValue = 320.00,
                     TransactionDate = new DateTime(2020, 06, 11),
                     IsTransactionActive = true
                 },
@@ -139,7 +138,7 @@ namespace Capstone_VV.Models
                     AccountID = 1,
                     TransactionSource = "Bank",
                     TransactionCategory = "Deposit",
-                    TransactionValue = "$750.00",
+                    TransactionValue = 750.00,
                     TransactionDate = new DateTime(2020, 07, 11),
                     IsTransactionActive = true
                 },
@@ -149,7 +148,7 @@ namespace Capstone_VV.Models
                     AccountID = 2,
                     TransactionSource = "ATM",
                     TransactionCategory = "Withdraw",
-                    TransactionValue = "($50.00)",
+                    TransactionValue = 50.00,
                     TransactionDate = new DateTime(2020, 08, 11),
                     IsTransactionActive = true
                 },
@@ -159,7 +158,7 @@ namespace Capstone_VV.Models
                     AccountID = 2,
                     TransactionSource = "Bill Payment",
                     TransactionCategory = "Food",
-                    TransactionValue = "($10.00)",
+                    TransactionValue = 10.00,
                     TransactionDate = new DateTime(2020, 08, 13),
                     IsTransactionActive = true
                 },
@@ -169,7 +168,7 @@ namespace Capstone_VV.Models
                     AccountID = 3,
                     TransactionSource = "Bank",
                     TransactionCategory = "Deposit",
-                    TransactionValue = "$7500.00",
+                    TransactionValue = 7500.00,
                     TransactionDate = new DateTime(2020, 07, 11),
                     IsTransactionActive = true
                 },
@@ -179,7 +178,7 @@ namespace Capstone_VV.Models
                     AccountID = 3,
                     TransactionSource = "Bank",
                     TransactionCategory = "Deposit",
-                    TransactionValue = "$7500.00",
+                    TransactionValue = 7500.00,
                     TransactionDate = new DateTime(2020, 08, 11),
                     IsTransactionActive = true
                 },
@@ -189,7 +188,7 @@ namespace Capstone_VV.Models
                     AccountID = 3,
                     TransactionSource = "Bank",
                     TransactionCategory = "Withdraw",
-                    TransactionValue = "($3000.00)",
+                    TransactionValue = 3000.00,
                     TransactionDate = new DateTime(2020, 08, 14),
                     IsTransactionActive = true
                 },
@@ -199,7 +198,7 @@ namespace Capstone_VV.Models
                     AccountID = 3,
                     TransactionSource = "Bank",
                     TransactionCategory = "Deposit",
-                    TransactionValue = "$43750.00",
+                    TransactionValue = 43750.00,
                     TransactionDate = new DateTime(2020, 08, 20),
                     IsTransactionActive = true
                 },
@@ -209,7 +208,7 @@ namespace Capstone_VV.Models
                     AccountID = 3,
                     TransactionSource = "Bank",
                     TransactionCategory = "Deposit",
-                    TransactionValue = "$22100.00",
+                    TransactionValue = 22100.00,
                     TransactionDate = new DateTime(2020, 09, 20),
                     IsTransactionActive = true
                 },
@@ -219,7 +218,7 @@ namespace Capstone_VV.Models
                     AccountID = 4,
                     TransactionSource = "ATM",
                     TransactionCategory = "Deposit",
-                    TransactionValue = "$1100.32",
+                    TransactionValue = 1100.32,
                     TransactionDate = new DateTime(2020, 07, 11),
                     IsTransactionActive = true
                 },
@@ -229,7 +228,7 @@ namespace Capstone_VV.Models
                     AccountID = 4,
                     TransactionSource = "Bill Payment",
                     TransactionCategory = "Rent/Mortgage",
-                    TransactionValue = "($800.00)",
+                    TransactionValue = 800.00,
                     TransactionDate = new DateTime(2020, 07, 29),
                     IsTransactionActive = true
                 },
@@ -239,7 +238,7 @@ namespace Capstone_VV.Models
                     AccountID = 4,
                     TransactionSource = "Bill Payment",
                     TransactionCategory = "Utilities",
-                    TransactionValue = "($41.99)",
+                    TransactionValue = 41.99,
                     TransactionDate = new DateTime(2020, 10, 15),
                     IsTransactionActive = true
                 },
@@ -249,7 +248,7 @@ namespace Capstone_VV.Models
                     AccountID = 4,
                     TransactionSource = "Bill Payment",
                     TransactionCategory = "Internet",
-                    TransactionValue = "($84.23)",
+                    TransactionValue = 84.23,
                     TransactionDate = new DateTime(2020, 10, 16),
                     IsTransactionActive = true
                 }
@@ -265,8 +264,6 @@ namespace Capstone_VV.Models
             {
                 // Collation for AccountTYpe
                 entity.Property(e => e.AccountType).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
-                entity.Property(e => e.AccountBalance).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
-                entity.Property(e => e.Cashback).HasCharSet("utf8mb4").HasCollation("utf8mb4_general_ci");
 
                 // FK for Account -> Client
                 string keyToClient = "FK_" + nameof(Account) + "_" + nameof(Client);
@@ -285,8 +282,8 @@ namespace Capstone_VV.Models
                     AccountID = 1,
                     ClientID = 1,
                     AccountType = "Chequing",
-                    AccountBalance = "$2189.43",
-                    Cashback = "$10.02",
+                    AccountBalance = 2189.43,
+                    Cashback = 10.02,
                     AccountDate = new DateTime(2018, 10, 02),
                     IsActive = true
                 },
@@ -295,8 +292,8 @@ namespace Capstone_VV.Models
                     AccountID = 2,
                     ClientID = 2,
                     AccountType = "Chequing",
-                    AccountBalance = "$4.00",
-                    Cashback = "$5.80",
+                    AccountBalance = 144.00,
+                    Cashback = 5.80,
                     AccountDate = new DateTime(2018, 09, 12),
                     IsActive = true
                 },
@@ -305,8 +302,8 @@ namespace Capstone_VV.Models
                     AccountID = 3,
                     ClientID = 3,
                     AccountType = "Chequing",
-                    AccountBalance = "$77850.00",
-                    Cashback = "$100.07",
+                    AccountBalance = 77850.00,
+                    Cashback = 100.07,
                     AccountDate = new DateTime(2018, 05, 28),
                     IsActive = true
                 },
@@ -315,8 +312,8 @@ namespace Capstone_VV.Models
                     AccountID = 4,
                     ClientID = 4,
                     AccountType = "Chequing",
-                    AccountBalance = "$174.10",
-                    Cashback = "$45.00",
+                    AccountBalance = 174.10,
+                    Cashback = 45.00,
                     AccountDate = new DateTime(2018, 11, 17),
                     IsActive = true
                 }
