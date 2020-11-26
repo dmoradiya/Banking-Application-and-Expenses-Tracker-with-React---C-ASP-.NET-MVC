@@ -17,8 +17,8 @@
 
 /*Adds spacing between input fields*/
 .create-client-fields {
-    border: 1px;
     min-width: 160px;
+    margin: 4%;
 }
 
 /*Centers the selector text*/
@@ -40,6 +40,7 @@
     text-align: center;
     border-radius: 0px;
     width: 160px;
+    font-size: .75rem;
 }
 
 /*For Tablets*/
