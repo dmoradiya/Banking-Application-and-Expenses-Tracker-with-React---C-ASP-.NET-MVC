@@ -11,7 +11,7 @@ function CreateAccount(props) {
 
     function handleFieldChange(event) {
         switch (event.target.id) {
-            case "accountType":
+            default:
                 setAccountType(event.target.value);
                 break;
         }

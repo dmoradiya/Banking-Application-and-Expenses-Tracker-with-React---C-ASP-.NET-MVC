@@ -36,6 +36,8 @@ function CreateWithdraw(props) {
             case "transactionValue":
                 setTransactionValue(event.target.value);
                 break;
+            default:
+                break;
         }
     }
 

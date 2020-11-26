@@ -29,7 +29,7 @@ function CloseAccount(props) {
 
     function handleFieldChange(event) {
         switch (event.target.id) {
-            case "accountID":
+            default:
                 setAccountID(event.target.value);
                 break;          
         }

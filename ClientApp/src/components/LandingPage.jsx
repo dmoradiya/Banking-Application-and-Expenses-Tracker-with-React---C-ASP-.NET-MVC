@@ -10,7 +10,6 @@ function LandingPage(props) {
 
     const [accountInfo, setAccountInfo] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [fullName, setFullName] = useState();
 
     function renderClientInfoTable(accountInfo) {
 
@@ -30,32 +29,32 @@ function LandingPage(props) {
                     <tbody>
                         {accountInfo.map(client =>
                             <tr key={client.accountID}>                                
-                                <div className="flex-container account-type">
-                                    <th>Account Type: </th>
-                                    <td>{client.accountType}</td>
-                                </div>
-                                <div className="flex-container">
-                                    <th>Account Balance: </th>
-                                    <td>$ {client.accountBalance}</td>
-                                </div>
-                                <div className="flex-container">
-                                    <th>Interest Earned: </th>
-                                    <td>$ {client.accountInterest}</td>
-                                </div>
-                                <div className="flex-container total-balance">
-                                    <th>Total Balance: </th>
-                                    <td>$ {client.accountBalance + client.accountInterest}</td>
-                                </div>
-                                <div className="flex-container view-transactions">
-                                    <th>View Transactions: </th>
-                                    <td>
+                                <th className="flex-container account-type">
+                                    <p className="heading">Account Type: </p>
+                                    <p className="font-weight-normal">{client.accountType}</p>
+                                </th>
+                                <th className="flex-container">
+                                    <p className="heading">Account Balance: </p>
+                                    <p className="font-weight-normal">$ {client.accountBalance}</p>
+                                </th>
+                                <th className="flex-container">
+                                    <p className="heading">Interest Earned: </p>
+                                    <p className="font-weight-normal">$ {client.accountInterest}</p>
+                                </th>
+                                <th className="flex-container total-balance">
+                                    <p className="heading">Total Balance: </p>
+                                    <p className="font-weight-normal">$ {client.accountBalance + client.accountInterest}</p>
+                                </th>
+                                <th className="flex-container view-transactions">
+                                    <p className="heading">View Transactions: </p>
+                                    <p>
                                         <button className="btn btn-info">
-                                            <Link to={`/view-transactions?id=${client.accountID}`}>
-                                                {`${ client.accountType } Account`}
+                                            <Link className="text-white" to={`/view-transactions?id=${client.accountID}`}>
+                                                { client.accountType }
                                             </Link>
                                         </button>
-                                    </td>
-                                </div>
+                                    </p>
+                                </th>
                             </tr>
                         )}
                     </tbody>

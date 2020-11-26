@@ -34,7 +34,9 @@ function CreateDeposit(props) {
                 break;           
             case "transactionValue":
                 setTransactionValue(event.target.value);
-                break;           
+                break; 
+            default:
+                break;
         }
     }
 

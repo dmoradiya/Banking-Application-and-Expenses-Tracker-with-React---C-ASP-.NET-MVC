@@ -52,6 +52,8 @@ function CreateClient(props) {
             case "postalCode":
                 setPostalCode(event.target.value);
                 break;
+            default:
+                break;
         }
     }
 

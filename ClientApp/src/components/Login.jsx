@@ -20,6 +20,8 @@ function Login(props) {
             case "password":
                 setPassword(event.target.value);
                 break;
+            default:
+                break;
         }
     }
 

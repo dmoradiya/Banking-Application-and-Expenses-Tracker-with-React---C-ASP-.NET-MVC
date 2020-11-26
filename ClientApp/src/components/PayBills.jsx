@@ -1,11 +1,9 @@
 ﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
 import { Layout } from '../components/Layout';
 
 function PayBills(props) {
     const [accountID, setAccountID] = useState("");
-
     const [transactionCategory, setTransactionCategory] = useState("");
     const [transactionValue, setTransactionValue] = useState("");
     const [transactionDate, setTransactionDate] = useState("");
@@ -39,6 +37,8 @@ function PayBills(props) {
                 break;
             case "transactionDate":
                 setTransactionDate(event.target.value);
+                break;
+            default:
                 break;
         }
     }

@@ -13,9 +13,8 @@ function AddAccount(props) {
 
 
     function handleFieldChange(event) {
-        switch (event.target.id) {
-           
-            case "accountType":
+        switch (event.target.id) {           
+            default:
                 setAccountType(event.target.value);
                 break;
         }

@@ -4,7 +4,6 @@ import { Layout } from '../components/Layout';
 
 
 function ViewTransactions(props) {
-    const displayName = ViewTransactions.name;
 
     const [transactions, setTransactions] = useState([]);
     const [loading, setLoading] = useState(true);

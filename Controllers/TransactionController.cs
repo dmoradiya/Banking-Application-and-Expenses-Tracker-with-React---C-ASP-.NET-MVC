@@ -49,7 +49,8 @@ namespace Capstone_VV.Controllers
                     TransactionSource = transactionSource,
                     TransactionCategory = "Deposit",
                     TransactionValue = double.Parse(transactionValue),
-                    TransactionDate = DateTime.Today
+                    TransactionDate = DateTime.Today,
+                    IsTransactionActive = true
 
                 };
                 context.Transactions.Add(newDeposit);
@@ -81,7 +82,8 @@ namespace Capstone_VV.Controllers
                     TransactionSource = transactionSource,
                     TransactionCategory = transactionCategory,
                     TransactionValue = -double.Parse(transactionValue),
-                    TransactionDate = DateTime.Parse(transactionDate)
+                    TransactionDate = DateTime.Parse(transactionDate),
+                    IsTransactionActive = true
 
                 };
                 context.Transactions.Add(newWithdraw);
