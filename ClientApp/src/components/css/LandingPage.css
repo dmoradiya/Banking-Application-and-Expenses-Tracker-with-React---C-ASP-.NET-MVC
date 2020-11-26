@@ -1,6 +1,5 @@
 #landing-page-summary {
-    margin: 0 0.5rem;
-   
+    
 }
 #landing-page-summary h1 {
     text-align: center;
@@ -33,7 +32,7 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
     padding: 0.5rem 0;
-    margin: 0.5rem 0 2rem 0;
+    margin: 0.5rem 0.5rem 2rem 0.5rem;
     background-color: #f2f2f2;
 }
 #landing-page-summary .flex-container {
@@ -72,7 +71,7 @@
 
 @media screen and (min-width: 992px) {
     #landing-page-summary {
-        margin: 0 7rem;
+        
     }
 
     #landing-page-summary tr {

@@ -1,6 +1,8 @@
 ﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Layout } from '../components/Layout';
+import "./css/root.css"
+import "./css/ViewTransactions.css"
 
 
 function ViewTransactions(props) {
@@ -20,28 +22,30 @@ function ViewTransactions(props) {
 
     function renderClientInfoTable(transactions) {
         return (
-            <table className='table table-striped' aria-labelledby="tabelLabel">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Source</th>
-                        <th>Category</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {transactions.map(transaction =>
-                        <tr key={transaction.transactionID}>
-                            <td>{transaction.transactionDate}</td>
-                            <td>{transaction.transactionSource}</td>
-                            <td>{transaction.transactionCategory}</td>
-                            <td>{transaction.transactionValue}</td>
+            <section id="view-transactions-section">
+                <h1>View Transactions</h1>
+                <table className='table' aria-labelledby="tabelLabel">
+                    <thead>
+                        <tr className="col-sm-4">
+                            <th>Date</th>
+                            <th className="d-none d-sm-block">Source</th>
+                            <th>Category</th>
+                            <th>Amount</th>
                         </tr>
-                    )}
-                </tbody>
+                    </thead>
+                    <tbody>
+                        {transactions.map(transaction =>
+                            <tr key={transaction.transactionID}>
+                                <td>{transaction.transactionDate.slice(0, 10)}</td>
+                                <td className="d-none d-sm-block">{transaction.transactionSource}</td>
+                                <td>{transaction.transactionCategory}</td>
+                                <td>$ {transaction.transactionValue}</td>
+                            </tr>
+                        )}
+                    </tbody>
 
-            </table>
-
+                </table>
+            </section>       
         );
     }
 
@@ -60,11 +64,10 @@ function ViewTransactions(props) {
         : renderClientInfoTable(transactions);
 
     return (
-        <div>
-            <Layout />
-            <h1 id="tabelLabel" >View Transactions</h1>
+        <section id="view-transactions">
+            <Layout />            
             {contents}
-        </div>
+        </section>
     );
 
    
