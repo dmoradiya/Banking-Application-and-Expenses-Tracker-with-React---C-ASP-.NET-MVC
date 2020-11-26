@@ -19,14 +19,19 @@
 }
 @media screen and (min-width: 576px) {
     #view-transactions-section table {
-        width: 500px;
+        width: 550px;
         margin: 1rem auto auto auto;
+    }
+}
+@media screen and (min-width: 768px) {
+    #view-transactions-section table {
+        width: 700px;
     }
 }
 
 @media screen and (min-width: 992px) {
     #view-transactions-section table {
-        width: 700px;
+        width: 850px;
         
     }
 }
