@@ -23,7 +23,7 @@ function ViewTransactions(props) {
     function renderClientInfoTable(transactions) {
         return (
             <section id="view-transactions-section">
-                <h1>View Transactions</h1>
+                
                 <table className='table' aria-labelledby="tabelLabel">
                     <thead>
                         <tr className="col-sm-4">
@@ -65,7 +65,8 @@ function ViewTransactions(props) {
 
     return (
         <section id="view-transactions">
-            <Layout />            
+            <Layout />   
+            <h1>View Transactions</h1>
             {contents}
         </section>
     );
