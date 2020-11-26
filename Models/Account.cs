@@ -32,12 +32,18 @@ namespace Capstone_VV.Models
         public string AccountType { get; set; }
 
         // AccountBalance double(15) 
-        [Column(TypeName = "double(15,2)")]
-        public double AccountBalance { get; set; }
+        [Column(TypeName = "varchar(15)")]
+        [Required]
+        public string AccountBalance { get; set; }
 
-        // AccountInterest double(10)
-        [Column(TypeName = "double(10,2)")]
-        public double AccountInterest { get; set; }
+        // Cashback NOT NULL(10)
+        [Column(TypeName = "varchar(15)")]
+        [Required]
+        public string Cashback { get; set; }
+        
+        // Account Open date NOT NULL
+        [Column(TypeName = "date")]
+        public DateTime AccountDate { get; set; }
 
         // IsActive bool NOT NULL
         [Column(TypeName = "bool")]

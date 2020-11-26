@@ -35,9 +35,9 @@ namespace Capstone_VV.Models
         public string TransactionCategory { get; set; }
 
         // TransactionValue double(10) NOT NULL
-        [Column(TypeName = "double(10,2)")]
-        public double TransactionValue { get; set; }
-
+        [Column(TypeName = "varchar(15)")]
+        [Required]
+        public string TransactionValue { get; set; }
 
         // TransactionDate date NOT NULL
         [Column(TypeName = "date")]

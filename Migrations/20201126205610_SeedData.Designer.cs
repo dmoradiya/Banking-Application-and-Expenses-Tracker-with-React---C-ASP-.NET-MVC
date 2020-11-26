@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Capstone_VV.Migrations
 {
     [DbContext(typeof(BankContext))]
-    [Migration("20201124183952_AddedIsTransactionActive")]
-    partial class AddedIsTransactionActive
+    [Migration("20201126205610_SeedData")]
+    partial class SeedData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -25,15 +25,24 @@ namespace Capstone_VV.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int(10)");
 
-                    b.Property<double>("AccountBalance")
-                        .HasColumnType("double(15,2)");
+                    b.Property<string>("AccountBalance")
+                        .IsRequired()
+                        .HasColumnType("varchar(15)")
+                        .HasAnnotation("MySql:CharSet", "utf8mb4")
+                        .HasAnnotation("MySql:Collation", "utf8mb4_general_ci");
 
-                    b.Property<double>("AccountInterest")
-                        .HasColumnType("double(10,2)");
+                    b.Property<DateTime>("AccountDate")
+                        .HasColumnType("date");
 
                     b.Property<string>("AccountType")
                         .IsRequired()
                         .HasColumnType("varchar(30)")
+                        .HasAnnotation("MySql:CharSet", "utf8mb4")
+                        .HasAnnotation("MySql:Collation", "utf8mb4_general_ci");
+
+                    b.Property<string>("Cashback")
+                        .IsRequired()
+                        .HasColumnType("varchar(15)")
                         .HasAnnotation("MySql:CharSet", "utf8mb4")
                         .HasAnnotation("MySql:Collation", "utf8mb4_general_ci");
 
@@ -54,36 +63,40 @@ namespace Capstone_VV.Migrations
                         new
                         {
                             AccountID = 1,
-                            AccountBalance = 2189.4299999999998,
-                            AccountInterest = 0.02,
+                            AccountBalance = "$2189.43",
+                            AccountDate = new DateTime(2018, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             AccountType = "Chequing",
+                            Cashback = "$10.02",
                             ClientID = 1,
                             IsActive = true
                         },
                         new
                         {
                             AccountID = 2,
-                            AccountBalance = 4.0,
-                            AccountInterest = 0.0,
+                            AccountBalance = "$4.00",
+                            AccountDate = new DateTime(2018, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             AccountType = "Chequing",
+                            Cashback = "$5.80",
                             ClientID = 2,
                             IsActive = true
                         },
                         new
                         {
                             AccountID = 3,
-                            AccountBalance = 77850.0,
-                            AccountInterest = 0.070000000000000007,
+                            AccountBalance = "$77850.00",
+                            AccountDate = new DateTime(2018, 5, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             AccountType = "Chequing",
+                            Cashback = "$100.07",
                             ClientID = 3,
                             IsActive = true
                         },
                         new
                         {
                             AccountID = 4,
-                            AccountBalance = 174.09999999999999,
-                            AccountInterest = 0.01,
+                            AccountBalance = "$174.10",
+                            AccountDate = new DateTime(2018, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             AccountType = "Chequing",
+                            Cashback = "$45.00",
                             ClientID = 4,
                             IsActive = true
                         });
@@ -242,8 +255,11 @@ namespace Capstone_VV.Migrations
                         .HasAnnotation("MySql:CharSet", "utf8mb4")
                         .HasAnnotation("MySql:Collation", "utf8mb4_general_ci");
 
-                    b.Property<double>("TransactionValue")
-                        .HasColumnType("double(10,2)");
+                    b.Property<string>("TransactionValue")
+                        .IsRequired()
+                        .HasColumnType("varchar(15)")
+                        .HasAnnotation("MySql:CharSet", "utf8mb4")
+                        .HasAnnotation("MySql:Collation", "utf8mb4_general_ci");
 
                     b.HasKey("TransactionID");
 
@@ -258,200 +274,200 @@ namespace Capstone_VV.Migrations
                             TransactionID = 1,
                             AccountID = 1,
                             IsTransactionActive = true,
-                            TransactionCategory = "Income",
+                            TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Allgood Engineering Inc.",
-                            TransactionValue = 2001.8599999999999
+                            TransactionSource = "Bank",
+                            TransactionValue = "$2001.86"
                         },
                         new
                         {
                             TransactionID = 2,
                             AccountID = 1,
                             IsTransactionActive = true,
-                            TransactionCategory = "Expense_Rent",
+                            TransactionCategory = "Rent/Mortgage",
                             TransactionDate = new DateTime(2020, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Axion Rental Agency",
-                            TransactionValue = -1100.0
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = "($1100.00)"
                         },
                         new
                         {
                             TransactionID = 3,
                             AccountID = 1,
                             IsTransactionActive = true,
-                            TransactionCategory = "Expense_Vehicle",
+                            TransactionCategory = "Other",
                             TransactionDate = new DateTime(2020, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Jonathan's Car Repairs",
-                            TransactionValue = -200.99000000000001
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = "($200.99)"
                         },
                         new
                         {
                             TransactionID = 4,
                             AccountID = 1,
                             IsTransactionActive = true,
-                            TransactionCategory = "Expense_Groceries",
+                            TransactionCategory = "Food",
                             TransactionDate = new DateTime(2020, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Superstore",
-                            TransactionValue = -71.439999999999998
+                            TransactionSource = "Bill payment",
+                            TransactionValue = "($71.44)"
                         },
                         new
                         {
                             TransactionID = 5,
                             AccountID = 1,
                             IsTransactionActive = true,
-                            TransactionCategory = "Expense_Health",
+                            TransactionCategory = "Health",
                             TransactionDate = new DateTime(2020, 10, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Ironman Gym Membership Fee",
-                            TransactionValue = -30.0
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = "($30.00)"
                         },
                         new
                         {
                             TransactionID = 6,
                             AccountID = 1,
                             IsTransactionActive = true,
-                            TransactionCategory = "Income_Investments",
+                            TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 4, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Gold Hand Investments Inc.",
-                            TransactionValue = 430.0
+                            TransactionSource = "ATM",
+                            TransactionValue = "$430.00"
                         },
                         new
                         {
                             TransactionID = 7,
                             AccountID = 1,
                             IsTransactionActive = true,
-                            TransactionCategory = "Income_Investments",
+                            TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 5, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Gold Hand Investments Inc.",
-                            TransactionValue = 110.0
+                            TransactionSource = "ATM",
+                            TransactionValue = "$110.00"
                         },
                         new
                         {
                             TransactionID = 8,
                             AccountID = 1,
                             IsTransactionActive = true,
-                            TransactionCategory = "Income_Investments",
+                            TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Gold Hand Investments Inc.",
-                            TransactionValue = 320.0
+                            TransactionSource = "Bank",
+                            TransactionValue = "$320.00"
                         },
                         new
                         {
                             TransactionID = 9,
                             AccountID = 1,
                             IsTransactionActive = true,
-                            TransactionCategory = "Income_Investments",
+                            TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Gold Hand Investments Inc.",
-                            TransactionValue = 750.0
+                            TransactionSource = "Bank",
+                            TransactionValue = "$750.00"
                         },
                         new
                         {
                             TransactionID = 10,
                             AccountID = 2,
                             IsTransactionActive = true,
-                            TransactionCategory = "Income",
+                            TransactionCategory = "Withdraw",
                             TransactionDate = new DateTime(2020, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Bank of Wallachia",
-                            TransactionValue = 5.0
+                            TransactionSource = "ATM",
+                            TransactionValue = "($50.00)"
                         },
                         new
                         {
                             TransactionID = 11,
                             AccountID = 2,
                             IsTransactionActive = true,
-                            TransactionCategory = "Expense_Food",
+                            TransactionCategory = "Food",
                             TransactionDate = new DateTime(2020, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Wallachia Market",
-                            TransactionValue = -1.0
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = "($10.00)"
                         },
                         new
                         {
                             TransactionID = 12,
                             AccountID = 3,
                             IsTransactionActive = true,
-                            TransactionCategory = "Income",
+                            TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Gold Hand Investments Inc.",
-                            TransactionValue = 7500.0
+                            TransactionSource = "Bank",
+                            TransactionValue = "$7500.00"
                         },
                         new
                         {
                             TransactionID = 13,
                             AccountID = 3,
                             IsTransactionActive = true,
-                            TransactionCategory = "Income",
+                            TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Gold Hand Investments Inc.",
-                            TransactionValue = 7500.0
+                            TransactionSource = "Bank",
+                            TransactionValue = "$7500.00"
                         },
                         new
                         {
                             TransactionID = 14,
                             AccountID = 3,
                             IsTransactionActive = true,
-                            TransactionCategory = "Expense_Recreation",
+                            TransactionCategory = "Withdraw",
                             TransactionDate = new DateTime(2020, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Central Avionics",
-                            TransactionValue = -3000.0
+                            TransactionSource = "Bank",
+                            TransactionValue = "($3000.00)"
                         },
                         new
                         {
                             TransactionID = 15,
                             AccountID = 3,
                             IsTransactionActive = true,
-                            TransactionCategory = "Income_Investments",
+                            TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Gold Hand Investments Inc.",
-                            TransactionValue = 43750.0
+                            TransactionSource = "Bank",
+                            TransactionValue = "$43750.00"
                         },
                         new
                         {
                             TransactionID = 16,
                             AccountID = 3,
                             IsTransactionActive = true,
-                            TransactionCategory = "Income_Investments",
+                            TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Gold Hand Investments Inc.",
-                            TransactionValue = 22100.0
+                            TransactionSource = "Bank",
+                            TransactionValue = "$22100.00"
                         },
                         new
                         {
                             TransactionID = 17,
                             AccountID = 4,
                             IsTransactionActive = true,
-                            TransactionCategory = "Income",
+                            TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Seven Eleven",
-                            TransactionValue = 1100.3199999999999
+                            TransactionSource = "ATM",
+                            TransactionValue = "$1100.32"
                         },
                         new
                         {
                             TransactionID = 18,
                             AccountID = 4,
                             IsTransactionActive = true,
-                            TransactionCategory = "Expense_Rent",
+                            TransactionCategory = "Rent/Mortgage",
                             TransactionDate = new DateTime(2020, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Axion Rental Agency",
-                            TransactionValue = -800.0
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = "($800.00)"
                         },
                         new
                         {
                             TransactionID = 19,
                             AccountID = 4,
                             IsTransactionActive = true,
-                            TransactionCategory = "Expense_Vehicle",
+                            TransactionCategory = "Utilities",
                             TransactionDate = new DateTime(2020, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "St. Albert Transit",
-                            TransactionValue = -41.990000000000002
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = "($41.99)"
                         },
                         new
                         {
                             TransactionID = 20,
                             AccountID = 4,
                             IsTransactionActive = true,
-                            TransactionCategory = "Expense_Groceries",
+                            TransactionCategory = "Internet",
                             TransactionDate = new DateTime(2020, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Superstore",
-                            TransactionValue = -84.230000000000004
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = "($84.23)"
                         });
                 });
 
