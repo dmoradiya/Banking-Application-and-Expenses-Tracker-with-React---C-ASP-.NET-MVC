@@ -71,15 +71,15 @@ function CreateDeposit(props) {
 
             <h1 className="deposit-header"> Make a Deposit </h1>
 
-            <p className="deposit-error">{waiting ? "Waiting..." : `${response}`}</p>
+            <p className="deposit-error alert alert-light">{waiting ? "Waiting..." : `${response}`}</p>
             <form className="deposit-form" onSubmit={handleSubmit}>              
 
                 <section className="input-group-prepend deposit-prepend">
                 <label className="input-group-text deposit-placeholder" htmlFor="accountID">Account</label>
-                <select className="deposit-selector deposit-text" id="accountID"  onChange={handleFieldChange}>
-                    <option className="center" value=""  >Select Account</option>
+                <select className="form-control" id="accountID"  onChange={handleFieldChange}>
+                    <option value=""  >Select Account</option>
                         {accountInfo.map(client => (<option key={client.accountID} value={`${client.accountID}`}>
-                        {`${client.accountType} Account -- Total Balance: $${client.accountBalance + client.accountInterest}`}
+                        {`${client.accountType}- Total Balance: $${client.accountBalance + client.accountInterest}`}
                     </option>
                 ))}
                     </select>
@@ -87,7 +87,7 @@ function CreateDeposit(props) {
                 <br />  
                 <section className="input-group-prepend deposit-prepend">
                     <label className="input-group-text deposit-placeholder" htmlFor="accountID">Location</label>
-                    <select className="deposit-selector deposit-text" id="transactionSource" onChange={handleFieldChange}>
+                    <select className="form-control" id="transactionSource" onChange={handleFieldChange}>
                     <option value="" >Deposit Source</option>
                     <option value="Bank">Bank</option>
                     <option value="ATM">ATM</option>
@@ -97,15 +97,11 @@ function CreateDeposit(props) {
                 <section className="input-group-prepend deposit-prepend">
                     <label className="input-group-text deposit-placeholder" htmlFor="address">Value</label>
                         <input
-                        className="deposit-selector deposit-text"
-                            id="transactionValue"
-                            placeholder="Transaction Value"
-                            type="text"
-                        onChange={handleFieldChange} />
+                        className="form-control" id="transactionValue" placeholder="Transaction Value" type="text" onChange={handleFieldChange} />
                     </section>
                 <br />
-                <section className="input-group-prepend deposit-prepend">
-                    <input type="submit" className="btn btn-primary deposit-submit" value="Submit" />
+                <section className="deposit-submit">
+                    <input type="submit" className="btn btn-primary dropdown-toggle" value="Submit" />
                     </section>
                 </form>
         </section>

@@ -1,49 +1,44 @@
-﻿/*Adds a Green Square around the header and centers it*/
+﻿
+
+/*Adds a border to the entire section*/
+.deposit-page {
+    border: 1vw;
+}
+
+/*Adds a Green Square around the header and centers it*/
 .deposit-header {
     margin: auto;
-    width: 75%;
+    width: 75vw;
     border: 3px solid green;
     padding: 10px;
     text-align: center;
     font-size: 2em; /*16 x 2 = 32px*/
 }
 
-/*Adds a border to the entire section*/
-.deposit-page {
-    margin: 0;
-    border: 5vw;
-    padding: 0rem;
-}
-
-/*Add margins and borders around the form elements*/
-.deposit-form {
-    border: 5vw;
-    margin: 5vw;
-}
-
-/*Set mininum size for placeholder text*/
-.deposit-placeholder {
-    min-width: 90px;
-    max-width: 10vw;
-}
-
-
-/*Set minimum size for input text*/
-.deposit-text {
-    min-width: 248px;
-    max-width: 80vw;
-}
-
-/*Centers the Submit button*/
-.deposit-submit {
+/*Sets maxwidth for Input fields*/
+.deposit-prepend {
+    width: 85vw;
+    max-width: 85vw;
     margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
 }
 
-/*Centers the error handling message*/
+/*Centers the submit button*/
+.deposit-submit {
+    margin: auto;
+    text-align: center;
+}
+/*Centers the error message*/
 .deposit-error {
+    margin: auto;
     text-align: center;
 }
 
+/*Sets the widths for the Placeholder Text*/
+.deposit-placeholder {
+    min-width: 80px;
+}
 
 /*For Tablets*/
 @media only screen and (min-width: 768px) {
@@ -52,29 +47,4 @@
         font-size: 3em;
     }
 
-    .deposit-text {
-        min-width: 600px;
-    }
-
-    .create-client-placeholder-text {
-        font-size: 1.2em;
-        min-width: 160px;
-    }
-}
-
-/*For Desktops*/
-@media only screen and (min-width: 1100px) {
-    .deposit-header {
-        border: 6px solid red;
-        font-size: 3em;
-    }
-
-    .deposit-text {
-        min-width: 600px;
-    }
-
-    .create-client-placeholder-text {
-        font-size: 1.2em;
-        min-width: 160px;
-    }
 }
