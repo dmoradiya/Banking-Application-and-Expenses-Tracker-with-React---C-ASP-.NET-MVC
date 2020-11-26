@@ -5,6 +5,7 @@
     border: 3px solid green;
     padding: 10px;
     text-align: center;
+    font-size: 2em; /*16 x 2 = 32px*/
 }
 
 /*Adds a border to the entire section*/
@@ -22,6 +23,7 @@
 /*Centers the selector text*/
 .form-control {
     text-align: center;
+    font-size: 1em;
 }
 
 /*Centers the submit button*/
@@ -42,6 +44,17 @@
 @media only screen and (min-width: 768px) {
     .client-header {
         border: 5px solid blue;
+        font-size: 3em;
+    }
+    .input-group-prepend {
+        margin: 3%;
+    }
+    .form-control {
+        font-size: 1.2em;
+    }
+    .input-group-text {
+        font-size: 1.2em;
+        min-width: 160px;
     }
 }
 
@@ -49,5 +62,16 @@
 @media only screen and (min-width: 1200px) {
     .client-header {
         border: 7px solid red;
+        font-size: 4em;
+    }
+    .input-group-prepend {
+        margin: 2%;
+    }
+    .form-control {
+        font-size: 1.5em;
+    }
+    .input-group-text {
+        font-size: 1.5em;
+        min-width: 180px;
     }
 }

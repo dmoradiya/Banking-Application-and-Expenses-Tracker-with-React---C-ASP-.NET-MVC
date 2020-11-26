@@ -1,0 +1,48 @@
+﻿/*Adds a Green Square around the header and centers it*/
+.deposit-header {
+    margin: auto;
+    width: 75%;
+    border: 3px solid green;
+    padding: 10px;
+    text-align: center;
+    font-size: 2em; /*16 x 2 = 32px*/
+}
+
+/*Adds a border to the entire section*/
+.create-client {
+    margin: 0 auto;
+    border: 5px;
+}
+
+.deposit-selector {
+    margin: 0 auto;
+    width: 75%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.deposit-submit {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dollar-sign {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 10%;
+    height: 22px;
+}
+
+.transaction-input {
+    padding: 0;
+    margin: 0;
+    width: 80%
+}
