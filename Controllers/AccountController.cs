@@ -140,7 +140,26 @@ namespace Capstone_VV.Controllers
                     throw exception;
                 }
                 result.AccountBalance -= double.Parse(transactionValue);
+                
+                context.SaveChanges();
+                return result;
+            }
+        }
+        // Update Cashback Balance
+        public Account CashbackBalance(string accountID, string transactionValue)
+        {
+            Account result;
+
+            accountID = new ClientController().StringValidation("Dropdown", accountID);
+            transactionValue = new ClientController().StringValidation("TransactionValue", transactionValue);
+
+            using (BankContext context = new BankContext())
+            {
+
+                result = context.Accounts.Where(x => x.AccountID == int.Parse(accountID)).SingleOrDefault();
+               // 5% Cashback on every Bill Payment
                 result.Cashback += double.Parse(transactionValue) * 0.05;
+
                 context.SaveChanges();
                 return result;
             }

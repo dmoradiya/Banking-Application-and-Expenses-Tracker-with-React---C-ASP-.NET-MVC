@@ -73,6 +73,11 @@ namespace Capstone_VV.Controllers
             // Update Account Balance In AccountController
             new AccountController().WithdrawBalance(accountID, transactionValue);
 
+            if (transactionSource == "Bill Payment")
+            {
+                new AccountController().CashbackBalance(accountID, transactionValue);
+            }
+
             using (BankContext context = new BankContext())
             {
                
