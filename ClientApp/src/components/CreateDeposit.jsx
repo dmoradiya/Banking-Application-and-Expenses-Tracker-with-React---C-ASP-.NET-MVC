@@ -77,14 +77,14 @@ function CreateDeposit(props) {
             <div className="center">
             <form className="deposit-form" onSubmit={handleSubmit}>
               
-                <select className="deposit-selector" id="accountID"  onChange={handleFieldChange}>
-                        <option className="center" value=""  >Select Account</option>
+            <select className="deposit-selector" id="accountID"  onChange={handleFieldChange}>
+                    <option className="center" value=""  >Select Account</option>
                     {accountInfo.map(client => (
                         <option key={client.accountID} value={`${client.accountID}`}>
-                        {`${client.accountType} Account      Total Balance: $${client.accountBalance + client.accountInterest}`}
+                            {`${client.accountType} Balance: $${client.accountBalance + client.cashback}`}
                     </option>
-                ))}
-                </select>
+            ))}
+            </select>
                 <br />  
                 <select className="deposit-selector" id="transactionSource" onChange={handleFieldChange}>
                     <option value="" >Deposit Source</option>

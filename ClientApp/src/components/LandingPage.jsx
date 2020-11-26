@@ -14,7 +14,7 @@ function LandingPage(props) {
     function renderClientInfoTable(accountInfo) {
 
         const totalHolding = accountInfo.reduce((total, client) => total = total + client.accountBalance, 0) + 
-                           accountInfo.reduce((total, client) => total = total + client.accountInterest, 0);
+                           accountInfo.reduce((total, client) => total = total + client.cashback, 0);
 
                            
         const name = accountInfo.map(x => x.client.firstName + " " + x.client.lastName)[0];

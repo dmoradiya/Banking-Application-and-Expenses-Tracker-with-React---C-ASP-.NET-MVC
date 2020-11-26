@@ -47,6 +47,7 @@ namespace Capstone_VV.Controllers
                     AccountType = accountType,
                     AccountBalance = 0.00,
                     Cashback = 0.00,
+                    AccountDate = DateTime.Today,
                     IsActive = true
 
                 };
@@ -88,6 +89,7 @@ namespace Capstone_VV.Controllers
                     AccountType = accountType,
                     AccountBalance = 0.00,
                     Cashback = 0.00,
+                    AccountDate = DateTime.Today,
                     IsActive = true
 
                 };
@@ -138,6 +140,7 @@ namespace Capstone_VV.Controllers
                     throw exception;
                 }
                 result.AccountBalance -= double.Parse(transactionValue);
+                result.Cashback += double.Parse(transactionValue) * 0.05;
                 context.SaveChanges();
                 return result;
             }
