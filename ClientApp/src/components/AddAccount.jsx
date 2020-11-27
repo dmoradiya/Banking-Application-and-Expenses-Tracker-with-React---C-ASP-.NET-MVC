@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { Layout } from '../components/Layout';
 import { useHistory } from "react-router-dom";
+import "./css/AddAccount.css"
 
 
 function AddAccount(props) {
@@ -49,23 +50,25 @@ function AddAccount(props) {
 
     return (
 
-        <div>
+        <section className="add-account-page">
             <Layout />
-            <h1>Select Your Account</h1>
+            <h1 className="add-account-header">Add Account</h1>
 
-            <p>{waiting ? "Submiting..." : `${response}`}</p>
-            <form onSubmit={handleSubmit}>
-
-                <label htmlFor="accountType">Account Type</label>
-                <select id="accountType" onChange={handleFieldChange}>
-                    <option value="" >Choose here</option>
-                    <option value="Chequing">Chequing Account</option>
-                    <option value="Savings">Saving Account</option>
-                </select>
-               
-                <input type="submit" className="btn btn-primary" value="Submit" />
+            <p className="add-account-error alert alert-light">{waiting ? "Submiting..." : `${response}`}</p>
+            <form className="add-account-form" onSubmit={handleSubmit}>
+                <section className="input-group-prepend add-account-prepend">
+                    <label className="input-group-text add-account-placeholder" htmlFor="accountType">Type</label>
+                    <select className="form-control" id="accountType" onChange={handleFieldChange}>
+                        <option value="" >Choose here</option>
+                        <option value="Chequing">Chequing Account</option>
+                        <option value="Savings">Saving Account</option>
+                    </select>
+                </section>
+                <section className="withdraw-submit">
+                    <input type="submit" className="btn btn-primary" value="Submit" />
+                </section>
             </form>
-        </div>
+        </section>
 
 
     );
