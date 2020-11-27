@@ -72,7 +72,7 @@ function Login(props) {
                 </section>
                 <section className="login-submit">
                     <button className="btn btn-info">
-                        <Link to="/create-client">Become A Client!</Link>
+                        <Link to="/create-client" className="white-text">Become A Client!</Link>
                     </button>
                 </section>
             </form>

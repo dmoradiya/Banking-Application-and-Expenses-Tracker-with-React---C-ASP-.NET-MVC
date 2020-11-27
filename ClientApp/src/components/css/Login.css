@@ -43,6 +43,10 @@
     min-width: 80px;
 }
 
+.white-text {
+    color: #FFF;
+}
+
 
 /*Creates a 'card' around the deposit-form*/
 .login-form {
