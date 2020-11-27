@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
-import "./css/root.css"
+import "./css/Login.css"
 
 
 function Login(props) {
@@ -52,32 +52,32 @@ function Login(props) {
 
     return (
 
-        <div>
-            <h1>Log In</h1>
+        <section className="login-page">
+            <h1 className="login-header">Log In</h1>
 
-            <p>{waiting ? "Logging In..." : `${response}`}</p>
+            <p className="login-error alert alert-light">{waiting ? "Logging In..." : `${response}`}</p>
 
-            <form onSubmit={handleSubmit}>
-                <div classname="form-group">
-                    <label htmlFor="email" >Please enter your Email Address: </label>
-                    <br/>
-                    <input id="email" type="text" onChange={handleFieldChange} placeholder="Email Address"/>
-                </div>
+            <form className="login-form" onSubmit={handleSubmit}>
+                <section className="input-group-prepend login-prepend">
+                    <label className="input-group-text login-placeholder" htmlFor="email" >Email: </label>
+                    <input className="form-control" id="email" type="text" onChange={handleFieldChange} placeholder="Email Address"/>
+                </section>
 
-                <div classname="form-group">
-                    <label htmlFor="password">Please enter your Password: </label>
-                    <br />
-                    <input id="password" type="text" onChange={handleFieldChange} placeholder="Password" />
-                </div>
-                <div classname="form-group">
+                <section className="input-group-prepend login-prepend">
+                    <label className="input-group-text login-placeholder" htmlFor="password">Password: </label>
+                    <input className="form-control" id="password" type="text" onChange={handleFieldChange} placeholder="Password" />
+                </section>
+                <section className="login-submit">
                     <input type="submit" className="btn btn-primary" value="Login" />
+                </section>
+                <section className="login-submit">
                     <button className="btn btn-info">
                         <Link to="/create-client">Become A Client!</Link>
                     </button>
-                </div>
+                </section>
             </form>
 
-        </div>
+        </section>
 
 
     );
