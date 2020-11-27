@@ -84,7 +84,6 @@ function CreateDeposit(props) {
                 ))}
                     </select>
                     </section>
-                <br />  
                 <section className="input-group-prepend deposit-prepend">
                     <label className="input-group-text deposit-placeholder" htmlFor="accountID">Location</label>
                     <select className="form-control" id="transactionSource" onChange={handleFieldChange}>
@@ -93,13 +92,11 @@ function CreateDeposit(props) {
                     <option value="ATM">ATM</option>
                     </select>
                     </section>
-                <br />
                 <section className="input-group-prepend deposit-prepend">
                     <label className="input-group-text deposit-placeholder" htmlFor="address">Value</label>
                         <input
                         className="form-control" id="transactionValue" placeholder="Transaction Value" type="text" onChange={handleFieldChange} />
                     </section>
-                <br />
                 <section className="deposit-submit">
                     <input type="submit" className="btn btn-primary dropdown-toggle" value="Submit" />
                     </section>

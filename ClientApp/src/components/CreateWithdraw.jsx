@@ -1,6 +1,8 @@
 ﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Layout } from '../components/Layout';
+import "./css/CreateWithdraw.css"
+
 
 function CreateWithdraw(props) {
     const [accountID, setAccountID] = useState("");
@@ -66,16 +68,15 @@ function CreateWithdraw(props) {
     }
 
     return (
-        <div>
+        <section className="withdraw-page">
             <Layout />
-            <h1> Make a Withdraw </h1>
+            <h1 className="withdraw-header"> Make a Withdraw </h1>
 
-            <p>{waiting ? "Waiting..." : `${response}`}</p>
-
-            <br />
+            <p className="withdraw-error alert alert-light">{waiting ? "Waiting..." : `${response}`}</p>
             <form onSubmit={handleSubmit}>
 
-                <label htmlFor="accountID">Account Type</label>
+                <section className="input-group-prepend withdraw-prepend">
+                <label htmlFor="accountID">Account</label>
                 <select id="accountID" onChange={handleFieldChange}>
 
                     <option value="" >Choose here</option>
@@ -85,22 +86,26 @@ function CreateWithdraw(props) {
                             {`${client.accountType} Account      Total Balance: $${client.accountBalance + client.accountInterest}`}
                         </option>
                     ))}
-                </select>
-                <br />
-                <label htmlFor="transactionSource">Source of Deposit</label>
+                    </select>
+                    </section>
+                <section className="input-group-prepend withdraw-prepend">
+                <label htmlFor="transactionSource">Source</label>
                 <select id="transactionSource" onChange={handleFieldChange}>
                     <option value="" >Choose here</option>
                     <option value="Bank">Bank</option>
                     <option value="ATM">ATM</option>
-                </select>
-                <br />
+                    </select>
+                </section>
+                <section className="input-group-prepend withdraw-prepend">
                 <label htmlFor="transactionValue">Value</label>
-                <br />
-                <input id="transactionValue" type="text" onChange={handleFieldChange} />
-                <br />
-                <input type="submit" className="btn btn-primary" value="Submit" />
+                    <input id="transactionValue" type="text" onChange={handleFieldChange} />
+                </section>
+                <section className="withdraw-submit">
+
+                    <input type="submit" className="btn btn-primary" value="Submit" />
+                    </section>
             </form>
-        </div>
+        </section>
     );
 }
 export { CreateWithdraw };

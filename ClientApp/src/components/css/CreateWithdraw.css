@@ -1,0 +1,43 @@
+﻿
+
+/*Adds a border to the entire section*/
+.withdraw-page {
+    border: 1vw;
+}
+
+
+/*Adds a Green Square around the header and centers it*/
+.withdraw-header {
+    margin: auto;
+    width: 100vw;
+    border: 3px solid green;
+    padding: 10px;
+    text-align: center;
+    font-size: 2em; /*16 x 2 = 32px*/
+    background-color: #D01992;
+    color: #fff;
+    padding: 0.5rem 0 0.5rem 0;
+}
+/*Sets maxwidth for Input fields*/
+.withdraw-prepend {
+    width: 85vw;
+    max-width: 85vw;
+    margin: 5vw;
+    text-align: center;
+    overflow: hidden;
+}
+/*Centers the submit button*/
+.withdraw-submit {
+    margin: auto;
+    text-align: center;
+}
+/*Centers the error message*/
+.withdraw-error {
+    margin: auto;
+    text-align: center;
+}
+/*Sets the widths for the Placeholder Text*/
+.withdraw-placeholder {
+    min-width: 80px;
+}
+
