@@ -10,17 +10,8 @@ function ViewTransactions(props) {
     const [transactions, setTransactions] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    // Citation Start
-    // Link :https://stackoverflow.com/questions/52652661/how-to-get-query-string-using-react
-    // purpose : Get parameter from the URL string
-    let search = window.location.search;
-    let params = new URLSearchParams(search);
-    let accountID = params.get('id');
-    //console.log(accountID);
-    // Citation End
-
-
     function renderClientInfoTable(transactions) {
+       
         return (
             <section id="view-transactions-section">
                 
@@ -48,9 +39,11 @@ function ViewTransactions(props) {
             </section>       
         );
     }
-
+    // Receiving parameter from Landing page Link
+    const { id } = props.location.state;
     async function populateTransactionsData() {
-        const response = await axios.get(`BankAPI/ViewTransactions?id=${accountID}`);
+        const response = await axios.get(`BankAPI/ViewTransactions?id=${id}`);
+
         setTransactions(response.data);
         setLoading(false);
     }

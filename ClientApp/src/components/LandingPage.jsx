@@ -49,7 +49,12 @@ function LandingPage(props) {
                                     <p className="heading">View Transactions: </p>
                                     <p>
                                         <button className="btn btn-info">
-                                            <Link className="text-white" to={`/view-transactions?id=${client.accountID}`}>
+
+                                            {/* Sending account Id to Transaction Page*/ }
+                                            <Link className="text-white" to={{
+                                                pathname: "/view-transactions",
+                                                state: { id: client.accountID }
+                                            }}>
                                                 { client.accountType }
                                             </Link>
                                         </button>
