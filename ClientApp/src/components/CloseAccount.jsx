@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { Layout } from '../components/Layout';
 import { useHistory } from "react-router-dom";
+import "./css/CloseAccount.css"
 
 
 function CloseAccount(props) {
@@ -63,28 +64,29 @@ function CloseAccount(props) {
     }
 
     return (
-        <div>
+        <section className="close-account-page">
             <Layout />
-            <h1> Close Your Account </h1>
-            <p>{waiting ? "Waiting..." : `${response}`}</p>
+            <h1 className="close-account-header"> Close Account </h1>
+            <p className="close-account-error alert alert-light">{waiting ? "Waiting..." : `${response}`}</p>
+            <form className="close-account-form" onSubmit={handleSubmit}>
+                <section className="input-group-prepend close-account-prepend">
 
-            <br />
-            <form onSubmit={handleSubmit}>
-
-                <label htmlFor="accountID">Account Type</label>
-                <select id="accountID" onChange={handleFieldChange}>
-                    <option value="" >Choose Account here</option>
+                <label className="input-group-text close-account-placeholder" htmlFor="accountID">Account</label>
+                <select className="form-control" id="accountID" onChange={handleFieldChange}>
+                    <option value="" >Select Account</option>
                     {accountInfo.map(client => (
                         <option key={client.accountID} value={`${client.accountID}`}>
                             {console.log(client.accountID)}
                             {`${client.accountType} Account      Total Balance: $${client.accountBalance + client.accountInterest}`}
                         </option>
                     ))}
-                </select>               
-                <br />
+                    </select>               
+                </section>
+                <section className="close-account-submit">
                 <input type="submit" className="btn btn-primary" value="Close Account" />
+                </section>
             </form>
-        </div>
+        </section>
 
 
     );

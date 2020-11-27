@@ -59,12 +59,12 @@ function AddAccount(props) {
                 <section className="input-group-prepend add-account-prepend">
                     <label className="input-group-text add-account-placeholder" htmlFor="accountType">Type</label>
                     <select className="form-control" id="accountType" onChange={handleFieldChange}>
-                        <option value="" >Choose here</option>
+                        <option value="" >Select Account</option>
                         <option value="Chequing">Chequing Account</option>
                         <option value="Savings">Saving Account</option>
                     </select>
                 </section>
-                <section className="withdraw-submit">
+                <section className="add-account-submit">
                     <input type="submit" className="btn btn-primary" value="Submit" />
                 </section>
             </form>

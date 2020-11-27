@@ -1,0 +1,83 @@
+﻿
+
+/*Adds a border to the entire section*/
+.close-account-page {
+    border: 1vw;
+}
+
+
+/*Adds a Green Square around the header and centers it*/
+.close-account-header {
+    margin: auto;
+    width: 100vw;
+    border: 3px solid green;
+    padding: 10px;
+    text-align: center;
+    font-size: 2em; /*16 x 2 = 32px*/
+    background-color: #D01992;
+    color: #fff;
+    padding: 0.5rem 0 0.5rem 0;
+}
+
+/*Centers the submit button*/
+.close-account-submit {
+    margin: auto;
+    text-align: center;
+}
+/*Centers the error message*/
+.close-account-error {
+    margin: auto;
+    text-align: center;
+}
+/*Sets maxwidth for Input fields*/
+.close-account-prepend {
+    width: 80vw;
+    max-width: 80vw;
+    margin: 5vw;
+    text-align: center;
+    overflow: hidden;
+}
+/*Sets the widths for the Placeholder Text*/
+.close-account-placeholder {
+    min-width: 80px;
+}
+
+
+/*Creates a 'card' around the deposit-form*/
+.close-account-form {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding: 0.5rem 0;
+    margin: 1rem 1rem 1rem 1rem;
+    background-color: #f2f2f2;
+}
+
+/*For Tablets*/
+@media only screen and (min-width: 768px) {
+    .close-account-header {
+        border: 5px solid blue;
+        font-size: 3em;
+    }
+
+    .close-account-prepend {
+        margin: 3vw;
+        width: 90vw;
+        max-width: 90vw;
+    }
+}
+
+/*For Desktop Screens*/
+@media only screen and (min-width: 1200px) {
+    .close-account-header {
+        border: 6px solid red;
+        font-size: 4em;
+    }
+
+    .close-account-prepend {
+        margin: 2vw;
+        width: 95vw;
+    }
+}
