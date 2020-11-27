@@ -18,14 +18,7 @@
     color: #fff;
     padding: 0.5rem 0 0.5rem 0;
 }
-/*Sets maxwidth for Input fields*/
-.withdraw-prepend {
-    width: 80vw;
-    max-width: 80vw;
-    margin: 5vw;
-    text-align: center;
-    overflow: hidden;
-}
+
 /*Centers the submit button*/
 .withdraw-submit {
     margin: auto;
@@ -35,6 +28,14 @@
 .withdraw-error {
     margin: auto;
     text-align: center;
+}
+/*Sets maxwidth for Input fields*/
+.withdraw-prepend {
+    width: 80vw;
+    max-width: 80vw;
+    margin: 5vw;
+    text-align: center;
+    overflow: hidden;
 }
 /*Sets the widths for the Placeholder Text*/
 .withdraw-placeholder {

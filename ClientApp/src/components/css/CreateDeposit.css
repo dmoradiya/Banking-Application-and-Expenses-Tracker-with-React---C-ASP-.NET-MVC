@@ -63,6 +63,8 @@
     }
     .deposit-prepend {
         margin: 3vw;
+        width: 90vw;
+        max-width: 90vw;
     }
 }
 

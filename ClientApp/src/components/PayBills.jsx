@@ -1,7 +1,7 @@
 ﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
 import { Layout } from '../components/Layout';
+import "./css/PayBills.css"
 
 function PayBills(props) {
     const [accountID, setAccountID] = useState("");
@@ -71,54 +71,52 @@ function PayBills(props) {
     }
 
     return (
-        <div>
+        <section className="bills-page">
             <Layout />
-            <h1> Pay Bills </h1>
-            <p>{waiting ? "Waiting..." : `${response}`}</p>
+            <h1 className="bills-header"> Pay Bills </h1>
+            <p className="bills-error alert alert-light">{waiting ? "Waiting..." : `${response}`}</p>
 
-            <br />
-            <form onSubmit={handleSubmit}>
-
-                <label htmlFor="accountID">Account Type</label>
-                <select id="accountID" onChange={handleFieldChange}>
-                    <option value="" >Choose here</option>
-
-                    {accountInfo.map(client => (
-                        <option key={client.accountID} value={`${client.accountID}`}>
-                            {`${client.accountType} Account      Total Balance: $${client.accountBalance + client.accountInterest}`}
-                        </option>
-                    ))}
-                </select>
-
-                <br />
-                <label htmlFor="transactionCategory">Transaction Category</label>
-                <select id="transactionCategory" onChange={handleFieldChange}>
-                    <option value="" >Choose here</option>
-                    <option value="Food">Food</option>
-                    <option value="Rent/Mortgage">Rent/Mortgage</option>
-                    <option value="Utilities">Utilities</option>
-                    <option value="Entertainment">Entertainment</option>
-                    <option value="Phone">Phone</option>
-                    <option value="Internet">Internet</option>
-                    <option value="Health">Health</option>
-                    <option value="Memberships">Memberships</option>
-                    <option value="Subscriptions">Subscriptions</option>
-                    <option value="Other">Other</option>
-                </select>
-                <br />
-
-                <label htmlFor="transactionValue">Value of this transaction</label>
-
-                <br />
-                <input id="transactionValue" type="text" onChange={handleFieldChange} />
-                <br />
-                <label htmlFor="transactionDate">Transaction Date</label>
-                <br />
-                <input id="transactionDate" type="date" onChange={handleFieldChange} />
-                <br />
-                <input type="submit" className="btn btn-primary" value="Submit" />
+            <form className="bills-form" onSubmit={handleSubmit}>
+                <section className="input-group-prepend bills-prepend">
+                    <label className="input-group-text bills-placeholder" htmlFor="accountID">Account</label>
+                    <select className="form-control" id="accountID" onChange={handleFieldChange}>
+                            <option value="" >Select Account</option>
+                            {accountInfo.map(client => (
+                            <option key={client.accountID} value={`${client.accountID}`}>
+                            {`${client.accountType} - Balance: $${client.accountBalance + client.accountInterest}`}
+                            </option>
+                            ))}
+                        </select>
+                </section>
+                <section className="input-group-prepend bills-prepend">
+                    <label className="input-group-text bills-placeholder" htmlFor="transactionCategory">Category</label>
+                    <select className="form-control" id="transactionCategory" onChange={handleFieldChange}>
+                            <option value="" >Select Category</option>
+                            <option value="Food">Food</option>
+                            <option value="Rent/Mortgage">Rent/Mortgage</option>
+                            <option value="Utilities">Utilities</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Phone">Phone</option>
+                            <option value="Internet">Internet</option>
+                            <option value="Health">Health</option>
+                            <option value="Memberships">Memberships</option>
+                            <option value="Subscriptions">Subscriptions</option>
+                            <option value="Other">Other</option>
+                        </select>
+                </section>
+                <section className="input-group-prepend bills-prepend">
+                    <label className="input-group-text bills-placeholder" htmlFor="transactionValue">Value</label>
+                    <input className="form-control" id="transactionValue" type="text" onChange={handleFieldChange} />
+                </section>
+                <section className="input-group-prepend bills-prepend">
+                    <label className="input-group-text bills-placeholder" htmlFor="transactionDate">Date</label>
+                    <input className="form-control" id="transactionDate" type="date" onChange={handleFieldChange} />
+                </section>
+                <section className="bills-submit">
+                    <input className="form-control" type="submit" className="btn btn-primary" value="Submit" />
+                </section>
             </form>
-        </div>
+        </section>
     );
 }
 export { PayBills };
