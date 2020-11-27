@@ -60,7 +60,7 @@ function CreateWithdraw(props) {
         ).then((res) => {
             setWaiting(false);
             setResponse("Transaction Completed successfully");
-        }
+        }   
         ).catch((err) => {
             setWaiting(false);
             setResponse(err.response.data);
@@ -73,32 +73,32 @@ function CreateWithdraw(props) {
             <h1 className="withdraw-header"> Make a Withdraw </h1>
 
             <p className="withdraw-error alert alert-light">{waiting ? "Waiting..." : `${response}`}</p>
-            <form onSubmit={handleSubmit}>
+            <form className="withdraw-form" onSubmit={handleSubmit}>
 
                 <section className="input-group-prepend withdraw-prepend">
-                <label htmlFor="accountID">Account</label>
-                <select id="accountID" onChange={handleFieldChange}>
+                    <label className="input-group-text withdraw-placeholder" htmlFor="accountID">Account</label>
+                    <select className="form-control" id="accountID" onChange={handleFieldChange}>
 
                     <option value="" >Choose here</option>
 
                     {accountInfo.map(client => (
                         <option key={client.accountID} value={`${client.accountID}`}>
-                            {`${client.accountType} Account      Total Balance: $${client.accountBalance + client.accountInterest}`}
+                            {`${client.accountType}- Balance: $${client.accountBalance + client.accountInterest}`}
                         </option>
                     ))}
                     </select>
                     </section>
                 <section className="input-group-prepend withdraw-prepend">
-                <label htmlFor="transactionSource">Source</label>
-                <select id="transactionSource" onChange={handleFieldChange}>
+                    <label className="input-group-text withdraw-placeholder" htmlFor="transactionSource">Source</label>
+                <select className="form-control" id="transactionSource" onChange={handleFieldChange}>
                     <option value="" >Choose here</option>
                     <option value="Bank">Bank</option>
                     <option value="ATM">ATM</option>
                     </select>
                 </section>
                 <section className="input-group-prepend withdraw-prepend">
-                <label htmlFor="transactionValue">Value</label>
-                    <input id="transactionValue" type="text" onChange={handleFieldChange} />
+                    <label className="input-group-text withdraw-placeholder" htmlFor="transactionValue">Value</label>
+                    <input className="form-control" id="transactionValue" type="text" onChange={handleFieldChange} />
                 </section>
                 <section className="withdraw-submit">
 
