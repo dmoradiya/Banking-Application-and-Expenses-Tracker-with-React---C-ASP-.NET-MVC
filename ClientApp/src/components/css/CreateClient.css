@@ -13,7 +13,6 @@
     border: 5px;
 }
 
-/*Adds a border to the form section*/
 
 /*Adds spacing between input fields*/
 .create-client-fields {
@@ -30,6 +29,12 @@
 
 /*Centers the submit button*/
 .submit-button {
+    margin: auto;
+    text-align: center;
+}
+
+/*Centers the error message*/
+.client-error {
     margin: auto;
     text-align: center;
 }

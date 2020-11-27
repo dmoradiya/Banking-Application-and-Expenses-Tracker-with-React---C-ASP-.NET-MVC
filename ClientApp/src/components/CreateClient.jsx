@@ -95,7 +95,7 @@ function CreateClient(props) {
 
             <h1 className="client-header">Client Information</h1>
 
-            <p>{waiting ? "Processing..." : `${response}`}</p>
+            <p className="client-error alert alert-light">{waiting ? "Processing..." : `${response}`}</p>
 
             <form className="deposit-form" onSubmit={handleSubmit}>
 
