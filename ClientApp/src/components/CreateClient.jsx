@@ -135,7 +135,7 @@ function CreateClient(props) {
                 </div>
                 <div className="input-group-prepend create-client-fields">
                     <label className="input-group-text create-client-placeholder-text" htmlFor="province">Province</label>
-                    <select className="form-control create-client-form-field selector" id="province" onChange={handleFieldChange}>
+                    <select className="create-client-form-field form-control" id="province" onChange={handleFieldChange}>
                         <option value="" >Choose here</option>
                         <option value="AB">Alberta</option>
                         <option value="BC">British Columbia</option>

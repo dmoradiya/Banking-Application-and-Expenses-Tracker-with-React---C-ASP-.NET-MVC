@@ -72,7 +72,6 @@ function CreateDeposit(props) {
             <Layout />
 
             <h1 className="deposit-header"> Make a Deposit </h1>
-            <p className="deposit-selector">{waiting ? "Waiting..." : `${response}`}</p>
 
             <p className="deposit-error alert alert-light">{waiting ? "Waiting..." : `${response}`}</p>
             <form className="deposit-form" onSubmit={handleSubmit}>              

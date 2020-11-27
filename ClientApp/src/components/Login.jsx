@@ -69,16 +69,18 @@ function Login(props) {
                     <label className="input-group-text login-placeholder" htmlFor="password">Password: </label>
                     <input className="form-control" id="password" type="text" onChange={handleFieldChange} placeholder="Password" />
                 </section>
+
                 <section className="login-submit">
                     <input type="submit" className="btn btn-primary" value="Login" />
                 </section>
-                <section className="login-submit">
-                    <button className="btn btn-info">
-                        <Link to="/create-client" className="white-text">Become A Client!</Link>
-                    </button>
-                </section>
-            </form>
 
+
+            </form>
+            <section className="login-submit">
+                <button className="btn btn-info">
+                    <Link to="/create-client" className="white-text">Become A Client!</Link>
+                </button>
+            </section>
         </section>
 
 
