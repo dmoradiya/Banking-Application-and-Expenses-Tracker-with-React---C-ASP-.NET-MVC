@@ -12,8 +12,8 @@ import { PayBills } from './components/PayBills';
 import { CloseAccount } from './components/CloseAccount';
 import { ArchiveNotification } from './components/ArchiveNotification';
 import { CreateNotification } from './components/CreateNotification';
-
 import './custom.css'
+import { Footer } from './components/Footer';
 
 
 
@@ -34,6 +34,7 @@ export default class App extends Component {
         <Route exact path='/close-account' component={CloseAccount} />
         <Route exact path='/archive-notification' component={ArchiveNotification} />
         <Route exact path='/create-notification' component={CreateNotification} />
+        <Footer />
       </Router>
     );
   }
