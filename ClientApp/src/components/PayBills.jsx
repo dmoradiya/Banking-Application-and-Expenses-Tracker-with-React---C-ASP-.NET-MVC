@@ -84,7 +84,7 @@ function PayBills(props) {
                             <option value="" >Select Account</option>
                             {accountInfo.map(client => (
                             <option key={client.accountID} value={`${client.accountID}`}>
-                            {`${client.accountType} - Balance: $${client.accountBalance + client.accountInterest}`}
+                            {`${client.accountType} - Balance: $${client.accountBalance + client.cashback}`}
                             </option>
                             ))}
                         </select>
