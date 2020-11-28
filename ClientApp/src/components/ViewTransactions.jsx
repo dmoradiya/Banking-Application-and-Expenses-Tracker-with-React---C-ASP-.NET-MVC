@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Layout } from '../components/Layout';
 import "./css/root.css"
 import "./css/ViewTransactions.css"
-import { PieChart } from 'react-minimal-pie-chart';
+import { Link } from "react-router-dom";
 
 
 function ViewTransactions(props) {
@@ -13,44 +13,6 @@ function ViewTransactions(props) {
 
     function renderClientInfoTable(transactions) {
 
-        let data = [];
-        let newData = [];
-       
-       
-        // Link: https://medium.com/@tgknapp11/render-a-chart-with-react-minimal-pie-chart-e30420c9276c
-        transactions.map((transaction) => {
-            var randomColor = "#000000".replace(/0/g, function () {
-                return (~~(Math.random() * 16)).toString(16);
-            });
-            if (transaction.transactionSource === 'Bill Payment') {
-
-                let insert = {
-                    color: randomColor,
-                    title: transaction.transactionCategory,
-                    value: transaction.transactionValue,
-                };
-                data.push(insert);
-            }
-            const newArray = (data) => {
-                return [...data].reduce((acc, val, i, arr) => {
-                    const { color, title, value } = val;
-                    const ind = acc.findIndex(el => el.title === title);
-                    if (ind !== -1) {
-                        acc[ind].value += value;
-                    } else {
-                        acc.push({
-                            color : color,
-                            title : title,
-                            value : value,
-                        });
-                    }
-                    return acc;
-                }, []);
-            }
-            newData = newArray(data);
-        });
-        
-        
         return (
             <section id="view-transactions-section">
                 
@@ -74,23 +36,18 @@ function ViewTransactions(props) {
                         )}
                     </tbody>
                 </table>
-                <p class="p-3 mb-2 bg-info text-white text-center">Pie Chart for Tracking Expenses</p>
-                <section id="pie-chart">
-                    <PieChart
+                <p className="text-center">
+                    <button className="btn btn-info">
 
-                        data={newData}
-                        animate
-                        animationDuration={500}
-                        animationEasing="ease-out"
-                        startAngle={0}
-                        labelPosition={65}
-                        labelStyle={{
-                            fontSize: "6px",
-                            fontWeight: "400",
-                        }}
-                        label={({ dataEntry }) => `${dataEntry.title}  ${Math.round(dataEntry.percentage)} %`}
-                    />;
-                </section>             
+                        {/* Sending account Id to Transaction Page*/}
+                        <Link className="text-white" to={{
+                            pathname: "/view-expenses",
+                            state: { allTransaction : transactions }
+                        }}>
+                            View Expenses
+                        </Link>
+                    </button>
+                </p>
             </section>       
         );
     }
@@ -98,7 +55,6 @@ function ViewTransactions(props) {
     const { id } = props.location.state;
     async function populateTransactionsData() {
         const response = await axios.get(`BankAPI/ViewTransactions?id=${id}`);
-
         setTransactions(response.data);
         setLoading(false);
     }
@@ -118,8 +74,6 @@ function ViewTransactions(props) {
             {contents}
         </section>
     );
-
-   
 }
 
 export { ViewTransactions };

@@ -1,0 +1,76 @@
+﻿#view-expenses-section {
+    margin: 0 0.5rem;
+}
+
+#view-expenses h1 {
+    text-align: center;
+    background-color: #D01992;
+    color: #fff;
+    padding: 0.5rem 0 0.5rem 0;
+    margin: 0;
+}
+
+#view-expenses-section table {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    margin-top: 1rem;
+    background-color: #f2f2f2;
+}
+
+#view-expenses-section thead {
+    background-color: #EBE43B;
+}
+
+#view-expenses-section p {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+#pie-chart {
+    width: 300px;
+    height: 300px;
+    margin: 1rem auto 4.5rem auto;
+}
+
+@media screen and (min-width: 576px) {
+    #view-expenses-section table {
+        width: 550px;
+        margin: 1rem auto auto auto;
+    }
+
+    #view-expenses-section p {
+        width: 550px;
+        margin: 1rem auto;
+    }
+
+    #pie-chart {
+        width: 500px;
+        height: 500px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #view-expenses-section table {
+        width: 700px;
+    }
+
+    #view-expenses-section p {
+        width: 700px;
+    }
+
+    #pie-chart {
+        width: 600px;
+        height: 600px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    #view-expenses-section table {
+        width: 850px;
+    }
+
+    #view-expenses-section p {
+        width: 850px;
+    }
+}
