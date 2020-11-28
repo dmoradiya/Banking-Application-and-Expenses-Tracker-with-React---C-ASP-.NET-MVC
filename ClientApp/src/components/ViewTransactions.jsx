@@ -14,6 +14,8 @@ function ViewTransactions(props) {
     function renderClientInfoTable(transactions) {
 
         let data = [];
+        let newData = [];
+       
        
         // Link: https://medium.com/@tgknapp11/render-a-chart-with-react-minimal-pie-chart-e30420c9276c
         transactions.map((transaction) => {
@@ -21,15 +23,33 @@ function ViewTransactions(props) {
                 return (~~(Math.random() * 16)).toString(16);
             });
             if (transaction.transactionSource === 'Bill Payment') {
-                 let insert = {
+
+                let insert = {
                     color: randomColor,
                     title: transaction.transactionCategory,
                     value: transaction.transactionValue,
                 };
                 data.push(insert);
             }
-            
+            const newArray = (data) => {
+                return [...data].reduce((acc, val, i, arr) => {
+                    const { color, title, value } = val;
+                    const ind = acc.findIndex(el => el.title === title);
+                    if (ind !== -1) {
+                        acc[ind].value += value;
+                    } else {
+                        acc.push({
+                            color : color,
+                            title : title,
+                            value : value,
+                        });
+                    }
+                    return acc;
+                }, []);
+            }
+            newData = newArray(data);
         });
+        
         
         return (
             <section id="view-transactions-section">
@@ -58,12 +78,11 @@ function ViewTransactions(props) {
                 <section id="pie-chart">
                     <PieChart
 
-                        data={data}
+                        data={newData}
                         animate
                         animationDuration={500}
                         animationEasing="ease-out"
                         startAngle={0}
-                        
                         labelPosition={65}
                         labelStyle={{
                             fontSize: "6px",
