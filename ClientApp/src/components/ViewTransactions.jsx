@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Layout } from '../components/Layout';
 import "./css/root.css"
 import "./css/ViewTransactions.css"
+import { PieChart } from 'react-minimal-pie-chart';
 
 
 function ViewTransactions(props) {
@@ -11,7 +12,25 @@ function ViewTransactions(props) {
     const [loading, setLoading] = useState(true);
 
     function renderClientInfoTable(transactions) {
+
+        let data = [];
        
+        // Link: https://medium.com/@tgknapp11/render-a-chart-with-react-minimal-pie-chart-e30420c9276c
+        transactions.map((transaction) => {
+            var randomColor = "#000000".replace(/0/g, function () {
+                return (~~(Math.random() * 16)).toString(16);
+            });
+            if (transaction.transactionSource === 'Bill Payment') {
+                 let insert = {
+                    color: randomColor,
+                    title: transaction.transactionCategory,
+                    value: transaction.transactionValue,
+                };
+                data.push(insert);
+            }
+            
+        });
+        
         return (
             <section id="view-transactions-section">
                 
@@ -34,8 +53,25 @@ function ViewTransactions(props) {
                             </tr>
                         )}
                     </tbody>
-
                 </table>
+                <p class="p-3 mb-2 bg-info text-white text-center">Pie Chart for Tracking Expenses</p>
+                <section id="pie-chart">
+                    <PieChart
+
+                        data={data}
+                        animate
+                        animationDuration={500}
+                        animationEasing="ease-out"
+                        startAngle={0}
+                        
+                        labelPosition={65}
+                        labelStyle={{
+                            fontSize: "6px",
+                            fontWeight: "400",
+                        }}
+                        label={({ dataEntry }) => `${dataEntry.title}  ${Math.round(dataEntry.percentage)} %`}
+                    />;
+                </section>             
             </section>       
         );
     }
