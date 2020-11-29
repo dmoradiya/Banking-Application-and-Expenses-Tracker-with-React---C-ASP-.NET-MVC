@@ -77,7 +77,7 @@ function CloseAccount(props) {
                     {accountInfo.map(client => (
                         <option key={client.accountID} value={`${client.accountID}`}>
                             {console.log(client.accountID)}
-                            {`${client.accountType} Account      Total Balance: $${client.accountBalance + client.accountInterest}`}
+                            {`${client.accountType}- Total Balance: $${client.accountBalance + client.cashback}`}
                         </option>
                     ))}
                     </select>               
