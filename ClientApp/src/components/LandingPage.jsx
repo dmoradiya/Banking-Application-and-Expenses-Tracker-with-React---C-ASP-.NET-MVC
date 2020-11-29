@@ -43,7 +43,7 @@ function LandingPage(props) {
                                 </th>
                                 <th className="flex-container total-balance">
                                     <p className="heading">Total Balance: </p>
-                                    <p className="font-weight-normal">$ {client.accountBalance + client.cashback}</p>
+                                    <p className="font-weight-normal">$ {(client.accountBalance + client.cashback).toFixed(2)}</p>
                                 </th>
                                 <th className="flex-container view-transactions">
                                     <p className="heading">View Transactions: </p>

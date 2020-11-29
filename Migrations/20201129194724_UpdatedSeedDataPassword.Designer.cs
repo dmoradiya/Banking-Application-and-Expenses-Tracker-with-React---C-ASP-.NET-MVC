@@ -3,14 +3,16 @@ using System;
 using Capstone_VV.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Capstone_VV.Migrations
 {
     [DbContext(typeof(BankContext))]
-    partial class BankContextModelSnapshot : ModelSnapshot
+    [Migration("20201129194724_UpdatedSeedDataPassword")]
+    partial class UpdatedSeedDataPassword
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,16 +67,6 @@ namespace Capstone_VV.Migrations
                         new
                         {
                             AccountID = 2,
-                            AccountBalance = 20550.43,
-                            AccountDate = new DateTime(2018, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            AccountType = "Savings",
-                            Cashback = 23.579999999999998,
-                            ClientID = 1,
-                            IsActive = true
-                        },
-                        new
-                        {
-                            AccountID = 3,
                             AccountBalance = 144.0,
                             AccountDate = new DateTime(2018, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             AccountType = "Chequing",
@@ -84,7 +76,7 @@ namespace Capstone_VV.Migrations
                         },
                         new
                         {
-                            AccountID = 4,
+                            AccountID = 3,
                             AccountBalance = 77850.0,
                             AccountDate = new DateTime(2018, 5, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             AccountType = "Chequing",
@@ -94,7 +86,7 @@ namespace Capstone_VV.Migrations
                         },
                         new
                         {
-                            AccountID = 5,
+                            AccountID = 4,
                             AccountBalance = 174.09999999999999,
                             AccountDate = new DateTime(2018, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             AccountType = "Chequing",

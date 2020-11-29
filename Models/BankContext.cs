@@ -67,7 +67,7 @@ namespace Capstone_VV.Models
                     TransactionID = 2,
                     AccountID = 1,
                     TransactionSource = "Bill Payment",
-                    TransactionCategory = "Rent/Mortgage",
+                    TransactionCategory = "Rent",
                     TransactionValue = 1100.00,
                     TransactionDate = new DateTime(2020, 07, 29),
                     IsTransactionActive = true
@@ -78,7 +78,7 @@ namespace Capstone_VV.Models
                     AccountID = 1,
                     TransactionSource = "Bill Payment",
                     TransactionCategory = "Other",
-                    TransactionValue = 200.99,
+                    TransactionValue = 200.00,
                     TransactionDate = new DateTime(2020, 10, 15),
                     IsTransactionActive = true
                 },
@@ -88,7 +88,7 @@ namespace Capstone_VV.Models
                     AccountID = 1,
                     TransactionSource = "Bill payment",
                     TransactionCategory = "Food",
-                    TransactionValue = 71.44,
+                    TransactionValue = 50.00,
                     TransactionDate = new DateTime(2020, 10, 16),
                     IsTransactionActive = true
                 },
@@ -227,7 +227,7 @@ namespace Capstone_VV.Models
                     TransactionID = 18,
                     AccountID = 4,
                     TransactionSource = "Bill Payment",
-                    TransactionCategory = "Rent/Mortgage",
+                    TransactionCategory = "Rent",
                     TransactionValue = 800.00,
                     TransactionDate = new DateTime(2020, 07, 29),
                     IsTransactionActive = true
@@ -290,6 +290,16 @@ namespace Capstone_VV.Models
                 new Account()
                 {
                     AccountID = 2,
+                    ClientID = 1,
+                    AccountType = "Savings",
+                    AccountBalance = 20550.43,
+                    Cashback = 23.58,
+                    AccountDate = new DateTime(2018, 10, 02),
+                    IsActive = true
+                },
+                new Account()
+                {
+                    AccountID = 3,
                     ClientID = 2,
                     AccountType = "Chequing",
                     AccountBalance = 144.00,
@@ -299,7 +309,7 @@ namespace Capstone_VV.Models
                 },
                 new Account()
                 {
-                    AccountID = 3,
+                    AccountID = 4,
                     ClientID = 3,
                     AccountType = "Chequing",
                     AccountBalance = 77850.00,
@@ -309,7 +319,7 @@ namespace Capstone_VV.Models
                 },
                 new Account()
                 {
-                    AccountID = 4,
+                    AccountID = 5,
                     ClientID = 4,
                     AccountType = "Chequing",
                     AccountBalance = 174.10,
@@ -383,7 +393,7 @@ namespace Capstone_VV.Models
                {
                    ClientID = 4,
                    EmailAddress = "brokeasajoke@gmail.com",
-                   Password = "password123",
+                   Password = "password123@JOKE",
                    PhoneNumber = "7809198888",
                    FirstName = "Bruce",
                    LastName = "Hunter",

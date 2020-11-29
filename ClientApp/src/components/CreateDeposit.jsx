@@ -81,7 +81,7 @@ function CreateDeposit(props) {
                 <select className="form-control" id="accountID"  onChange={handleFieldChange}>
                     <option value=""  >Select Account</option>
                         {accountInfo.map(client => (<option key={client.accountID} value={`${client.accountID}`}>
-                        {`${client.accountType}- Total Balance: $${client.accountBalance + client.cashback}`}
+                            {`${client.accountType}- Total Balance: $${(client.accountBalance + client.cashback).toFixed(2)}`}
                     </option>
                 ))}
                     </select>

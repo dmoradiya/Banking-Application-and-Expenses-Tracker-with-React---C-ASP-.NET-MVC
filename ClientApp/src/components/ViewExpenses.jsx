@@ -73,13 +73,13 @@ function ViewExpenses(props) {
                         {newData.map(transaction =>
                             <tr>
                                 <td>{transaction.title}</td>
-                                <td>{`$${transaction.value}`}</td>
+                                <td>{`$${(transaction.value).toFixed(2)}`}</td>
                                 <td>{`${Math.round((transaction.value / sum) * 100)} %`}</td>
                             </tr>
                         )}
                     </tbody>
                 </table>               
-                <p class="p-3 mb-2 bg-info text-white text-center">{`Total Expenses: $${sum}`}</p>
+                <p class="p-3 mb-2 bg-info text-white text-center">{`Total Expenses: $${(sum).toFixed(2)}`}</p>
                 <p class="p-3 mb-2 bg-info text-white text-center">Pie Chart for Tracking Expenses</p>
                 <section id="pie-chart">
                     <PieChart
@@ -90,7 +90,7 @@ function ViewExpenses(props) {
                         startAngle={0}
                         labelPosition={65}
                         labelStyle={{
-                            fontSize: "6px",
+                            fontSize: "5px",
                             fontWeight: "400",
                         }}
                         label={({ dataEntry }) => `${dataEntry.title}  ${Math.round(dataEntry.percentage)} %`}

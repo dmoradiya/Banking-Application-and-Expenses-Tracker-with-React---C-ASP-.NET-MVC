@@ -38,8 +38,8 @@ function ViewTransactions(props) {
                 </table>
                 <p className="text-center">
                     <button className="btn btn-info">
-
-                        {/* Sending account Id to Transaction Page*/}
+                        { console.log(transactions)}
+                        {/* Sending transactions array to view Expenses Page*/}
                         <Link className="text-white" to={{
                             pathname: "/view-expenses",
                             state: { allTransaction : transactions }
