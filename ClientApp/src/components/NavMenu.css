@@ -17,6 +17,10 @@ html {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
-.nav-background {
-    color: #D01992
+#basic-nav-dropdown {
+    color: #17a2b8;
+}
+.hamburger-icon {
+    border: 0.2rem solid #D01992 !important;
+    border-radius: 0.5rem !important;
 }

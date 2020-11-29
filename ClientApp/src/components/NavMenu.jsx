@@ -26,25 +26,24 @@ export class NavMenu extends Component {
       <header>
         <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow nav-background" light>
           <Container>
-            <NavbarBrand className="text-dark" tag={Link} to="/">Capstone_VV</NavbarBrand>
-            <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
+                    <NavbarBrand className="text-dark" tag={Link} to="/landing-page">Capstone_VV</NavbarBrand>
+                    <NavbarToggler onClick={this.toggleNavbar} className="mr-2 hamburger-icon" />
             <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
-              <ul className="navbar-nav flex-grow">
-               
+              <ul className="navbar-nav flex-grow">               
                 <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/landing-page">Home</NavLink>
+                                <NavLink tag={Link} className="text-info" to="/landing-page">Home</NavLink>
                 </NavItem>  
                 <NavItem>
-                    <NavLink tag={Link} className="text-dark" to="/create-deposit">Deposit</NavLink>
+                    <NavLink tag={Link} className="text-info" to="/create-deposit">Deposit</NavLink>
                 </NavItem> 
                 <NavItem>
-                   <NavLink tag={Link} className="text-dark" to="/create-withdraw">Withdraw</NavLink>
+                   <NavLink tag={Link} className="text-info" to="/create-withdraw">Withdraw</NavLink>
                 </NavItem> 
                 <NavItem>
-                    <NavLink tag={Link} className="text-dark" to="/pay-bills">Bills</NavLink>
+                    <NavLink tag={Link} className="text-info" to="/pay-bills">Bills</NavLink>
                 </NavItem> 
                 <NavItem>
-                    <NavLink className="dropdown-item" tag={Link} className="text-dark" to="/">Logout</NavLink>
+                    <NavLink tag={Link} className="text-info" to="/">Logout</NavLink>
                 </NavItem>
                     <NavDropdown title="Manage Account" id="basic-nav-dropdown">
                     <NavDropdown.Item href="/add-account">Add Account</NavDropdown.Item>
