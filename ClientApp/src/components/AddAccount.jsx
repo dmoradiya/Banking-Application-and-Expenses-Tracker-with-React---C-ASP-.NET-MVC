@@ -60,7 +60,7 @@ function AddAccount(props) {
                     <select className="form-control" id="accountType" onChange={handleFieldChange}>
                         <option value="" >Select Account</option>
                         <option value="Chequing">Chequing Account</option>
-                        <option value="Savings">Saving Account</option>
+                        <option value="Savings">Savings Account</option>
                     </select>
                 </section>
                 <section className="add-account-submit">
