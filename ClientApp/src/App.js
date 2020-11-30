@@ -35,7 +35,9 @@ export default class App extends Component {
         <Route exact path='/close-account' component={CloseAccount} />
         <Route exact path='/archive-notification' component={ArchiveNotification} />
         <Route exact path='/create-notification' component={CreateNotification} />
-        <Route exact path='/view-expenses' component={ViewExpenses} />
+            <Route exact path='/view-expenses' component={ViewExpenses} />
+            <Route exact path='/faq' component={FAQ} />
+
         <Footer />
       </Router>
     );
