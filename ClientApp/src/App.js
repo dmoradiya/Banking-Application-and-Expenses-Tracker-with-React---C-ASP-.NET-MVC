@@ -15,6 +15,7 @@ import { CreateNotification } from './components/CreateNotification';
 import './custom.css'
 import { Footer } from './components/Footer';
 import { ViewExpenses } from './components/ViewExpenses';
+import { FAQ } from './components/FAQ';
 
 
 
