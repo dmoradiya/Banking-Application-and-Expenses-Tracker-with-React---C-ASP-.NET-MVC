@@ -10,10 +10,15 @@ function ViewTransactions(props) {
 
     const [transactions, setTransactions] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [lastMonth, setLastMonth] = useState("");
-    const [checked, setChecked] = useState("");
+    const [thisMonthchecked, setThisMonthChecked] = useState("");
+    const [threeMonthchecked, setThreeMonthChecked] = useState("");
+    const [sixMonthchecked, setSixMonthChecked] = useState("");
+    const [thisMonthDisable, setThisMonthDisable] = useState("");
+
+    let filteredTransactions = [];
 
     function renderClientInfoTable(transactions) {
+
 
         return (
             <section id="view-transactions-section">
@@ -28,15 +33,7 @@ function ViewTransactions(props) {
                         </tr>
                     </thead>
                     <tbody>
-                        {transactions.filter((val) => {
-                            if (lastMonth === "lastMonth" && checked === true) {
-                                return val = val.transactionDate > "2020-11-29";
-                            }
-                            else {
-                                return val;
-                            }
-                        }
-                        ).map(transaction =>
+                        {filteredTransactions.map(transaction =>
                             <tr key={transaction.transactionID}>
                                 <td>{transaction.transactionDate.slice(0, 10)}</td>
                                 <td className="d-none d-sm-block">{transaction.transactionSource}</td>
@@ -51,7 +48,7 @@ function ViewTransactions(props) {
                         {/* Sending transactions array to view Expenses Page*/}
                         <Link className="text-white" to={{
                             pathname: "/view-expenses",
-                            state: { allTransaction : transactions }
+                            state: { allTransaction : filteredTransactions }
                         }}>
                             View Expenses
                         </Link>
@@ -63,17 +60,54 @@ function ViewTransactions(props) {
 
     function handleFieldChange(event) {
             switch (event.target.id) {
-                case "lastMonth":
-                    setLastMonth(event.target.value);
+                case "thisMonth":
+                    setThisMonthChecked(event.target.checked);
                     break;
+                case "threeMonth":
+                    setThreeMonthChecked(event.target.checked);
                     
+                    break;
+                case "sixMonth":
+                    setSixMonthChecked(event.target.checked);
+                    break;               
+        }
+        // Disable other checkbox when you Click on one
+        const allCheckbox = document.getElementsByClassName("checkboxes");
+        if (event.target.checked) {
+            for (const checkbox of allCheckbox) {
+                if (!(checkbox === event.target)) {
+                    checkbox.disabled = true;
+                }
             }
-        setChecked(event.target.checked);
+        } else {
+            for (const checkbox of allCheckbox) {
+                checkbox.disabled = false;
+            }
+        }
+        
     }
-    console.log(checked);
-    console.log(lastMonth);
    
-    const today = new Date().toLocaleDateString().substr(0, 10);
+  
+   // New filtered output Array
+    const newArray = (transactions) => {
+        let currentDate = new Date();
+        let currentMonth = currentDate.getMonth();
+        return [...transactions].filter(val => {
+            if (thisMonthchecked) {
+                return val = val.transactionDate.substr(5, 2) > currentMonth;
+            }
+            else if (threeMonthchecked) {
+                return val = val.transactionDate.substr(5,2) > (currentMonth - 3);
+            }
+            else if (sixMonthchecked) {
+                return val = val.transactionDate.substr(5, 2) > (currentMonth - 6);
+            }           
+            else {
+                return val;
+            }
+        }, []);
+    }
+    filteredTransactions = newArray(transactions);
    
     // Receiving parameter from Landing page Link
     const { id } = props.location.state;
@@ -97,9 +131,12 @@ function ViewTransactions(props) {
             <Layout />   
             <h1>View Transactions</h1>
             <div>
-                <label htmlFor="lastMonth">Last month</label>
-                <input
-                     id="lastMonth" type="checkbox" value="lastMonth" onChange={handleFieldChange} />
+                <label htmlFor="thisMonth">This Month</label>
+                <input id="thisMonth" type="checkbox" className="checkboxes"  onChange={handleFieldChange} />
+                <label htmlFor="threeMonth">Last Three Month</label>
+                <input id="threeMonth" type="checkbox" className="checkboxes" onChange={handleFieldChange} />
+                <label htmlFor="sixMonth">Last Six Month</label>
+                <input id="sixMonth" type="checkbox" className="checkboxes" onChange={handleFieldChange} />
             </div>
             {contents}
         </section>

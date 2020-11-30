@@ -90,10 +90,10 @@ function ViewExpenses(props) {
                         startAngle={0}
                         labelPosition={65}
                         labelStyle={{
-                            fontSize: "5px",
+                            fontSize: "4px",
                             fontWeight: "400",
                         }}
-                        label={({ dataEntry }) => `${dataEntry.title}  ${Math.round(dataEntry.percentage)} %`}
+                        label={({ dataEntry }) => `${dataEntry.title}  ${Math.round(dataEntry.percentage)}%`}
                     />;
                 </section>
             </section>
