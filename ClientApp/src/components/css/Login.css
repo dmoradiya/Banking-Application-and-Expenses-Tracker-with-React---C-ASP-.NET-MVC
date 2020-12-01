@@ -2,22 +2,13 @@
 
 /*Adds a border to the entire section*/
 .login-page {
-    border: 1vw;
+   
+}
+.login-page #banner {
+    width: 100%;
+    height: auto;
 }
 
-
-/*Adds a Green Square around the header and centers it*/
-.login-header {
-    margin: auto;
-    width: 100vw;
-    border: 3px solid green;
-    padding: 10px;
-    text-align: center;
-    font-size: 2em; /*16 x 2 = 32px*/
-    background-color: #D01992;
-    color: #fff;
-    padding: 0.5rem 0 0.5rem 0;
-}
 
 /*Centers the submit button*/
 .login-submit {
@@ -26,10 +17,7 @@
     padding: 1vw;
 }
 /*Centers the error message*/
-.login-error {
-    margin: auto;
-    text-align: center;
-}
+
 /*Sets maxwidth for Input fields*/
 .login-prepend {
     width: 80vw;
@@ -60,11 +48,13 @@
     background-color: #f2f2f2;
 }
 
+@media only screen and (min-width: 576px) {
+    
+}
 /*For Tablets*/
 @media only screen and (min-width: 768px) {
     .login-header {
-        border: 5px solid blue;
-        font-size: 3em;
+       
     }
 
     .login-form {
@@ -79,12 +69,15 @@
         margin-bottom: 2vw;
     }
 }
-
+@media (min-width: 992px) {
+    .login-page #banner {
+      
+    }
+}
 /*For Desktop Screens*/
 @media only screen and (min-width: 1200px) {
     .login-header {
-        border: 6px solid red;
-        font-size: 4em;
+      
     }
 
     .login-prepend {

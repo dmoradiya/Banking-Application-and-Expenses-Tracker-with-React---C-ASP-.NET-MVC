@@ -2,8 +2,8 @@
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { FaEye } from "react-icons/fa"
-import "./css/Login.css"
+import { FaEye } from "react-icons/fa";
+import "./css/Login.css";
 
 
 function Login(props) {
@@ -62,9 +62,8 @@ function Login(props) {
     return (
 
         <section className="login-page">
-            <h1 className="login-header">Log In</h1>
-
-            <p className="login-error alert alert-light">{waiting ? "Logging In..." : `${response}`}</p>
+            <p><img id="banner" src={require("./img/banner1.png") } alt="Plain picture with vv bank text" /></p>
+            <p>{waiting ? "Logging In..." : `${response}`}</p>
 
             <form className="login-form" onSubmit={handleSubmit}>
                 <section className="input-group-prepend login-prepend">
