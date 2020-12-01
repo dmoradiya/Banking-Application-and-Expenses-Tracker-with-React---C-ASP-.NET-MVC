@@ -2,6 +2,10 @@
 
 VVBA is a simple banking application that allows to operate banking tasks and view a history of their transactions. 
 
+## Project Definition
+
+This project attempts to solve the problem of budgeting expenses for the busy everyday professional. We plan to accomplish this though the use of charts and data visualization (A pie chart that shows a % of all expenses split by category over a time period)
+
 ## Admin
 
 This project has an active [Trello Board](https://trello.com/b/322c1Wa2).
@@ -44,24 +48,24 @@ This diagram outlines the expected flow of the user throughout the website.
 [Link to Page Flow Diagram](https://i.imgur.com/1vtVDdh.png)
 
 
-## Application Features
-- [ ] User can Login with their email address and password.
-- [ ] User can Create a new Client.
-- [ ] User can Create new Accounts.
-- [ ] User can Create new Transactions:
-- [ ] User can Create a new 'Deposit' Transaction.
-- [ ] User can Create a new 'Withdraw' Transaction.
-- [ ] User can Create a new 'Pay Bills' Transaction.
-- [ ] User can access a 'Landing' Page with all their Active Accounts and their Account Balances.
-- [ ] User can access a 'Transaction List' Page which will show their transactions tabulated for a given account. 
-- [ ] User can Close an Account.
+## Application Scope
+- [x] User can Login with their email address and password.
+- [x] User can Create a new Client.
+- [x] User can Create new Accounts.
+- [x] User can Create new Transactions:
+- [x] User can Create a new 'Deposit' Transaction.
+- [x] User can Create a new 'Withdraw' Transaction.
+- [x] User can Create a new 'Pay Bills' Transaction.
+- [x] User can access a 'Landing' Page with all their Active Accounts and their Account Balances.
+- [x] User can access a 'View Transactions' Page which will show their transactions tabulated in table format filtered for a given time period. 
+- [x] User can access a 'View Expenses' Page which will show their expenses tabulated in pie chart format filtered for a given time period. 
+- [x] User can Close an Account, which will disable the account from being viewed and any associated transactions will be disabled. 
 
-## Challenge Goals
+## Challenge Goals (Extended Scope)
 - [ ] User can access a 'Contact Us' page.
-- [ ] User can access a 'FAQs' page.
+- [x] User can access a 'FAQs' page.
 - [ ] User can access a 'Careers' page.
-- [ ] User can access a 'Transaction Details' page, which will allow them to view their transactions in a graphical chart format.
-- [ ] User can access a 'Transfer Money' page, which will allow them to transfer money between accounts.
+- [x] User can access a 'Transaction Details' page, which will allow them to view their transactions in a graphical chart format.
 
 
 ## License
