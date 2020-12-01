@@ -22,7 +22,20 @@ function ViewTransactions(props) {
 
         return (
             <section id="view-transactions-section">
-                
+                <section id="checkbox-section">
+                    <div className="checkbox-label-container">
+                        <label htmlFor="thisMonth">This Month</label>
+                        <input id="thisMonth" type="checkbox" className="checkboxes" onChange={handleFieldChange} />
+                    </div>                        
+                    <div className="checkbox-label-container">
+                        <label htmlFor="threeMonth">Last Three Months</label>
+                        <input id="threeMonth" type="checkbox" className="checkboxes" onChange={handleFieldChange} />
+                    </div>
+                    <div className="checkbox-label-container">
+                        <label htmlFor="sixMonth">Last Six Months</label>
+                        <input id="sixMonth" type="checkbox" className="checkboxes" onChange={handleFieldChange} />
+                    </div>
+                </section>
                 <table className='table' aria-labelledby="tabelLabel">
                     <thead>
                         <tr className="col-sm-4">
@@ -130,14 +143,7 @@ function ViewTransactions(props) {
         <section id="view-transactions">
             <Layout />   
             <h1>View Transactions</h1>
-            <div>
-                <label htmlFor="thisMonth">This Month</label>
-                <input id="thisMonth" type="checkbox" className="checkboxes"  onChange={handleFieldChange} />
-                <label htmlFor="threeMonth">Last Three Month</label>
-                <input id="threeMonth" type="checkbox" className="checkboxes" onChange={handleFieldChange} />
-                <label htmlFor="sixMonth">Last Six Month</label>
-                <input id="sixMonth" type="checkbox" className="checkboxes" onChange={handleFieldChange} />
-            </div>
+            
             {contents}
         </section>
     );
