@@ -14,7 +14,7 @@ This project has an active [Figma Page](https://www.figma.com/file/6il3fCmu5tSvt
 
 ## Installation and Required Packages
 
-Use the NuGet package manager to install the required packages. Note the required versions for each of the packages:
+Note the required versions for each of the packages:
 
 ```bash
 Microsoft.AspNetCore.Mvc.NewtonsoftJson - Version 3.1.9
@@ -28,13 +28,16 @@ Microsoft.EntityFrameworkCore.SqlServer - Version 3.1.9
 Pomelo.EntityFrameworkCore.MySql - Version 3.2.4
 ```
 
-Use npm to install axios:
-```bash
-npm install axios
-```
+
 Connect to XAMPP and ensure you have a MySQL server database active. Update your local database with our prepared seed data using the following command:
 ```bash
 dotnet ef database update
+```
+
+Install the lastest npx packages by travelling to the ClientApp folder. 
+```bash
+cd .\ClientApp
+npx install
 ```
 
 ## Entity Relationship Diagram
@@ -107,6 +110,11 @@ This diagram outlines the expected flow of the user throughout the website.
 - A valid AccountType is selected from a drop down list of Active Accounts (Acccounts with the property isActive = 1). If you do not have any active accounts, you cannot select anything from this dropdown. 
 - If you press the Close Account Button without an account selected, an exception will be caused. 
 
+## Citations Summary
+
+### Random String NPM Package
+- Used to generate a random string of characters. Used in TransactionNotification page. 
+- https://www.npmjs.com/package/random-string
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
