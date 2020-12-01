@@ -63,7 +63,7 @@ function CreateDeposit(props) {
         ).then((res) => {
             setWaiting(false);
             setResponse("Transaction Completed Successfully");
-            history.push("/create-transaction");
+            history.push("/transaction-notification");
 
         }
         ).catch((err) => {

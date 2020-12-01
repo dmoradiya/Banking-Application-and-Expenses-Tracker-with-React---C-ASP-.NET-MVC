@@ -67,7 +67,7 @@ function PayBills(props) {
         ).then((res) => {
             setWaiting(false);
             setResponse("Thank you for the Transaction");
-            history.push("/create-transaction");
+            history.push("/transaction-notification");
         }
         ).catch((err) => {
             setWaiting(false);

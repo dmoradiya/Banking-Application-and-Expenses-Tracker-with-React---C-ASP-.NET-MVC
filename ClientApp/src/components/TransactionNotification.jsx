@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./css/CreateNotification.css"
 
 
-function CreateTransaction(props) {
+function TransactionNotification(props) {
     const randomString = require('random-string');    // https://www.npmjs.com/package/random-string
     const x = randomString(); // x contains now a random String with the length of 8
 
@@ -25,4 +25,4 @@ function CreateTransaction(props) {
     );
 
 }
-export { CreateTransaction };
+export { TransactionNotification };

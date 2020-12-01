@@ -68,7 +68,7 @@ function CreateWithdraw(props) {
         ).then((res) => {
             setWaiting(false);
             setResponse("Transaction Completed successfully");
-            history.push("/create-transaction");
+            history.push("/transaction-notification");
 
         }   
         ).catch((err) => {

@@ -16,7 +16,7 @@ import './custom.css'
 import { Footer } from './components/Footer';
 import { ViewExpenses } from './components/ViewExpenses';
 import { FAQ } from './components/FAQ';
-import { CreateTransaction } from './components/CreateTransaction';
+import { TransactionNotification } from './components/TransactionNotification';
 
 
 
@@ -34,13 +34,12 @@ export default class App extends Component {
         <Route exact path='/create-deposit' component={CreateDeposit} />
         <Route exact path='/create-withdraw' component={CreateWithdraw} />
         <Route exact path='/pay-bills' component={PayBills} />
-        <Route exact path='/close-account' component={CloseAccount} />
+        <Route exact path='/close-account' component={CloseAccount} />s
         <Route exact path='/archive-notification' component={ArchiveNotification} />
-            <Route exact path='/create-notification' component={CreateNotification} />
-            <Route exact path='/create-transaction' component={CreateTransaction} />
-
-            <Route exact path='/view-expenses' component={ViewExpenses} />
-            <Route exact path='/faq' component={FAQ} />
+        <Route exact path='/create-notification' component={CreateNotification} />
+        <Route exact path='/transaction-notification' component={TransactionNotification} />
+        <Route exact path='/view-expenses' component={ViewExpenses} />
+        <Route exact path='/faq' component={FAQ} />
 
         <Footer />
       </Router>
