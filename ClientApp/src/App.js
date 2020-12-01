@@ -16,6 +16,7 @@ import './custom.css'
 import { Footer } from './components/Footer';
 import { ViewExpenses } from './components/ViewExpenses';
 import { FAQ } from './components/FAQ';
+import { CreateTransaction } from './components/CreateTransaction';
 
 
 
@@ -35,7 +36,9 @@ export default class App extends Component {
         <Route exact path='/pay-bills' component={PayBills} />
         <Route exact path='/close-account' component={CloseAccount} />
         <Route exact path='/archive-notification' component={ArchiveNotification} />
-        <Route exact path='/create-notification' component={CreateNotification} />
+            <Route exact path='/create-notification' component={CreateNotification} />
+            <Route exact path='/create-transaction' component={CreateTransaction} />
+
             <Route exact path='/view-expenses' component={ViewExpenses} />
             <Route exact path='/faq' component={FAQ} />
 
