@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { FaEye } from "react-icons/fa"
 import "./css/Login.css"
 
 
@@ -10,6 +11,7 @@ function Login(props) {
     const [password, setPassword] = useState("");
     const [response, setResponse] = useState([]);
     const [waiting, setWaiting] = useState(false);
+    const[passwordShow, setPasswordShow] = useState(false);
     const history = useHistory();
 
     function handleFieldChange(event) {
@@ -51,6 +53,11 @@ function Login(props) {
 
     }
 
+    function togglePassword(event) {
+        event.preventDefault();
+        setPasswordShow(passwordShow ? false : true);
+    };
+
 
     return (
 
@@ -67,7 +74,8 @@ function Login(props) {
 
                 <section className="input-group-prepend login-prepend">
                     <label className="input-group-text login-placeholder" htmlFor="password">Password: </label>
-                    <input className="form-control" id="password" type="text" onChange={handleFieldChange} placeholder="Password" />
+                    <input className="form-control" id="password" type={passwordShow ? "text" : "password"} onChange={handleFieldChange} placeholder="Password" />
+                    <span onClick={togglePassword}><FaEye /></span>
                 </section>
 
                 <section className="login-submit">
