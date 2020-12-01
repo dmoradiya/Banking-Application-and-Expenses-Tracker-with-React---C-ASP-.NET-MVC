@@ -34,7 +34,7 @@ export default class App extends Component {
         <Route exact path='/create-deposit' component={CreateDeposit} />
         <Route exact path='/create-withdraw' component={CreateWithdraw} />
         <Route exact path='/pay-bills' component={PayBills} />
-        <Route exact path='/close-account' component={CloseAccount} />s
+        <Route exact path='/close-account' component={CloseAccount} />
         <Route exact path='/archive-notification' component={ArchiveNotification} />
         <Route exact path='/create-notification' component={CreateNotification} />
         <Route exact path='/transaction-notification' component={TransactionNotification} />
