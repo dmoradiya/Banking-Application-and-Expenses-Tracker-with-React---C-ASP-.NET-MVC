@@ -68,15 +68,15 @@ namespace Capstone_VV.Controllers
             {
                 if (context.Accounts.Any(x => x.ClientID == clientID && x.AccountType == accountType && x.IsActive == false))
                 {
-                    exception.ValidationExceptions.Add(new Exception($"Your {accountType} account is in Inactive Status. Please Contact Customer Service to Re-Activate"));
+                    exception.ValidationExceptions.Add(new Exception($"Your {accountType} account has been De-Activated. Please Contact Customer Service to Re-Activate your account!"));
                 }
                 else if (context.Accounts.Count(x => x.ClientID == clientID && x.IsActive == true ) >= 2)
                 {
-                    exception.ValidationExceptions.Add(new Exception($"You already have all the Accounts"));
+                    exception.ValidationExceptions.Add(new Exception($"You already have both account types"));
                 }
                 else if (context.Accounts.Any(x => x.ClientID == clientID && x.AccountType == accountType))
                 {
-                    exception.ValidationExceptions.Add(new Exception($"You already have {accountType} account. Please Choose different account"));
+                    exception.ValidationExceptions.Add(new Exception($"You already have {accountType} account. Please select a different account type!"));
                 }
                 if (exception.ValidationExceptions.Count > 0)
                 {
@@ -132,7 +132,7 @@ namespace Capstone_VV.Controllers
                 result = context.Accounts.Where(x => x.AccountID == int.Parse(accountID)).SingleOrDefault();
                 if ( result.AccountBalance < double.Parse(transactionValue))
                 {
-                    exception.ValidationExceptions.Add(new Exception("You Do Not have enough Balance to Withdraw OR Bill Payment"));
+                    exception.ValidationExceptions.Add(new Exception("Your Balance is too low to do that! Please make a Deposit to increase your Balance!"));
                 }
 
                 if (exception.ValidationExceptions.Count > 0)

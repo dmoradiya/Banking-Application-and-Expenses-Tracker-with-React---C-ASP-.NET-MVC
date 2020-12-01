@@ -1,7 +1,10 @@
 ﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Layout } from '../components/Layout';
+import { useHistory } from "react-router-dom";
+
 import "./css/CreateWithdraw.css"
+
 
 
 function CreateWithdraw(props) {
@@ -12,6 +15,9 @@ function CreateWithdraw(props) {
     const [waiting, setWaiting] = useState(false);
     const [accountInfo, setAccountInfo] = useState([]);
     const [loading, setLoading] = useState(true);
+    const history = useHistory();
+
+
 
     // Get Today's Date
     const today = new Date().toLocaleDateString().substr(0, 10);
@@ -62,6 +68,8 @@ function CreateWithdraw(props) {
         ).then((res) => {
             setWaiting(false);
             setResponse("Transaction Completed successfully");
+            history.push("/create-transaction");
+
         }   
         ).catch((err) => {
             setWaiting(false);

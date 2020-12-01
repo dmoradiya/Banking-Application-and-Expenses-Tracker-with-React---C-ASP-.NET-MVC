@@ -1,6 +1,8 @@
 ﻿import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
+import "./css/CreateClient.css"
+
 
 function CreateAccount(props) {
    
@@ -45,22 +47,25 @@ function CreateAccount(props) {
 
     return (
 
-        <div>
-            <h1>Select Your Account</h1>
+        <section className="create-client">
 
-            <p>{waiting ? "Submiting..." : `${response}`}</p>
-            <form onSubmit={handleSubmit}>
+            <h1 className="client-header">Select An Account</h1>
 
-                <label htmlFor="accountType">Account Type</label>
-                <select id="accountType" onChange={handleFieldChange}>
+            <p className="client-error alert alert-light">{waiting ? "Submiting..." : `${response}`}</p>
+            <form className="client-form" onSubmit={handleSubmit}>
+                <div className="input-group-prepend create-client-fields">
+                <label className="input-group-text create-client-placeholder-text" htmlFor="accountType">Account Type</label>
+                <select className="create-client-form-field form-control" id="accountType" onChange={handleFieldChange}>
                     <option value="" >Choose here</option>
                     <option value="Chequing">Chequing Account</option>
                     <option value="Savings">Saving Account</option>
                 </select>
-               
-                <input type="submit" className="btn btn-primary" value="Submit" />
+                </div>
+                <div className="input-group-prepend create-client-fields">
+                    <input className="btn btn-primary submit-button" type="submit" value="Submit" />
+                </div>
             </form>
-        </div>
+        </section>
 
 
     );

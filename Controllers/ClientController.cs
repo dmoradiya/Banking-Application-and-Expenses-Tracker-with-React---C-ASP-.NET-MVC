@@ -157,7 +157,7 @@ namespace Capstone_VV.Controllers
                     }
                     else if (!rgx.IsMatch(input))
                     {
-                        exception.ValidationExceptions.Add(new Exception("Please Enter Valid PassWord. Your Password should be at least 8 character long and combination of Uppercase, Lowercase, Number and Special Character"));
+                        exception.ValidationExceptions.Add(new Exception("Please Enter Valid Password. Your Password should be at least 8 characters long and also be a combination of Uppercase, Lowercase, Numbers and Special Characters"));
                     }
                     else
                     {

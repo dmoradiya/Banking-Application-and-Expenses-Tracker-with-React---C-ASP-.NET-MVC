@@ -1,11 +1,14 @@
 ﻿/*Adds a Green Square around the header and centers it*/
 .client-header {
     margin: auto;
-    width: 75%;
+    width: 100vw;
     border: 3px solid green;
     padding: 10px;
     text-align: center;
     font-size: 2em; /*16 x 2 = 32px*/
+    background-color: #D01992;
+    color: #fff;
+    padding: 0.5rem 0 0.5rem 0;
 }
 
 /*Adds a border to the entire section*/
@@ -13,6 +16,9 @@
     border: 5px;
 }
 
+.client-form {
+    padding-bottom: 10vw;
+}
 
 /*Adds spacing between input fields*/
 .create-client-fields {
