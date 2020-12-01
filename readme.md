@@ -50,6 +50,31 @@ This diagram outlines the relationships between the various tables in the databa
 This diagram outlines the expected flow of the user throughout the website.
 [Link to Page Flow Diagram](https://i.imgur.com/1vtVDdh.png)
 
+## Project Deliverables Checklist
+- [ ] GitHub link
+- [ ] README.md
+- [ ] Name of the project is included.
+- [ ] List of contributors is included.
+- [ ] Problem Statement is included.
+- [ ] Description of how the app solves the stated problem is included.
+- [ ] Instructions for installing the application are complete.
+- [ ] Instructions for using the application are complete.
+- [ ] List of all citations is complete.
+- [ ] List of test cases and testing instructions are included.
+- [ ] Link to the public Trello board is included.
+- [ ] Main branch contains all final code needed to run the project.
+- [ ] Presentation 
+- [ ] Final Project Report
+- [ ] Satisfaction Assessment
+- [ ] Lessons Learned
+- [ ] Group Member Performance Review
+- [ ] Each group member has been evaluated.
+- [ ] All fields filled out.
+- [ ] Personal Reflection
+- [ ] Written reflection.
+- [ ] Video reflection.
+
+
 
 ## Application Scope
 - [x] User can Login with their email address and password.
