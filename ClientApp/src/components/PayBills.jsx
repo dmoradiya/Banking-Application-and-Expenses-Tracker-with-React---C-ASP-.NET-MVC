@@ -1,6 +1,8 @@
 ﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Layout } from '../components/Layout';
+import { useHistory } from "react-router-dom";
+
 import "./css/PayBills.css"
 
 function PayBills(props) {
@@ -12,6 +14,8 @@ function PayBills(props) {
     const [waiting, setWaiting] = useState(false);
     const [accountInfo, setAccountInfo] = useState([]);
     const [loading, setLoading] = useState(true);
+    const history = useHistory();
+
 
     async function populateClientData() {
         const response = await axios.get('BankAPI/LandingPage');
@@ -63,6 +67,7 @@ function PayBills(props) {
         ).then((res) => {
             setWaiting(false);
             setResponse("Thank you for the Transaction");
+            history.push("/create-transaction");
         }
         ).catch((err) => {
             setWaiting(false);
