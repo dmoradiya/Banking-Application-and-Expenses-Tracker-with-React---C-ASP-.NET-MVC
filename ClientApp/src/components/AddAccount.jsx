@@ -13,7 +13,7 @@ function AddAccount(props) {
     const history = useHistory();
 
 
-    function handleFieldChange(event) {
+    function handleFieldChange(event) { /*Define updates to constant variables based on what is located in form fields.*/
         switch (event.target.id) {           
             default:
                 setAccountType(event.target.value);
@@ -21,11 +21,11 @@ function AddAccount(props) {
         }
     }
     
-    function handleSubmit(event) {
+    function handleSubmit(event) { 
         event.preventDefault();
         setWaiting(true);
 
-        axios(
+        axios( /*Sends a POST request to the API using all parameters defined below. Needed as inputs for creating a new Account.*/
             {
                 method: 'post',
                 url: 'BankAPI/AddAccount',
@@ -33,13 +33,13 @@ function AddAccount(props) {
                     accountType: accountType
                 }
             }
-        ).then((res) => {
+        ).then((res) => { /*If POST is successful, give success message and push to Create-Notification page*/
             setWaiting(false);
             setResponse("New Account Added Successfully");
             history.push("/create-notification");
 
         }
-        ).catch((err) => {
+        ).catch((err) => { /*Else, give an error message*/
             setWaiting(false);
             setResponse(err.response.data);
            

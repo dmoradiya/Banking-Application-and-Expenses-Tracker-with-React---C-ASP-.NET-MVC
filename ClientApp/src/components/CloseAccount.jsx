@@ -16,19 +16,19 @@ function CloseAccount(props) {
     const history = useHistory();
 
    
-    async function populateClientData() {
+    async function populateClientData() { /*Populates response with API/LandingPage*/
         const response = await axios.get('BankAPI/LandingPage');
         setAccountInfo(response.data);
         setLoading(false);
     }
 
-    useEffect(() => {
+    useEffect(() => { /*Waits for populateClientData*/
         populateClientData();
     }, [loading]);
 
 
 
-    function handleFieldChange(event) {
+    function handleFieldChange(event) { /*Define updates to constant variables based on what is located in form fields.*/
         switch (event.target.id) {
             default:
                 setAccountID(event.target.value);
@@ -41,7 +41,7 @@ function CloseAccount(props) {
         setWaiting(true);
               
         // Patch Request
-        axios(
+        axios( /*UPDATES the Account with isActive = 0, disabling the account*/
             {
                 method: 'patch',
                 url: 'BankAPI/CloseAccount',
@@ -49,14 +49,14 @@ function CloseAccount(props) {
                     accountID: accountID,
                 }
             }
-        ).then((res) => {
+        ).then((res) => { /*If UPDATE is successful, send a success message, and push to archive-notification page*/
             setWaiting(false);
             setResponse("Account Archived Successfully");
             history.push("/archive-notification");
 
 
         }
-        ).catch((err) => {
+        ).catch((err) => { /*Else send an error*/
             setWaiting(false);
             setResponse(err.response.data);
         });
@@ -74,7 +74,7 @@ function CloseAccount(props) {
                 <label className="input-group-text close-account-placeholder" htmlFor="accountID">Account</label>
                 <select className="form-control" id="accountID" onChange={handleFieldChange}>
                     <option value="" >Select Account</option>
-                    {accountInfo.map(client => (
+                    {accountInfo.map(client => ( /*Maps options based on AccountID to display All Active Accounts on this ClientID*/
                         <option key={client.accountID} value={`${client.accountID}`}>
                             {`${client.accountType}- Total Balance: $${(client.accountBalance + client.cashback).toFixed(2)}`}
                         </option>
