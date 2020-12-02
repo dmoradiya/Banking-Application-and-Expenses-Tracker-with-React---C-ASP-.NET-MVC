@@ -17,19 +17,19 @@ function CreateDeposit(props) {
     const history = useHistory();
 
 
-    async function populateClientData() {
+    async function populateClientData() { /*Populates response with API/LandingPage*/
         const response = await axios.get('BankAPI/LandingPage');
         setAccountInfo(response.data);
         setLoading(false);
     }
 
-    useEffect(() => {
+    useEffect(() => { /*For rendering populateClientData*/
         populateClientData();
     }, [loading]);
 
 
        
-    function handleFieldChange(event) {
+    function handleFieldChange(event) { /*Define updates to constant variables based on what is located in form fields.*/
         switch (event.target.id) {
             case "accountID":
                 setAccountID(event.target.value);
@@ -50,7 +50,7 @@ function CreateDeposit(props) {
         setWaiting(true);       
 
         // Post Request
-        axios(
+        axios( /*POST to the API/CreateDeposit with accountID, transactionSource, and transactionValue as parameter*/
             {
                 method: 'post',
                 url: 'BankAPI/CreateDeposit',
@@ -60,13 +60,13 @@ function CreateDeposit(props) {
                     transactionValue: transactionValue,
                 }
             }
-        ).then((res) => {
+        ).then((res) => { /*If UPDATE is successful, send a success message, and push to transaction-notification page*/
             setWaiting(false);
             setResponse("Transaction Completed Successfully");
             history.push("/transaction-notification");
 
         }
-        ).catch((err) => {
+        ).catch((err) => { /*Else send an error*/
             setWaiting(false);
             setResponse(err.response.data);
         });
