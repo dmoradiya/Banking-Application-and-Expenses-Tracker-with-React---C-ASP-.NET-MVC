@@ -52,7 +52,7 @@ function CreateAccount(props) {
             <h1 className="client-header">Select An Account</h1>
 
             <p className="client-error alert alert-light">{waiting ? "Submiting..." : `${response}`}</p>
-            <form className="client-form" onSubmit={handleSubmit}>
+            <form id="create-account-section" className="client-form" onSubmit={handleSubmit}>
                 <div className="input-group-prepend create-client-fields">
                 <label className="input-group-text create-client-placeholder-text" htmlFor="accountType">Account Type</label>
                 <select className="create-client-form-field form-control" id="accountType" onChange={handleFieldChange}>
@@ -62,7 +62,7 @@ function CreateAccount(props) {
                 </select>
                 </div>
                 <div className="input-group-prepend create-client-fields">
-                    <input className="btn btn-primary submit-button" type="submit" value="Submit" />
+                    <input className="btn btn btn-info submit-button" type="submit" value="Submit" />
                 </div>
             </form>
         </section>

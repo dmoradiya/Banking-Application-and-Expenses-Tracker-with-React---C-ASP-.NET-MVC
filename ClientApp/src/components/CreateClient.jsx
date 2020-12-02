@@ -159,7 +159,7 @@ function CreateClient(props) {
                     </div>
                     <div className="input-group-prepend create-client-fields">
 
-                        <input type="submit" className="btn btn btn-info submit-button" value="Submit!" />
+                        <input type="submit" className="btn btn btn-info submit-button" value="Next" />
                     </div>
                 </form>
             </div>
