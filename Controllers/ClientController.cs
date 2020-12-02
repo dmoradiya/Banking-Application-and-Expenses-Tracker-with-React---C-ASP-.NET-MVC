@@ -11,17 +11,14 @@ namespace Capstone_VV.Controllers
 {
     public class ClientController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+
 
         // Method
 
         public static int clientID;
         public static int clientCreateID;
 
-        public Client ClientAuthorization(string email, string password)
+        public Client ClientAuthorization(string email, string password) /*Takes in Email and Password from login page, compares if those values exist in the database and match. If not, throw an exception.*/
         {
             Client result;
             ValidationException exception = new ValidationException();
@@ -47,17 +44,15 @@ namespace Capstone_VV.Controllers
             }
             return result;
         }
-        public int GetClientID()
+        public int GetClientID() /*Returns the clientID for the Client that logs in, used in AccountController*/
         {
             return clientID;
         }
-        public Client CreateClient(string email, string password, string phone, string fname, string lname, string dateOfBirth, string address, string city, string province, string postalCode)
+        public Client CreateClient(string email, string password, string phone, string fname, string lname, string dateOfBirth, string address, string city, string province, string postalCode) /*Takes in a list of variables used to generate a new client.*/
         {
             Client result;
-           
-            ValidationException exception = new ValidationException();
-
-            email =  StringValidation("Email", email);
+            /*Trim white space and validated output*/
+            email =  StringValidation("Email", email); 
             password = StringValidation("Password", password);
             phone = StringValidation("Phone", phone);
             fname = StringValidation("Name", fname);
@@ -70,13 +65,7 @@ namespace Capstone_VV.Controllers
 
             using (BankContext context = new BankContext())
             {
-               
-                if (exception.ValidationExceptions.Count > 0)
-                {
-                    throw exception;
-                }
-
-                Client newClient = new Client()
+                Client newClient = new Client() /*Creates a new client using variables above*/
                 {
                    EmailAddress = email,
                    Password = password,
@@ -90,8 +79,8 @@ namespace Capstone_VV.Controllers
                    PostalCode = postalCode
 
                 };
-                context.Clients.Add(newClient);
-                context.SaveChanges();
+                context.Clients.Add(newClient); /*Adds a new Client to the database*/
+                context.SaveChanges(); 
 
                 result = context.Clients.Where(x => x.EmailAddress == email && x.Password == password).SingleOrDefault();
                 clientCreateID = result.ClientID;
@@ -100,7 +89,7 @@ namespace Capstone_VV.Controllers
             }
         }
 
-        public int GetClientCreateID()
+        public int GetClientCreateID() /*We need an associated ClientID in order to create Accounts.*/
         {
             return clientCreateID;
         }
@@ -112,7 +101,6 @@ namespace Capstone_VV.Controllers
 
             input = !string.IsNullOrWhiteSpace(input) ? input.Trim() : null;
 
-           
             using (BankContext context = new BankContext())
             {
                
