@@ -11,7 +11,7 @@ function CreateAccount(props) {
     const [waiting, setWaiting] = useState(false);
     const history = useHistory();
 
-    function handleFieldChange(event) {
+    function handleFieldChange(event) { /*Define updates to constant variables based on what is located in form fields.*/
         switch (event.target.id) {
             default:
                 setAccountType(event.target.value);
@@ -23,7 +23,7 @@ function CreateAccount(props) {
         event.preventDefault();
         setWaiting(true);
 
-        axios(
+        axios( /*Sends a POST request to the API that inputs the accountType as a parameter*/
             {
                 method: 'post',
                 url: 'BankAPI/CreateAccount',
@@ -32,13 +32,13 @@ function CreateAccount(props) {
                     accountType: accountType
                 }
             }
-        ).then((res) => {
+        ).then((res) => { /*If post is successful, send a success message and push to create-notification page*/
             setWaiting(false);
             setResponse("Account Created Successfully");
             history.push("/create-notification");
 
         }
-        ).catch((err) => {
+        ).catch((err) => { /*Else, send an error message*/
             setWaiting(false);
             setResponse(err.response.data);
         });
@@ -46,7 +46,6 @@ function CreateAccount(props) {
 
 
     return (
-
         <section className="create-client">
             <h1 className="account-header">Select An Account</h1>
             <p>{waiting ? "Submiting..." : `${response}`}</p>
@@ -64,8 +63,6 @@ function CreateAccount(props) {
                 </div>
             </form>
         </section>
-
-
     );
 }
 export { CreateAccount };

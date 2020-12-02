@@ -22,7 +22,7 @@ function CloseAccount(props) {
         setLoading(false);
     }
 
-    useEffect(() => { /*Waits for populateClientData*/
+    useEffect(() => { /*For rendering populateClientData*/
         populateClientData();
     }, [loading]);
 

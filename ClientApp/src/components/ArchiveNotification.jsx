@@ -4,8 +4,6 @@ import { FiCheckCircle } from "react-icons/fi"
 import "./css/CreateNotification.css"
 
 function ArchiveNotification(props) {
-    
-    
     return (
         <section className="notification-page container">
             <div className="notification-message">
@@ -19,6 +17,5 @@ function ArchiveNotification(props) {
             </div>
         </section>
     );
-
 }
 export { ArchiveNotification };
