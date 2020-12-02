@@ -85,7 +85,7 @@ function CreateDeposit(props) {
                                         <option value=""  >Select Account</option>
                                             {accountInfo.map(client => (<option key={client.accountID} value={`${client.accountID}`}>
                                             {`${client.accountType}- Total Balance: $${(client.accountBalance + client.cashback).toFixed(2)}`}</option>
-                ))}
+                                             ))}
                                     </select>
                             </section>
                             <section className="input-group-prepend deposit-prepend">
@@ -101,7 +101,7 @@ function CreateDeposit(props) {
                                     <input className="form-control" id="transactionValue" placeholder="Transaction Value" type="text" onChange={handleFieldChange} />
                             </section>
                             <section className="deposit-submit">
-                                <input type="submit" className="btn btn-primary dropdown-toggle" value="Submit" />
+                                <input type="submit" className="btn btn-info dropdown-toggle" value="Submit" />
                             </section>
                         </form>
         </section>
