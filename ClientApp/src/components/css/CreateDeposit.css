@@ -1,6 +1,4 @@
-﻿
-/*Adds a Green Square around the header and centers it*/
-.deposit-header {
+﻿.deposit-header {
     text-align: center;
     background-color: #D01992;
     color: #fff;
@@ -34,10 +32,6 @@
         margin: 1rem 2rem;
     }
         
-    .deposit-placeholder {
-        width: 30vw;
-    }
-
     .deposit-form {
         margin: 1rem 2.5rem;
     }

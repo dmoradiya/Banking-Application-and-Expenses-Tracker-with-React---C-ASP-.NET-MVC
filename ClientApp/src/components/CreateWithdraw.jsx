@@ -88,10 +88,8 @@ function CreateWithdraw(props) {
                 <section className="input-group-prepend withdraw-prepend">
                     <label className="input-group-text withdraw-placeholder" htmlFor="accountID">Account</label>
                     <select className="form-control" id="accountID" onChange={handleFieldChange}>
-
-                    <option value="" >Choose here</option>
-
-                    {accountInfo.map(client => (
+                        <option value="" >Select Account</option>
+                            {accountInfo.map(client => (
                         <option key={client.accountID} value={`${client.accountID}`}>
                             {`${client.accountType}- Total Balance: $${(client.accountBalance + client.cashback).toFixed(2)}`}
                         </option>
@@ -99,20 +97,20 @@ function CreateWithdraw(props) {
                     </select>
                     </section>
                 <section className="input-group-prepend withdraw-prepend">
-                    <label className="input-group-text withdraw-placeholder" htmlFor="transactionSource">Source</label>
+                    <label className="input-group-text withdraw-placeholder" htmlFor="transactionSource">Location</label>
                 <select className="form-control" id="transactionSource" onChange={handleFieldChange}>
-                    <option value="" >Choose here</option>
+                    <option value="" >Deposit Source</option>
                     <option value="Bank">Bank</option>
                     <option value="ATM">ATM</option>
                     </select>
                 </section>
                 <section className="input-group-prepend withdraw-prepend">
                     <label className="input-group-text withdraw-placeholder" htmlFor="transactionValue">Value</label>
-                    <input className="form-control" id="transactionValue" type="text" onChange={handleFieldChange} />
+                    <input className="form-control" id="transactionValue" type="text" placeholder="Transaction Value" onChange={handleFieldChange} />
                 </section>
                 <section className="withdraw-submit">
 
-                    <input type="submit" className="btn btn-primary" value="Submit" />
+                    <input type="submit" className="btn btn-info" value="Submit" />
                     </section>
             </form>
         </section>
