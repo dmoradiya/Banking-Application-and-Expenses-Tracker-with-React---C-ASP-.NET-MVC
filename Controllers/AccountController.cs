@@ -12,14 +12,10 @@ namespace Capstone_VV.Controllers
     
     public class AccountController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
 
         // Methods
 
-        public List<Account> GetAccount()
+        public List<Account> GetAccount() /*Displays the account(s) based on associated ClientID*/
         {
             List<Account> result;
 
@@ -61,7 +57,7 @@ namespace Capstone_VV.Controllers
         public Account AddAccount(string accountType)
         {
             ValidationException exception = new ValidationException();
-            int clientID = new ClientController().GetClientID();
+            int clientID = new ClientController().GetClientID(); // We need a ClientID to associate with a new Account
             accountType = new ClientController().StringValidation("Dropdown", accountType);
 
             using (BankContext context = new BankContext())
@@ -150,8 +146,9 @@ namespace Capstone_VV.Controllers
         {
             Account result;
 
+            /*Trims whitespace and performs validation*/
             accountID = new ClientController().StringValidation("Dropdown", accountID);
-            transactionValue = new ClientController().StringValidation("TransactionValue", transactionValue);
+            transactionValue = new ClientController().StringValidation("TransactionValue", transactionValue); 
 
             using (BankContext context = new BankContext())
             {
@@ -165,8 +162,8 @@ namespace Capstone_VV.Controllers
             }
         }
 
-        // Close Account 
-        public Account CloseAccount(string accountID)
+        // Close Account - Sets isActive bool to 0 for both account and associated transactions!
+        public Account CloseAccount(string accountID) 
         {
             Account result;
 

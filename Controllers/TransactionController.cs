@@ -11,16 +11,13 @@ namespace Capstone_VV.Controllers
 {
     public class TransactionController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+
 
         public static int transactionCreateID;
 
         // Methods
 
-        public List<Transaction> GetTransactions(string id)
+        public List<Transaction> GetTransactions(string id) /*Gets a list of transactions for the associated AccountID*/
         {
             ValidationException exception = new ValidationException();
             List<Transaction> result;
@@ -31,7 +28,7 @@ namespace Capstone_VV.Controllers
             return result;
         }
 
-        public Transaction CreateDeposit(string accountID, string transactionSource, string transactionValue)
+        public Transaction CreateDeposit(string accountID, string transactionSource, string transactionValue) /*Inputs accountID, source, and value to create a new Deposit transaction, Category is PRESET to Deposit, Transaction Date is PRESET to Today!*/
         {
 
             accountID = new ClientController().StringValidation("Dropdown", accountID);
@@ -60,7 +57,7 @@ namespace Capstone_VV.Controllers
             }
 
         }
-        public Transaction CreateWithdraw(string accountID, string transactionValue, string transactionDate, string transactionSource = "Bill Payment", string transactionCategory = "Withdraw")
+        public Transaction CreateWithdraw(string accountID, string transactionValue, string transactionDate, string transactionSource = "Bill Payment", string transactionCategory = "Withdraw") /*Inputs accountID, source, and value to create a new Withdraw transaction, Category is PRESET to Deposit, Transaction Date is PRESET to Today!*/
         {
            
 
@@ -98,7 +95,7 @@ namespace Capstone_VV.Controllers
             }
 
         }
-        // Close Transaction 
+        // Close Transaction - Called to close a transaction by setting isActive bool to 0
         public List<Transaction> CloseTransaction(string accountID)
         {
             List<Transaction> result;

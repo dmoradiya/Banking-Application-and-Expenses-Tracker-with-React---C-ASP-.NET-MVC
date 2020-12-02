@@ -13,7 +13,7 @@ namespace Capstone_VV.Controllers
     [ApiController]
     public class BankAPIController : ControllerBase
     {
-        [HttpGet("LandingPage")]
+        [HttpGet("LandingPage")]   
         public ActionResult<IEnumerable<Account>> Client_GET()
         {
             return new AccountController().GetAccount();
