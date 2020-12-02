@@ -13,7 +13,6 @@ function ViewTransactions(props) {
     const [thisMonthchecked, setThisMonthChecked] = useState("");
     const [threeMonthchecked, setThreeMonthChecked] = useState("");
     const [sixMonthchecked, setSixMonthChecked] = useState("");
-    const [thisMonthDisable, setThisMonthDisable] = useState("");
 
     let filteredTransactions = [];
 
@@ -40,7 +39,7 @@ function ViewTransactions(props) {
                     <thead>
                         <tr className="col-sm-4">
                             <th>Date</th>
-                            <th className="d-none d-sm-block">Source</th>
+                            <th className="d-none d-sm-block">Source</th> {/*Will display on all but mobile phone layouts (not enough space)*/ }
                             <th>Category</th>
                             <th>Amount</th>
                         </tr>
@@ -51,7 +50,7 @@ function ViewTransactions(props) {
                                 <td>{transaction.transactionDate.slice(0, 10)}</td>
                                 <td className="d-none d-sm-block">{transaction.transactionSource}</td>
                                 <td>{transaction.transactionCategory}</td>
-                                {transaction.transactionCategory === "Deposit" ? <td>${transaction.transactionValue}</td> : <td>{`($${transaction.transactionValue})`}</td>}                                
+                                {transaction.transactionCategory === "Deposit" ? <td>${transaction.transactionValue}</td> : <td>{`($${transaction.transactionValue})`}</td>} {/*Displays transactions which reduce Account Balance in Brackets!*/ }                                
                             </tr>
                         )}
                     </tbody>
@@ -71,7 +70,7 @@ function ViewTransactions(props) {
         );
     }
 
-    function handleFieldChange(event) {
+    function handleFieldChange(event) { /*Updates the constant values with whatever is located in the input fields*/
             switch (event.target.id) {
                 case "thisMonth":
                     setThisMonthChecked(event.target.checked);
@@ -106,11 +105,11 @@ function ViewTransactions(props) {
         let currentDate = new Date();
         let currentMonth = currentDate.getMonth();
         return [...transactions].filter(val => {
-            if (thisMonthchecked) {
+            if (thisMonthchecked) { /*Index 5 + 2 characters = month*/
                 return val = val.transactionDate.substr(5, 2) > currentMonth;
             }
             else if (threeMonthchecked) {
-                return val = val.transactionDate.substr(5,2) > (currentMonth - 3);
+                return val = val.transactionDate.substr(5, 2) > (currentMonth - 3);     // TODO -> Causes errors for January, Feb, Early Months etc.
             }
             else if (sixMonthchecked) {
                 return val = val.transactionDate.substr(5, 2) > (currentMonth - 6);
@@ -131,7 +130,7 @@ function ViewTransactions(props) {
         setLoading(false);
     }
 
-    useEffect(() => {
+    useEffect(() => { /*Prevent useEffect From Running Every Render*/
         populateTransactionsData();
     },[loading]);
 
