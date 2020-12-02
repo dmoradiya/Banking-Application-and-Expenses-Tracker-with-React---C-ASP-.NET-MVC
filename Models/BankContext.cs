@@ -86,7 +86,7 @@ namespace Capstone_VV.Models
                 {
                     TransactionID = 4,
                     AccountID = 1,
-                    TransactionSource = "Bill payment",
+                    TransactionSource = "Bill Payment",
                     TransactionCategory = "Food",
                     TransactionValue = 50.00,
                     TransactionDate = new DateTime(2020, 10, 16),
