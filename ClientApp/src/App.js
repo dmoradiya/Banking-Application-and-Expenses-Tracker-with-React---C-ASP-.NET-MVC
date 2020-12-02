@@ -23,8 +23,8 @@ import { TransactionNotification } from './components/TransactionNotification';
 export default class App extends Component {
 
   render () {
-    return (
-      <Router>
+    return ( /*Defines Routes for each component page*/
+      <Router> 
         <Route exact path='/' component={Home} />
         <Route exact path='/landing-page' component={LandingPage} />
         <Route exact path='/create-client' component={CreateClient} />
@@ -40,7 +40,6 @@ export default class App extends Component {
         <Route exact path='/transaction-notification' component={TransactionNotification} />
         <Route exact path='/view-expenses' component={ViewExpenses} />
         <Route exact path='/faq' component={FAQ} />
-
         <Footer />
       </Router>
     );
