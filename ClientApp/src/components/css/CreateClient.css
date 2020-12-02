@@ -1,4 +1,4 @@
-﻿/*Adds a Green Square around the header and centers it*/
+﻿/* Aligns the header and centers it*/
 .client-header, .account-header {
     text-align: center;
     background-color: #D01992;
