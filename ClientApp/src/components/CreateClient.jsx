@@ -20,7 +20,7 @@ function CreateClient(props) {
     const [waiting, setWaiting] = useState(false);
     const history = useHistory();
 
-    function handleFieldChange(event) {
+    function handleFieldChange(event) { /*Define updates to constant variables based on what is located in form fields.*/
         switch (event.target.id) {
             case "email":
                 setEmail(event.target.value);
@@ -61,7 +61,7 @@ function CreateClient(props) {
         event.preventDefault();
         setWaiting(true);
 
-        axios(
+        axios(  /*Sends a POST request to the API using all parameters defined below. Needed as inputs for creating a new Client.*/
             {
                 method: 'post',
                 url: 'BankAPI/CreateClient',
@@ -79,13 +79,13 @@ function CreateClient(props) {
 
                 }
             }
-        ).then((res) => {
+        ).then((res) => {   /*If POST is successful, give success message and push to Create-Account page*/
             setWaiting(false);
             setResponse("Client Info Added Successfully");
             history.push("/create-account");
 
         }
-        ).catch((err) => {
+        ).catch((err) => { /*Else, give an error message*/
             setWaiting(false);
             setResponse(err.response.data);
         });
