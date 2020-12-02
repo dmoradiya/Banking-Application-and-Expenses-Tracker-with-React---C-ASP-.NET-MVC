@@ -16,7 +16,8 @@ function ViewExpenses(props) {
 
 
         // Link: https://medium.com/@tgknapp11/render-a-chart-with-react-minimal-pie-chart-e30420c9276c
-        allTransaction.map((transaction) => {
+      
+        allTransaction.map((transaction) => { /*Calculates a random color to assign to each slice of the pie chart*/
             var randomColor = "#000000".replace(/0/g, function () {
                 return (~~(Math.random() * 16)).toString(16);
             });
@@ -32,14 +33,14 @@ function ViewExpenses(props) {
 
             //Link :  https://www.tutorialspoint.com/merge-object-and-sum-a-single-property-in-javascript
             // Reference : https://dev.to/ramonak/javascript-how-to-merge-multiple-objects-with-sum-of-values-43fd
-            const newArray = (data) => {
-                return [...data].reduce((acc, val, i, arr) => {
+            const newArray = (data) => { /*Groups transactions with the same Category into a 'summed' variable, gives the total value (ex. 3 mortage payments all grouped as one variable and their values summed called mortgage)*/
+                return [...data].reduce((acc, val) => {
                     const { color, title, value } = val;
                     const ind = acc.findIndex(el => el.title === title);
                     if (ind !== -1) {
                         acc[ind].value += value;
                     } else {
-                        acc.push({
+                        acc.push({ /*And then pushes this value (the combined mortgages) into the new array with a random color, a distinct title, and the summed value */
                             color: color,
                             title: title,
                             value: value,
@@ -51,14 +52,14 @@ function ViewExpenses(props) {
             newData = newArray(data);
         });
 
-        // Sum for individual Catagory
+        // Sum for individual Catagory (To Calculate % Value)
         let sum = 0;
         for (let i = 0; i < newData.length; i++) {
             sum += newData[i].value;
         }
 
 
-        return (
+        return ( 
             <section id="view-expenses-section">
 
                 <table className='table' aria-labelledby="tabelLabel">
@@ -102,7 +103,7 @@ function ViewExpenses(props) {
     
     let contents = renderClientInfoTable(allTransaction);
 
-    return (
+    return ( /*This renders the content of this page*/
         <section id="view-expenses">
             <Layout />
             <h1>View Expenses</h1>

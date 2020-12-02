@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import "./css/NavMenu.css";
-import NavDropdown from 'react-bootstrap/NavDropdown'
+import NavDropdown from 'react-bootstrap/NavDropdown' /*Import required from react-bootstrap*/
 
 export class NavMenu extends Component {
 
@@ -45,7 +45,7 @@ export class NavMenu extends Component {
                 <NavItem>
                     <NavLink tag={Link} className="text-info" to="/">Logout</NavLink>
                 </NavItem>
-                    <NavDropdown title="Manage Account" id="basic-nav-dropdown">
+                    <NavDropdown title="Manage Account" id="basic-nav-dropdown"> {/* Drop-down menu items within the Hamburger menu*/ }
                     <NavDropdown.Item href="/add-account">Add Account</NavDropdown.Item>
                     <NavDropdown.Item href="/close-account">Close Account</NavDropdown.Item>
                 </NavDropdown>

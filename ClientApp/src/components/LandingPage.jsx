@@ -11,13 +11,12 @@ function LandingPage(props) {
     const [accountInfo, setAccountInfo] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    function renderClientInfoTable(accountInfo) {
+    function renderClientInfoTable(accountInfo) { /*Rendering the API data in a tabular format*/
 
         const totalHolding = accountInfo.reduce((total, client) => total = total + client.accountBalance, 0) + 
-                           accountInfo.reduce((total, client) => total = total + client.cashback, 0);
+                           accountInfo.reduce((total, client) => total = total + client.cashback, 0); /*totalHolding is used to do the calculation for total balance (including balance + cashback) for each account*/
 
-                           
-        const name = accountInfo.map(x => x.client.firstName + " " + x.client.lastName)[0];
+        const name = accountInfo.map(x => x.client.firstName + " " + x.client.lastName)[0]; /*Will only give the first account*/
        
 
         return (
@@ -70,13 +69,13 @@ function LandingPage(props) {
         );
     }
     
-    async function populateClientData() {
+    async function populateClientData() { /*Populates response with API/LandingPage*/
         const response = await axios.get('BankAPI/LandingPage');
         setAccountInfo(response.data);
         setLoading(false);
     }
 
-    useEffect(() => {
+    useEffect(() => { /*Prevent useEffect From Running Every Render*/
         populateClientData();
     }, [loading]);
 

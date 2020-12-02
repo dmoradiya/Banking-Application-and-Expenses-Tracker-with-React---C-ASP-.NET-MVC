@@ -23,17 +23,17 @@ function CreateWithdraw(props) {
     const today = new Date().toLocaleDateString().substr(0, 10);
 
 
-    async function populateClientData() {
+    async function populateClientData() { /*Populates response with API/LandingPage*/
         const response = await axios.get('BankAPI/LandingPage');
         setAccountInfo(response.data);
         setLoading(false);
     }
 
-    useEffect(() => {
+    useEffect(() => { /*Prevent useEffect From Running Every Render*/
         populateClientData();
     }, [loading]);
 
-    function handleFieldChange(event) {
+    function handleFieldChange(event) { /*Define updates to constant variables based on what is located in form fields.*/
         switch (event.target.id) {
             case "accountID":
                 setAccountID(event.target.value);
@@ -54,7 +54,7 @@ function CreateWithdraw(props) {
         setWaiting(true);
 
         // Post Request
-        axios(
+        axios( /*POST to the API/CreateWithdraw with accountID, transactionSource, and transactionValue as parameters*/
             {
                 method: 'post',
                 url: 'BankAPI/CreateWithdraw',
@@ -65,13 +65,13 @@ function CreateWithdraw(props) {
                     transactionDate: today
                 }
             }
-        ).then((res) => {
+        ).then((res) => { /*If POST is successful, send a success message, and push to transaction-notification page*/
             setWaiting(false);
             setResponse("Transaction Completed successfully");
             history.push("/transaction-notification");
 
         }   
-        ).catch((err) => {
+        ).catch((err) => { /*Else send an error*/
             setWaiting(false);
             setResponse(err.response.data);
         });
@@ -81,10 +81,8 @@ function CreateWithdraw(props) {
         <section className="withdraw-page">
             <Layout />
             <h1 className="withdraw-header"> Make a Withdraw </h1>
-
             <p className="withdraw-error alert alert-light">{waiting ? "Waiting..." : `${response}`}</p>
             <form className="withdraw-form" onSubmit={handleSubmit}>
-
                 <section className="input-group-prepend withdraw-prepend">
                     <label className="input-group-text withdraw-placeholder" htmlFor="accountID">Account</label>
                     <select className="form-control" id="accountID" onChange={handleFieldChange}>
@@ -109,7 +107,6 @@ function CreateWithdraw(props) {
                     <input className="form-control" id="transactionValue" type="text" placeholder="Transaction Value" onChange={handleFieldChange} />
                 </section>
                 <section className="withdraw-submit">
-
                     <input type="submit" className="btn btn-info" value="Submit" />
                     </section>
             </form>

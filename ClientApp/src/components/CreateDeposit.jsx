@@ -23,7 +23,7 @@ function CreateDeposit(props) {
         setLoading(false);
     }
 
-    useEffect(() => { /*For rendering populateClientData*/
+    useEffect(() => { /*Prevent useEffect From Running Every Render*/
         populateClientData();
     }, [loading]);
 
@@ -50,7 +50,7 @@ function CreateDeposit(props) {
         setWaiting(true);       
 
         // Post Request
-        axios( /*POST to the API/CreateDeposit with accountID, transactionSource, and transactionValue as parameter*/
+        axios( /*POST to the API/CreateDeposit with accountID, transactionSource, and transactionValue as parameters*/
             {
                 method: 'post',
                 url: 'BankAPI/CreateDeposit',
@@ -60,7 +60,7 @@ function CreateDeposit(props) {
                     transactionValue: transactionValue,
                 }
             }
-        ).then((res) => { /*If UPDATE is successful, send a success message, and push to transaction-notification page*/
+        ).then((res) => { /*If POST is successful, send a success message, and push to transaction-notification page*/
             setWaiting(false);
             setResponse("Transaction Completed Successfully");
             history.push("/transaction-notification");

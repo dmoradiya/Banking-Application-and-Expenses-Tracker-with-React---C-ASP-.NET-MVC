@@ -17,19 +17,19 @@ function PayBills(props) {
     const history = useHistory();
 
 
-    async function populateClientData() {
+    async function populateClientData() { /*Populates response with API/LandingPage*/
         const response = await axios.get('BankAPI/LandingPage');
         setAccountInfo(response.data);
         setLoading(false);
     }
 
-    useEffect(() => {
+    useEffect(() => { /*Prevent useEffect From Running Every Render*/
         populateClientData();
     }, [loading]);
 
 
 
-    function handleFieldChange(event) {
+    function handleFieldChange(event) { /*Define updates to constant variables based on what is located in form fields.*/
         switch (event.target.id) {
             case "accountID":
                 setAccountID(event.target.value);
@@ -53,7 +53,7 @@ function PayBills(props) {
         setWaiting(true);
 
         // Post Request
-        axios(
+        axios( /*POST to the API/CreateWithdraw with accountID, transactionSource, transactionValue, and transactionDate as parameters*/
             {
                 method: 'post',
                 url: 'BankAPI/CreateWithdraw',
@@ -64,12 +64,12 @@ function PayBills(props) {
                     transactionDate: transactionDate,
                 }
             }
-        ).then((res) => {
+        ).then((res) => { /*If POST is successful, send a success message, and push to transaction-notification page*/
             setWaiting(false);
             setResponse("Thank you for the Transaction");
             history.push("/transaction-notification");
         }
-        ).catch((err) => {
+        ).catch((err) => { /*Else send an error*/
             setWaiting(false);
             setResponse(err.response.data);
         });
@@ -81,19 +81,18 @@ function PayBills(props) {
             <Layout />
             <h1 className="bills-header"> Pay Bills </h1>
             <p className="bills-error alert alert-light">{waiting ? "Waiting..." : `${response}`}</p>
-
-            <form className="bills-form" onSubmit={handleSubmit}>
-                <section className="input-group-prepend bills-prepend">
-                    <label className="input-group-text bills-placeholder" htmlFor="accountID">Account</label>
-                    <select className="form-control" id="accountID" onChange={handleFieldChange}>
-                            <option value="" >Select Account</option>
-                            {accountInfo.map(client => (
-                            <option key={client.accountID} value={`${client.accountID}`}>
-                                    {`${client.accountType}- Total Balance: $${(client.accountBalance + client.cashback).toFixed(2)}`}
-                            </option>
-                            ))}
-                        </select>
-                </section>
+                <form className="bills-form" onSubmit={handleSubmit}>
+                    <section className="input-group-prepend bills-prepend">
+                        <label className="input-group-text bills-placeholder" htmlFor="accountID">Account</label>
+                        <select className="form-control" id="accountID" onChange={handleFieldChange}>
+                                <option value="" >Select Account</option>
+                                {accountInfo.map(client => (
+                                <option key={client.accountID} value={`${client.accountID}`}>
+                                        {`${client.accountType}- Total Balance: $${(client.accountBalance + client.cashback).toFixed(2)}`}
+                                </option>
+                                ))}
+                            </select>
+                    </section>
                 <section className="input-group-prepend bills-prepend">
                     <label className="input-group-text bills-placeholder" htmlFor="transactionCategory">Category</label>
                     <select className="form-control" id="transactionCategory" onChange={handleFieldChange}>
