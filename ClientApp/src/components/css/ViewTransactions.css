@@ -33,15 +33,13 @@
     font-size: 1.3rem;
     margin-left: 2rem;
 }
-
+#view-transactions-section p {
+    margin: 1rem auto 5rem auto;
+}
 @media screen and (min-width: 576px) {
     #view-transactions-section table {
         width: 550px;
         margin: .5rem auto auto auto;
-    }
-    #view-transactions-section p {
-        width: 550px;
-        margin: 1rem auto 5rem auto;
     }
     #view-transactions-section #checkbox-section {
         display: flex;
@@ -69,7 +67,6 @@
     #view-transactions-section #checkbox-section {
         width: 700px;
     }
-
 }
 
 @media screen and (min-width: 992px) {
