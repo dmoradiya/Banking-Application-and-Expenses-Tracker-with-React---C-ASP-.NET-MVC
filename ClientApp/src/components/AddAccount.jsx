@@ -49,20 +49,20 @@ function AddAccount(props) {
 
     return (
 
-        <section className="create-client">
+        <section>
             <Layout />
-            <h1 className="client-header">Select An Account</h1>
+            <h1 className="account-header">Select An Account</h1>
             <p>{waiting ? "Submiting..." : `${response}`}</p>
-            <form className="client-form create-account-section" onSubmit={handleSubmit}>
-                <div className="input-group-prepend create-client-fields">
-                    <label className="input-group-text create-client-placeholder-text" htmlFor="accountType">Account Type</label>
-                    <select className="create-client-form-field form-control" id="accountType" onChange={handleFieldChange}>
+            <form className="account-form create-account-section" onSubmit={handleSubmit}>
+                <div className="input-group-prepend">
+                    <label className="input-group-text create-account-placeholder-text" htmlFor="accountType">Account Type</label>
+                    <select className="form-control" id="accountType" onChange={handleFieldChange}>
                         <option value="" >Select Account</option>
                         <option value="Chequing">Chequing Account</option>
                         <option value="Savings">Saving Account</option>
                     </select>
                 </div>
-                <div className="input-group-prepend create-client-fields">
+                <div className="input-group-prepend">
                     <input className="btn btn btn-info submit-button" type="submit" value="Submit" />
                 </div>
             </form>

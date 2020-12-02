@@ -62,7 +62,7 @@ function Login(props) {
     return (
 
         <section className="login-page">
-            <p><img id="banner" src={require("./img/banner1.png") } alt="Plain picture with vv bank text" /></p>
+            <p><img id="banner" className="d-sm-none" src={require("./img/banner1.png") } alt="Plain picture with vv bank text" /></p>
             <p>{waiting ? "Logging In..." : `${response}`}</p>
 
             <form className="login-form" onSubmit={handleSubmit}>
