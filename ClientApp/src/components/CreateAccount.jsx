@@ -50,13 +50,12 @@ function CreateAccount(props) {
         <section className="create-client">
 
             <h1 className="client-header">Select An Account</h1>
-
-            <p className="client-error alert alert-light">{waiting ? "Submiting..." : `${response}`}</p>
-            <form id="create-account-section" className="client-form" onSubmit={handleSubmit}>
+            <p>{waiting ? "Submiting..." : `${response}`}</p>
+            <form className="client-form create-account-section" onSubmit={handleSubmit}>
                 <div className="input-group-prepend create-client-fields">
                 <label className="input-group-text create-client-placeholder-text" htmlFor="accountType">Account Type</label>
                 <select className="create-client-form-field form-control" id="accountType" onChange={handleFieldChange}>
-                    <option value="" >Choose here</option>
+                    <option value="" >Select Account</option>
                     <option value="Chequing">Chequing Account</option>
                     <option value="Savings">Saving Account</option>
                 </select>

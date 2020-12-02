@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { Layout } from '../components/Layout';
 import { useHistory } from "react-router-dom";
-import "./css/AddAccount.css"
+import "./css/CreateClient.css"
 
 
 function AddAccount(props) {
@@ -49,23 +49,22 @@ function AddAccount(props) {
 
     return (
 
-        <section className="add-account-page">
+        <section className="create-client">
             <Layout />
-            <h1 className="add-account-header">Add Account</h1>
-
-            <p className="add-account-error alert alert-light">{waiting ? "Submiting..." : `${response}`}</p>
-            <form className="add-account-form" onSubmit={handleSubmit}>
-                <section className="input-group-prepend add-account-prepend">
-                    <label className="input-group-text add-account-placeholder" htmlFor="accountType">Type</label>
-                    <select className="form-control" id="accountType" onChange={handleFieldChange}>
+            <h1 className="client-header">Select An Account</h1>
+            <p>{waiting ? "Submiting..." : `${response}`}</p>
+            <form className="client-form create-account-section" onSubmit={handleSubmit}>
+                <div className="input-group-prepend create-client-fields">
+                    <label className="input-group-text create-client-placeholder-text" htmlFor="accountType">Account Type</label>
+                    <select className="create-client-form-field form-control" id="accountType" onChange={handleFieldChange}>
                         <option value="" >Select Account</option>
                         <option value="Chequing">Chequing Account</option>
-                        <option value="Savings">Savings Account</option>
+                        <option value="Savings">Saving Account</option>
                     </select>
-                </section>
-                <section className="add-account-submit">
-                    <input type="submit" className="btn btn-primary" value="Submit" />
-                </section>
+                </div>
+                <div className="input-group-prepend create-client-fields">
+                    <input className="btn btn btn-info submit-button" type="submit" value="Submit" />
+                </div>
             </form>
         </section>
 

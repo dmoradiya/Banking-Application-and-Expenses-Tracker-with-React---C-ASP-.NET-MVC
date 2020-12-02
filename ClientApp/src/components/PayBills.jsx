@@ -112,14 +112,14 @@ function PayBills(props) {
                 </section>
                 <section className="input-group-prepend bills-prepend">
                     <label className="input-group-text bills-placeholder" htmlFor="transactionValue">Value</label>
-                    <input className="form-control" id="transactionValue" type="text" onChange={handleFieldChange} />
+                    <input className="form-control" id="transactionValue" placeholder="Transaction Value" type="text" onChange={handleFieldChange} />
                 </section>
                 <section className="input-group-prepend bills-prepend">
                     <label className="input-group-text bills-placeholder" htmlFor="transactionDate">Date</label>
                     <input className="form-control" id="transactionDate" type="date" onChange={handleFieldChange} />
                 </section>
                 <section className="bills-submit">
-                    <input className="form-control" type="submit" className="btn btn-primary" value="Submit" />
+                    <input className="form-control" type="submit" className="btn btn-info" value="Submit" />
                 </section>
             </form>
         </section>
