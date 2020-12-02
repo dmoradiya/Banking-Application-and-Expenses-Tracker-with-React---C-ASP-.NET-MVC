@@ -104,15 +104,26 @@ function ViewTransactions(props) {
     const newArray = (transactions) => {
         let currentDate = new Date();
         let currentMonth = currentDate.getMonth();
+
+        // get past month according to current date
+        function getPastMonth(number) {
+            if (currentMonth - number < 0) {
+                return (12 + (currentMonth - number));
+            }
+            else {
+                return (currentMonth - number);
+            }
+        }
+
         return [...transactions].filter(val => {
             if (thisMonthchecked) { /*Index 5 + 2 characters = month*/
                 return val = val.transactionDate.substr(5, 2) > currentMonth;
             }
             else if (threeMonthchecked) {
-                return val = val.transactionDate.substr(5, 2) > (currentMonth - 3);     // TODO -> Causes errors for January, Feb, Early Months etc.
+                return val = val.transactionDate.substr(5, 2) > getPastMonth(3);     
             }
             else if (sixMonthchecked) {
-                return val = val.transactionDate.substr(5, 2) > (currentMonth - 6);
+                return val = val.transactionDate.substr(5, 2) > getPastMonth(6);
             }           
             else {
                 return val;
