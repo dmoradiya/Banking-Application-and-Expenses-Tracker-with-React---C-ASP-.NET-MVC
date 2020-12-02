@@ -11,7 +11,7 @@ function Login(props) {
     const [password, setPassword] = useState("");
     const [response, setResponse] = useState([]);
     const [waiting, setWaiting] = useState(false);
-    const[passwordShow, setPasswordShow] = useState(false);
+    const[passwordShow, setPasswordShow] = useState(false); /*default is false. Change to true to display text instead of password mask - see line 58*/
     const history = useHistory();
 
     function handleFieldChange(event) { /*Updates fields with target values*/
@@ -53,9 +53,9 @@ function Login(props) {
 
     }
 
-    function togglePassword(event) {    /*Allows user to hide or display password field with a mask*/
+    function togglePassword(event) {    /*Allows user to hide or display password field with a mask -> Defaults to False therefore does not show text*/
         event.preventDefault();
-        setPasswordShow(passwordShow ? false : true);
+        setPasswordShow(passwordShow ? false : true); /*Reverse the 'false' and 'true' statements to show text by default, see line 14*/
     };
 
     return (
@@ -69,7 +69,7 @@ function Login(props) {
                 </section>
                 <section className="input-group-prepend login-prepend">
                     <label className="input-group-text login-placeholder" htmlFor="password">Password: </label>
-                    <input className="form-control" id="password" type={passwordShow ? "text" : "password"} onChange={handleFieldChange} placeholder="Password" />
+                    <input className="form-control" id="password" type={passwordShow ? "text" : "password"} onChange={handleFieldChange} placeholder="Password" /> 
                     <span onClick={togglePassword}><FaEye /></span>
                 </section>
                 <section className="login-submit">
