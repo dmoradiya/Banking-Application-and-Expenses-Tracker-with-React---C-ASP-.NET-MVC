@@ -1,91 +1,59 @@
 ﻿/*Adds a Green Square around the header and centers it*/
 .client-header {
-    margin: auto;
-    width: 100vw;
-    border: 3px solid green;
-    padding: 10px;
     text-align: center;
-    font-size: 2em; /*16 x 2 = 32px*/
     background-color: #D01992;
     color: #fff;
+    margin: 0;
     padding: 0.5rem 0 0.5rem 0;
 }
 
-/*Adds a border to the entire section*/
-.create-client {
-    border: 5px;
-}
-
 .client-form {
-    padding-bottom: 10vw;
-}
-
-/*Adds spacing between input fields*/
-.create-client-fields {
-    min-width: 160px;
-    margin: 4%;
-}
-
-/*Centers the selector text*/
-.create-client-form-field {
-    text-align: center;
-    font-size: 1em;
-    margin-right: 5vw;
+    margin: 1rem auto;
+    width: 90vw;
 }
 
 /*Centers the submit button*/
 .submit-button {
-    margin: auto;
-    text-align: center;
-}
-
-/*Centers the error message*/
-.client-error {
-    margin: auto;
-    text-align: center;
+   margin: 1rem auto 1rem auto;
 }
 
 /*Centers the input text and gives a sharp border radius*/
 .create-client-placeholder-text {
-    margin-left: 5vw;
+    
     text-align: center;
-    border-radius: 0px;
-    min-width: 100px;
+    width: 45vw;    
     font-size: .75rem;
 }
+/* For Small Screens*/
+@media only screen and (min-width: 576px) {
 
+    .create-client-placeholder-text {
+        text-align: center;
+        width: 40vw;
+        font-size: 1rem;
+    }
+}
 /*For Tablets*/
 @media only screen and (min-width: 768px) {
-    .client-header {
-        border: 5px solid blue;
-        font-size: 3em;
+   
+    .client-form {
+        width: 75vw;
     }
-    .create-client-fields {
-        margin: 3%;
-    }
-    .create-client-form-field {
-        font-size: 1.2em;
-    }
+
     .create-client-placeholder-text {
-        font-size: 1.2em;
-        min-width: 160px;
+        width: 25vw;
     }
 }
 
 /*For Desktop Screens*/
-@media only screen and (min-width: 1200px) {
-    .client-header {
-        border: 7px solid red;
-        font-size: 4em;
+@media only screen and (min-width: 992px) {
+    .client-form {
+        width: 50vw;
     }
-    .create-client-fields {
-        margin: 2%;
-    }
-    .create-client-form-field {
-        font-size: 1.5em;
+    .client-form input, #province {
+        font-size: 1.2rem;
     }
     .create-client-placeholder-text {
-        font-size: 1.5em;
-        min-width: 180px;
+        font-size: 1.2rem;
     }
 }

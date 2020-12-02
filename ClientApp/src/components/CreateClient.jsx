@@ -98,77 +98,71 @@ function CreateClient(props) {
             <h1 className="client-header">Client Information</h1>
 
             <p className="client-error alert alert-light">{waiting ? "Processing..." : `${response}`}</p>
+            <div id="form-container">
+                <form className="client-form" onSubmit={handleSubmit}>
 
-            <form className="client-form" onSubmit={handleSubmit}>
+                    <div className="input-group-prepend create-client-fields">
+                        <label className="input-group-text create-client-placeholder-text" htmlFor="email">Email Address</label>
+                        <input className="form-control create-client-form-field" id="email" type="text" placeholder="Email" onChange={handleFieldChange} />
+                    </div>
+                    <div className="input-group-prepend create-client-fields">
+                        <label className="input-group-text create-client-placeholder-text" htmlFor="password">Password</label>
+                        <input className="form-control create-client-form-field" id="password" type="text" placeholder="Password" onChange={handleFieldChange} />
+                    </div>
+                    <div className="input-group-prepend create-client-fields">
+                        <label className="input-group-text create-client-placeholder-text" htmlFor="phone">Phone Number</label>
+                        <input className="form-control create-client-form-field" id="phone" type="text" placeholder="(XXX) XXX-XXXX" onChange={handleFieldChange} />
+                    </div>
+                    <div className="input-group-prepend create-client-fields">
+                        <label className="input-group-text create-client-placeholder-text" htmlFor="fname">First Name</label>
+                        <input className="form-control create-client-form-field" id="fname" type="text" onChange={handleFieldChange} />
+                    </div>
+                    <div className="input-group-prepend create-client-fields">
+                        <label className="input-group-text create-client-placeholder-text" htmlFor="lname">Last Name</label>
+                        <input className="form-control create-client-form-field" id="lname" type="text" onChange={handleFieldChange} />
+                    </div>
+                    <div className="input-group-prepend create-client-fields">
+                        <label className="input-group-text create-client-placeholder-text" htmlFor="dateOfBirth">Date Of Birth</label>
+                        <input className="form-control create-client-form-field" id="dateOfBirth" type="date" onChange={handleFieldChange} />
+                    </div>
+                    <div className="input-group-prepend create-client-fields">
+                        <label className="input-group-text create-client-placeholder-text" htmlFor="address">Address</label>
+                        <input className="form-control create-client-form-field" id="address" type="text" onChange={handleFieldChange} />
+                    </div>
+                    <div className="input-group-prepend create-client-fields">
+                        <label className="input-group-text create-client-placeholder-text" htmlFor="city">City</label>
+                        <input className="form-control create-client-form-field" id="city" type="text" onChange={handleFieldChange} />
+                    </div>
+                    <div className="input-group-prepend create-client-fields">
+                        <label className="input-group-text create-client-placeholder-text" htmlFor="province">Province</label>
+                        <select className="create-client-form-field form-control" id="province" onChange={handleFieldChange}>
+                            <option value="" >Choose here</option>
+                            <option value="AB">Alberta</option>
+                            <option value="BC">British Columbia</option>
+                            <option value="MB">Manitoba</option>
+                            <option value="NB">New Brunswick</option>
+                            <option value="NF">Newfoundland</option>
+                            <option value="NT">Northwest Territories</option>
+                            <option value="NS">Nova Scotia</option>
+                            <option value="NU">Nunavut</option>
+                            <option value="ON">Ontario</option>
+                            <option value="PE">Prince Edward Island</option>
+                            <option value="QC">Quebec</option>
+                            <option value="SK">Saskatchewan</option>
+                            <option value="YT">Yukon Territory</option>
+                        </select>
+                        </div>
+                
+                    <div className="input-group-prepend create-client-fields">
+                        <label className="input-group-text create-client-placeholder-text" htmlFor="postalCode">Postal Code</label>
+                        <input className="form-control create-client-form-field" id="postalCode" type="text" onChange={handleFieldChange} />
+                    </div>
+                    <div className="input-group-prepend create-client-fields">
 
-                <div className="input-group-prepend create-client-fields">
-                    <label className="input-group-text create-client-placeholder-text" htmlFor="email">Email Address</label>
-                    <input className="form-control create-client-form-field" id="email" type="text" placeholder="youremail@email.com" onChange={handleFieldChange} />
-                </div>
-                <div className="input-group-prepend create-client-fields">
-                    <label className="input-group-text create-client-placeholder-text" htmlFor="password">Password</label>
-                    <input className="form-control create-client-form-field" id="password" type="text" placeholder="Please enter your Password" onChange={handleFieldChange} />
-                </div>
-                <div className="input-group-prepend create-client-fields">
-                    <label className="input-group-text create-client-placeholder-text" htmlFor="phone">Phone Number</label>
-                    <input className="form-control create-client-form-field" id="phone" type="text" placeholder="(XXX) XXX-XXXX" onChange={handleFieldChange} />
-                </div>
-                <div className="input-group-prepend create-client-fields">
-                    <label className="input-group-text create-client-placeholder-text" htmlFor="fname">First Name</label>
-                    <input className="form-control create-client-form-field" id="fname" type="text" placeholder="" onChange={handleFieldChange} />
-                </div>
-                <div className="input-group-prepend create-client-fields">
-                    <label className="input-group-text create-client-placeholder-text" htmlFor="lname">Last Name</label>
-                    <input className="form-control create-client-form-field" id="lname" type="text" placeholder="" onChange={handleFieldChange} />
-                </div>
-                <div className="input-group-prepend create-client-fields">
-                    <label className="input-group-text create-client-placeholder-text" htmlFor="dateOfBirth">Date Of Birth</label>
-                    <input className="form-control create-client-form-field" id="dateOfBirth" type="date" onChange={handleFieldChange} />
-                </div>
-                <div className="input-group-prepend create-client-fields">
-                    <label className="input-group-text create-client-placeholder-text" htmlFor="address">Address</label>
-                    <input className="form-control create-client-form-field" id="address" type="text" onChange={handleFieldChange} />
-                </div>
-                <div className="input-group-prepend create-client-fields">
-                    <label className="input-group-text create-client-placeholder-text" htmlFor="city">City</label>
-                    <input className="form-control create-client-form-field" id="city" type="text" onChange={handleFieldChange} />
-                </div>
-                <div className="input-group-prepend create-client-fields">
-                    <label className="input-group-text create-client-placeholder-text" htmlFor="province">Province</label>
-                    <select className="create-client-form-field form-control" id="province" onChange={handleFieldChange}>
-                        <option value="" >Choose here</option>
-                        <option value="AB">Alberta</option>
-                        <option value="BC">British Columbia</option>
-                        <option value="MB">Manitoba</option>
-                        <option value="NB">New Brunswick</option>
-                        <option value="NF">Newfoundland</option>
-                        <option value="NT">Northwest Territories</option>
-                        <option value="NS">Nova Scotia</option>
-                        <option value="NU">Nunavut</option>
-                        <option value="ON">Ontario</option>
-                        <option value="PE">Prince Edward Island</option>
-                        <option value="QC">Quebec</option>
-                        <option value="SK">Saskatchewan</option>
-                        <option value="YT">Yukon Territory</option>
-                    </select>
-                </div>
-                <div className="input-group-prepend create-client-fields">
-                    <label className="input-group-text create-client-placeholder-text" htmlFor="postalCode">Postal Code</label>
-                    <input className="form-control create-client-form-field" id="postalCode" type="text" onChange={handleFieldChange} />
-                </div>
-                <div className="input-group-prepend create-client-fields">
-
-                    <input type="submit" className="btn btn-primary submit-button" value="Submit!" />
-                </div>
-
-
-
-
-
-
-
-
-            </form>
+                        <input type="submit" className="btn btn btn-info submit-button" value="Submit!" />
+                    </div>
+                </form>
+            </div>
         </section>
 
     );
