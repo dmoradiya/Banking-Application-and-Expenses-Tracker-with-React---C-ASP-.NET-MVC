@@ -28,7 +28,7 @@ namespace Capstone_VV.Controllers
             }
             catch (ValidationException e)
             {
-                string error = "Error(s) During Login: " +
+                string error = "Error: " +
                     e.ValidationExceptions.Select(x => x.Message)
                     .Aggregate((x, y) => x + ", " + y);
 
@@ -51,7 +51,7 @@ namespace Capstone_VV.Controllers
             }
             catch (ValidationException e)
             {
-                string error = "Error(s) During Creation: " +
+                string error = "Error: " +
                     e.ValidationExceptions.Select(x => x.Message)
                     .Aggregate((x, y) => x + ", " + y);
 
@@ -75,7 +75,7 @@ namespace Capstone_VV.Controllers
             }
             catch (ValidationException e)
             {
-                string error = "Error(s) During Creation: " +
+                string error = "Error: " +
                     e.ValidationExceptions.Select(x => x.Message)
                     .Aggregate((x, y) => x + ", " + y);
 
@@ -99,7 +99,7 @@ namespace Capstone_VV.Controllers
             }
             catch (ValidationException e)
             {
-                string error = "Error(s) During Creation: " +
+                string error = "Error: " +
                     e.ValidationExceptions.Select(x => x.Message)
                     .Aggregate((x, y) => x + ", " + y);
 
@@ -129,7 +129,7 @@ namespace Capstone_VV.Controllers
             }
             catch (ValidationException e)
             {
-                string error = "Error(s) During Creation: " +
+                string error = "Error(s): " +
                     e.ValidationExceptions.Select(x => x.Message)
                     .Aggregate((x, y) => x + ", " + y);
 
@@ -154,7 +154,7 @@ namespace Capstone_VV.Controllers
             }
             catch (ValidationException e)
             {
-                string error = "Error(s) During Creation: " +
+                string error = "Error: " +
                     e.ValidationExceptions.Select(x => x.Message)
                     .Aggregate((x, y) => x + ", " + y);
 
@@ -179,7 +179,7 @@ namespace Capstone_VV.Controllers
             }
             catch (ValidationException e)
             {
-                string error = "Error(s) During Creation: " +
+                string error = "Error: " +
                     e.ValidationExceptions.Select(x => x.Message)
                     .Aggregate((x, y) => x + ", " + y);
 
