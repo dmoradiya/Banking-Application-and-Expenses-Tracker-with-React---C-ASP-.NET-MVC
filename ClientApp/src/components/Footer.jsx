@@ -20,10 +20,10 @@ function Footer(props) {
                 <Link className="text-white general-page" to='#'>Contact</Link>
                 <Link className="text-white general-page" to='#'>Careers</Link>
                 <Link className="text-white general-page" to='/faq'>FAQs</Link>                
-                <a className="d-none d-sm-block text-white social-icons" href="https://www.facebook.com" target="_blank"><FiFacebook /></a>
-                <a className="d-none d-sm-block text-white social-icons" href="https://www.instagram.com" target="_blank"><FiInstagram /></a>
-                <a className="d-none d-sm-block text-white social-icons" href="https://www.twitter.com" target="_blank"><FiTwitter /></a>
-                <a className="d-none d-sm-block text-white social-icons" href="https://www.youtube.com" target="_blank"><FiYoutube /></a>      
+                <a className="d-none d-sm-block text-white social-icons" href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><FiFacebook /></a>
+                <a className="d-none d-sm-block text-white social-icons" href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><FiInstagram /></a>
+                <a className="d-none d-sm-block text-white social-icons" href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><FiTwitter /></a>
+                <a className="d-none d-sm-block text-white social-icons" href="https://www.youtube.com" target="_blank" rel="noopener noreferrer"><FiYoutube /></a>      
             </div>   
         </footer>
     );

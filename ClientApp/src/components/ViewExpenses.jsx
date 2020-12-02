@@ -17,7 +17,7 @@ function ViewExpenses(props) {
 
         // Link: https://medium.com/@tgknapp11/render-a-chart-with-react-minimal-pie-chart-e30420c9276c
       
-        allTransaction.map((transaction) => { /*Calculates a random color to assign to each slice of the pie chart*/
+        allTransaction.forEach((transaction) => { /*Calculates a random color to assign to each slice of the pie chart*/
             var randomColor = "#000000".replace(/0/g, function () {
                 return (~~(Math.random() * 16)).toString(16);
             });
@@ -71,8 +71,8 @@ function ViewExpenses(props) {
                         </tr>
                     </thead>
                     <tbody>
-                        {newData.map(transaction =>
-                            <tr>
+                        {newData.map((transaction, index) =>
+                            <tr key={ index }>
                                 <td>{transaction.title}</td>
                                 <td>{`$${(transaction.value).toFixed(2)}`}</td>
                                 <td>{`${Math.round((transaction.value / sum) * 100)} %`}</td>
@@ -80,8 +80,8 @@ function ViewExpenses(props) {
                         )}
                     </tbody>
                 </table>               
-                <p class="p-3 mb-2 bg-info text-white text-center">{`Total Expenses: $${(sum).toFixed(2)}`}</p>
-                <p class="p-3 mb-2 bg-info text-white text-center">Pie Chart for Tracking Expenses</p>
+                <p className="p-3 mb-2 bg-info text-white text-center">{`Total Expenses: $${(sum).toFixed(2)}`}</p>
+                <p className="p-3 mb-2 bg-info text-white text-center">Pie Chart for Tracking Expenses</p>
                 <section id="pie-chart">
                     <PieChart
                         data={newData}

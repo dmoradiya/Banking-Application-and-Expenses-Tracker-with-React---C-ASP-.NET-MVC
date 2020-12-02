@@ -118,7 +118,7 @@ function PayBills(props) {
                     <input className="form-control" id="transactionDate" type="date" onChange={handleFieldChange} />
                 </section>
                 <section className="bills-submit">
-                    <input className="form-control" type="submit" className="btn btn-info" value="Submit" />
+                    <input className="form-control btn btn-info" type="submit" value="Submit" />
                 </section>
             </form>
         </section>

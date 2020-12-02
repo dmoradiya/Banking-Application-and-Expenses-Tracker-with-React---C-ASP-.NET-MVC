@@ -39,7 +39,7 @@ function ViewTransactions(props) {
                     <thead>
                         <tr className="col-sm-4">
                             <th>Date</th>
-                            <th className="d-none d-sm-block">Source</th> {/*Will display on all but mobile phone layouts (not enough space)*/ }
+                            <th className="d-none d-sm-block">Source</th>{/*Will display on all but mobile phone layouts (not enough space)*/}
                             <th>Category</th>
                             <th>Amount</th>
                         </tr>
@@ -50,7 +50,7 @@ function ViewTransactions(props) {
                                 <td>{transaction.transactionDate.slice(0, 10)}</td>
                                 <td className="d-none d-sm-block">{transaction.transactionSource}</td>
                                 <td>{transaction.transactionCategory}</td>
-                                {transaction.transactionCategory === "Deposit" ? <td>${transaction.transactionValue}</td> : <td>{`($${transaction.transactionValue})`}</td>} {/*Displays transactions which reduce Account Balance in Brackets!*/ }                                
+                                {transaction.transactionCategory === "Deposit" ? <td>${transaction.transactionValue}</td> : <td>{`($${transaction.transactionValue})`}</td>}{/*Displays transactions which reduce Account Balance in Brackets!*/}                                
                             </tr>
                         )}
                     </tbody>
@@ -77,11 +77,12 @@ function ViewTransactions(props) {
                     break;
                 case "threeMonth":
                     setThreeMonthChecked(event.target.checked);
-                    
                     break;
                 case "sixMonth":
                     setSixMonthChecked(event.target.checked);
                     break;               
+                default:
+                    break;
         }
         // Disable other checkbox when you Click on one
         const allCheckbox = document.getElementsByClassName("checkboxes");
@@ -104,7 +105,7 @@ function ViewTransactions(props) {
     const newArray = (transactions) => {
         let currentDate = new Date();
         let currentMonth = currentDate.getMonth();
-
+        
         // get past month according to current date
         function getPastMonth(number) {
             if (currentMonth - number < 0) {
