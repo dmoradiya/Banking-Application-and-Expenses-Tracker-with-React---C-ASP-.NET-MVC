@@ -137,9 +137,35 @@ This diagram outlines the expected flow of the user throughout the website.
 
 ## Citations Summary
 
-### Random String NPM Package
-- Used to generate a random string of characters. Used in TransactionNotification page. 
-- https://www.npmjs.com/package/random-string
+### Minimalist Pie Chart Using React
+- Used to generate a pie chart using existing data from a database. Used in ViewExpenses.jsx.
+ - Link: https://medium.com/@tgknapp11/render-a-chart-with-react-minimal-pie-chart-e30420c9276c
+
+### Merge Object and sum a single property in JS
+- Used to merge objects and sum up their properties. Used in ViewExpenses.jsx.
+- Link :  https://www.tutorialspoint.com/merge-object-and-sum-a-single-property-in-javascript
+- Reference : https://dev.to/ramonak/javascript-how-to-merge-multiple-objects-with-sum-of-values-43fd
+
+### Regular Expressions for Email Form Validation 
+- Used to perform form validation and check if email includes certain characters. 
+- Link : https://stackoverflow.com/questions/43689934/regex-to-match-email
+
+### Regular Expressions for Password Form Validation 
+- Used to perform form validation and check if password includes certain characters. 
+- Link : https://stackoverflow.com/questions/46068378/regex-for-complex-password
+
+### Regular Expressions for Phone Number Form Validation 
+- Used to perform form validation and check if phone number includes certain characters. 
+- Link : https://stackoverflow.com/questions/18091324/regex-to-match-all-us-phone-number-formats
+
+### Regular Expressions for First and Last Name Form Validation 
+- Used to perform form validation and check if first and last names includes certain characters. 
+- Link : https://stackoverflow.com/questions/51262557/regex-for-first-name
+
+### Regular Expressions for Transaction Value Number Form Validation 
+- Used to perform form validation and check if transaction value includes positive double numbers only. 
+- Link : https://stackoverflow.com/questions/9107673/validate-float-number-using-regex-in-c-sharp
+
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
