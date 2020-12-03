@@ -11,7 +11,7 @@ function Login(props) {
     const [password, setPassword] = useState("");
     const [response, setResponse] = useState([]);
     const [waiting, setWaiting] = useState(false);
-    const[passwordShow, setPasswordShow] = useState(false); /*default is false. Change to true to display text instead of password mask - see line 58*/
+    const [passwordShow, setPasswordShow] = useState(false); /*default is false. Change to true to display text instead of password mask - see line 58*/
     const history = useHistory();
 
     function handleFieldChange(event) { /*Updates fields with target values*/
@@ -42,7 +42,6 @@ function Login(props) {
             }
         ).then((res) => {   /*If No errors, give success message AND then push to landing page*/
             setWaiting(false);
-            setResponse("Login Successfully");
             history.push("/landing-page");
         }
         ).catch((err) => { /*Else, give error message*/
@@ -58,13 +57,18 @@ function Login(props) {
         setPasswordShow(passwordShow ? false : true); /*Reverse the 'false' and 'true' statements to show text by default, see line 14*/
     };
 
+    const errorMsg = () => { /* If there is an error then returns className='alert alert-danger'*/
+
+        return `${!waiting && (response.length > 0) ? 'alert alert-danger' : ''}`;
+    };
+
     return (
         <section className="login-page">
             <p><img id="banner-small" className="d-block d-sm-none" src={require("./img/banner320px.png") } alt="vv bank text for small size" /></p>
             <p><img id="banner-medium" className="d-none d-sm-block d-md-none" src={require("./img/banner576px.png") } alt="vv bank text for medium size" /></p>
             <p><img id="banner-large" className="d-none d-md-block d-lg-none" src={require("./img/banner768px.png") } alt="vv bank text for large size" /></p>
             <p><img id="banner-exlarge" className="d-none d-lg-block d-xl-block" src={require("./img/banner992px.png") } alt="vv bank text for extra large size" /></p>
-            <p>{waiting ? "Logging In..." : `${response}`}</p>
+            <p id="error-msg" className={errorMsg()}>{waiting ? "Logging In..." : `${response}`}</p>
             <form className="login-form" onSubmit={handleSubmit}>
                 <section className="input-group-prepend login-prepend">
                     <label className="input-group-text login-placeholder" htmlFor="email" >Email: </label>
@@ -79,9 +83,9 @@ function Login(props) {
                     <input type="submit" className="btn btn-primary" value="Login" />
                 </section>
             </form>
-            <section className="login-submit">
-                <button className="btn btn-info">
-                    <Link to="/create-client" className="white-text">Become A Client!</Link>
+            <section  className="login-submit">
+                <button id="become-client" className="btn btn-info">
+                    <Link  to="/create-client" className="white-text">Become A Client!</Link>
                 </button>
             </section>
         </section>
