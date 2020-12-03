@@ -77,11 +77,16 @@ function CreateWithdraw(props) {
         });
     }
 
+    const errorMsg = () => { /* If there is an error then returns className='alert alert-danger'*/
+
+        return `${!waiting && (response.length > 0) ? 'alert alert-danger' : ''}`;
+    };
+
     return (
         <section className="withdraw-page">
             <Layout />
             <h1 className="withdraw-header"> Make a Withdraw </h1>
-            <p className="withdraw-error alert alert-light">{waiting ? "Waiting..." : `${response}`}</p>
+            <p id="error-msg" className={errorMsg()}>{waiting ? "Waiting..." : `${response}`}</p>
             <form className="withdraw-form" onSubmit={handleSubmit}>
                 <section className="input-group-prepend withdraw-prepend">
                     <label className="input-group-text withdraw-placeholder" htmlFor="accountID">Account</label>

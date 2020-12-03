@@ -46,15 +46,21 @@ function AddAccount(props) {
         });
     }
 
+    const errorMsg = () => { /* If there is an error then returns className='alert alert-danger'*/
+
+        return `${!waiting && (response.length > 0) ? 'alert alert-danger' : ''}`;
+    };
+
+
 
     return (
 
         <section>
             <Layout />
             <h1 className="account-header">Select An Account</h1>
-            <p>{waiting ? "Submiting..." : `${response}`}</p>
+            <p id="error-msg" className={errorMsg()}>{waiting ? "Submiting..." : `${response}`}</p>
             <form className="account-form create-account-section" onSubmit={handleSubmit}>
-                <div className="input-group-prepend">
+                <div  className="input-group-prepend">
                     <label className="input-group-text create-account-placeholder-text" htmlFor="accountType">Account Type</label>
                     <select className="form-control" id="accountType" onChange={handleFieldChange}>
                         <option value="" >Select Account</option>

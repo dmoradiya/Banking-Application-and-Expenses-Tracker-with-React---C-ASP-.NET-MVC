@@ -72,37 +72,42 @@ function CreateDeposit(props) {
 
     }
 
+    const errorMsg = () => { /* If there is an error then returns className='alert alert-danger'*/
+
+        return `${!waiting && (response.length > 0) ? 'alert alert-danger' : ''}`;
+    };
+
     return (
         <section className="deposit-page">
             <Layout />
                 <h1 className="deposit-header"> Make a Deposit </h1>
-                    <p className="deposit-error alert alert-light">{waiting ? "Waiting..." : `${response}`}</p>
-                        <form className="deposit-form" onSubmit={handleSubmit}>              
-                            <section className="input-group-prepend deposit-prepend">
-                                <label className="input-group-text deposit-placeholder" htmlFor="accountID">Account</label>
-                                    <select className="form-control" id="accountID"  onChange={handleFieldChange}>
-                                        <option value=""  >Select Account</option>
-                                            {accountInfo.map(client => (<option key={client.accountID} value={`${client.accountID}`}>
-                                            {`${client.accountType}- Total Balance: $${(client.accountBalance + client.cashback).toFixed(2)}`}</option>
-                                              ))}
-                                    </select>
-                            </section>
-                            <section className="input-group-prepend deposit-prepend">
-                                <label className="input-group-text deposit-placeholder" htmlFor="accountID">Location</label>
-                                <select className="form-control" id="transactionSource" onChange={handleFieldChange}>
-                                    <option value="" >Deposit Source</option>
-                                    <option value="Bank">Bank</option>
-                                    <option value="ATM">ATM</option>
+                <p id="error-msg" className={errorMsg()}>{waiting ? "Waiting..." : `${response}`}</p>
+                    <form className="deposit-form" onSubmit={handleSubmit}>              
+                        <section className="input-group-prepend deposit-prepend">
+                            <label className="input-group-text deposit-placeholder" htmlFor="accountID">Account</label>
+                                <select className="form-control" id="accountID"  onChange={handleFieldChange}>
+                                    <option value=""  >Select Account</option>
+                                        {accountInfo.map(client => (<option key={client.accountID} value={`${client.accountID}`}>
+                                        {`${client.accountType}- Total Balance: $${(client.accountBalance + client.cashback).toFixed(2)}`}</option>
+                                            ))}
                                 </select>
-                            </section>
-                            <section className="input-group-prepend deposit-prepend">
-                                <label className="input-group-text deposit-placeholder" htmlFor="address">Value</label>
-                                    <input className="form-control" id="transactionValue" placeholder="Transaction Value" type="text" onChange={handleFieldChange} />
-                            </section>
-                            <section className="deposit-submit">
-                                <input type="submit" className="btn btn-info dropdown-toggle" value="Submit" />
-                            </section>
-                        </form>
+                        </section>
+                        <section className="input-group-prepend deposit-prepend">
+                            <label className="input-group-text deposit-placeholder" htmlFor="accountID">Location</label>
+                            <select className="form-control" id="transactionSource" onChange={handleFieldChange}>
+                                <option value="" >Deposit Source</option>
+                                <option value="Bank">Bank</option>
+                                <option value="ATM">ATM</option>
+                            </select>
+                        </section>
+                        <section className="input-group-prepend deposit-prepend">
+                            <label className="input-group-text deposit-placeholder" htmlFor="address">Value</label>
+                                <input className="form-control" id="transactionValue" placeholder="Transaction Value" type="text" onChange={handleFieldChange} />
+                        </section>
+                        <section className="deposit-submit">
+                            <input type="submit" className="btn btn-info dropdown-toggle" value="Submit" />
+                        </section>
+                    </form>
         </section>
         );
 }

@@ -43,13 +43,16 @@ function CreateAccount(props) {
             setResponse(err.response.data);
         });
     }
+    const errorMsg = () => { /* If there is an error then returns className='alert alert-danger'*/
 
+        return `${!waiting && (response.length > 0) ? 'alert alert-danger' : ''}`;
+    };
 
     return (
         <section className="create-client">
             <h1 className="account-header">Select An Account</h1>
-            <p>{waiting ? "Submiting..." : `${response}`}</p>
             <form className="account-form create-account-section" onSubmit={handleSubmit}>
+                <p id="error-msg" className={errorMsg()}>{waiting ? "Submiting..." : `${response}`}</p>
                 <div className="input-group-prepend">
                     <label className="input-group-text create-account-placeholder-text" htmlFor="accountType">Account Type</label>
                     <select className="form-control" id="accountType" onChange={handleFieldChange}>

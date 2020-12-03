@@ -1,42 +1,44 @@
-﻿/* Aligns the header and centers it*/
-.client-header, .account-header {
+﻿.client-header, .account-header {
     text-align: center;
     background-color: #D01992;
     color: #fff;
-    margin: 0;
+    margin: 0 0 1rem 0;
     padding: 0.5rem 0 0.5rem 0;
 }
 
 .client-form, .account-form {
     margin: 1rem auto;
     width: 90vw;
+
 }
 
-/*Centers the submit button*/
 .submit-button {
    margin: 1rem auto 1rem auto;
 }
 
-/*Centers the input text and gives a sharp border radius*/
 .create-client-placeholder-text, .create-account-placeholder-text {
     text-align: center;
     width: 45vw;
     font-size: .75rem;
 }
-/* For Create Account Page to keep section centered for both horizonal and vertically */
 .create-account-section {
     top: 50%;
     left: 50%;
     transform: translate3d(-50%,-50%, 0);
     position: absolute;
 }
-/* For Small Screens*/
+#error-msg {
+    margin: 1rem auto;
+    width: 90vw;
+}
+/*For small Tablets*/
 @media only screen and (min-width: 576px) {
     .create-client-placeholder-text, .create-account-placeholder-text {
         text-align: center;
         width: 40vw;
         font-size: 1rem;
     }
+   
 }
 /*For Tablets*/
 @media only screen and (min-width: 768px) {
@@ -47,6 +49,9 @@
 
     .create-client-placeholder-text, .create-account-placeholder-text {
         width: 25vw;
+    }
+    #error-msg {
+        width: 75vw;
     }
 }
 
@@ -60,5 +65,8 @@
     }
     .create-client-placeholder-text, .create-account-placeholder-text {
         font-size: 1.2rem;
+    }
+    #error-msg {
+        width: 50vw;
     }
 }

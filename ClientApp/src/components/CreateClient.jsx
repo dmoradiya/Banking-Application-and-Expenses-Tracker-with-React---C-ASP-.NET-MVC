@@ -91,13 +91,17 @@ function CreateClient(props) {
         });
     }
 
+    const errorMsg = () => { /* If there is an error then returns className='alert alert-danger'*/
+
+        return `${ !waiting && (response.length > 0) ? 'alert alert-danger' : '' }`;
+    };
+
 
     return (
         <section className="create-client">
 
             <h1 className="client-header">Client Information</h1>
-
-            <p className="client-error alert alert-light">{waiting ? "Processing..." : `${response}`}</p>
+            <p id="error-msg" className={errorMsg()}>{waiting ? "Processing..." : `${response}`}</p>
             <div id="form-container">
                 <form className="client-form" onSubmit={handleSubmit}>
 

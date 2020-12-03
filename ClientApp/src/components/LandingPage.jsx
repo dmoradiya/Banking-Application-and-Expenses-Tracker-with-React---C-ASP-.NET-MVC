@@ -80,7 +80,7 @@ function LandingPage(props) {
     }, [loading]);
 
     let contents = loading
-        ? <p><em>Loading...</em></p>
+        ? <p><strong>Loading...</strong></p>
         : renderClientInfoTable(accountInfo);
 
     return (

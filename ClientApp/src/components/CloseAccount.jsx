@@ -63,11 +63,16 @@ function CloseAccount(props) {
        
     }
 
+    const errorMsg = () => { /* If there is an error then returns className='alert alert-danger'*/
+
+        return `${!waiting && (response.length > 0) ? 'alert alert-danger' : ''}`;
+    };
+
     return (
         <section className="close-account-page">
             <Layout />
             <h1 className="close-account-header"> Close Account </h1>
-            <p className="close-account-error alert alert-light">{waiting ? "Waiting..." : `${response}`}</p>
+            <p id="error-msg" className={errorMsg()}>{waiting ? "Waiting..." : `${response}`}</p>
             <form className="close-account-form" onSubmit={handleSubmit}>
                 <section className="input-group-prepend close-account-prepend">
 

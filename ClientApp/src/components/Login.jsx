@@ -59,7 +59,7 @@ function Login(props) {
 
     const errorMsg = () => { /* If there is an error then returns className='alert alert-danger'*/
 
-        return `${!waiting && (response.length > 0) ? 'alert alert-danger' : ''}`;
+        return `${ !waiting && (response.length > 0) ? 'alert alert-danger' : '' }`;
     };
 
     return (
@@ -76,7 +76,8 @@ function Login(props) {
                 </section>
                 <section className="input-group-prepend login-prepend">
                     <label className="input-group-text login-placeholder" htmlFor="password">Password: </label>
-                    <input className="form-control" id="password" type={passwordShow ? "text" : "password"} onChange={handleFieldChange} placeholder="Password" /> 
+                    <input className="form-control" id="password" type="text" onChange={handleFieldChange} />
+                    {/*<input className="form-control" id="password" type={passwordShow ? "text" : "password"} onChange={handleFieldChange} placeholder="Password" />*/} 
                     <span id="eye-icon" onClick={togglePassword}><FaEye /></span>
                 </section>
                 <section className="login-submit">
