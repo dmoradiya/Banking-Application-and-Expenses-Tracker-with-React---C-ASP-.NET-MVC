@@ -77,7 +77,7 @@ function ViewExpenses(props) {
                                 <td>{`$${(transaction.value).toFixed(2)}`}</td>
                                 <td>{`${Math.round((transaction.value / sum) * 100)} %`}</td>
                             </tr>
-                        )}
+                        )}    
                     </tbody>
                 </table>               
                 <p className="p-3 mb-2 bg-info text-white text-center">{`Total Expenses: $${(sum).toFixed(2)}`}</p>

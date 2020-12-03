@@ -24,15 +24,12 @@ export class NavMenu extends Component {
   render () {
     return (
       <header>
-        <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow nav-background" light>
+        <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white nav-background" light>
           <Container>
-                    <NavbarBrand className="text-dark" tag={Link} to="/landing-page">Capstone_VV</NavbarBrand>
+                    <NavbarBrand className="text-dark" tag={Link} to="/landing-page"><img className="logo-image" src={require("./img/logo.png")} alt="vv bank text" /></NavbarBrand>
                     <NavbarToggler onClick={this.toggleNavbar} className="mr-2 hamburger-icon" />
             <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
-              <ul className="navbar-nav flex-grow">               
-                <NavItem>
-                                <NavLink tag={Link} className="text-info" to="/landing-page">Home</NavLink>
-                </NavItem>  
+              <ul id="border-top" className="navbar-nav flex-grow">             
                 <NavItem>
                     <NavLink tag={Link} className="text-info" to="/create-deposit">Deposit</NavLink>
                 </NavItem> 
@@ -45,7 +42,7 @@ export class NavMenu extends Component {
                 <NavItem>
                     <NavLink tag={Link} className="text-info" to="/">Logout</NavLink>
                 </NavItem>
-                    <NavDropdown title="Manage Account" id="basic-nav-dropdown"> {/* Drop-down menu items within the Hamburger menu*/ }
+                    <NavDropdown title="Manage" id="basic-nav-dropdown"> {/* Drop-down menu items within the Hamburger menu*/ }
                     <NavDropdown.Item href="/add-account">Add Account</NavDropdown.Item>
                     <NavDropdown.Item href="/close-account">Close Account</NavDropdown.Item>
                 </NavDropdown>

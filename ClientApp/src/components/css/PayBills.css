@@ -10,12 +10,11 @@
     margin: 1rem 0.5rem;
 }
 
-.bills-submit {
-    text-align: center;
-}
-
 .bills-placeholder {
     width: 30vw;
+}
+.bills-submit {
+    text-align: center;
 }
 
 .bills-form {

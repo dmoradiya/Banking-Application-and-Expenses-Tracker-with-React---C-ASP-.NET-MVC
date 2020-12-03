@@ -93,33 +93,33 @@ function PayBills(props) {
                                 ))}
                             </select>
                     </section>
-                <section className="input-group-prepend bills-prepend">
-                    <label className="input-group-text bills-placeholder" htmlFor="transactionCategory">Category</label>
-                    <select className="form-control" id="transactionCategory" onChange={handleFieldChange}>
-                            <option value="" >Select Category</option>
-                            <option value="Food">Food</option>
-                            <option value="Rent">Rent/Mortgage</option>
-                            <option value="Utilities">Utilities</option>
-                            <option value="Entertainment">Entertainment</option>
-                            <option value="Phone">Phone</option>
-                            <option value="Internet">Internet</option>
-                            <option value="Health">Health</option>
-                            <option value="Memberships">Memberships</option>
-                            <option value="Subscriptions">Subscriptions</option>
-                            <option value="Other">Other</option>
+                    <section className="input-group-prepend bills-prepend">
+                        <label className="input-group-text bills-placeholder" htmlFor="transactionCategory">Category</label>
+                        <select className="form-control" id="transactionCategory" onChange={handleFieldChange}>
+                                <option value="" >Select Category</option>
+                                <option value="Food">Food</option>
+                                <option value="Rent">Rent/Mortgage</option>
+                                <option value="Utilities">Utilities</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Phone">Phone</option>
+                                <option value="Internet">Internet</option>
+                                <option value="Health">Health</option>
+                                <option value="Memberships">Memberships</option>
+                                <option value="Subscriptions">Subscriptions</option>
+                                <option value="Other">Other</option>
                         </select>
-                </section>
-                <section className="input-group-prepend bills-prepend">
-                    <label className="input-group-text bills-placeholder" htmlFor="transactionValue">Value</label>
-                    <input className="form-control" id="transactionValue" placeholder="Transaction Value" type="text" onChange={handleFieldChange} />
-                </section>
-                <section className="input-group-prepend bills-prepend">
-                    <label className="input-group-text bills-placeholder" htmlFor="transactionDate">Date</label>
-                    <input className="form-control" id="transactionDate" type="date" onChange={handleFieldChange} />
-                </section>
+                    </section>
+                    <section className="input-group-prepend bills-prepend">
+                            <label className="input-group-text bills-placeholder" htmlFor="transactionValue">Value</label>
+                            <input className="form-control" id="transactionValue" placeholder="Transaction Value" type="text" onChange={handleFieldChange} />
+                    </section>
+                    <section className="input-group-prepend bills-prepend">
+                        <label className="input-group-text bills-placeholder" htmlFor="transactionDate">Date</label>
+                        <input className="form-control" id="transactionDate" type="date" onChange={handleFieldChange} />
+                    </section>
                 <section className="bills-submit">
-                    <input className="form-control btn btn-info" type="submit" value="Submit" />
-                </section>
+                        <input className="btn btn-info" type="submit" value="Submit" />
+                    </section>
             </form>
         </section>
     );
