@@ -73,7 +73,7 @@ function Login(props) {
                 <section className="input-group-prepend login-prepend">
                     <label className="input-group-text login-placeholder" htmlFor="password">Password: </label>
                     <input className="form-control" id="password" type={passwordShow ? "text" : "password"} onChange={handleFieldChange} placeholder="Password" /> 
-                    <span onClick={togglePassword}><FaEye /></span>
+                    <span id="eye-icon" onClick={togglePassword}><FaEye /></span>
                 </section>
                 <section className="login-submit">
                     <input type="submit" className="btn btn-primary" value="Login" />
