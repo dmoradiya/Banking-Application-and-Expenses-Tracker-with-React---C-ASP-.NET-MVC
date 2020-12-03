@@ -1,7 +1,7 @@
 ﻿import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
-import "./css/CreateClient.css"
+import "./css/CreateAccount.css"
 
 
 function CreateAccount(props) {
@@ -49,20 +49,20 @@ function CreateAccount(props) {
     };
 
     return (
-        <section className="create-client">
+        <section>
             <h1 className="account-header">Select An Account</h1>
-            <form className="account-form create-account-section" onSubmit={handleSubmit}>
-                <p id="error-msg" className={errorMsg()}>{waiting ? "Submiting..." : `${response}`}</p>
-                <div className="input-group-prepend">
-                    <label className="input-group-text create-account-placeholder-text" htmlFor="accountType">Account Type</label>
+            <p id="error-msg" className={errorMsg()}>{waiting ? "Submiting..." : `${response}`}</p>
+            <form className="account-form" onSubmit={handleSubmit}>
+                <div className="input-group-prepend account-prepend">
+                    <label className="input-group-text account-placeholder" htmlFor="accountType">Account Type</label>
                     <select className="form-control" id="accountType" onChange={handleFieldChange}>
                         <option value="" >Select Account</option>
                         <option value="Chequing">Chequing Account</option>
                         <option value="Savings">Saving Account</option>
                     </select>
                 </div>
-                <div className="input-group-prepend">
-                    <input className="btn btn btn-info submit-button" type="submit" value="Submit" />
+                <div className="account-submit">
+                    <input className="btn btn-info" type="submit" value="Submit" />
                 </div>
             </form>
         </section>

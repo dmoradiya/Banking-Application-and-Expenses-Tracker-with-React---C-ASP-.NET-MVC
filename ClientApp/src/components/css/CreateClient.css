@@ -1,4 +1,4 @@
-﻿.client-header, .account-header {
+﻿.client-header {
     text-align: center;
     background-color: #D01992;
     color: #fff;
@@ -6,7 +6,7 @@
     padding: 0.5rem 0 0.5rem 0;
 }
 
-.client-form, .account-form {
+.client-form {
     margin: 1rem auto;
     width: 90vw;
 
@@ -16,24 +16,19 @@
    margin: 1rem auto 1rem auto;
 }
 
-.create-client-placeholder-text, .create-account-placeholder-text {
+.create-client-placeholder-text {
     text-align: center;
     width: 45vw;
     font-size: .75rem;
 }
-.create-account-section {
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%,-50%, 0);
-    position: absolute;
-}
+
 #error-msg {
     margin: 1rem auto;
     width: 90vw;
 }
 /*For small Tablets*/
 @media only screen and (min-width: 576px) {
-    .create-client-placeholder-text, .create-account-placeholder-text {
+    .create-client-placeholder-text {
         text-align: center;
         width: 40vw;
         font-size: 1rem;
@@ -43,11 +38,11 @@
 /*For Tablets*/
 @media only screen and (min-width: 768px) {
    
-    .client-form, .account-form {
+    .client-form {
         width: 75vw;
     }
 
-    .create-client-placeholder-text, .create-account-placeholder-text {
+    .create-client-placeholder-text {
         width: 25vw;
     }
     #error-msg {
@@ -57,13 +52,13 @@
 
 /*For Desktop Screens*/
 @media only screen and (min-width: 992px) {
-    .client-form, .account-form {
+    .client-form {
         width: 50vw;
     }
     .client-form input, #province, #accountType {
         font-size: 1.2rem;
     }
-    .create-client-placeholder-text, .create-account-placeholder-text {
+    .create-client-placeholder-text {
         font-size: 1.2rem;
     }
     #error-msg {
