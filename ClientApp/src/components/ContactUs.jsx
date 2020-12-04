@@ -10,7 +10,7 @@ function ContactUs(props) {
                 <div className="banner"></div>
                 <section className="contact-message">
                     <h1 className="contact-header display-3"> Contact Us </h1>
-                    <p>Have any Questions? We'd love to hear from you!</p>
+                    <p>Have any Questions? We'd love to hear from you!</p>  
 
                     <div className="card-deck">
                         <div className="card">

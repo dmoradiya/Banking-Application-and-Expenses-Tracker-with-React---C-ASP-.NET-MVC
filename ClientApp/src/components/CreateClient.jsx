@@ -1,6 +1,7 @@
 ﻿import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./css/CreateClient.css"
 
 
@@ -161,12 +162,38 @@ function CreateClient(props) {
                         <label className="input-group-text create-client-placeholder-text" htmlFor="postalCode">Postal Code</label>
                         <input className="form-control create-client-form-field" id="postalCode" type="text" onChange={handleFieldChange} />
                     </div>
-                    <div className="input-group-prepend create-client-fields">
-
-                        <input type="submit" className="btn btn btn-info submit-button" value="Next" />
+                    <div className="button-container">
+                        <div className="input-group-prepend create-client-fields">
+                            <input type="submit" className="btn btn btn-info submit-button" value="Next" />
+                        </div>
+                        <button className="btn btn-danger">
+                            <Link className="white-text" to="/">Cancel</Link>
+                        </button>
                     </div>
                 </form>
+                <section className="steppers stepper stepper-horizontal">
+                    <div>
+                        <span className="circle bg-success">1</span>
+                        <span className="label d-none d-sm-block">Client Info</span>
+                    </div>
+                    <div className="horizontal-line">
+                        <hr />
+                    </div>
+                    <div>
+                        <span className="circle">2</span>
+                        <span className="label d-none d-sm-block">Account</span>
+                    </div>
+                    <div className="horizontal-line">
+                        <hr />
+                    </div>
+                    <div>
+                        <span className="circle">3</span>
+                        <span className="label d-none d-sm-block">Success!</span>
+                    </div>
+                </section>
             </div>
+
+            
         </section>
 
     );

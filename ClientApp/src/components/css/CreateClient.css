@@ -13,7 +13,7 @@
 }
 
 .submit-button {
-   margin: 1rem auto 1rem auto;
+   
 }
 
 .create-client-placeholder-text {
@@ -26,12 +26,45 @@
     margin: 1rem auto;
     width: 90vw;
 }
+.client-form .button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 1rem 0.5rem;
+}
+.steppers {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 5rem;
+}
+.steppers .circle {
+    background-color: #737373;
+    color: #fff;
+    border-radius: 25%;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    
+}
+.steppers .horizontal-line hr {
+    width: 20vw;
+    border-top: .2rem solid #737373;
+    border-radius: 0.5rem;
+
+    
+}
 /*For small Tablets*/
 @media only screen and (min-width: 576px) {
     .create-client-placeholder-text {
         text-align: center;
         width: 40vw;
         font-size: 1rem;
+    }
+    .steppers .circle {
+        margin-left: 0.6rem;
+    }
+    .steppers .label {
+        margin-top : 0.5rem;
     }
    
 }
