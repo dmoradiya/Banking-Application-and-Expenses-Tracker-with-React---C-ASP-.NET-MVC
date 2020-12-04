@@ -25,7 +25,12 @@
     border-radius: 5px;
     padding: 1rem 0;
     background-color: #f2f2f2;
-    margin: 1rem 0.5rem;
+    margin: 1rem 0.5rem 3rem 0.5rem;
+}
+.steppers .horizontal-line-one hr {
+    width: 20vw;
+    border-top: .2rem solid #28a745;
+    border-radius: 0.5rem;
 }
 
 @media only screen and (min-width: 576px) {
@@ -34,13 +39,13 @@
     }
 
     .account-form {
-        margin: 1rem 2.5rem;
+        margin: 1rem 2.5rem 3rem  2.5rem;
     }
 }
 /*For Tablets*/
 @media only screen and (min-width: 768px) {
     .account-prepend {
-        margin: 1rem 3rem;
+        margin: 1rem 3rem 3rem 3rem;
     }
 
     .account-placeholder {
@@ -63,7 +68,7 @@
     }
 
     .account-form {
-        margin: 1rem auto;
+        margin: 1rem auto 3rem auto;
         width: 50vw;
     }
 }

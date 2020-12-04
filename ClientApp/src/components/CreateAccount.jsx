@@ -65,6 +65,26 @@ function CreateAccount(props) {
                     <input className="btn btn-info" type="submit" value="Submit" />
                 </div>
             </form>
+            <section className="steppers stepper stepper-horizontal">
+                <div>
+                    <span className="circle bg-success">1</span>
+                    <span className="label d-none d-sm-block">Client Info</span>
+                </div>
+                <div className="horizontal-line-one">
+                    <hr />
+                </div>
+                <div>
+                    <span className="circle bg-success">2</span>
+                    <span className="label d-none d-sm-block">Account</span>
+                </div>
+                <div className="horizontal-line">
+                    <hr />
+                </div>
+                <div>
+                    <span className="circle">3</span>
+                    <span className="label d-none d-sm-block">Success!</span>
+                </div>
+            </section>
         </section>
     );
 }

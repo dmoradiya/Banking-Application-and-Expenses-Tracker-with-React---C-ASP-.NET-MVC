@@ -36,7 +36,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-bottom: 5rem;
+    margin:1rem 0 5rem 0;
 }
 .steppers .circle {
     background-color: #737373;
