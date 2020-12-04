@@ -17,7 +17,7 @@ function Footer(props) {
 
         <footer className="fixed-bottom">
             <div className="d-flex justify-content-around">
-                <Link className="text-white general-page" to='#'>Contact</Link>
+                <Link className="text-white general-page" to='/contact-us'>Contact</Link>
                 <Link className="text-white general-page" to='#'>Careers</Link>
                 <Link className="text-white general-page" to='/faq'>FAQs</Link>                
                 <a className="d-none d-sm-block text-white social-icons" href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><FiFacebook /></a>

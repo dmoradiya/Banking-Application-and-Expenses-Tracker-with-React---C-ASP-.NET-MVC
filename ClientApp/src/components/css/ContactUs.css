@@ -1,0 +1,28 @@
+﻿.contact-page {
+    margin: auto;
+    text-align: center;
+}
+
+#contact-header {
+    margin: auto;
+    text-align: center;
+}
+
+#contact-paragraph {
+    margin: auto;
+    text-align: center;
+    min-width: 80vw;
+}
+
+.card-deck {
+    margin: auto;
+    min-width: 80vw;
+}
+
+.contact-message {
+    margin-bottom: 20vw;
+}
+
+.white-text {
+    color: #FFF;
+}
