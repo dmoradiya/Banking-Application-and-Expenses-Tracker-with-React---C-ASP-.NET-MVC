@@ -1,0 +1,23 @@
+﻿.faq-page {
+    margin: auto;
+    text-align: center;
+}
+
+#faq-header {
+    margin: auto;
+    text-align: center;
+}
+
+#faq-paragraph {
+    margin: auto;
+    text-align: center;
+    min-width: 80vw;
+}
+
+.faq-message {
+    margin-bottom: 20vw;
+}
+
+.white-text {
+    color: #FFF;
+}
