@@ -34,35 +34,40 @@ Connect to XAMPP and ensure you have a MySQL server database active. Update your
 dotnet ef database update
 ```
 
-Install the lastest npx packages by travelling to the ClientApp folder. 
+Install the lastest npm packages by travelling to the ClientApp folder. ```npm install``` without any argument will install all packages found in ```package.json``` in node_modules folder.
 ```bash
 cd .\ClientApp
-npx install
+npm install
 ```
 
 ## Entity Relationship Diagram
 
 This diagram outlines the relationships between the various tables in the database. 
-[Link to ERD](https://i.imgur.com/W7lWkzs.png)
+[Link to Early Version of ERD](https://i.imgur.com/W7lWkzs.png)
+
+The Latest version of the ERD can be found in the Planning folder.
 
 ## Page Flow Diagram
 
 This diagram outlines the expected flow of the user throughout the website.
 [Link to Page Flow Diagram](https://i.imgur.com/1vtVDdh.png)
 
+The Latest version of the Page Flow Diagram can be found in the Planning folder.
+
+
 ## Project Deliverables Checklist
-- [ ] GitHub link
-- [ ] README.md
-- [ ] Name of the project is included.
-- [ ] List of contributors is included.
-- [ ] Problem Statement is included.
-- [ ] Description of how the app solves the stated problem is included.
-- [ ] Instructions for installing the application are complete.
-- [ ] Instructions for using the application are complete.
-- [ ] List of all citations is complete.
-- [ ] List of test cases and testing instructions are included.
-- [ ] Link to the public Trello board is included.
-- [ ] Main branch contains all final code needed to run the project.
+- [x] GitHub link
+- [x] README.md
+- [x] Name of the project is included.
+- [x] List of contributors is included.
+- [x] Problem Statement is included.
+- [x] Description of how the app solves the stated problem is included.
+- [x] Instructions for installing the application are complete.
+- [x] Instructions for using the application are complete.
+- [x] List of all citations is complete.
+- [x] List of test cases and testing instructions are included.
+- [x] Link to the public Trello board is included.
+- [x] Main branch contains all final code needed to run the project.
 - [ ] Presentation 
 - [ ] Final Project Report
 - [ ] Satisfaction Assessment
@@ -90,9 +95,9 @@ This diagram outlines the expected flow of the user throughout the website.
 - [x] User can Close an Account, which will disable the account from being viewed and any associated transactions will be disabled. 
 
 ## Challenge Goals (Extended Scope)
-- [ ] User can access a 'Contact Us' page.
+- [x] User can access a 'Contact Us' page.
 - [x] User can access a 'FAQs' page.
-- [ ] User can access a 'Careers' page.
+- [x] User can access a 'Careers' page.
 - [x] User can access a 'Transaction Details' page, which will allow them to view their transactions in a graphical chart format.
 
 ## Testing Plan
