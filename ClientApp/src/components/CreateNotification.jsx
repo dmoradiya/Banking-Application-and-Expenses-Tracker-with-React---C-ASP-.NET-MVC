@@ -17,8 +17,28 @@ function CreateNotification(props) {
                     <Link className="white-text" to="/">
                         Login to Continue
                     </Link>
-                </button> 
+                </button>                
             </div>
+            <section id="notification-steppers" className="steppers stepper stepper-horizontal">
+                <div>
+                    <span className="circle bg-success">1</span>
+                    <span className="label d-none d-sm-block">Client Info</span>
+                </div>
+                <div className="horizontal-line-one">
+                    <hr />
+                </div>
+                <div>
+                    <span className="circle bg-success">2</span>
+                    <span className="label d-none d-sm-block">Account</span>
+                </div>
+                <div className="horizontal-line-one">
+                    <hr />
+                </div>
+                <div>
+                    <span className="circle bg-success">3</span>
+                    <span className="label d-none d-sm-block">Success!</span>
+                </div>
+            </section>           
         </section>
 
 
