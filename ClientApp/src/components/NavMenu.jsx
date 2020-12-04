@@ -42,9 +42,9 @@ export class NavMenu extends Component {
                 <NavItem>
                     <NavLink tag={Link} className="text-info" to="/">Logout</NavLink>
                 </NavItem>
-                    <NavDropdown title="Manage" id="basic-nav-dropdown"> {/* Drop-down menu items within the Hamburger menu*/ }
-                    <NavDropdown.Item href="/add-account">Add Account</NavDropdown.Item>
-                    <NavDropdown.Item href="/close-account">Close Account</NavDropdown.Item>
+                <NavDropdown title="Manage" id="basic-nav-dropdown"> {/* Drop-down menu items within the Hamburger menu*/ }
+                                <NavLink tag={Link} className="text-info" to="/add-account">A Account</NavLink>
+                                <NavLink tag={Link} className="text-info" to="/close-account">C Account</NavLink>
                 </NavDropdown>
               </ul>
             </Collapse>
