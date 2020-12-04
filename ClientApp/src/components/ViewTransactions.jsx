@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+﻿ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Layout } from '../components/Layout';
 import "./css/root.css"
@@ -132,19 +132,18 @@ function ViewTransactions(props) {
         }, []);
     }
     filteredTransactions = newArray(transactions);
-   
-    // Receiving parameter from Landing page Link
-    const { id } = props.location.state;
-    async function populateTransactionsData() {
-        const response = await axios.get(`BankAPI/ViewTransactions?id=${id}`);
-        
-        setTransactions(response.data);
-        setLoading(false);
-    }
 
     useEffect(() => { /*Prevent useEffect From Running Every Render*/
+        //Receiving parameter from Landing page Link
+        const { id } = props.location.state;
+        async function populateTransactionsData() {
+            const response = await axios.get(`BankAPI/ViewTransactions?id=${id}`);
+
+            setTransactions(response.data);
+            setLoading(false);
+        }
         populateTransactionsData();
-    },[loading]);
+    }, [props.location.state]);
 
     let contents = loading
         ? <p><em>Loading...</em></p>
