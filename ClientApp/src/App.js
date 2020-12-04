@@ -17,6 +17,7 @@ import { Footer } from './components/Footer';
 import { ViewExpenses } from './components/ViewExpenses';
 import { FAQ } from './components/FAQ';
 import { ContactUs } from './components/ContactUs';
+import { Careers } from './components/Careers';
 
 import { TransactionNotification } from './components/TransactionNotification';
 
@@ -43,6 +44,8 @@ export default class App extends Component {
         <Route exact path='/view-expenses' component={ViewExpenses} />
         <Route exact path='/faq' component={FAQ} />
         <Route exact path='/contact-us' component={ContactUs} />
+        <Route exact path='/careers' component={Careers} />
+
 
         <Footer />
       </Router>

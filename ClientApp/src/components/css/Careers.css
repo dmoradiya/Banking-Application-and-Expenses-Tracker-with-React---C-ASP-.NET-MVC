@@ -1,0 +1,28 @@
+﻿.careers-page {
+    margin: auto;
+    text-align: center;
+}
+
+#careers-header {
+    margin: auto;
+    text-align: center;
+}
+
+#careers-paragraph {
+    margin: auto;
+    text-align: center;
+    min-width: 80vw;
+}
+
+.card-deck {
+    margin: auto;
+    min-width: 80vw;
+}
+
+.careers-message {
+    margin-bottom: 20vw;
+}
+
+.white-text {
+    color: #FFF;
+}
