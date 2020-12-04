@@ -7,10 +7,7 @@ function Careers(props) {
     return (
         <section>
             <section className="careers-page">
-                <p><img id="banner-small" className="d-block d-sm-none" src={require("./img/banner320px.png")} alt="vv bank text for small size" /></p>
-                <p><img id="banner-medium" className="d-none d-sm-block d-md-none" src={require("./img/banner576px.png")} alt="vv bank text for medium size" /></p>
-                <p><img id="banner-large" className="d-none d-md-block d-lg-none" src={require("./img/banner768px.png")} alt="vv bank text for large size" /></p>
-                <p><img id="banner-exlarge" className="d-none d-lg-block d-xl-block" src={require("./img/banner992px.png")} alt="vv bank text for extra large size" /></p>
+                <div className="banner"></div>  
                 <section className="careers-message">
                     <h1 className="careers-header display-3"> Careers </h1>
                     <p>Do you have experience in the banking industry and/or know how to code? We'd love to hear from you!</p>

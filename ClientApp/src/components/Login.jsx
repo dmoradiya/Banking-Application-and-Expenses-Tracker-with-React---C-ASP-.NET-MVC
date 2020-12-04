@@ -64,10 +64,7 @@ function Login(props) {
 
     return (
         <section className="login-page">
-            <p><img id="banner-small" className="d-block d-sm-none" src={require("./img/banner320px.png") } alt="vv bank text for small size" /></p>
-            <p><img id="banner-medium" className="d-none d-sm-block d-md-none" src={require("./img/banner576px.png") } alt="vv bank text for medium size" /></p>
-            <p><img id="banner-large" className="d-none d-md-block d-lg-none" src={require("./img/banner768px.png") } alt="vv bank text for large size" /></p>
-            <p><img id="banner-exlarge" className="d-none d-lg-block d-xl-block" src={require("./img/banner992px.png") } alt="vv bank text for extra large size" /></p>
+            <div className="banner"></div>            
             <p id="error-msg" className={errorMsg()}>{waiting ? "Logging In..." : `${response}`}</p>
             <form className="login-form" onSubmit={handleSubmit}>
                 <section className="input-group-prepend login-prepend">
