@@ -154,6 +154,14 @@ namespace Capstone_VV.Controllers
                // 5% Cashback on every Bill Payment
                 result.Cashback += double.Parse(transactionValue) * 0.05;
 
+                // If Cashack amount reaches $100 or more then it will automatically transafer all Cashback Balance to Account Balance
+                // Update Cashback amount back to $0.
+                if (result.Cashback >= 100)
+                {
+                    result.AccountBalance += result.Cashback;
+                    result.Cashback -= result.Cashback;
+                }
+
                 context.SaveChanges();
                 return result;
             }
