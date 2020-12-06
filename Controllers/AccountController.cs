@@ -31,12 +31,9 @@ namespace Capstone_VV.Controllers
         // Create New Account For New Client
         public Account CreateAccount(string accountType)
         {
-
             accountType = new ClientController().StringValidation("Dropdown", accountType);
             using (BankContext context = new BankContext())
             {
-
-               
                 Account newAccount = new Account()
                 {
                     ClientID = new ClientController().GetClientCreateID(),
@@ -173,8 +170,8 @@ namespace Capstone_VV.Controllers
 
             using (BankContext context = new BankContext())
             {
-
-                result = context.Accounts.Include(x=>x.Transactions).Where(x => x.AccountID == int.Parse(accountID)).SingleOrDefault();
+                result = context.Accounts.Include(x=>x.Transactions)
+                        .Where(x => x.AccountID == int.Parse(accountID)).SingleOrDefault();
                 result.IsActive = false;
                 context.SaveChanges();
                 return result;

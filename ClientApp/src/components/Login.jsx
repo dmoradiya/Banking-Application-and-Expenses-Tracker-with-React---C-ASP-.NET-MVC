@@ -48,8 +48,6 @@ function Login(props) {
             setWaiting(false);
             setResponse(err.response.data);
         });
-
-
     }
 
     function togglePassword(event) {    /*Allows user to hide or display password field with a mask -> Defaults to False therefore does not show text*/

@@ -104,7 +104,8 @@ namespace Capstone_VV.Controllers
 
             using (BankContext context = new BankContext())
             {
-                result = context.Transactions.Include(x => x.Account).Where(x => x.Account.AccountID == int.Parse(accountID)).ToList();
+                result = context.Transactions.Include(x => x.Account)
+                         .Where(x => x.Account.AccountID == int.Parse(accountID)).ToList();
 
                 foreach (Transaction transaction in result)
                 {
