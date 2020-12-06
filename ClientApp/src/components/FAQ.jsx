@@ -18,6 +18,8 @@ function FAQ(props) {
                     <p>A: According to creditcanada.com, 35% Housing, 15% Food, 15% Transportation, 10% Utilities, 10% Debt Payments, 5% Savings, 2.5% Clothing, 2.5% Medical, 5% Other is a good benchmark!</p>
                     <p className="form-control" id="faq-paragraph lead"><strong> Q: What can I do to save more money?</strong></p>
                     <p>A: Create a budget. Our planners would be happy to assist you. See our contact page for more details!</p>
+                    <p className="form-control" id="faq-paragraph lead"><strong> Q: What's all this about Cash Back?</strong></p>
+                    <p>A: When you pay your bills, we'll deposit 5% of the amount you spend into a cashback account. When that account reaches $100, we'll automatically redeem it back into your account!</p>
                             <button className="btn btn-info">
                                 <Link className="white-text" to="/">Return To Login Page</Link>
                             </button>
