@@ -25,11 +25,13 @@ namespace Capstone_VV.Controllers
 
             using (BankContext context = new BankContext())
             {
-                if (string.IsNullOrWhiteSpace(email) && string.IsNullOrWhiteSpace(password))
+               
+                if (string.IsNullOrWhiteSpace(email) && string.IsNullOrWhiteSpace(password) || (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password)))
                 {
                     exception.ValidationExceptions.Add(new Exception("Email and Password are Required"));
                 }
-                else if (!context.Clients.Any(x => x.EmailAddress.ToLower() == email.ToLower() && x.Password == password))
+               
+                else if (!context.Clients.Any(x => x.EmailAddress.ToLower() == email.ToLower()))
                 {
                     exception.ValidationExceptions.Add(new Exception("The email and/or password you entered was incorrect. Please try again."));
                 }
@@ -38,9 +40,22 @@ namespace Capstone_VV.Controllers
                 {
                     throw exception;
                 }
+                // Verify Password with the Database
+                result = context.Clients.Where(x => x.EmailAddress.ToLower() == email.ToLower()).SingleOrDefault();
+                bool verified = BCrypt.Net.BCrypt.Verify(password, result.Password);
 
-                result = context.Clients.Where(x => x.EmailAddress == email && x.Password == password).SingleOrDefault();
-                clientID = result.ClientID;
+                if (verified)
+                {
+                    clientID = result.ClientID;
+                }
+                else
+                {
+                    exception.ValidationExceptions.Add(new Exception("Wrong Password!. Please try again."));
+                }
+                if (exception.ValidationExceptions.Count > 0)
+                {
+                    throw exception;
+                }
             }
             return result;
         }
@@ -68,8 +83,8 @@ namespace Capstone_VV.Controllers
                 Client newClient = new Client() /*Creates a new client using variables above*/
                 {
                    EmailAddress = email,
-                   Password = password,
-                   PhoneNumber = phone,
+                   Password = BCrypt.Net.BCrypt.HashPassword(password), /*Hashing password through Bcrypt.net-next*/
+                    PhoneNumber = phone,
                    FirstName = fname,
                    LastName = lname,
                    DateOfBirth = DateTime.Parse(dateOfBirth),
@@ -82,8 +97,13 @@ namespace Capstone_VV.Controllers
                 context.Clients.Add(newClient); /*Adds a new Client to the database*/
                 context.SaveChanges(); 
 
-                result = context.Clients.Where(x => x.EmailAddress == email && x.Password == password).SingleOrDefault();
-                clientCreateID = result.ClientID;
+                result = context.Clients.Where(x => x.EmailAddress == email).SingleOrDefault();
+                bool verified = BCrypt.Net.BCrypt.Verify(password, result.Password);
+                if (verified)
+                {
+                    clientCreateID = result.ClientID;
+                }
+                
 
                 return newClient;
             }
