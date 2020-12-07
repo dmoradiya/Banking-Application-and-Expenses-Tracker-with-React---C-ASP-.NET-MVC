@@ -94,15 +94,15 @@ function CreateWithdraw(props) {
                         <option value="" >Select Account</option>
                             {accountInfo.map(client => (
                         <option key={client.accountID} value={`${client.accountID}`}>
-                            {`${client.accountType}- Total Balance: $${(client.accountBalance).toFixed(2)}`}
+                            {`${client.accountType}: $${(client.accountBalance).toFixed(2)}`}
                         </option>
                     ))}
                     </select>
                     </section>
                 <section className="input-group-prepend withdraw-prepend">
                     <label className="input-group-text withdraw-placeholder" htmlFor="transactionSource">Location</label>
-                <select className="form-control" id="transactionSource" onChange={handleFieldChange}>
-                    <option value="" >Deposit Source</option>
+                <select className="form-control select-option" id="transactionSource" onChange={handleFieldChange}>
+                        <option value="" >Source</option>
                     <option value="Bank">Bank</option>
                     <option value="ATM">ATM</option>
                     </select>

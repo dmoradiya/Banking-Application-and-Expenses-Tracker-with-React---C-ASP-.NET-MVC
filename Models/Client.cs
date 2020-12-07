@@ -27,8 +27,8 @@ namespace Capstone_VV.Models
         [Required]
         public string EmailAddress { get; set; }
 
-        // Password varchar(50) NOT NULL
-        [Column(TypeName = "varchar(50)")]
+        // Password varchar(100) NOT NULL
+        [Column(TypeName = "varchar(100)")]
         [Required]
         public string Password { get; set; }
 
