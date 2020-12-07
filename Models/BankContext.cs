@@ -351,7 +351,7 @@ namespace Capstone_VV.Models
                 {
                     ClientID = 1,
                     EmailAddress = "johndoe123@gmail.com",
-                    Password = "John123!Unknown",
+                    Password = "$2a$11$VA8lRhjgEsQvSrmoeWzyo.2U3j.LTkqpxcYwJZgf4aX5zGMifwrde",
                     PhoneNumber = "7804188874",
                     FirstName = "John",
                     LastName = "Doe",
@@ -365,7 +365,7 @@ namespace Capstone_VV.Models
                {
                    ClientID = 2,
                    EmailAddress = "trevorbelmont123@gmail.com",
-                   Password = "Draculasux@lif3",
+                   Password = "$2a$11$95Aao/mZ8sq7dimAwqRoS.ZWdK0Id7X6cqigHuz9kMl./rGbPzhKy",
                    PhoneNumber = "7804442121",
                    FirstName = "Trevor",
                    LastName = "Belmont",
@@ -379,7 +379,7 @@ namespace Capstone_VV.Models
                {
                    ClientID = 3,
                    EmailAddress = "richardrich@gmail.com",
-                   Password = "Therich123!@#",
+                   Password = "$2a$11$vzGYLnnCNrh1ua6.fKhyBuCrpaPKbkC9kMd49Xh.n7EuZtZBmrUpq",
                    PhoneNumber = "7771115454",
                    FirstName = "Richard",
                    LastName = "Rich",
@@ -393,7 +393,7 @@ namespace Capstone_VV.Models
                {
                    ClientID = 4,
                    EmailAddress = "brokeasajoke@gmail.com",
-                   Password = "password123@JOKE",
+                   Password = "$2a$11$ROC9MfwZPA1V2OflUsXNsusWjyMyWWKymHI4Spi2fMqFYuIH1Aivm",
                    PhoneNumber = "7809198888",
                    FirstName = "Bruce",
                    LastName = "Hunter",
