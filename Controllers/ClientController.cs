@@ -23,8 +23,7 @@ namespace Capstone_VV.Controllers
             Client result;
             ValidationException exception = new ValidationException();
 
-            using (BankContext context = new BankContext())
-            {
+            using (BankContext context = new BankContext())            {
                
                 if (string.IsNullOrWhiteSpace(email) && string.IsNullOrWhiteSpace(password) || (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password)))
                 {
