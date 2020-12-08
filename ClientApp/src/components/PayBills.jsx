@@ -116,7 +116,8 @@ function PayBills(props) {
                         <select className="form-control" id="transactionCategory" onChange={handleFieldChange}>
                                 <option value="" >Select Category</option>
                                 <option value="Food">Food</option>
-                                <option value="Rent">Rent/Mortgage</option>
+                                <option value="Housing">Housing</option>
+                                <option value="Clothing">Clothing</option>
                                 <option value="Utilities">Utilities</option>
                                 <option value="Entertainment">Entertainment</option>
                                 <option value="Phone">Phone</option>
@@ -124,6 +125,8 @@ function PayBills(props) {
                                 <option value="Health">Health</option>
                                 <option value="Memberships">Memberships</option>
                                 <option value="Subscriptions">Subscriptions</option>
+                                <option value="Debt">Debt</option>
+                                <option value="Savings">Savings</option>
                                 <option value="Other">Other</option>
                         </select>
                     </section>

@@ -45,7 +45,7 @@ namespace Capstone_VV.Models
                 entity.HasIndex(e => e.AccountID).HasName(keyToAccount);
 
                 entity.HasOne(thisEntity => thisEntity.Account)
-                .WithMany(parent => parent.Transactions)
+                .WithMany(paHousing => paHousing.Transactions)
                 .HasForeignKey(thisEntity => thisEntity.AccountID)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName(keyToAccount);
@@ -67,7 +67,7 @@ namespace Capstone_VV.Models
                     TransactionID = 2,
                     AccountID = 1,
                     TransactionSource = "Bill Payment",
-                    TransactionCategory = "Rent",
+                    TransactionCategory = "Housing",
                     TransactionValue = 1100.00,
                     TransactionDate = new DateTime(2020, 07, 29),
                     IsTransactionActive = true
@@ -227,7 +227,7 @@ namespace Capstone_VV.Models
                     TransactionID = 18,
                     AccountID = 4,
                     TransactionSource = "Bill Payment",
-                    TransactionCategory = "Rent",
+                    TransactionCategory = "Housing",
                     TransactionValue = 800.00,
                     TransactionDate = new DateTime(2020, 07, 29),
                     IsTransactionActive = true
@@ -249,7 +249,197 @@ namespace Capstone_VV.Models
                     TransactionSource = "Bill Payment",
                     TransactionCategory = "Internet",
                     TransactionValue = 84.23,
-                    TransactionDate = new DateTime(2020, 10, 16),
+                    TransactionDate = new DateTime(2020, 07, 16),
+                    IsTransactionActive = true
+                },
+                new Transaction()
+                {
+                    TransactionID = 21,
+                    AccountID = 4,
+                    TransactionSource = "Bill Payment",
+                    TransactionCategory = "Housing",
+                    TransactionValue = 1750.00,
+                    TransactionDate = new DateTime(2020, 07, 15),
+                    IsTransactionActive = true
+                },
+                new Transaction()
+                {
+                    TransactionID = 22,
+                    AccountID = 4,
+                    TransactionSource = "Bill Payment",
+                    TransactionCategory = "Food",
+                    TransactionValue = 750,
+                    TransactionDate = new DateTime(2020, 07, 15),
+                    IsTransactionActive = true
+                },
+                new Transaction()
+                {
+                    TransactionID = 23,
+                    AccountID = 4,
+                    TransactionSource = "Bill Payment",
+                    TransactionCategory = "Transportation",
+                    TransactionValue = 750,
+                    TransactionDate = new DateTime(2020, 07, 15),
+                    IsTransactionActive = true
+                },
+                new Transaction()
+                {
+                    TransactionID = 24,
+                    AccountID = 4,
+                    TransactionSource = "Bill Payment",
+                    TransactionCategory = "Utilities",
+                    TransactionValue = 500,
+                    TransactionDate = new DateTime(2020, 07, 15),
+                    IsTransactionActive = true
+                },
+                new Transaction()
+                {
+                    TransactionID = 25,
+                    AccountID = 4,
+                    TransactionSource = "Bill Payment",
+                    TransactionCategory = "Debt Payments",
+                    TransactionValue = 500,
+                    TransactionDate = new DateTime(2020, 07, 15),
+                    IsTransactionActive = true
+                },
+                new Transaction()
+                {
+                    TransactionID = 26,
+                    AccountID = 4,
+                    TransactionSource = "Bill Payment",
+                    TransactionCategory = "Savings",
+                    TransactionValue = 250,
+                    TransactionDate = new DateTime(2020, 07, 16),
+                    IsTransactionActive = true
+                },
+                new Transaction()
+                {
+                    TransactionID = 27,
+                    AccountID = 4,
+                    TransactionSource = "Bill Payment",
+                    TransactionCategory = "Clothing",
+                    TransactionValue = 125,
+                    TransactionDate = new DateTime(2020, 07, 16),
+                    IsTransactionActive = true
+                },
+                new Transaction()
+                {
+                    TransactionID = 28,
+                    AccountID = 4,
+                    TransactionSource = "Bill Payment",
+                    TransactionCategory = "Health",
+                    TransactionValue = 125,
+                    TransactionDate = new DateTime(2020, 07, 16),
+                    IsTransactionActive = true
+                },
+                new Transaction()
+                {
+                    TransactionID = 29,
+                    AccountID = 4,
+                    TransactionSource = "Bill Payment",
+                    TransactionCategory = "Other",
+                    TransactionValue = 250,
+                    TransactionDate = new DateTime(2020, 07, 16),
+                    IsTransactionActive = true
+                },
+                new Transaction()
+                {
+                    TransactionID = 30,
+                    AccountID = 4,
+                    TransactionSource = "Bill Payment",
+                    TransactionCategory = "Internet",
+                    TransactionValue = 60,
+                    TransactionDate = new DateTime(2020, 08, 16),
+                    IsTransactionActive = true
+                },
+                new Transaction()
+                {
+                    TransactionID = 31,
+                    AccountID = 4,
+                    TransactionSource = "Bill Payment",
+                    TransactionCategory = "Housing",
+                    TransactionValue = 1750.00,
+                    TransactionDate = new DateTime(2020, 08, 15),
+                    IsTransactionActive = true
+                },
+                new Transaction()
+                {
+                    TransactionID = 32,
+                    AccountID = 4,
+                    TransactionSource = "Bill Payment",
+                    TransactionCategory = "Food",
+                    TransactionValue = 850,
+                    TransactionDate = new DateTime(2020, 08, 15),
+                    IsTransactionActive = true
+                },
+                new Transaction()
+                {
+                    TransactionID = 33,
+                    AccountID = 4,
+                    TransactionSource = "Bill Payment",
+                    TransactionCategory = "Transportation",
+                    TransactionValue = 900,
+                    TransactionDate = new DateTime(2020, 08, 15),
+                    IsTransactionActive = true
+                },
+                new Transaction()
+                {
+                    TransactionID = 34,
+                    AccountID = 4,
+                    TransactionSource = "Bill Payment",
+                    TransactionCategory = "Utilities",
+                    TransactionValue = 500,
+                    TransactionDate = new DateTime(2020, 08, 15),
+                    IsTransactionActive = true
+                },
+                new Transaction()
+                {
+                    TransactionID = 35,
+                    AccountID = 4,
+                    TransactionSource = "Bill Payment",
+                    TransactionCategory = "Debt Payments",
+                    TransactionValue = 400,
+                    TransactionDate = new DateTime(2020, 08, 15),
+                    IsTransactionActive = true
+                },
+                new Transaction()
+                {
+                    TransactionID = 36,
+                    AccountID = 4,
+                    TransactionSource = "Bill Payment",
+                    TransactionCategory = "Savings",
+                    TransactionValue = 250,
+                    TransactionDate = new DateTime(2020, 08, 16),
+                    IsTransactionActive = true
+                },
+                new Transaction()
+                {
+                    TransactionID = 37,
+                    AccountID = 4,
+                    TransactionSource = "Bill Payment",
+                    TransactionCategory = "Clothing",
+                    TransactionValue = 110,
+                    TransactionDate = new DateTime(2020, 08, 16),
+                    IsTransactionActive = true
+                },
+                new Transaction()
+                {
+                    TransactionID = 38,
+                    AccountID = 4,
+                    TransactionSource = "Bill Payment",
+                    TransactionCategory = "Health",
+                    TransactionValue = 125,
+                    TransactionDate = new DateTime(2020, 08, 16),
+                    IsTransactionActive = true
+                },
+                new Transaction()
+                {
+                    TransactionID = 39,
+                    AccountID = 4,
+                    TransactionSource = "Bill Payment",
+                    TransactionCategory = "Other",
+                    TransactionValue = 250,
+                    TransactionDate = new DateTime(2020, 08, 16),
                     IsTransactionActive = true
                 }
 
@@ -270,7 +460,7 @@ namespace Capstone_VV.Models
                 entity.HasIndex(e => e.ClientID).HasName(keyToClient);
 
                 entity.HasOne(thisEntity => thisEntity.Client)
-                .WithMany(parent => parent.Accounts)
+                .WithMany(paHousing => paHousing.Accounts)
                 .HasForeignKey(thisEntity => thisEntity.ClientID)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName(keyToClient);

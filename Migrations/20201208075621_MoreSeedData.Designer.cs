@@ -3,14 +3,16 @@ using System;
 using Capstone_VV.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Capstone_VV.Migrations
 {
     [DbContext(typeof(BankContext))]
-    partial class BankContextModelSnapshot : ModelSnapshot
+    [Migration("20201208075621_MoreSeedData")]
+    partial class MoreSeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -283,7 +285,7 @@ namespace Capstone_VV.Migrations
                             TransactionID = 2,
                             AccountID = 1,
                             IsTransactionActive = true,
-                            TransactionCategory = "Housing",
+                            TransactionCategory = "Rent",
                             TransactionDate = new DateTime(2020, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bill Payment",
                             TransactionValue = 1100.0
@@ -443,7 +445,7 @@ namespace Capstone_VV.Migrations
                             TransactionID = 18,
                             AccountID = 4,
                             IsTransactionActive = true,
-                            TransactionCategory = "Housing",
+                            TransactionCategory = "Rent",
                             TransactionDate = new DateTime(2020, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bill Payment",
                             TransactionValue = 800.0
@@ -464,7 +466,7 @@ namespace Capstone_VV.Migrations
                             AccountID = 4,
                             IsTransactionActive = true,
                             TransactionCategory = "Internet",
-                            TransactionDate = new DateTime(2020, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionDate = new DateTime(2020, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bill Payment",
                             TransactionValue = 84.230000000000004
                         },
@@ -555,106 +557,6 @@ namespace Capstone_VV.Migrations
                             IsTransactionActive = true,
                             TransactionCategory = "Other",
                             TransactionDate = new DateTime(2020, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Bill Payment",
-                            TransactionValue = 250.0
-                        },
-                        new
-                        {
-                            TransactionID = 30,
-                            AccountID = 4,
-                            IsTransactionActive = true,
-                            TransactionCategory = "Internet",
-                            TransactionDate = new DateTime(2020, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Bill Payment",
-                            TransactionValue = 60.0
-                        },
-                        new
-                        {
-                            TransactionID = 31,
-                            AccountID = 4,
-                            IsTransactionActive = true,
-                            TransactionCategory = "Housing",
-                            TransactionDate = new DateTime(2020, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Bill Payment",
-                            TransactionValue = 1750.0
-                        },
-                        new
-                        {
-                            TransactionID = 32,
-                            AccountID = 4,
-                            IsTransactionActive = true,
-                            TransactionCategory = "Food",
-                            TransactionDate = new DateTime(2020, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Bill Payment",
-                            TransactionValue = 850.0
-                        },
-                        new
-                        {
-                            TransactionID = 33,
-                            AccountID = 4,
-                            IsTransactionActive = true,
-                            TransactionCategory = "Transportation",
-                            TransactionDate = new DateTime(2020, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Bill Payment",
-                            TransactionValue = 900.0
-                        },
-                        new
-                        {
-                            TransactionID = 34,
-                            AccountID = 4,
-                            IsTransactionActive = true,
-                            TransactionCategory = "Utilities",
-                            TransactionDate = new DateTime(2020, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Bill Payment",
-                            TransactionValue = 500.0
-                        },
-                        new
-                        {
-                            TransactionID = 35,
-                            AccountID = 4,
-                            IsTransactionActive = true,
-                            TransactionCategory = "Debt Payments",
-                            TransactionDate = new DateTime(2020, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Bill Payment",
-                            TransactionValue = 400.0
-                        },
-                        new
-                        {
-                            TransactionID = 36,
-                            AccountID = 4,
-                            IsTransactionActive = true,
-                            TransactionCategory = "Savings",
-                            TransactionDate = new DateTime(2020, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Bill Payment",
-                            TransactionValue = 250.0
-                        },
-                        new
-                        {
-                            TransactionID = 37,
-                            AccountID = 4,
-                            IsTransactionActive = true,
-                            TransactionCategory = "Clothing",
-                            TransactionDate = new DateTime(2020, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Bill Payment",
-                            TransactionValue = 110.0
-                        },
-                        new
-                        {
-                            TransactionID = 38,
-                            AccountID = 4,
-                            IsTransactionActive = true,
-                            TransactionCategory = "Health",
-                            TransactionDate = new DateTime(2020, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Bill Payment",
-                            TransactionValue = 125.0
-                        },
-                        new
-                        {
-                            TransactionID = 39,
-                            AccountID = 4,
-                            IsTransactionActive = true,
-                            TransactionCategory = "Other",
-                            TransactionDate = new DateTime(2020, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bill Payment",
                             TransactionValue = 250.0
                         });
