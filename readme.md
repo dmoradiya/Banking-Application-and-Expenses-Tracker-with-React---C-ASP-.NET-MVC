@@ -26,6 +26,8 @@ Microsoft.EntityFrameworkCore.Design - Version 3.1.9
 Microsoft.EntityFrameworkCore.SqlServer - Version 3.1.9
 
 Pomelo.EntityFrameworkCore.MySql - Version 3.2.4
+
+BCrypt.Net-Next - Version 4.0.2
 ```
 
 
