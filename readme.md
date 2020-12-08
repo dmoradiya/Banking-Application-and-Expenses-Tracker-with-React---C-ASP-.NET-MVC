@@ -106,6 +106,12 @@ The Latest version of the Page Flow Diagram can be found in the Planning folder.
 - In order to login you must pass a valid email and a valid password. 
 - A valid email includes an @ symbol
 - A valid password is at least 8 characters long, includes uppercase letters, lowercase letters, numbers, and must have at least one special character. 
+- This website uses Encrypted Passwords. Once a password is created, it's encrypted into a random string and stored in the database as a random string. Please make sure to remember your password! The database will not be able to 'remember' it for you.
+- Example User #1 - johndoe123@gmail.com - Password: John123!Unknown
+- Example User #2 - trevorbelmont123@gmail.com - Password: Draculasux@lif3
+- Example User #3 - richardrich@gmail.com - Password: Therich123!@#
+- Example User #4 - brokeasajoke@gmail.com - Password: password123@JOKE
+
 ### Create Client Page
 - In order to create a Client you must pass a valid email, a valid password, a valid phone number, a valid first and last name, a valid date of birth, a valid address, a valid city, a valid province, and a valid postal code. 
 - A valid email includes an @ symbol
