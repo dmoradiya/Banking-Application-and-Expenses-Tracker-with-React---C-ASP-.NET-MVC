@@ -75,6 +75,19 @@ function PayBills(props) {
         });
 
     }
+    // Get Today's Date in YY-MM-DD
+    function disablePastDate() {
+        let today = new Date();
+        let month = today.getMonth() + 1;     // getMonth() is zero-based
+        let day = today.getDate();
+        let year = today.getFullYear();
+        if (month < 10)
+            month = '0' + month.toString();
+        if (day < 10)
+            day = '0' + day.toString();
+
+        return year + '-' + month + '-' + day;
+    }
 
     const errorMsg = () => { /* If there is an error then returns className='alert alert-danger'*/
 
@@ -120,7 +133,7 @@ function PayBills(props) {
                     </section>
                     <section className="input-group-prepend bills-prepend">
                         <label className="input-group-text bills-placeholder" htmlFor="transactionDate">Date</label>
-                        <input className="form-control" id="transactionDate" type="date" onChange={handleFieldChange} />
+                    <input className="form-control" id="transactionDate" type="date" min={disablePastDate()} onChange={handleFieldChange} />
                     </section>
                 <section className="bills-submit">
                         <input className="btn btn-info" type="submit" value="Submit" />

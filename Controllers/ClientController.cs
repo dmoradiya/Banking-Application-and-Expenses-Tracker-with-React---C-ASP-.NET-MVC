@@ -209,6 +209,43 @@ namespace Capstone_VV.Controllers
                         return input;
                     }
                 }
+                else if (inputType == "TransactionValue")
+                {
+
+                    // Citation start : Regex for Transaction Value positve double numbers only
+                    // Link : https://stackoverflow.com/questions/9107673/validate-float-number-using-regex-in-c-sharp
+                    Regex rgx = new Regex(@"^[0-9]*(?:\.[0-9]+)?$");
+                    // Citation End
+                    if (string.IsNullOrWhiteSpace(input))
+                    {
+                        exception.ValidationExceptions.Add(new Exception("Transaction Value is Required"));
+                    }
+                    else if (!rgx.IsMatch(input))
+                    {
+                        exception.ValidationExceptions.Add(new Exception("Please Enter Valid Transaction Value"));
+                    }
+                    else
+                    {
+                        return input;
+                    }
+                }
+                else if (inputType == "PostalCode")
+                {
+
+                    Regex rgx = new Regex(@"^([a-zA-Z]\d[a-zA-Z]( )?\d[a-zA-Z]\d)$");
+                    if (string.IsNullOrWhiteSpace(input))
+                    {
+                        exception.ValidationExceptions.Add(new Exception("Postal Code is Required"));
+                    }
+                    else if (!rgx.IsMatch(input))
+                    {
+                        exception.ValidationExceptions.Add(new Exception("Please Enter Valid Postal Code"));
+                    }
+                    else
+                    {
+                        return input;
+                    }
+                }
                 else if (inputType == "DateOfBirth")
                 {
                     if (string.IsNullOrWhiteSpace(input))
@@ -269,23 +306,7 @@ namespace Capstone_VV.Controllers
                         return input;
                     }
                 }
-                else if (inputType == "PostalCode")
-                {
-                    
-                    Regex rgx = new Regex(@"^([a-zA-Z]\d[a-zA-Z]( )?\d[a-zA-Z]\d)$");
-                    if (string.IsNullOrWhiteSpace(input))
-                    {
-                        exception.ValidationExceptions.Add(new Exception("Postal Code is Required"));
-                    }
-                    else if (!rgx.IsMatch(input))
-                    {
-                        exception.ValidationExceptions.Add(new Exception("Please Enter Valid Postal Code"));
-                    }
-                    else
-                    {
-                        return input;
-                    }
-                }
+               
                 else if (inputType == "Dropdown")
                 {
                     if (string.IsNullOrWhiteSpace(input))
@@ -297,26 +318,7 @@ namespace Capstone_VV.Controllers
                         return input;
                     }
                 }
-                else if (inputType == "TransactionValue")
-                {
-
-                    // Citation start : Regex for Transaction Value positve double numbers only
-                    // Link : https://stackoverflow.com/questions/9107673/validate-float-number-using-regex-in-c-sharp
-                    Regex rgx = new Regex(@"^[0-9]*(?:\.[0-9]+)?$");
-                    // Citation End
-                    if (string.IsNullOrWhiteSpace(input))
-                    {
-                        exception.ValidationExceptions.Add(new Exception("Transaction Value is Required"));
-                    }
-                    else if (!rgx.IsMatch(input))
-                    {
-                        exception.ValidationExceptions.Add(new Exception("Please Enter Valid Transaction Value"));
-                    }
-                    else
-                    {
-                        return input;
-                    }
-                }
+               
                 else if (inputType == "TransactionDate")
                 {
                     if (string.IsNullOrWhiteSpace(input))

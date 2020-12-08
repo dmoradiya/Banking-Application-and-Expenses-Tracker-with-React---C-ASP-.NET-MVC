@@ -92,6 +92,20 @@ function CreateClient(props) {
         });
     }
 
+    // Get Today's Date in YY-MM-DD
+    function disableFutureDate() {
+        let today = new Date();
+        let month = today.getMonth() + 1;     // getMonth() is zero-based
+        let day = today.getDate();
+        let year = today.getFullYear();
+        if (month < 10)
+            month = '0' + month.toString();
+        if (day < 10)
+            day = '0' + day.toString();
+
+        return year + '-' + month + '-' + day;
+    }
+
     const errorMsg = () => { /* If there is an error then returns className='alert alert-danger'*/
 
         return `${ !waiting && (response.length > 0) ? 'alert alert-danger' : '' }`;
@@ -128,7 +142,7 @@ function CreateClient(props) {
                     </div>
                     <div className="input-group-prepend create-client-fields">
                         <label className="input-group-text create-client-placeholder-text" htmlFor="dateOfBirth">Date Of Birth</label>
-                        <input className="form-control create-client-form-field" id="dateOfBirth" type="date" onChange={handleFieldChange} />
+                        <input className="form-control create-client-form-field" id="dateOfBirth" type="date" max={  disableFutureDate() } onChange={handleFieldChange} />
                     </div>
                     <div className="input-group-prepend create-client-fields">
                         <label className="input-group-text create-client-placeholder-text" htmlFor="address">Address</label>
