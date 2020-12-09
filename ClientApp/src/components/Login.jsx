@@ -71,8 +71,8 @@ function Login(props) {
                 </section>
                 <section className="input-group-prepend login-prepend">
                     <label className="input-group-text login-placeholder" htmlFor="password">Password: </label>
-                    <input className="form-control" id="password" type="text" onChange={handleFieldChange} />
-                    {/*<input className="form-control" id="password" type={passwordShow ? "text" : "password"} onChange={handleFieldChange} placeholder="Password" />*/} 
+                    {/*<input className="form-control" id="password" type="text" onChange={handleFieldChange} /> -- Uncomment this and comment the line below to disable password masking*/} 
+                    <input className="form-control" id="password" type={passwordShow ? "text" : "password"} onChange={handleFieldChange} placeholder="Password" /> 
                     <span id="eye-icon" onClick={togglePassword}><FaEye /></span>
                 </section>
                 <section className="login-submit">
