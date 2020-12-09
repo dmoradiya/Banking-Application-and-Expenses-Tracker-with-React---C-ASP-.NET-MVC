@@ -252,10 +252,6 @@ namespace Capstone_VV.Controllers
                     {
                         exception.ValidationExceptions.Add(new Exception("Date Of Birth is Required"));
                     }
-                    else if (DateTime.Parse(input) > DateTime.Today)
-                    {
-                        exception.ValidationExceptions.Add(new Exception("Please Enter Valid Date of Birth"));
-                    }
                     else
                     {
                         return input;
@@ -324,10 +320,6 @@ namespace Capstone_VV.Controllers
                     if (string.IsNullOrWhiteSpace(input))
                     {
                         exception.ValidationExceptions.Add(new Exception("Transaction Date is Required"));
-                    }
-                    else if (DateTime.Parse(input) < DateTime.Today)
-                    {
-                        exception.ValidationExceptions.Add(new Exception("Please Enter Valid Transaction Date"));
                     }
                     else
                     {
