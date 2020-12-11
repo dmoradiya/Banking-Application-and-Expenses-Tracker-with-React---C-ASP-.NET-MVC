@@ -70,16 +70,16 @@ The Latest version of the Page Flow Diagram can be found in the Planning folder.
 - [x] List of test cases and testing instructions are included.
 - [x] Link to the public Trello board is included.
 - [x] Main branch contains all final code needed to run the project.
-- [ ] Presentation 
-- [ ] Final Project Report
-- [ ] Satisfaction Assessment
-- [ ] Lessons Learned
-- [ ] Group Member Performance Review
-- [ ] Each group member has been evaluated.
-- [ ] All fields filled out.
-- [ ] Personal Reflection
-- [ ] Written reflection.
-- [ ] Video reflection.
+- [x] Presentation 
+- [x] Final Project Report
+- [x] Satisfaction Assessment
+- [x] Lessons Learned
+- [x] Group Member Performance Review
+- [x] Each group member has been evaluated.
+- [x] All fields filled out.
+- [x] Personal Reflection
+- [x] Written reflection.
+- [x] Video reflection.
 
 
 
