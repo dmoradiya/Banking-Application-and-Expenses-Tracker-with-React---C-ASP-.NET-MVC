@@ -3,30 +3,33 @@ using System;
 using Capstone_VV.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Capstone_VV.Migrations
 {
     [DbContext(typeof(BankContext))]
-    [Migration("20201126214353_SeedData")]
-    partial class SeedData
+    [Migration("20210209222331_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.9")
-                .HasAnnotation("Relational:MaxIdentifierLength", 64);
+                .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Capstone_VV.Models.Account", b =>
                 {
                     b.Property<int>("AccountID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int(10)");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<double>("AccountBalance")
-                        .HasColumnType("double(15,2)");
+                        .HasColumnType("float");
 
                     b.Property<DateTime>("AccountDate")
                         .HasColumnType("date");
@@ -38,13 +41,13 @@ namespace Capstone_VV.Migrations
                         .HasAnnotation("MySql:Collation", "utf8mb4_general_ci");
 
                     b.Property<double>("Cashback")
-                        .HasColumnType("double(15,2)");
+                        .HasColumnType("float");
 
                     b.Property<int>("ClientID")
-                        .HasColumnType("int(10)");
+                        .HasColumnType("int");
 
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bool");
+                    b.Property<byte>("IsActive")
+                        .HasColumnType("tinyint");
 
                     b.HasKey("AccountID");
 
@@ -62,37 +65,47 @@ namespace Capstone_VV.Migrations
                             AccountType = "Chequing",
                             Cashback = 10.02,
                             ClientID = 1,
-                            IsActive = true
+                            IsActive = (byte)1
                         },
                         new
                         {
                             AccountID = 2,
+                            AccountBalance = 20550.43,
+                            AccountDate = new DateTime(2018, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AccountType = "Savings",
+                            Cashback = 23.579999999999998,
+                            ClientID = 1,
+                            IsActive = (byte)1
+                        },
+                        new
+                        {
+                            AccountID = 3,
                             AccountBalance = 144.0,
                             AccountDate = new DateTime(2018, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             AccountType = "Chequing",
                             Cashback = 5.7999999999999998,
                             ClientID = 2,
-                            IsActive = true
+                            IsActive = (byte)1
                         },
                         new
                         {
-                            AccountID = 3,
+                            AccountID = 4,
                             AccountBalance = 77850.0,
                             AccountDate = new DateTime(2018, 5, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             AccountType = "Chequing",
                             Cashback = 100.06999999999999,
                             ClientID = 3,
-                            IsActive = true
+                            IsActive = (byte)1
                         },
                         new
                         {
-                            AccountID = 4,
+                            AccountID = 5,
                             AccountBalance = 174.09999999999999,
                             AccountDate = new DateTime(2018, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             AccountType = "Chequing",
                             Cashback = 45.0,
                             ClientID = 4,
-                            IsActive = true
+                            IsActive = (byte)1
                         });
                 });
 
@@ -100,7 +113,8 @@ namespace Capstone_VV.Migrations
                 {
                     b.Property<int>("ClientID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int(10)");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -137,7 +151,7 @@ namespace Capstone_VV.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(100)")
                         .HasAnnotation("MySql:CharSet", "utf8mb4")
                         .HasAnnotation("MySql:Collation", "utf8mb4_general_ci");
 
@@ -173,7 +187,7 @@ namespace Capstone_VV.Migrations
                             EmailAddress = "johndoe123@gmail.com",
                             FirstName = "John",
                             LastName = "Doe",
-                            Password = "John123!Unknown",
+                            Password = "$2a$11$VA8lRhjgEsQvSrmoeWzyo.2U3j.LTkqpxcYwJZgf4aX5zGMifwrde",
                             PhoneNumber = "7804188874",
                             PostalCode = "T8N3A4",
                             Province = "AB"
@@ -187,7 +201,7 @@ namespace Capstone_VV.Migrations
                             EmailAddress = "trevorbelmont123@gmail.com",
                             FirstName = "Trevor",
                             LastName = "Belmont",
-                            Password = "Draculasux@lif3",
+                            Password = "$2a$11$95Aao/mZ8sq7dimAwqRoS.ZWdK0Id7X6cqigHuz9kMl./rGbPzhKy",
                             PhoneNumber = "7804442121",
                             PostalCode = "Z4A2B1",
                             Province = "ON"
@@ -201,7 +215,7 @@ namespace Capstone_VV.Migrations
                             EmailAddress = "richardrich@gmail.com",
                             FirstName = "Richard",
                             LastName = "Rich",
-                            Password = "Therich123!@#",
+                            Password = "$2a$11$vzGYLnnCNrh1ua6.fKhyBuCrpaPKbkC9kMd49Xh.n7EuZtZBmrUpq",
                             PhoneNumber = "7771115454",
                             PostalCode = "T8N3E1",
                             Province = "AB"
@@ -215,7 +229,7 @@ namespace Capstone_VV.Migrations
                             EmailAddress = "brokeasajoke@gmail.com",
                             FirstName = "Bruce",
                             LastName = "Hunter",
-                            Password = "password123",
+                            Password = "$2a$11$ROC9MfwZPA1V2OflUsXNsusWjyMyWWKymHI4Spi2fMqFYuIH1Aivm",
                             PhoneNumber = "7809198888",
                             PostalCode = "T8N6Y3",
                             Province = "AB"
@@ -226,13 +240,14 @@ namespace Capstone_VV.Migrations
                 {
                     b.Property<int>("TransactionID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int(10)");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AccountID")
-                        .HasColumnType("int(10)");
+                        .HasColumnType("int");
 
-                    b.Property<bool>("IsTransactionActive")
-                        .HasColumnType("bool");
+                    b.Property<byte>("IsTransactionActive")
+                        .HasColumnType("tinyint");
 
                     b.Property<string>("TransactionCategory")
                         .IsRequired()
@@ -250,7 +265,7 @@ namespace Capstone_VV.Migrations
                         .HasAnnotation("MySql:Collation", "utf8mb4_general_ci");
 
                     b.Property<double>("TransactionValue")
-                        .HasColumnType("double(15,2)");
+                        .HasColumnType("float");
 
                     b.HasKey("TransactionID");
 
@@ -264,7 +279,7 @@ namespace Capstone_VV.Migrations
                         {
                             TransactionID = 1,
                             AccountID = 1,
-                            IsTransactionActive = true,
+                            IsTransactionActive = (byte)1,
                             TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bank",
@@ -274,8 +289,8 @@ namespace Capstone_VV.Migrations
                         {
                             TransactionID = 2,
                             AccountID = 1,
-                            IsTransactionActive = true,
-                            TransactionCategory = "Rent/Mortgage",
+                            IsTransactionActive = (byte)1,
+                            TransactionCategory = "Housing",
                             TransactionDate = new DateTime(2020, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bill Payment",
                             TransactionValue = 1100.0
@@ -284,27 +299,27 @@ namespace Capstone_VV.Migrations
                         {
                             TransactionID = 3,
                             AccountID = 1,
-                            IsTransactionActive = true,
+                            IsTransactionActive = (byte)1,
                             TransactionCategory = "Other",
                             TransactionDate = new DateTime(2020, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bill Payment",
-                            TransactionValue = 200.99000000000001
+                            TransactionValue = 200.0
                         },
                         new
                         {
                             TransactionID = 4,
                             AccountID = 1,
-                            IsTransactionActive = true,
+                            IsTransactionActive = (byte)1,
                             TransactionCategory = "Food",
                             TransactionDate = new DateTime(2020, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TransactionSource = "Bill payment",
-                            TransactionValue = 71.439999999999998
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = 50.0
                         },
                         new
                         {
                             TransactionID = 5,
                             AccountID = 1,
-                            IsTransactionActive = true,
+                            IsTransactionActive = (byte)1,
                             TransactionCategory = "Health",
                             TransactionDate = new DateTime(2020, 10, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bill Payment",
@@ -314,7 +329,7 @@ namespace Capstone_VV.Migrations
                         {
                             TransactionID = 6,
                             AccountID = 1,
-                            IsTransactionActive = true,
+                            IsTransactionActive = (byte)1,
                             TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 4, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "ATM",
@@ -324,7 +339,7 @@ namespace Capstone_VV.Migrations
                         {
                             TransactionID = 7,
                             AccountID = 1,
-                            IsTransactionActive = true,
+                            IsTransactionActive = (byte)1,
                             TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 5, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "ATM",
@@ -334,7 +349,7 @@ namespace Capstone_VV.Migrations
                         {
                             TransactionID = 8,
                             AccountID = 1,
-                            IsTransactionActive = true,
+                            IsTransactionActive = (byte)1,
                             TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bank",
@@ -344,7 +359,7 @@ namespace Capstone_VV.Migrations
                         {
                             TransactionID = 9,
                             AccountID = 1,
-                            IsTransactionActive = true,
+                            IsTransactionActive = (byte)1,
                             TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bank",
@@ -354,7 +369,7 @@ namespace Capstone_VV.Migrations
                         {
                             TransactionID = 10,
                             AccountID = 2,
-                            IsTransactionActive = true,
+                            IsTransactionActive = (byte)1,
                             TransactionCategory = "Withdraw",
                             TransactionDate = new DateTime(2020, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "ATM",
@@ -364,7 +379,7 @@ namespace Capstone_VV.Migrations
                         {
                             TransactionID = 11,
                             AccountID = 2,
-                            IsTransactionActive = true,
+                            IsTransactionActive = (byte)1,
                             TransactionCategory = "Food",
                             TransactionDate = new DateTime(2020, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bill Payment",
@@ -374,7 +389,7 @@ namespace Capstone_VV.Migrations
                         {
                             TransactionID = 12,
                             AccountID = 3,
-                            IsTransactionActive = true,
+                            IsTransactionActive = (byte)1,
                             TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bank",
@@ -384,7 +399,7 @@ namespace Capstone_VV.Migrations
                         {
                             TransactionID = 13,
                             AccountID = 3,
-                            IsTransactionActive = true,
+                            IsTransactionActive = (byte)1,
                             TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bank",
@@ -394,7 +409,7 @@ namespace Capstone_VV.Migrations
                         {
                             TransactionID = 14,
                             AccountID = 3,
-                            IsTransactionActive = true,
+                            IsTransactionActive = (byte)1,
                             TransactionCategory = "Withdraw",
                             TransactionDate = new DateTime(2020, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bank",
@@ -404,7 +419,7 @@ namespace Capstone_VV.Migrations
                         {
                             TransactionID = 15,
                             AccountID = 3,
-                            IsTransactionActive = true,
+                            IsTransactionActive = (byte)1,
                             TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bank",
@@ -414,7 +429,7 @@ namespace Capstone_VV.Migrations
                         {
                             TransactionID = 16,
                             AccountID = 3,
-                            IsTransactionActive = true,
+                            IsTransactionActive = (byte)1,
                             TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bank",
@@ -424,7 +439,7 @@ namespace Capstone_VV.Migrations
                         {
                             TransactionID = 17,
                             AccountID = 4,
-                            IsTransactionActive = true,
+                            IsTransactionActive = (byte)1,
                             TransactionCategory = "Deposit",
                             TransactionDate = new DateTime(2020, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "ATM",
@@ -434,8 +449,8 @@ namespace Capstone_VV.Migrations
                         {
                             TransactionID = 18,
                             AccountID = 4,
-                            IsTransactionActive = true,
-                            TransactionCategory = "Rent/Mortgage",
+                            IsTransactionActive = (byte)1,
+                            TransactionCategory = "Housing",
                             TransactionDate = new DateTime(2020, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bill Payment",
                             TransactionValue = 800.0
@@ -444,7 +459,7 @@ namespace Capstone_VV.Migrations
                         {
                             TransactionID = 19,
                             AccountID = 4,
-                            IsTransactionActive = true,
+                            IsTransactionActive = (byte)1,
                             TransactionCategory = "Utilities",
                             TransactionDate = new DateTime(2020, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bill Payment",
@@ -454,11 +469,201 @@ namespace Capstone_VV.Migrations
                         {
                             TransactionID = 20,
                             AccountID = 4,
-                            IsTransactionActive = true,
+                            IsTransactionActive = (byte)1,
                             TransactionCategory = "Internet",
-                            TransactionDate = new DateTime(2020, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionDate = new DateTime(2020, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TransactionSource = "Bill Payment",
                             TransactionValue = 84.230000000000004
+                        },
+                        new
+                        {
+                            TransactionID = 21,
+                            AccountID = 4,
+                            IsTransactionActive = (byte)1,
+                            TransactionCategory = "Housing",
+                            TransactionDate = new DateTime(2020, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = 1750.0
+                        },
+                        new
+                        {
+                            TransactionID = 22,
+                            AccountID = 4,
+                            IsTransactionActive = (byte)1,
+                            TransactionCategory = "Food",
+                            TransactionDate = new DateTime(2020, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = 750.0
+                        },
+                        new
+                        {
+                            TransactionID = 23,
+                            AccountID = 4,
+                            IsTransactionActive = (byte)1,
+                            TransactionCategory = "Transportation",
+                            TransactionDate = new DateTime(2020, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = 750.0
+                        },
+                        new
+                        {
+                            TransactionID = 24,
+                            AccountID = 4,
+                            IsTransactionActive = (byte)1,
+                            TransactionCategory = "Utilities",
+                            TransactionDate = new DateTime(2020, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = 500.0
+                        },
+                        new
+                        {
+                            TransactionID = 25,
+                            AccountID = 4,
+                            IsTransactionActive = (byte)1,
+                            TransactionCategory = "Debt Payments",
+                            TransactionDate = new DateTime(2020, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = 500.0
+                        },
+                        new
+                        {
+                            TransactionID = 26,
+                            AccountID = 4,
+                            IsTransactionActive = (byte)1,
+                            TransactionCategory = "Savings",
+                            TransactionDate = new DateTime(2020, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = 250.0
+                        },
+                        new
+                        {
+                            TransactionID = 27,
+                            AccountID = 4,
+                            IsTransactionActive = (byte)1,
+                            TransactionCategory = "Clothing",
+                            TransactionDate = new DateTime(2020, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = 125.0
+                        },
+                        new
+                        {
+                            TransactionID = 28,
+                            AccountID = 4,
+                            IsTransactionActive = (byte)1,
+                            TransactionCategory = "Health",
+                            TransactionDate = new DateTime(2020, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = 125.0
+                        },
+                        new
+                        {
+                            TransactionID = 29,
+                            AccountID = 4,
+                            IsTransactionActive = (byte)1,
+                            TransactionCategory = "Other",
+                            TransactionDate = new DateTime(2020, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = 250.0
+                        },
+                        new
+                        {
+                            TransactionID = 30,
+                            AccountID = 4,
+                            IsTransactionActive = (byte)1,
+                            TransactionCategory = "Internet",
+                            TransactionDate = new DateTime(2020, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = 60.0
+                        },
+                        new
+                        {
+                            TransactionID = 31,
+                            AccountID = 4,
+                            IsTransactionActive = (byte)1,
+                            TransactionCategory = "Housing",
+                            TransactionDate = new DateTime(2020, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = 1750.0
+                        },
+                        new
+                        {
+                            TransactionID = 32,
+                            AccountID = 4,
+                            IsTransactionActive = (byte)1,
+                            TransactionCategory = "Food",
+                            TransactionDate = new DateTime(2020, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = 850.0
+                        },
+                        new
+                        {
+                            TransactionID = 33,
+                            AccountID = 4,
+                            IsTransactionActive = (byte)1,
+                            TransactionCategory = "Transportation",
+                            TransactionDate = new DateTime(2020, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = 900.0
+                        },
+                        new
+                        {
+                            TransactionID = 34,
+                            AccountID = 4,
+                            IsTransactionActive = (byte)1,
+                            TransactionCategory = "Utilities",
+                            TransactionDate = new DateTime(2020, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = 500.0
+                        },
+                        new
+                        {
+                            TransactionID = 35,
+                            AccountID = 4,
+                            IsTransactionActive = (byte)1,
+                            TransactionCategory = "Debt Payments",
+                            TransactionDate = new DateTime(2020, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = 400.0
+                        },
+                        new
+                        {
+                            TransactionID = 36,
+                            AccountID = 4,
+                            IsTransactionActive = (byte)1,
+                            TransactionCategory = "Savings",
+                            TransactionDate = new DateTime(2020, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = 250.0
+                        },
+                        new
+                        {
+                            TransactionID = 37,
+                            AccountID = 4,
+                            IsTransactionActive = (byte)1,
+                            TransactionCategory = "Clothing",
+                            TransactionDate = new DateTime(2020, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = 110.0
+                        },
+                        new
+                        {
+                            TransactionID = 38,
+                            AccountID = 4,
+                            IsTransactionActive = (byte)1,
+                            TransactionCategory = "Health",
+                            TransactionDate = new DateTime(2020, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = 125.0
+                        },
+                        new
+                        {
+                            TransactionID = 39,
+                            AccountID = 4,
+                            IsTransactionActive = (byte)1,
+                            TransactionCategory = "Other",
+                            TransactionDate = new DateTime(2020, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TransactionSource = "Bill Payment",
+                            TransactionValue = 250.0
                         });
                 });
 

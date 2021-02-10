@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,19 +15,15 @@ namespace Capstone_VV.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                string connection =
-                    "server=localhost;" +
-                    "port=3306;" +
-                    "user=root;" +
-                    "database=bank_db;";
 
-                string version = "10.4.14-MariaDB";
-
-                optionsBuilder.UseMySql(connection, x => x.ServerVersion(version));
-            }
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+               .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+               .AddJsonFile("appsettings.json")
+               .Build();
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("BankDBConnection"));          
+           
         }
+       
 
         // Model Builder stuff goes here, along with seed data
         protected override void OnModelCreating(ModelBuilder modelBuilder)

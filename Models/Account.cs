@@ -18,12 +18,12 @@ namespace Capstone_VV.Models
 
         // PK - AccountID - int(10) NOT NULL
         [Key]
-        [Column(TypeName = "int(10)")]
+        [Column(TypeName = "int")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AccountID { get; set; }
 
         // FK - ClientID - int(10) NOT NULL
-        [Column(TypeName = "int(10)")]
+        [Column(TypeName = "int")]
         public int ClientID { get; set; }
 
         // AccountType varchar(30) NOT NULL
@@ -32,11 +32,11 @@ namespace Capstone_VV.Models
         public string AccountType { get; set; }
 
         // AccountBalance double(15) NOT NULL 
-        [Column(TypeName = "double(15,2)")]
+        [Column(TypeName = "float")]
         public double AccountBalance { get; set; }
 
         // Cashback NOT NULL(10)
-        [Column(TypeName = "double(15,2)")]
+        [Column(TypeName = "float")]
         public double Cashback { get; set; }
         
         // Account Open date NOT NULL
@@ -44,7 +44,7 @@ namespace Capstone_VV.Models
         public DateTime AccountDate { get; set; }
 
         // IsActive bool NOT NULL
-        [Column(TypeName = "bool")]
+        [Column(TypeName = "tinyint")]
         public bool IsActive { get; set; }
 
         // FK Child Reference to Client

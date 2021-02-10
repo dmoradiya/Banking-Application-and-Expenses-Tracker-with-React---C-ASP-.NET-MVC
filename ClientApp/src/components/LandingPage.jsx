@@ -34,11 +34,11 @@ function LandingPage(props) {
                                 </th>
                                 <th className="flex-container">
                                     <p className="heading">Account Balance: </p>
-                                    <p className="font-weight-normal">$ {client.accountBalance}</p>
+                                    <p className="font-weight-normal">$ {(client.accountBalance).toFixed(2)}</p>
                                 </th>
                                 <th className="flex-container">
                                     <p className="heading">Cashback Earned: </p>
-                                    <p className="font-weight-normal">$ {client.cashback}</p>
+                                    <p className="font-weight-normal">$ {(client.cashback).toFixed(2)}</p>
                                 </th>
                                 <th className="flex-container total-balance">
                                     <p className="heading">Total Balance: </p>

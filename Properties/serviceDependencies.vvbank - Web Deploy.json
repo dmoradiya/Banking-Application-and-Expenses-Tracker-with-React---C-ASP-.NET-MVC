@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/bankdbdbserver/databases/bankdb",
+      "type": "mssql.azure",
+      "connectionId": "bankdbcontext",
+      "secretStore": "AzureAppSettings"
+    },
+    "mssql2": {
+      "type": "mssql",
+      "connectionId": "BankDBConnection",
+      "suggestion": "true",
+      "ignored": "true"
+    }
+  }
+}

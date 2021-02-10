@@ -18,7 +18,7 @@ namespace Capstone_VV.Models
 
         // PK - ClientID - int(10) NOT NULL
         [Key]
-        [Column(TypeName = "int(10)")]
+        [Column(TypeName = "int")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ClientID { get; set; }
 

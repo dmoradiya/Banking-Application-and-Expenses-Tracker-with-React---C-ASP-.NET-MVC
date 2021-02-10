@@ -103,35 +103,50 @@ function ViewTransactions(props) {
   
    // New filtered output Array
     const newArray = (transactions) => {
-        let currentDate = new Date();
-        let currentMonth = currentDate.getMonth();
-        
+              
         // get past month according to current date
         function getPastMonth(number) {
-            if (currentMonth - number < 0) {
-                return (12 + (currentMonth - number));
-            }
-            else {
-                return (currentMonth - number);
-            }
-        }
+            
+            let months = [];
+            
+            let today = new Date();
+            let year = today.getFullYear();
+            let month = today.getMonth() + 1;
+            
+            let i = 0;
+            do {
+                months.push(year + '-' + ((month > 9 ? "" : "0") + month));
+                if (month === 1) {
+                    month = 12;
+                    year--;
+                } else {
+                    month--;
+                }
+                i++;
+            } while (i < number);
 
+            return months;
+        }
+                      
         return [...transactions].filter(val => {
-            if (thisMonthchecked) { /*Index 5 + 2 characters = month*/
-                return val = val.transactionDate.substr(5, 2) > currentMonth;
+            
+            if (thisMonthchecked) { /*Index 0 + 7 characters = year-month */
+                return val = getPastMonth(1).includes(val.transactionDate.substr(0, 7));
             }
-            else if (threeMonthchecked) {
-                return val = val.transactionDate.substr(5, 2) > getPastMonth(3);     
+            else if (threeMonthchecked) {                
+                return val = val = getPastMonth(3).includes(val.transactionDate.substr(0, 7));    
             }
             else if (sixMonthchecked) {
-                return val = val.transactionDate.substr(5, 2) > getPastMonth(6);
+                return val = val = getPastMonth(6).includes(val.transactionDate.substr(0, 7));
             }           
             else {
                 return val;
-            }
+            } 
         }, []);
     }
     filteredTransactions = newArray(transactions);
+    
+    
 
     useEffect(() => { /*Prevent useEffect From Running Every Render*/
         //Receiving parameter from Landing page Link

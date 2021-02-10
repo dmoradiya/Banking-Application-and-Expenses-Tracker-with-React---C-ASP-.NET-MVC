@@ -15,12 +15,12 @@ namespace Capstone_VV.Models
 
         // PK - TransactionID - int(10) NOT NULL
         [Key]
-        [Column(TypeName = "int(10)")]
+        [Column(TypeName = "int")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int TransactionID { get; set; }
 
         // FK - AccountID - int(10) NOT NULL
-        [Column(TypeName = "int(10)")]
+        [Column(TypeName = "int")]
         public int AccountID { get; set; }
 
         // TransactionSource varchar(50) NOT NULL
@@ -35,7 +35,7 @@ namespace Capstone_VV.Models
         public string TransactionCategory { get; set; }
 
         // TransactionValue double(10) NOT NULL
-        [Column(TypeName = "double(15,2)")]
+        [Column(TypeName = "float")]
         public double TransactionValue { get; set; }
 
         // TransactionDate date NOT NULL
@@ -43,7 +43,7 @@ namespace Capstone_VV.Models
         public DateTime TransactionDate { get; set; }
 
         // IsTransactionActive bool NOT NULL
-        [Column(TypeName = "bool")]
+        [Column(TypeName = "tinyint")]
         public bool IsTransactionActive { get; set; }
 
         // FK Child Reference to Account
