@@ -4,6 +4,7 @@ import { Layout } from '../components/Layout';
 import "./css/root.css"
 import "./css/ViewTransactions.css"
 import { Link } from "react-router-dom";
+import Loader from "react-loader-spinner";
 
 
 function ViewTransactions(props) {
@@ -165,7 +166,13 @@ function ViewTransactions(props) {
     }, [props.location.state]);
 
     let contents = loading
-        ? <p><em>Loading...</em></p>
+        ? <Loader
+            type="ThreeDots"
+            color="#D01992"
+            height={50}
+            width={50}
+            timeout={120000} // 120 secs
+        />
         : renderClientInfoTable(transactions);
 
     return (

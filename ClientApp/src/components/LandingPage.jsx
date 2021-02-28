@@ -4,6 +4,7 @@ import { Layout } from '../components/Layout';
 import { Link } from "react-router-dom";
 import "./css/root.css"
 import "./css/LandingPage.css"
+import Loader from "react-loader-spinner";
 
 
 function LandingPage(props) {
@@ -86,7 +87,13 @@ function LandingPage(props) {
     }, [loading]);
 
     let contents = loading
-        ? <p><strong>Loading...</strong></p>
+        ? <Loader
+            type="ThreeDots"
+            color="#D01992"
+            height={50}
+            width={50}
+            timeout={120000} // 120 secs
+        />
         : renderClientInfoTable(accountInfo);
 
     return (

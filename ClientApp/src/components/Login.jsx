@@ -4,6 +4,8 @@ import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
 import "./css/Login.css";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 
 
 function Login(props) { 
@@ -63,7 +65,15 @@ function Login(props) {
     return (
         <section className="login-page">
             <div className="banner"></div>            
-            <p id="error-msg" className={errorMsg()}>{waiting ? "Logging In..." : `${response}`}</p>
+            <p id="error-msg" className={errorMsg()}>{waiting ?
+                <Loader
+                    type="Circles"
+                    color="#D01992"
+                    height={50}
+                    width={50}
+                    timeout={120000} // 120 secs
+                />
+                 : `${response}`}</p>
             <form className="login-form" onSubmit={handleSubmit}>
                 <section className="input-group-prepend login-prepend">
                     <label className="input-group-text login-placeholder" htmlFor="email" >Email: </label>
