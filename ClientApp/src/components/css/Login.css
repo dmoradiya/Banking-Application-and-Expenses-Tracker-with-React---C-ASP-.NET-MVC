@@ -1,4 +1,7 @@
-﻿.banner {
+﻿.login-page {
+    
+}
+.banner {
     background: url( '../img/banner320px.png' ) no-repeat;
     background-size: 100% 100%;
     width: 100%;
@@ -100,6 +103,12 @@
 
 /*For Desktop Screens*/
 @media only screen and (min-width: 992px) {
+    .login-page {
+        background: url( '../img/background.png' ) no-repeat;
+        background-size: 100% 100%;
+        width: 100%;
+        height: 100vh;
+    }
     .banner {
         background: url( '../img/banner992px.png' ) no-repeat;
         background-size: 100% 100%;

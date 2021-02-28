@@ -17,12 +17,18 @@ function LandingPage(props) {
                            accountInfo.reduce((total, client) => total = total + client.cashback, 0); /*totalHolding is used to do the calculation for total balance (including balance + cashback) for each account*/
 
         const name = accountInfo.map(x => x.client.firstName + " " + x.client.lastName)[0]; /*Will only give the first account*/
-       
+
+        function thousandsSeparators(num) { /*Thousand Separated by ',' with 2 decimal points */
+            let num_parts = num.toFixed(2).toString().split(".");
+                num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            return num_parts.join(".");
+        }
+
 
         return (
             <section id="landing-page-summary">
                 <h1>Account Summary</h1>  
-                <h2>Total Holdings : $ {totalHolding.toFixed(2)}</h2>
+                <h2>Total Holdings : $ {thousandsSeparators(totalHolding)}</h2>
                 <h3>Full Name: { name }</h3>
                 <table className='table table-borderless' aria-labelledby="tabelLabel">
                     <tbody>
@@ -34,15 +40,15 @@ function LandingPage(props) {
                                 </th>
                                 <th className="flex-container">
                                     <p className="heading">Account Balance: </p>
-                                    <p className="font-weight-normal">$ {(client.accountBalance).toFixed(2)}</p>
+                                    <p className="font-weight-normal">$ {thousandsSeparators(client.accountBalance)}</p>
                                 </th>
                                 <th className="flex-container">
                                     <p className="heading">Cashback Earned: </p>
-                                    <p className="font-weight-normal">$ {(client.cashback).toFixed(2)}</p>
+                                    <p className="font-weight-normal">$ {thousandsSeparators(client.cashback)}</p>
                                 </th>
                                 <th className="flex-container total-balance">
                                     <p className="heading">Total Balance: </p>
-                                    <p className="font-weight-normal">$ {(client.accountBalance + client.cashback).toFixed(2)}</p>
+                                    <p className="font-weight-normal">$ {thousandsSeparators(client.accountBalance + client.cashback)}</p>
                                 </th>
                                 <th className="flex-container view-transactions">
                                     <p className="heading">View Transactions: </p>

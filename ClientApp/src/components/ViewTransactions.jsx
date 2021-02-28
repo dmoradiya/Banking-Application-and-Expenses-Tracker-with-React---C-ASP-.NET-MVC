@@ -50,7 +50,7 @@ function ViewTransactions(props) {
                                 <td>{transaction.transactionDate.slice(0, 10)}</td>
                                 <td className="d-none d-sm-block">{transaction.transactionSource}</td>
                                 <td>{transaction.transactionCategory}</td>
-                                {transaction.transactionCategory === "Deposit" ? <td>${transaction.transactionValue}</td> : <td>{`($${transaction.transactionValue})`}</td>}{/*Displays transactions which reduce Account Balance in Brackets!*/}                                
+                                {transaction.transactionCategory === "Deposit" ? <td>${thousandsSeparators(transaction.transactionValue)}</td> : <td>{`($${thousandsSeparators(transaction.transactionValue)})`}</td>}{/*Displays transactions which reduce Account Balance in Brackets!*/}                                
                             </tr>
                         )}
                     </tbody>
@@ -146,7 +146,11 @@ function ViewTransactions(props) {
     }
     filteredTransactions = newArray(transactions);
     
-    
+    function thousandsSeparators(num) { /*Thousand Separated by ',' with 2 decimal points */
+        let num_parts = num.toFixed(2).toString().split(".");
+        num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return num_parts.join(".");
+    }
 
     useEffect(() => { /*Prevent useEffect From Running Every Render*/
         //Receiving parameter from Landing page Link
@@ -167,8 +171,7 @@ function ViewTransactions(props) {
     return (
         <section id="view-transactions">
             <Layout />   
-            <h1>View Transactions</h1>
-            
+            <h1>View Transactions</h1>            
             {contents}
         </section>
     );

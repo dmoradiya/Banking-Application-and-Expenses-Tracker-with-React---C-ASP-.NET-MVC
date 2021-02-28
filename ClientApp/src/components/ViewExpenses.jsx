@@ -58,6 +58,12 @@ function ViewExpenses(props) {
             sum += newData[i].value;
         }
 
+        function thousandsSeparators(num) { /*Thousand Separated by ',' with 2 decimal points */
+            let num_parts = num.toFixed(2).toString().split(".");
+            num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            return num_parts.join(".");
+        }
+
 
         return ( 
             <section id="view-expenses-section">
@@ -74,13 +80,13 @@ function ViewExpenses(props) {
                         {newData.map((transaction, index) =>
                             <tr key={ index }>
                                 <td>{transaction.title}</td>
-                                <td>{`$${(transaction.value).toFixed(2)}`}</td>
+                                <td>{`$${thousandsSeparators(transaction.value)}`}</td>
                                 <td>{`${Math.round((transaction.value / sum) * 100)} %`}</td>
                             </tr>
                         )}    
                     </tbody>
                 </table>               
-                <p className="p-3 mb-2 bg-info text-white text-center">{`Total Expenses: $${(sum).toFixed(2)}`}</p>
+                <p className="p-3 mb-2 bg-info text-white text-center">{`Total Expenses: $${thousandsSeparators(sum)}`}</p>
                 <p className="p-3 mb-2 bg-info text-white text-center">Pie Chart for Tracking Expenses</p>
                 <section id="pie-chart">
                     <PieChart

@@ -70,8 +70,9 @@
 }
 
 @media screen and (min-width: 992px) {
+   
     #view-transactions-section table {
-        width: 850px;        
+        width: 850px;          
     }
     #view-transactions-section p {
         width: 850px;
